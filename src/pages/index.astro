@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import HeroSection from '../components/HeroSection';
+import HowItWorks from '../components/HowItWorks';
+import FeaturesSection from '../components/FeaturesSection';
+import WaitlistSignup from '../components/WaitlistSignup';
+import Footer from '../components/Footer';
+---
+
+<Layout title="Summit AI Notes - AI Meeting Notes for Consultants" description="Record, transcribe, and summarize meetings with local AI processing. Privacy-first meeting documentation for independent consultants.">
+  <div class="min-h-screen">
+    <Navigation />
+    <div id="hero">
+      <HeroSection client:load />
+    </div>
+    <div id="how-it-works">
+      <HowItWorks client:load />
+    </div>
+    <div id="features">
+      <FeaturesSection client:load />
+    </div>
+    <div id="waitlist">
+      <WaitlistSignup client:load />
+    </div>
+    <Footer client:load />
+  </div>
+</Layout>

@@ -1,0 +1,192 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Card } from '../components/ui/card';
+import Footer from '../components/Footer';
+import { Shield, Lock, Database, Eye } from 'lucide-react';
+---
+
+<Layout title="Privacy Policy - Summit AI Notes" description="Privacy policy for Summit AI Notes - AI meeting notes application">
+  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Shield class="w-8 h-8 text-green-600" />
+          </div>
+          <h1 class="text-5xl font-bold text-foreground mb-4">Privacy Policy</h1>
+          <p class="text-muted-foreground">
+            Last updated: November 2024
+          </p>
+        </div>
+
+        <!-- Privacy Commitment -->
+        <Card className="p-8 mb-12 bg-green-50 border-green-200">
+          <h2 class="text-2xl font-bold text-foreground mb-4">Our Privacy Commitment</h2>
+          <p class="text-muted-foreground mb-4">
+            Summit AI Notes is built with privacy at its core. All meeting transcription and AI processing happens locally on your Mac. We never send your meeting audio, transcripts, or summaries to external servers.
+          </p>
+          <p class="text-muted-foreground">
+            Your data stays on your device, always.
+          </p>
+        </Card>
+
+        <!-- Key Privacy Features -->
+        <div class="grid md:grid-cols-2 gap-6 mb-12">
+          <Card className="p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                <Lock class="w-5 h-5 text-blue-600" />
+              </div>
+              <h3 class="text-lg font-semibold text-foreground">Local Processing</h3>
+            </div>
+            <p class="text-muted-foreground">
+              All audio transcription and AI summarization happens on your device using local models. No cloud processing required.
+            </p>
+          </Card>
+
+          <Card className="p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                <Database class="w-5 h-5 text-purple-600" />
+              </div>
+              <h3 class="text-lg font-semibold text-foreground">Your Data, Your Control</h3>
+            </div>
+            <p class="text-muted-foreground">
+              All recordings and transcripts are stored locally on your Mac. You have complete control over your data.
+            </p>
+          </Card>
+        </div>
+
+        <!-- Detailed Privacy Sections -->
+        <div class="space-y-8 prose prose-slate max-w-none">
+          <section>
+            <h2 class="text-2xl font-bold text-foreground mb-4">1. Information We Collect</h2>
+
+            <h3 class="text-xl font-semibold text-foreground mb-3">Information You Provide</h3>
+            <ul class="list-disc list-inside text-muted-foreground space-y-2 mb-4">
+              <li>Account information (email address for licensing)</li>
+              <li>Optional: Organization name and billing information</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-foreground mb-3">Information We DO NOT Collect</h3>
+            <ul class="list-disc list-inside text-muted-foreground space-y-2 mb-4">
+              <li>Meeting audio recordings</li>
+              <li>Meeting transcriptions</li>
+              <li>Meeting summaries or notes</li>
+              <li>Document content</li>
+              <li>Usage analytics (optional telemetry can be enabled)</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-foreground mb-4">2. How We Use Your Information</h2>
+            <p class="text-muted-foreground mb-4">
+              We use the limited information we collect for:
+            </p>
+            <ul class="list-disc list-inside text-muted-foreground space-y-2 mb-4">
+              <li>License validation and account management</li>
+              <li>Billing and payment processing</li>
+              <li>Customer support</li>
+              <li>Product updates and announcements (opt-in only)</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-foreground mb-4">3. Data Storage and Security</h2>
+            <p class="text-muted-foreground mb-4">
+              <strong>Local Storage:</strong> All meeting recordings, transcriptions, and documents are stored locally on your Mac in an encrypted SQLite database.
+            </p>
+            <p class="text-muted-foreground mb-4">
+              <strong>Cloud Storage (Optional):</strong> If you choose to use cloud LLM providers (OpenAI, Anthropic, Google), only the transcription text is sent to those providers for summarization. Audio recordings never leave your device.
+            </p>
+            <p class="text-muted-foreground mb-4">
+              <strong>Security Measures:</strong> We implement industry-standard security practices including encryption in transit (TLS) and secure credential storage using macOS Keychain.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-foreground mb-4">4. Third-Party Services</h2>
+            <p class="text-muted-foreground mb-4">
+              Summit AI Notes may integrate with the following third-party services at your discretion:
+            </p>
+            <ul class="list-disc list-inside text-muted-foreground space-y-2 mb-4">
+              <li><strong>LM Studio:</strong> Local LLM inference (runs entirely on your device)</li>
+              <li><strong>OpenAI:</strong> Optional cloud LLM for summarization (only if you configure API keys)</li>
+              <li><strong>Anthropic Claude:</strong> Optional cloud LLM for summarization</li>
+              <li><strong>Google Gemini:</strong> Optional cloud LLM for summarization</li>
+            </ul>
+            <p class="text-muted-foreground mb-4">
+              When using cloud LLM providers, only transcription text is sent - never audio recordings. Each provider has their own privacy policy.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-foreground mb-4">5. Your Rights</h2>
+            <p class="text-muted-foreground mb-4">
+              You have the right to:
+            </p>
+            <ul class="list-disc list-inside text-muted-foreground space-y-2 mb-4">
+              <li>Access your account information</li>
+              <li>Request deletion of your account data</li>
+              <li>Export your locally stored data at any time</li>
+              <li>Opt-out of marketing communications</li>
+              <li>Request information about what data we store (limited to account info only)</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-foreground mb-4">6. Children's Privacy</h2>
+            <p class="text-muted-foreground mb-4">
+              Summit AI Notes is not intended for use by individuals under the age of 18. We do not knowingly collect information from children.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-foreground mb-4">7. Changes to This Policy</h2>
+            <p class="text-muted-foreground mb-4">
+              We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-foreground mb-4">8. Contact Us</h2>
+            <p class="text-muted-foreground mb-4">
+              If you have questions about this privacy policy or our privacy practices, please contact us:
+            </p>
+            <p class="text-muted-foreground">
+              Email: <a href="mailto:privacy@summitnotes.app" class="text-blue-600 hover:underline">privacy@summitnotes.app</a>
+            </p>
+          </section>
+        </div>
+
+        <!-- Privacy Guarantee -->
+        <Card className="p-8 mt-12 bg-gradient-to-r from-green-50 to-blue-50 border-green-200">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <Shield class="w-6 h-6 text-green-600" />
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-foreground mb-3">Our Privacy Guarantee</h3>
+              <p class="text-muted-foreground mb-4">
+                We will never sell, rent, or share your personal information with third parties for marketing purposes. Your meeting data never leaves your device unless you explicitly configure cloud LLM providers.
+              </p>
+              <p class="text-muted-foreground font-semibold">
+                Privacy isn't just a feature - it's the foundation of Summit AI Notes.
+              </p>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </div>
+  <Footer client:load />
+</Layout>
+
+<style>
+  /* Override prose styles for better dark mode support */
+  :global(.dark) .prose {
+    --tw-prose-body: var(--foreground);
+    --tw-prose-headings: var(--foreground);
+  }
+</style>

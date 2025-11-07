@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Card } from '../components/ui/card';
+import Footer from '../components/Footer';
+import { Heart, Users, Zap, Shield } from 'lucide-react';
+---
+
+<Layout title="About Us - Summit AI Notes" description="Learn about Summit AI Notes - AI meeting notes application built for privacy and productivity">
+  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Heart class="w-8 h-8 text-blue-600" />
+          </div>
+          <h1 class="text-5xl font-bold text-foreground mb-4">About Summit AI Notes</h1>
+          <p class="text-xl text-muted-foreground">
+            Building privacy-first AI tools for productive professionals
+          </p>
+        </div>
+
+        <!-- Mission Statement -->
+        <Card className="p-8 mb-12 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+          <h2 class="text-2xl font-bold text-foreground mb-4">Our Mission</h2>
+          <p class="text-muted-foreground mb-4">
+            We believe that powerful AI tools shouldn't come at the cost of your privacy. Summit AI Notes was built to help professionals capture and understand their conversations without sacrificing control over their data.
+          </p>
+          <p class="text-muted-foreground">
+            By leveraging local AI processing, we're proving that you can have both cutting-edge technology and complete privacy.
+          </p>
+        </Card>
+
+        <!-- Core Values -->
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">Our Values</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                  <Shield class="w-5 h-5 text-green-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">Privacy First</h3>
+              </div>
+              <p class="text-muted-foreground">
+                Your data belongs to you. We process everything locally on your device, ensuring your conversations remain private and secure.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <Zap class="w-5 h-5 text-blue-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">User Experience</h3>
+              </div>
+              <p class="text-muted-foreground">
+                Powerful features shouldn't require a manual. We design for simplicity and intuition, making advanced AI accessible to everyone.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                  <Users class="w-5 h-5 text-purple-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">User-Centric</h3>
+              </div>
+              <p class="text-muted-foreground">
+                We listen to our users and build what they need. Your feedback shapes every feature and improvement we make.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <Heart class="w-5 h-5 text-orange-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">Quality Craftsmanship</h3>
+              </div>
+              <p class="text-muted-foreground">
+                We're committed to building software that works reliably and performs exceptionally. No shortcuts, no compromises.
+              </p>
+            </Card>
+          </div>
+        </div>
+
+        <!-- Story Section -->
+        <div class="prose prose-slate max-w-none mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-6">Our Story</h2>
+          <p class="text-muted-foreground mb-4">
+            Summit AI Notes was born from a simple observation: professionals spend countless hours in meetings, yet struggle to capture and act on the valuable insights discussed. Existing solutions either compromised privacy by sending data to the cloud or were too complex to use effectively.
+          </p>
+          <p class="text-muted-foreground mb-4">
+            We set out to create something different - a tool that leverages the latest advances in AI to provide powerful transcription and summarization, while keeping everything local and private. Built specifically for macOS, Summit AI Notes takes advantage of the platform's capabilities to deliver a seamless, native experience.
+          </p>
+          <p class="text-muted-foreground">
+            Today, Summit AI Notes helps professionals reclaim hours of their week, turning conversations into actionable insights without ever compromising their privacy or their clients' confidentiality.
+          </p>
+        </div>
+
+        <!-- Contact -->
+        <Card className="p-8 bg-gradient-to-r from-blue-50 to-green-50 border-blue-200">
+          <h2 class="text-2xl font-bold text-foreground mb-4">Get in Touch</h2>
+          <p class="text-muted-foreground mb-4">
+            We'd love to hear from you. Whether you have questions, feedback, or just want to say hello, feel free to reach out.
+          </p>
+          <p class="text-muted-foreground">
+            Email: <a href="mailto:hello@summitnotes.app" class="text-blue-600 hover:underline">hello@summitnotes.app</a>
+          </p>
+        </Card>
+      </div>
+    </div>
+  </div>
+  <Footer client:load />
+</Layout>
+
+<style>
+  /* Override prose styles for better dark mode support */
+  :global(.dark) .prose {
+    --tw-prose-body: var(--foreground);
+    --tw-prose-headings: var(--foreground);
+  }
+</style>

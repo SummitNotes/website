@@ -1,0 +1,157 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { Card } from '../../components/ui/card';
+import { Book, Settings, Wrench, BookOpen, ArrowRight } from 'lucide-react';
+
+const allDocs = await getCollection('docs');
+
+// Group docs by category
+const docsByCategory = allDocs.reduce((acc, doc) => {
+  const category = doc.data.category || 'guides';
+  if (!acc[category]) acc[category] = [];
+  acc[category].push(doc);
+  return acc;
+}, {} as Record<string, typeof allDocs>);
+
+// Sort docs within each category by order
+Object.keys(docsByCategory).forEach((category) => {
+  docsByCategory[category].sort((a, b) => {
+    const orderA = a.data.order ?? 999;
+    const orderB = b.data.order ?? 999;
+    return orderA - orderB;
+  });
+});
+
+const categoryConfig = {
+  settings: {
+    label: 'Settings',
+    description: 'Configure Summit AI Notes to match your workflow and preferences',
+    icon: Settings,
+    color: 'blue',
+  },
+  setup: {
+    label: 'Setup Guides',
+    description: 'Step-by-step guides to get started with Summit AI Notes',
+    icon: Wrench,
+    color: 'purple',
+  },
+  guides: {
+    label: 'User Guides',
+    description: 'Learn how to make the most of Summit AI Notes\'s features',
+    icon: BookOpen,
+    color: 'green',
+  },
+};
+---
+
+<Layout title="Documentation - Summit AI Notes" description="Learn how to use Summit AI Notes for meeting transcription and summarization">
+  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Book class="w-8 h-8 text-blue-600" />
+          </div>
+          <h1 class="text-5xl font-bold text-foreground mb-4">Documentation</h1>
+          <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Everything you need to know about using Summit AI Notes for meeting transcription, summarization, and documentation
+          </p>
+        </div>
+
+        <!-- Quick Start -->
+        <Card className="p-8 mb-12 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+          <h2 class="text-2xl font-bold text-foreground mb-4">Quick Start</h2>
+          <p class="text-muted-foreground mb-6">
+            New to Summit AI Notes? Start here to get up and running in minutes.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="/docs/setup/lmstudio"
+              class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+            >
+              Set up LM Studio (Local AI)
+              <ArrowRight class="w-4 h-4" />
+            </a>
+            <a
+              href="/docs/setup/cloud-providers"
+              class="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-foreground px-6 py-3 rounded-lg font-medium transition-colors border border-border"
+            >
+              Configure Cloud Providers
+              <ArrowRight class="w-4 h-4" />
+            </a>
+          </div>
+        </Card>
+
+        <!-- Documentation Categories -->
+        <div class="space-y-12">
+          {Object.entries(docsByCategory).map(([category, docs]) => {
+            const config = categoryConfig[category as keyof typeof categoryConfig] || {
+              label: category,
+              description: '',
+              icon: Book,
+              color: 'gray',
+            };
+
+            const Icon = config.icon;
+            const colorClasses = {
+              blue: 'bg-blue-100 text-blue-600 border-blue-200',
+              purple: 'bg-purple-100 text-purple-600 border-purple-200',
+              green: 'bg-green-100 text-green-600 border-green-200',
+              gray: 'bg-gray-100 text-gray-600 border-gray-200',
+            };
+
+            return (
+              <section>
+                <div class="flex items-center gap-3 mb-6">
+                  <div class={`w-12 h-12 rounded-lg flex items-center justify-center ${colorClasses[config.color as keyof typeof colorClasses]}`}>
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h2 class="text-2xl font-bold text-foreground">{config.label}</h2>
+                    <p class="text-muted-foreground">{config.description}</p>
+                  </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                  {docs.map((doc) => (
+                    <a href={`/docs/${doc.slug}`} class="group">
+                      <Card className="p-6 h-full hover:shadow-lg transition-shadow">
+                        <h3 class="text-lg font-semibold text-foreground mb-2 group-hover:text-blue-600 transition-colors">
+                          {doc.data.title}
+                        </h3>
+                        <p class="text-muted-foreground mb-4">
+                          {doc.data.description}
+                        </p>
+                        <div class="flex items-center gap-2 text-blue-600 text-sm font-medium">
+                          Read more
+                          <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </Card>
+                    </a>
+                  ))}
+                </div>
+              </section>
+            );
+          })}
+        </div>
+
+        <!-- Need Help Section -->
+        <div class="mt-16 text-center bg-muted/30 rounded-lg p-8">
+          <h3 class="text-2xl font-semibold text-foreground mb-4">Can't find what you're looking for?</h3>
+          <p class="text-muted-foreground mb-6">
+            Our support team is here to help you get the most out of Summit AI Notes.
+          </p>
+          <a
+            href="/support"
+            class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+          >
+            Contact Support
+            <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

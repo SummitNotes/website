@@ -1,0 +1,285 @@
+---
+title: "LM Studio Setup Guide"
+description: "Step-by-step guide to setting up LM Studio for local AI processing in Summit AI Notes"
+category: "setup"
+order: 1
+---
+
+# LM Studio Setup Guide
+
+LM Studio enables you to run Large Language Models locally on your Mac, providing 100% privacy for your meeting summaries. This guide will walk you through the complete setup process.
+
+## Why LM Studio?
+
+- **Complete Privacy**: All processing happens on your device
+- **No Ongoing Costs**: Free after initial setup
+- **No Internet Required**: Works offline
+- **Full Control**: Choose and customize your models
+- **Fast Processing**: Optimized for Apple Silicon (M1/M2/M3)
+
+## System Requirements
+
+### Minimum Requirements
+- **Mac**: M1 or newer (M2/M3 recommended)
+- **RAM**: 8GB (16GB+ recommended)
+- **Storage**: 10GB free space (for models)
+- **macOS**: 12.0 (Monterey) or later
+
+### Recommended Specifications
+- **Mac**: M2 Pro/Max or M3 Pro/Max
+- **RAM**: 32GB or more
+- **Storage**: 50GB+ free space (for multiple models)
+- **macOS**: Latest version
+
+> **Note**: Larger models (70B parameters) require more RAM. 8B models work well on base M1/M2 with 8GB RAM.
+
+## Installation Steps
+
+### Step 1: Download LM Studio
+
+1. Visit [LM Studio's website](https://lmstudio.ai)
+2. Click **Download for Mac**
+3. Wait for the download to complete (approximately 200MB)
+
+### Step 2: Install LM Studio
+
+1. Open the downloaded `.dmg` file
+2. Drag **LM Studio** to your Applications folder
+3. Open LM Studio from Applications
+4. If you see a security warning:
+   - Go to **System Settings** → **Privacy & Security**
+   - Click **Open Anyway** next to the LM Studio warning
+   - Confirm by clicking **Open**
+
+### Step 3: Download a Language Model
+
+LM Studio needs a language model to generate summaries. We recommend starting with a smaller, faster model.
+
+#### Recommended Models for Summit AI Notes
+
+**For Most Users** (Best Balance):
+- **Model**: Llama 3.1 8B Instruct
+- **Size**: ~4.7GB
+- **RAM**: 8GB minimum
+- **Speed**: Fast on M1/M2
+
+**For Maximum Quality** (Requires Powerful Mac):
+- **Model**: Llama 3.1 70B Instruct
+- **Size**: ~40GB
+- **RAM**: 32GB+ recommended
+- **Speed**: Slower, best quality
+
+**For Speed** (Budget Macs):
+- **Model**: Mistral 7B Instruct
+- **Size**: ~4.1GB
+- **RAM**: 8GB minimum
+- **Speed**: Very fast
+
+#### How to Download a Model
+
+1. In LM Studio, click the **Search** icon (magnifying glass)
+2. In the search box, type: `llama-3.1-8b-instruct`
+3. Find the model with these details:
+   - Name: **Llama 3.1 8B Instruct**
+   - Quantization: **Q4_K_M** (good balance of quality and size)
+4. Click **Download**
+5. Wait for the download to complete (5-15 minutes depending on connection)
+
+> **What is Quantization?** Quantization reduces model size while maintaining quality. Q4_K_M is recommended for most users. Q8_0 is higher quality but larger. Q3_K_S is smaller but lower quality.
+
+### Step 4: Start the Local Server
+
+1. In LM Studio, click the **Local Server** tab (left sidebar)
+2. At the top, select your downloaded model from the dropdown
+3. Click **Start Server**
+4. You should see: `Server running on http://localhost:1234`
+5. **Important**: Keep LM Studio running while using Summit AI Notes
+
+#### Server Configuration (Optional)
+
+The default settings work for most users, but you can adjust:
+
+- **Port**: Default is 1234 (change if needed)
+- **CORS**: Leave enabled for Summit AI Notes to connect
+- **Context Length**: 4096 tokens (increase for longer meetings)
+- **Temperature**: 0.7 (lower = more focused, higher = more creative)
+
+### Step 5: Configure Summit AI Notes to Use LM Studio
+
+1. Open **Summit AI Notes**
+2. Go to **Summit AI Notes** → **Settings** (or press `⌘,`)
+3. Navigate to the **LLM** tab
+4. Select **LM Studio** from the provider dropdown
+5. Verify the endpoint is: `http://localhost:1234/v1`
+6. Click **Test Connection**
+7. If successful, you'll see: ✓ Connected to LM Studio
+8. Click **Save Settings**
+
+## Testing Your Setup
+
+### Test the Connection
+
+1. In Summit AI Notes's LLM settings, click **Test Connection**
+2. You should see a success message
+3. If it fails, check:
+   - LM Studio is running
+   - The local server is started
+   - Port 1234 is not blocked by firewall
+
+### Test with a Sample Meeting
+
+1. Create a new recording in Summit AI Notes
+2. Record a short test (30 seconds)
+3. Stop the recording
+4. Click **Generate Summary**
+5. Watch the progress in Summit AI Notes (and optionally in LM Studio)
+6. Verify the summary appears
+
+## Troubleshooting
+
+### "Connection Failed" Error
+
+**Symptom**: Summit AI Notes can't connect to LM Studio
+
+**Solutions**:
+1. Verify LM Studio is running
+2. Check the local server is started (green indicator)
+3. Confirm the endpoint is `http://localhost:1234/v1`
+4. Try restarting LM Studio
+5. Check macOS firewall settings (System Settings → Network → Firewall)
+6. Ensure no other app is using port 1234
+
+### "Model Not Loaded" Error
+
+**Symptom**: Server starts but shows no model loaded
+
+**Solutions**:
+1. In LM Studio's Local Server tab, select your model from the dropdown
+2. Wait for the model to load (you'll see loading progress)
+3. Once loaded, test connection from Summit AI Notes again
+
+### Slow Summary Generation
+
+**Symptom**: Summaries take a very long time to generate
+
+**Solutions**:
+1. **Use a Smaller Model**: Switch to Mistral 7B or Llama 3.1 8B
+2. **Close Other Apps**: Free up RAM and CPU
+3. **Reduce Context Length**: In LM Studio server settings, lower context to 2048
+4. **Check Activity Monitor**: Ensure your Mac isn't thermal throttling
+5. **Upgrade Hardware**: Consider cloud LLMs for older Macs
+
+### Out of Memory Errors
+
+**Symptom**: LM Studio crashes or shows memory errors
+
+**Solutions**:
+1. **Use Smaller Quantization**: Try Q4_K_M instead of Q8_0
+2. **Switch to Smaller Model**: Use 7B instead of 70B
+3. **Close Other Apps**: Free up RAM
+4. **Restart Your Mac**: Clear memory leaks
+5. **Consider Cloud LLMs**: If your Mac has limited RAM
+
+### Summary Quality is Poor
+
+**Symptom**: Generated summaries are incomplete or nonsensical
+
+**Solutions**:
+1. **Try a Larger Model**: Upgrade to Llama 3.1 70B (if your Mac supports it)
+2. **Use Higher Quantization**: Try Q8_0 instead of Q4_K_M
+3. **Adjust Temperature**: Lower to 0.5 in LM Studio server settings for more focused output
+4. **Check Model**: Ensure you downloaded an "Instruct" or "Chat" variant
+5. **Consider Cloud LLMs**: For maximum quality, try GPT-4 or Claude
+
+## Performance Optimization
+
+### For M1/M2 Base Models (8GB RAM)
+
+- Use Llama 3.1 8B with Q4_K_M quantization
+- Keep context length at 2048-4096 tokens
+- Close unnecessary apps while generating summaries
+- Consider summarizing shorter meeting segments
+
+### For M1/M2 Pro/Max (16GB+ RAM)
+
+- Use Llama 3.1 8B or 13B with Q4_K_M or Q8_0
+- Context length: 4096-8192 tokens
+- Can run multiple models simultaneously
+- Good for longer meetings (1-2 hours)
+
+### For M2/M3 Ultra (32GB+ RAM)
+
+- Use Llama 3.1 70B with Q4_K_M quantization
+- Context length: 8192+ tokens
+- Best quality local summaries
+- Handle very long meetings (2+ hours)
+
+## Model Recommendations by Use Case
+
+### Privacy-Critical Meetings
+- **Model**: Llama 3.1 8B Instruct (Q8_0)
+- **Reason**: High quality, fully local, no cloud dependency
+
+### Fast Turnaround
+- **Model**: Mistral 7B Instruct (Q4_K_M)
+- **Reason**: Fastest generation, good quality
+
+### Maximum Quality
+- **Model**: Llama 3.1 70B Instruct (Q4_K_M)
+- **Reason**: Best local quality available
+
+### Multilingual Meetings
+- **Model**: Llama 3.1 8B Instruct
+- **Reason**: Good multilingual support
+
+## Updating Models
+
+LM Studio models are updated periodically. To update:
+
+1. Open LM Studio
+2. Go to the **Search** tab
+3. Search for your model (e.g., "llama-3.1-8b")
+4. If an update is available, you'll see an **Update** button
+5. Click **Update** to download the latest version
+6. The old version will be replaced automatically
+
+## Managing Storage
+
+Models can take significant disk space. To manage:
+
+1. In LM Studio, go to **My Models** tab
+2. Review downloaded models and their sizes
+3. Right-click models you don't use
+4. Select **Delete** to free up space
+5. You can always re-download models later
+
+## Best Practices
+
+1. **Keep LM Studio Running**: Start it when you boot your Mac for instant availability
+2. **Download Multiple Models**: Have a fast model (7B) and quality model (70B) ready
+3. **Monitor Performance**: Watch Activity Monitor to understand resource usage
+4. **Regular Updates**: Check for LM Studio and model updates monthly
+5. **Backup Settings**: Note your preferred models and configurations
+
+## Switching to Cloud LLMs Later
+
+If you later decide to use cloud LLMs:
+
+1. You can keep LM Studio installed for sensitive meetings
+2. Simply switch providers in Summit AI Notes's LLM settings
+3. No need to uninstall or remove models
+4. You can switch back to local processing anytime
+
+## Next Steps
+
+- [Configure cloud LLM providers](/docs/setup/cloud-providers) (optional backup)
+- [Learn about LLM configuration options](/docs/settings/llm)
+- [Customize summary templates](/docs/guides/custom-summaries) (coming soon)
+
+## Getting Help
+
+If you encounter issues not covered in this guide:
+
+- **LM Studio Support**: [LM Studio Discord](https://discord.gg/lmstudio)
+- **Summit AI Notes Support**: [support@summitnotes.app](mailto:support@summitnotes.app)
+- **Community**: Join our user community for tips and tricks

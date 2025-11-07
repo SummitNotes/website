@@ -1,0 +1,19 @@
+# Node.js dependencies
+node_modules/
+
+# Astro build output
+dist/
+.astro/
+_site/
+
+# Environment variables
+.env
+*.env
+
+.DS_Store
+
+# Other temporary or generated files
+*.log
+package-lock.json # If you're using npm and want to ignore this
+yarn.lock # If you're using yarn and want to ignore this
+pnpm-lock.yaml # If you're using pnpm and want to ignore this

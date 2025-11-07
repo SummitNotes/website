@@ -1,0 +1,170 @@
+---
+import { Button } from './ui/button';
+import { Menu, X } from 'lucide-react';
+---
+
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      {/* Logo */}
+      <div class="flex items-center">
+        <a href="/" class="flex items-center gap-2 group">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+            <img src='/logo32x32.png' alt="Summit AI Notes" />
+          </div>
+          <span class="font-bold text-lg text-foreground hidden sm:block">
+            Summit AI Notes
+          </span>
+        </a>
+      </div>
+
+      {/* Desktop Navigation */}
+      <div class="hidden md:flex items-center gap-8">
+        <button
+          data-scroll-to="how-it-works"
+          class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+        >
+          How It Works
+        </button>
+        <button
+          data-scroll-to="features"
+          class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+        >
+          Features
+        </button>
+        <button
+          data-scroll-to="features"
+          class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+        >
+          Pricing
+        </button>
+        <a
+          href="/about"
+          class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+        >
+          About
+        </a>
+      </div>
+
+      {/* Desktop CTA */}
+      <div class="hidden md:block">
+        <button
+          data-scroll-to="waitlist"
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-blue-600 hover:bg-blue-700 text-white h-10 px-4 py-2"
+        >
+          Join Waitlist
+        </button>
+      </div>
+
+      {/* Mobile Menu Button */}
+      <button
+        id="mobile-menu-toggle"
+        class="md:hidden p-2 text-foreground hover:bg-muted rounded-lg transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg id="menu-icon" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"></line>
+          <line x1="4" x2="20" y1="6" y2="6"></line>
+          <line x1="4" x2="20" y1="18" y2="18"></line>
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    {/* Mobile Menu */}
+    <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-border bg-background/95 backdrop-blur-lg">
+      <div class="flex flex-col gap-4">
+        <button
+          data-scroll-to="how-it-works"
+          class="text-left px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
+        >
+          How It Works
+        </button>
+        <button
+          data-scroll-to="features"
+          class="text-left px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
+        >
+          Features
+        </button>
+       <button
+          data-scroll-to="pricing"
+          class="text-left px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
+        >
+          Pricing
+        </button>
+        <a
+          href="/roadmap"
+          class="text-left px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
+        >
+          Roadmap
+        </a>
+        <a
+          href="/about"
+          class="text-left px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
+        >
+          About
+        </a>
+        <div class="px-4 pt-2">
+          <button
+            data-scroll-to="waitlist"
+            class="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-blue-600 hover:bg-blue-700 text-white h-10 px-4 py-2"
+          >
+            Join Waitlist
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Scroll effect for navigation
+  const nav = document.getElementById('main-nav');
+
+  const handleScroll = () => {
+    if (window.scrollY > 20) {
+      nav?.classList.add('bg-background/80', 'backdrop-blur-lg', 'border-b', 'border-border', 'shadow-sm');
+      nav?.classList.remove('bg-transparent');
+    } else {
+      nav?.classList.remove('bg-background/80', 'backdrop-blur-lg', 'border-b', 'border-border', 'shadow-sm');
+      nav?.classList.add('bg-transparent');
+    }
+  };
+
+  // Initial check
+  handleScroll();
+
+  // Listen for scroll
+  window.addEventListener('scroll', handleScroll, { passive: true });
+
+  // Smooth scroll to sections
+  document.querySelectorAll('[data-scroll-to]').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const target = (e.currentTarget as HTMLElement).getAttribute('data-scroll-to');
+      const element = document.getElementById(target || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        // Close mobile menu if open
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu?.classList.add('hidden');
+        document.getElementById('menu-icon')?.classList.remove('hidden');
+        document.getElementById('close-icon')?.classList.add('hidden');
+      }
+    });
+  });
+
+  // Mobile menu toggle
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  mobileMenuToggle?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+    menuIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+  });
+</script>
