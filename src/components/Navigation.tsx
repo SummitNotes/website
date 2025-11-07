@@ -78,7 +78,7 @@ const Navigation: React.FC<NavigationProps> = ({ onWaitlistClick }) => {
               Features
             </button>
             <button
-              onClick={() => scrollToSection('features')}
+              onClick={() => scrollToSection('ppricing')}
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Pricing
@@ -97,7 +97,7 @@ const Navigation: React.FC<NavigationProps> = ({ onWaitlistClick }) => {
               onClick={handleWaitlistClick}
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold"
             >
-              Join Waitlist
+              Download
             </Button>
           </div>
 
@@ -154,7 +154,7 @@ const Navigation: React.FC<NavigationProps> = ({ onWaitlistClick }) => {
                   onClick={handleWaitlistClick}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
                 >
-                  Join Waitlist
+                  Download
                 </Button>
               </div>
             </div>

@@ -22,12 +22,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   title = "Meeting Notes That Respect",
   subtitle = "Confidentiality",
   description = "The first meeting assistant built for professionals who can't use cloud-based tools. 100% local processing means your conversations never leave your Mac.",
-  ctaText = "Join Early Access",
+  ctaText = "Download",
   secondaryCtaText = "See How It Works",
   features = [
-    "Early access to launch",
-    "50% lifetime discount for first 100 users",
-    "Priority feature requests"
+    // Todo features
+    // "Early access to launch",
+    // "50% lifetime discount for first 100 users",
+    // "Priority feature requests"
   ],
   stats = [
     {
@@ -40,11 +41,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       label: "Cloud Uploads",
       icon: <Lock className="w-5 h-5 text-blue-600" />
     },
-    {
-      value: "500+",
-      label: "On Waitlist",
-      icon: <Users className="w-5 h-5 text-green-600" />
-    }
+    // {
+    //   value: "500+",
+    //   label: "On Waitlist",
+    //   icon: <Users className="w-5 h-5 text-green-600" />
+    // }
   ]
 }) => {
   return (
@@ -65,7 +66,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               {/* Badge */}
               <Badge variant="secondary" className="w-fit bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 border-blue-200 hover:bg-blue-100">
                 <Zap className="w-3 h-3 mr-1" />
-                Early Access • Coming Soon
+                Available Today!
               </Badge>
 
               {/* Main Heading */}

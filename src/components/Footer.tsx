@@ -44,10 +44,10 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
               </li>
               <li>
                 <a
-                  href="#waitlist"
+                  href="#download"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Join Waitlist
+                  Download
                 </a>
               </li>
             </ul>
