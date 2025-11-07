@@ -1,57 +1,88 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { Card } from '../components/ui/card';
-import Footer from '../components/Footer';
-import { FileText } from 'lucide-react';
+import Layout from "../layouts/Layout.astro";
+import { Card } from "../components/ui/card";
+import Footer from "../components/Footer";
+import { FileText } from "lucide-react";
 ---
 
-<Layout title="Terms of Service - Summit AI Notes" description="Terms of Service for Summit AI Notes">
-  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+<Layout
+  title="Terms of Service - Summit AI Notes"
+  description="Terms of Service for Summit AI Notes"
+>
+  <div
+    class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
+  >
     <div class="container mx-auto px-4 py-16">
       <div class="max-w-4xl mx-auto">
         <!-- Header -->
         <div class="text-center mb-16">
-          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div
+            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
+          >
             <FileText class="w-8 h-8 text-blue-600" />
           </div>
-          <h1 class="text-5xl font-bold text-foreground mb-4">Terms of Service</h1>
-          <p class="text-muted-foreground">
-            Last updated: November 2024
-          </p>
+          <h1 class="text-5xl font-bold text-foreground mb-4">
+            Terms of Service
+          </h1>
+          <p class="text-muted-foreground">Last updated: November 2025</p>
         </div>
 
         <!-- Introduction -->
         <Card className="p-8 mb-12 bg-blue-50 border-blue-200">
           <p class="text-muted-foreground">
-            These Terms of Service ("Terms") govern your access to and use of Summit AI Notes software and services. By using Summit AI Notes, you agree to be bound by these Terms. If you do not agree to these Terms, do not use our software.
+            These Terms of Service ("Terms") govern your access to and use of
+            Summit AI Notes software and services. By using Summit AI Notes, you
+            agree to be bound by these Terms. If you do not agree to these
+            Terms, do not use our software.
           </p>
         </Card>
 
         <!-- Terms Content -->
         <div class="space-y-8 prose prose-slate max-w-none">
           <section>
-            <h2 class="text-2xl font-bold text-foreground mb-4">1. Acceptance of Terms</h2>
+            <h2 class="text-2xl font-bold text-foreground mb-4">
+              1. Acceptance of Terms
+            </h2>
             <p class="text-muted-foreground mb-4">
-              By downloading, installing, or using Summit AI Notes, you agree to these Terms of Service, our Privacy Policy, and any other policies we make available to you.
+              By downloading, installing, or using Summit AI Notes, you agree to
+              these Terms of Service, our Privacy Policy, and any other policies
+              we make available to you.
             </p>
             <p class="text-muted-foreground">
-              We may update these Terms from time to time. Continued use of the software after changes constitutes acceptance of the updated Terms.
+              We may update these Terms from time to time. Continued use of the
+              software after changes constitutes acceptance of the updated
+              Terms.
             </p>
           </section>
 
           <section>
-            <h2 class="text-2xl font-bold text-foreground mb-4">2. License Grant</h2>
+            <h2 class="text-2xl font-bold text-foreground mb-4">
+              2. License Grant
+            </h2>
             <p class="text-muted-foreground mb-4">
-              Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to use Summit AI Notes for your personal or business use.
+              Subject to your compliance with these Terms, we grant you a
+              limited, non-exclusive, non-transferable, revocable license to use
+              Summit AI Notes for your personal or business use.
             </p>
             <h3 class="text-xl font-semibold text-foreground mb-3">You May:</h3>
-            <ul class="list-disc list-inside text-muted-foreground space-y-2 mb-4">
-              <li>Install and use the software on devices you own or control</li>
+            <ul
+              class="list-disc list-inside text-muted-foreground space-y-2 mb-4"
+            >
+              <li>
+                Install and use the software on devices you own or control
+              </li>
               <li>Record and process your meetings and conversations</li>
-              <li>Use the software for commercial purposes (e.g., consulting, legal work)</li>
+              <li>
+                Use the software for commercial purposes (e.g., consulting,
+                legal work)
+              </li>
             </ul>
-            <h3 class="text-xl font-semibold text-foreground mb-3">You May Not:</h3>
-            <ul class="list-disc list-inside text-muted-foreground space-y-2 mb-4">
+            <h3 class="text-xl font-semibold text-foreground mb-3">
+              You May Not:
+            </h3>
+            <ul
+              class="list-disc list-inside text-muted-foreground space-y-2 mb-4"
+            >
               <li>Reverse engineer, decompile, or disassemble the software</li>
               <li>Redistribute, resell, or sublicense the software</li>
               <li>Remove or modify any proprietary notices</li>
@@ -60,23 +91,41 @@ import { FileText } from 'lucide-react';
           </section>
 
           <section>
-            <h2 class="text-2xl font-bold text-foreground mb-4">3. User Responsibilities</h2>
-            <h3 class="text-xl font-semibold text-foreground mb-3">Recording Consent</h3>
+            <h2 class="text-2xl font-bold text-foreground mb-4">
+              3. User Responsibilities
+            </h2>
+            <h3 class="text-xl font-semibold text-foreground mb-3">
+              Recording Consent
+            </h3>
             <p class="text-muted-foreground mb-4">
-              You are solely responsible for complying with all applicable laws regarding recording conversations. This includes:
+              You are solely responsible for complying with all applicable laws
+              regarding recording conversations. This includes:
             </p>
-            <ul class="list-disc list-inside text-muted-foreground space-y-2 mb-4">
+            <ul
+              class="list-disc list-inside text-muted-foreground space-y-2 mb-4"
+            >
               <li>Obtaining consent from all parties where required by law</li>
-              <li>Understanding one-party vs two-party consent laws in your jurisdiction</li>
-              <li>Complying with professional regulations (legal, medical, financial)</li>
+              <li>
+                Understanding one-party vs two-party consent laws in your
+                jurisdiction
+              </li>
+              <li>
+                Complying with professional regulations (legal, medical,
+                financial)
+              </li>
               <li>Providing appropriate notice when recording meetings</li>
             </ul>
 
-            <h3 class="text-xl font-semibold text-foreground mb-3">Appropriate Use</h3>
+            <h3 class="text-xl font-semibold text-foreground mb-3">
+              Appropriate Use
+            </h3>
             <p class="text-muted-foreground mb-4">
-              You agree to use Summit AI Notes only for lawful purposes and in accordance with these Terms. You are responsible for:
+              You agree to use Summit AI Notes only for lawful purposes and in
+              accordance with these Terms. You are responsible for:
             </p>
-            <ul class="list-disc list-inside text-muted-foreground space-y-2 mb-4">
+            <ul
+              class="list-disc list-inside text-muted-foreground space-y-2 mb-4"
+            >
               <li>The content you record and transcribe</li>
               <li>How you use and share the generated content</li>
               <li>Compliance with data protection and privacy regulations</li>
@@ -85,89 +134,142 @@ import { FileText } from 'lucide-react';
           </section>
 
           <section>
-            <h2 class="text-2xl font-bold text-foreground mb-4">4. Data and Privacy</h2>
+            <h2 class="text-2xl font-bold text-foreground mb-4">
+              4. Data and Privacy
+            </h2>
             <p class="text-muted-foreground mb-4">
-              Summit AI Notes processes your recordings and transcripts locally on your device. We do not have access to your meeting content. For detailed information about data handling, please review our <a href="/privacy" class="text-blue-600 hover:underline">Privacy Policy</a>.
+              Summit AI Notes processes your recordings and transcripts locally
+              on your device. We do not have access to your meeting content. For
+              detailed information about data handling, please review our <a
+                href="/privacy"
+                class="text-blue-600 hover:underline">Privacy Policy</a
+              >.
             </p>
             <p class="text-muted-foreground">
-              If you choose to use cloud AI providers (OpenAI, Anthropic, Google), your transcription text will be sent to those services subject to their respective terms and privacy policies.
+              If you choose to use cloud AI providers (OpenAI, Anthropic,
+              Google), your transcription text will be sent to those services
+              subject to their respective terms and privacy policies.
             </p>
           </section>
 
           <section>
-            <h2 class="text-2xl font-bold text-foreground mb-4">5. Third-Party Services</h2>
+            <h2 class="text-2xl font-bold text-foreground mb-4">
+              5. Third-Party Services
+            </h2>
             <p class="text-muted-foreground mb-4">
               Summit AI Notes may integrate with third-party services such as:
             </p>
-            <ul class="list-disc list-inside text-muted-foreground space-y-2 mb-4">
+            <ul
+              class="list-disc list-inside text-muted-foreground space-y-2 mb-4"
+            >
               <li>LM Studio for local AI processing</li>
               <li>OpenAI, Anthropic, or Google for optional cloud AI</li>
             </ul>
             <p class="text-muted-foreground">
-              Your use of these third-party services is subject to their respective terms of service and privacy policies. We are not responsible for the practices or performance of third-party services.
+              Your use of these third-party services is subject to their
+              respective terms of service and privacy policies. We are not
+              responsible for the practices or performance of third-party
+              services.
             </p>
           </section>
 
           <section>
-            <h2 class="text-2xl font-bold text-foreground mb-4">6. Intellectual Property</h2>
+            <h2 class="text-2xl font-bold text-foreground mb-4">
+              6. Intellectual Property
+            </h2>
             <p class="text-muted-foreground mb-4">
-              Summit AI Notes and all related materials, including software, documentation, and branding, are owned by us and protected by copyright, trademark, and other intellectual property laws.
+              Summit AI Notes and all related materials, including software,
+              documentation, and branding, are owned by us and protected by
+              copyright, trademark, and other intellectual property laws.
             </p>
             <p class="text-muted-foreground">
-              You retain all rights to the content you create using Summit AI Notes (recordings, transcripts, summaries). We claim no ownership over your content.
+              You retain all rights to the content you create using Summit AI
+              Notes (recordings, transcripts, summaries). We claim no ownership
+              over your content.
             </p>
           </section>
 
           <section>
-            <h2 class="text-2xl font-bold text-foreground mb-4">7. Payment and Subscription</h2>
+            <h2 class="text-2xl font-bold text-foreground mb-4">
+              7. Payment and Subscription
+            </h2>
             <p class="text-muted-foreground mb-4">
-              <strong>Pricing:</strong> Pricing details will be provided on our website and during purchase. Prices are subject to change with notice.
+              <strong>Pricing:</strong> Pricing details will be provided on our website
+              and during purchase. Prices are subject to change with notice.
             </p>
             <p class="text-muted-foreground mb-4">
-              <strong>Subscription Terms:</strong> If you purchase a subscription, it will automatically renew unless cancelled before the renewal date. You can cancel anytime through your account settings.
+              <strong>Subscription Terms:</strong> If you purchase a subscription,
+              it will automatically renew unless cancelled before the renewal date.
+              You can cancel anytime through your account settings.
             </p>
             <p class="text-muted-foreground mb-4">
-              <strong>Refunds:</strong> Refund policies will be clearly stated at the time of purchase. Generally, we offer refunds within a reasonable period after purchase if you're unsatisfied with the product.
-            </p>
-          </section>
-
-          <section>
-            <h2 class="text-2xl font-bold text-foreground mb-4">8. Disclaimers and Limitations of Liability</h2>
-            <p class="text-muted-foreground mb-4">
-              <strong>No Warranty:</strong> Summit AI Notes is provided "as is" without warranties of any kind, either express or implied. We do not guarantee that the software will be error-free, secure, or uninterrupted.
-            </p>
-            <p class="text-muted-foreground mb-4">
-              <strong>Accuracy:</strong> While we strive for accuracy in transcriptions and AI-generated summaries, we cannot guarantee perfect accuracy. You should review all AI-generated content before relying on it.
-            </p>
-            <p class="text-muted-foreground mb-4">
-              <strong>Limitation of Liability:</strong> To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of Summit AI Notes.
+              <strong>Refunds:</strong> Refund policies will be clearly stated at
+              the time of purchase. Generally, we offer refunds within a reasonable
+              period after purchase if you're unsatisfied with the product.
             </p>
           </section>
 
           <section>
-            <h2 class="text-2xl font-bold text-foreground mb-4">9. Termination</h2>
+            <h2 class="text-2xl font-bold text-foreground mb-4">
+              8. Disclaimers and Limitations of Liability
+            </h2>
             <p class="text-muted-foreground mb-4">
-              You may stop using Summit AI Notes at any time. We reserve the right to suspend or terminate your access if you violate these Terms.
+              <strong>No Warranty:</strong> Summit AI Notes is provided "as is" without
+              warranties of any kind, either express or implied. We do not guarantee
+              that the software will be error-free, secure, or uninterrupted.
+            </p>
+            <p class="text-muted-foreground mb-4">
+              <strong>Accuracy:</strong> While we strive for accuracy in transcriptions
+              and AI-generated summaries, we cannot guarantee perfect accuracy. You
+              should review all AI-generated content before relying on it.
+            </p>
+            <p class="text-muted-foreground mb-4">
+              <strong>Limitation of Liability:</strong> To the maximum extent permitted
+              by law, we shall not be liable for any indirect, incidental, special,
+              consequential, or punitive damages arising from your use of Summit
+              AI Notes.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-foreground mb-4">
+              9. Termination
+            </h2>
+            <p class="text-muted-foreground mb-4">
+              You may stop using Summit AI Notes at any time. We reserve the
+              right to suspend or terminate your access if you violate these
+              Terms.
             </p>
             <p class="text-muted-foreground">
-              Upon termination, your license to use the software ends, but provisions regarding intellectual property, disclaimers, and limitations of liability will survive.
+              Upon termination, your license to use the software ends, but
+              provisions regarding intellectual property, disclaimers, and
+              limitations of liability will survive.
             </p>
           </section>
 
           <section>
-            <h2 class="text-2xl font-bold text-foreground mb-4">10. Governing Law</h2>
+            <h2 class="text-2xl font-bold text-foreground mb-4">
+              10. Governing Law
+            </h2>
             <p class="text-muted-foreground">
-              These Terms are governed by the laws of the jurisdiction in which we operate, without regard to conflict of law provisions. Any disputes will be resolved in the courts of that jurisdiction.
+              These Terms are governed by the laws of the jurisdiction in which
+              we operate, without regard to conflict of law provisions. Any
+              disputes will be resolved in the courts of that jurisdiction.
             </p>
           </section>
 
           <section>
-            <h2 class="text-2xl font-bold text-foreground mb-4">11. Changes to Terms</h2>
+            <h2 class="text-2xl font-bold text-foreground mb-4">
+              11. Changes to Terms
+            </h2>
             <p class="text-muted-foreground mb-4">
-              We may update these Terms from time to time. We will notify you of material changes by posting the new Terms on our website and updating the "Last updated" date.
+              We may update these Terms from time to time. We will notify you of
+              material changes by posting the new Terms on our website and
+              updating the "Last updated" date.
             </p>
             <p class="text-muted-foreground">
-              Continued use of Summit AI Notes after changes constitutes acceptance of the updated Terms.
+              Continued use of Summit AI Notes after changes constitutes
+              acceptance of the updated Terms.
             </p>
           </section>
 
@@ -175,17 +277,24 @@ import { FileText } from 'lucide-react';
             <h2 class="text-2xl font-bold text-foreground mb-4">12. Contact</h2>
             <p class="text-muted-foreground">
               If you have questions about these Terms, please contact us at:
-              <br>
-              Email: <a href="mailto:hello@summitnotes.app" class="text-blue-600 hover:underline">hello@summitnotes.app</a>
+              <br />
+              Email: <a
+                href="mailto:hello@summitnotes.app"
+                class="text-blue-600 hover:underline">hello@summitnotes.app</a
+              >
             </p>
           </section>
         </div>
 
         <!-- Acknowledgment -->
-        <Card className="p-8 mt-12 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+        <Card
+          className="p-8 mt-12 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200"
+        >
           <h3 class="text-xl font-bold text-foreground mb-3">Acknowledgment</h3>
           <p class="text-muted-foreground">
-            By using Summit AI Notes, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service and our Privacy Policy.
+            By using Summit AI Notes, you acknowledge that you have read,
+            understood, and agree to be bound by these Terms of Service and our
+            Privacy Policy.
           </p>
         </Card>
       </div>
