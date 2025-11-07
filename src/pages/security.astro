@@ -1,0 +1,252 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Card } from '../components/ui/card';
+import Footer from '../components/Footer';
+import { Shield, Lock, Server, Eye, AlertTriangle, CheckCircle } from 'lucide-react';
+---
+
+<Layout title="Security - Summit AI Notes" description="Security practices and data protection in Summit AI Notes">
+  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Shield class="w-8 h-8 text-red-600" />
+          </div>
+          <h1 class="text-5xl font-bold text-foreground mb-4">Security</h1>
+          <p class="text-xl text-muted-foreground">
+            How we protect your data and maintain privacy
+          </p>
+        </div>
+
+        <!-- Security Commitment -->
+        <Card className="p-8 mb-12 bg-gradient-to-r from-red-50 to-orange-50 border-red-200">
+          <h2 class="text-2xl font-bold text-foreground mb-4">Our Security Commitment</h2>
+          <p class="text-muted-foreground mb-4">
+            Security and privacy are not features at Summit AI Notes—they are the foundation of everything we build. We've designed our architecture from the ground up to ensure your sensitive conversations and client data remain completely private and secure.
+          </p>
+          <p class="text-muted-foreground">
+            This document explains our security practices, architecture decisions, and what we do (and don't do) with your data.
+          </p>
+        </Card>
+
+        <!-- Core Security Principles -->
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">Core Security Principles</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <Lock class="w-5 h-5 text-blue-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">Local-First Architecture</h3>
+              </div>
+              <p class="text-muted-foreground">
+                All audio processing, transcription, and AI summarization happens on your Mac. Your meeting recordings never leave your device unless you explicitly choose to use cloud AI providers.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                  <Server class="w-5 h-5 text-green-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">No Cloud Storage</h3>
+              </div>
+              <p class="text-muted-foreground">
+                We don't operate cloud servers for storing your data. All recordings, transcripts, and notes are stored locally on your device in an encrypted database.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                  <Eye class="w-5 h-5 text-purple-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">Zero Knowledge</h3>
+              </div>
+              <p class="text-muted-foreground">
+                We have zero knowledge of your meeting content. We literally cannot access your recordings, transcripts, or summaries—they never touch our servers.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <CheckCircle class="w-5 h-5 text-orange-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">User Control</h3>
+              </div>
+              <p class="text-muted-foreground">
+                You have complete control over your data. You decide where files are stored, when to export them, and when to delete them. No hidden uploads or syncing.
+              </p>
+            </Card>
+          </div>
+        </div>
+
+        <!-- Security Architecture -->
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-6">Security Architecture</h2>
+
+          <div class="space-y-6">
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">Local Data Storage</h3>
+              <p class="text-muted-foreground mb-4">
+                All data is stored in an encrypted SQLite database on your Mac using:
+              </p>
+              <ul class="list-disc list-inside text-muted-foreground space-y-2">
+                <li>macOS file system encryption (FileVault support)</li>
+                <li>Sandboxed application storage for additional isolation</li>
+                <li>Secure credential storage using macOS Keychain</li>
+                <li>No plaintext sensitive data in logs or temporary files</li>
+              </ul>
+            </Card>
+
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">Local AI Processing</h3>
+              <p class="text-muted-foreground mb-4">
+                Audio transcription and AI summarization use local processing:
+              </p>
+              <ul class="list-disc list-inside text-muted-foreground space-y-2">
+                <li>Speech recognition runs entirely on your device</li>
+                <li>LM Studio integration for local language models</li>
+                <li>No audio files sent to external services</li>
+                <li>Processing happens in isolated application memory</li>
+              </ul>
+            </Card>
+
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">Optional Cloud AI (User-Configured)</h3>
+              <p class="text-muted-foreground mb-4">
+                If you choose to configure cloud AI providers:
+              </p>
+              <ul class="list-disc list-inside text-muted-foreground space-y-2">
+                <li>Only transcription <strong>text</strong> is sent—never audio recordings</li>
+                <li>You provide your own API keys (we don't store them on our servers)</li>
+                <li>Connections use TLS encryption in transit</li>
+                <li>Subject to the third-party provider's security and privacy policies</li>
+                <li>Can be disabled at any time to return to local-only processing</li>
+              </ul>
+            </Card>
+
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">Network Security</h3>
+              <p class="text-muted-foreground mb-4">
+                Summit AI Notes has minimal network requirements:
+              </p>
+              <ul class="list-disc list-inside text-muted-foreground space-y-2">
+                <li>License validation (once at activation, minimal data sent)</li>
+                <li>Optional software updates (can be disabled)</li>
+                <li>Optional cloud AI requests (only if you configure it)</li>
+                <li>All connections use TLS 1.3 or higher</li>
+                <li>No telemetry or analytics by default</li>
+              </ul>
+            </Card>
+          </div>
+        </section>
+
+        <!-- What We Don't Collect -->
+        <Card className="p-8 mb-12 bg-gradient-to-r from-green-50 to-blue-50 border-green-200">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <AlertTriangle class="w-6 h-6 text-green-600" />
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-foreground mb-3">What We Don't Collect</h2>
+              <p class="text-muted-foreground mb-4">
+                It's important to be explicit about what we don't collect:
+              </p>
+            </div>
+          </div>
+          <ul class="list-disc list-inside text-muted-foreground space-y-2">
+            <li><strong>Meeting Audio:</strong> Audio recordings stay on your device—we never receive them</li>
+            <li><strong>Transcripts:</strong> Transcription text is processed and stored locally</li>
+            <li><strong>AI Summaries:</strong> Meeting summaries remain on your device</li>
+            <li><strong>Meeting Content:</strong> We have no access to what's discussed in your meetings</li>
+            <li><strong>Usage Patterns:</strong> No telemetry about what features you use (unless you opt in)</li>
+            <li><strong>Search Queries:</strong> Searches happen locally—we don't see them</li>
+            <li><strong>File Names or Metadata:</strong> Your meeting organization is private</li>
+          </ul>
+        </Card>
+
+        <!-- Best Practices -->
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-6">Security Best Practices</h2>
+          <Card className="p-6">
+            <p class="text-muted-foreground mb-4">
+              While Summit AI Notes is designed with security in mind, we recommend these additional practices:
+            </p>
+            <ul class="list-disc list-inside text-muted-foreground space-y-3">
+              <li><strong>Enable FileVault:</strong> Use full-disk encryption on your Mac for additional protection</li>
+              <li><strong>Keep macOS Updated:</strong> Install security updates promptly</li>
+              <li><strong>Use Strong Passwords:</strong> Protect your Mac user account with a strong password</li>
+              <li><strong>Lock Your Screen:</strong> Enable automatic screen locking when away</li>
+              <li><strong>Backup Locally:</strong> Back up your Summit database to encrypted storage</li>
+              <li><strong>Use Local AI Only:</strong> For maximum privacy, use LM Studio instead of cloud providers</li>
+              <li><strong>Review Exports:</strong> Be mindful when exporting or sharing meeting content</li>
+            </ul>
+          </Card>
+        </section>
+
+        <!-- Compliance -->
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-6">Compliance Considerations</h2>
+          <Card className="p-6">
+            <p class="text-muted-foreground mb-4">
+              Summit's local-first architecture provides strong privacy protections that align with various regulatory requirements:
+            </p>
+            <ul class="list-disc list-inside text-muted-foreground space-y-3 mb-4">
+              <li><strong>GDPR:</strong> Local processing means minimal personal data leaves user control</li>
+              <li><strong>HIPAA:</strong> Healthcare users should evaluate based on their specific requirements and consult compliance teams</li>
+              <li><strong>Attorney-Client Privilege:</strong> Local processing helps maintain confidentiality</li>
+              <li><strong>Financial Services:</strong> Data residency requirements can be met through local processing</li>
+            </ul>
+            <p class="text-sm text-muted-foreground">
+              <strong>Note:</strong> Users in regulated industries should evaluate their specific compliance needs and consult with their legal/compliance teams before use.
+            </p>
+          </Card>
+        </section>
+
+        <!-- Vulnerability Reporting -->
+        <Card className="p-8 mb-12 bg-gradient-to-r from-red-50 to-pink-50 border-red-200">
+          <h2 class="text-2xl font-bold text-foreground mb-4">Responsible Disclosure</h2>
+          <p class="text-muted-foreground mb-4">
+            We take security vulnerabilities seriously. If you discover a security issue, please report it responsibly:
+          </p>
+          <ul class="list-disc list-inside text-muted-foreground space-y-2 mb-4">
+            <li>Email: <a href="mailto:security@summitnotes.app" class="text-blue-600 hover:underline">security@summitnotes.app</a></li>
+            <li>Provide detailed information about the vulnerability</li>
+            <li>Allow us reasonable time to address the issue before public disclosure</li>
+            <li>We'll acknowledge your report and keep you updated on our progress</li>
+          </ul>
+          <p class="text-muted-foreground">
+            We appreciate the security research community's efforts to keep our users safe.
+          </p>
+        </Card>
+
+        <!-- Questions -->
+        <Card className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-center">
+          <h2 class="text-2xl font-bold text-foreground mb-4">Security Questions?</h2>
+          <p class="text-muted-foreground mb-6">
+            Have questions about our security practices or architecture?
+          </p>
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Contact Us
+          </a>
+        </Card>
+      </div>
+    </div>
+  </div>
+  <Footer client:load />
+</Layout>
+
+<style>
+  :global(.dark) .prose {
+    --tw-prose-body: var(--foreground);
+    --tw-prose-headings: var(--foreground);
+  }
+</style>

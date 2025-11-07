@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation.astro';
 import HeroSection from '../components/HeroSection';
 import HowItWorks from '../components/HowItWorks';
 import FeaturesSection from '../components/FeaturesSection';
+import PricingSection from '../components/PricingSection';
 import WaitlistSignup from '../components/WaitlistSignup';
 import Footer from '../components/Footer';
 ---
@@ -19,6 +20,9 @@ import Footer from '../components/Footer';
     </div>
     <div id="features">
       <FeaturesSection client:load />
+    </div>
+    <div id="pricing">
+      <PricingSection client:load />
     </div>
     <div id="waitlist">
       <WaitlistSignup client:load />

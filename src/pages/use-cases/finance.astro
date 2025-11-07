@@ -1,0 +1,226 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Card } from '../../components/ui/card';
+import Footer from '../../components/Footer';
+import { TrendingUp, Shield, Clock, Target, CheckCircle, DollarSign } from 'lucide-react';
+---
+
+<Layout title="Summit AI Notes for Finance Professionals" description="Secure meeting documentation for financial advisors, analysts, and wealth managers. Client confidentiality guaranteed.">
+  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <TrendingUp class="w-8 h-8 text-green-600" />
+          </div>
+          <h1 class="text-5xl font-bold text-foreground mb-4">Summit AI Notes for Finance Professionals</h1>
+          <p class="text-xl text-muted-foreground">
+            Secure, compliant documentation for client meetings and financial planning
+          </p>
+        </div>
+
+        <!-- Key Value Prop -->
+        <Card className="p-8 mb-12 bg-gradient-to-r from-green-50 to-blue-50 border-green-200">
+          <h2 class="text-2xl font-bold text-foreground mb-4">Built for Financial Services</h2>
+          <p class="text-muted-foreground mb-4">
+            In finance, documentation is everything. Summit AI Notes helps advisors, analysts, and wealth managers maintain accurate records of client conversations, investment discussions, and financial planning sessions—all while ensuring complete data security.
+          </p>
+          <p class="text-muted-foreground">
+            With local processing, you can confidently discuss sensitive financial information without worrying about data breaches or regulatory compliance issues.
+          </p>
+        </Card>
+
+        <!-- Key Benefits -->
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">Why Finance Professionals Choose Summit</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                  <Shield class="w-5 h-5 text-green-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">Regulatory Compliance</h3>
+              </div>
+              <p class="text-muted-foreground">
+                Meet SEC, FINRA, and data protection requirements with local processing. All client financial data stays on your device under your control.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <CheckCircle class="w-5 h-5 text-blue-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">Accurate Client Records</h3>
+              </div>
+              <p class="text-muted-foreground">
+                Document investment goals, risk tolerance, and financial decisions with precision. Build comprehensive client files automatically.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                  <Clock class="w-5 h-5 text-purple-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">More Time for Clients</h3>
+              </div>
+              <p class="text-muted-foreground">
+                Stop spending hours on meeting notes and follow-ups. Reclaim time to focus on portfolio management and client relationships.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <Target class="w-5 h-5 text-orange-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">Better Client Service</h3>
+              </div>
+              <p class="text-muted-foreground">
+                Never forget a client's financial goal or concern. Search past conversations instantly to provide personalized, informed advice.
+              </p>
+            </Card>
+          </div>
+        </div>
+
+        <!-- Use Cases -->
+        <div class="prose prose-slate max-w-none mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-6">Perfect For</h2>
+
+          <div class="space-y-6">
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">Financial Advisors & Wealth Managers</h3>
+              <p class="text-muted-foreground">
+                Document client discovery meetings, quarterly reviews, and financial planning sessions. Maintain detailed records of investment decisions and suitability discussions for compliance.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">Investment Analysts</h3>
+              <p class="text-muted-foreground">
+                Capture insights from company management calls, investor briefings, and research discussions. Build comprehensive investment theses with accurate documentation.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">Financial Planners</h3>
+              <p class="text-muted-foreground">
+                Record comprehensive client intake sessions covering goals, risk tolerance, and financial situations. Generate detailed financial planning summaries automatically.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">Private Bankers</h3>
+              <p class="text-muted-foreground">
+                Document high-net-worth client discussions about estate planning, lending, and investment strategies. Maintain impeccable records for relationship management.
+              </p>
+            </Card>
+          </div>
+        </div>
+
+        <!-- Compliance -->
+        <Card className="p-8 mb-12 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <Shield class="w-6 h-6 text-blue-600" />
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-foreground mb-3">Compliance-Ready Documentation</h2>
+              <p class="text-muted-foreground mb-4">
+                Financial services demand rigorous data security and record-keeping. Summit AI Notes helps you meet these requirements:
+              </p>
+            </div>
+          </div>
+          <ul class="list-disc list-inside text-muted-foreground space-y-2">
+            <li>Local processing meets data residency requirements</li>
+            <li>No unauthorized third-party access to client information</li>
+            <li>Complete audit trail of all client conversations</li>
+            <li>Encrypted storage using macOS security features</li>
+            <li>Export capabilities for compliance archiving</li>
+            <li>Searchable records for regulatory inquiries</li>
+          </ul>
+        </Card>
+
+        <!-- Workflow -->
+        <Card className="p-8 mb-12 bg-gradient-to-r from-green-50 to-blue-50 border-green-200">
+          <h2 class="text-2xl font-bold text-foreground mb-6">Your Enhanced Client Meeting Workflow</h2>
+          <div class="space-y-4">
+            <div class="flex gap-4">
+              <div class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
+              <div>
+                <h4 class="font-semibold text-foreground mb-1">Client Meeting</h4>
+                <p class="text-muted-foreground">Record client reviews, planning sessions, or portfolio discussions</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
+              <div>
+                <h4 class="font-semibold text-foreground mb-1">AI Documentation</h4>
+                <p class="text-muted-foreground">Get structured notes with goals, decisions, and action items</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
+              <div>
+                <h4 class="font-semibold text-foreground mb-1">Update CRM</h4>
+                <p class="text-muted-foreground">Add notes to your client relationship management system</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
+              <div>
+                <h4 class="font-semibold text-foreground mb-1">Follow Through</h4>
+                <p class="text-muted-foreground">Execute on action items with complete context and clarity</p>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        <!-- ROI -->
+        <Card className="p-8 mb-12 bg-gradient-to-r from-orange-50 to-yellow-50 border-orange-200">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <DollarSign class="w-6 h-6 text-orange-600" />
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-foreground mb-3">Return on Investment</h2>
+              <p class="text-muted-foreground mb-4">
+                For a financial advisor managing 100 clients:
+              </p>
+              <ul class="list-disc list-inside text-muted-foreground space-y-2">
+                <li><strong>Time Saved:</strong> 5-8 hours per week on meeting documentation</li>
+                <li><strong>Better Service:</strong> More time for client relationships and portfolio management</li>
+                <li><strong>Risk Reduction:</strong> Complete documentation for compliance and dispute resolution</li>
+                <li><strong>Client Satisfaction:</strong> Faster follow-ups and more personalized service</li>
+              </ul>
+            </div>
+          </div>
+        </Card>
+
+        <!-- CTA -->
+        <Card className="p-8 bg-gradient-to-r from-green-50 to-blue-50 border-green-200 text-center">
+          <h2 class="text-2xl font-bold text-foreground mb-4">Elevate Your Financial Practice</h2>
+          <p class="text-muted-foreground mb-6">
+            Join financial professionals who trust Summit AI Notes for secure, compliant client documentation.
+          </p>
+          <a
+            href="/#waitlist"
+            class="inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
+          >
+            Join the Waitlist
+          </a>
+        </Card>
+      </div>
+    </div>
+  </div>
+  <Footer client:load />
+</Layout>
+
+<style>
+  :global(.dark) .prose {
+    --tw-prose-body: var(--foreground);
+    --tw-prose-headings: var(--foreground);
+  }
+</style>

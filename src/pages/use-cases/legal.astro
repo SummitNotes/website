@@ -1,0 +1,205 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Card } from '../../components/ui/card';
+import Footer from '../../components/Footer';
+import { Scale, Shield, Lock, FileCheck, Search, AlertTriangle } from 'lucide-react';
+---
+
+<Layout title="Summit AI Notes for Legal Professionals" description="Secure, confidential meeting transcription for attorneys and legal professionals. Attorney-client privilege protected.">
+  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Scale class="w-8 h-8 text-blue-600" />
+          </div>
+          <h1 class="text-5xl font-bold text-foreground mb-4">Summit AI Notes for Legal Professionals</h1>
+          <p class="text-xl text-muted-foreground">
+            Secure, confidential documentation that protects attorney-client privilege
+          </p>
+        </div>
+
+        <!-- Key Value Prop -->
+        <Card className="p-8 mb-12 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+          <h2 class="text-2xl font-bold text-foreground mb-4">Built for the Legal Profession</h2>
+          <p class="text-muted-foreground mb-4">
+            Legal work demands absolute confidentiality. Summit AI Notes processes everything locally on your device, ensuring attorney-client privilege is never compromised by cloud storage or third-party servers.
+          </p>
+          <p class="text-muted-foreground">
+            Generate accurate meeting notes, client intake summaries, and deposition reviews—all while maintaining the highest standards of data security.
+          </p>
+        </Card>
+
+        <!-- Key Benefits -->
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">Why Legal Professionals Trust Summit</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                  <Lock class="w-5 h-5 text-red-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">Attorney-Client Privilege</h3>
+              </div>
+              <p class="text-muted-foreground">
+                All conversations are processed locally. No third parties, no cloud storage, no data breaches. Your clients' confidential information stays absolutely private.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <FileCheck class="w-5 h-5 text-blue-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">Accurate Documentation</h3>
+              </div>
+              <p class="text-muted-foreground">
+                Capture precise details from client meetings, witness interviews, and internal case discussions. Never rely on memory when building your case.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                  <Search class="w-5 h-5 text-green-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">Instant Case Research</h3>
+              </div>
+              <p class="text-muted-foreground">
+                Quickly search through months of client conversations to find specific facts, statements, or details. Build stronger cases with better recall.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                  <Shield class="w-5 h-5 text-purple-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">Compliance Ready</h3>
+              </div>
+              <p class="text-muted-foreground">
+                Meet data security requirements for legal practice. All data remains on your device under your direct control, simplifying compliance.
+              </p>
+            </Card>
+          </div>
+        </div>
+
+        <!-- Use Cases -->
+        <div class="prose prose-slate max-w-none mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-6">Perfect For</h2>
+
+          <div class="space-y-6">
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">Solo Practitioners & Small Firms</h3>
+              <p class="text-muted-foreground">
+                Document client intake calls, case strategy sessions, and witness interviews without hiring additional staff. Generate professional notes instantly.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">Corporate Counsel</h3>
+              <p class="text-muted-foreground">
+                Keep accurate records of internal consultations, executive briefings, and compliance reviews. Maintain corporate confidentiality standards.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">Litigation Attorneys</h3>
+              <p class="text-muted-foreground">
+                Record case preparation discussions, client updates, and strategy meetings. Build comprehensive case files with searchable meeting archives.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">Transactional Lawyers</h3>
+              <p class="text-muted-foreground">
+                Document negotiation calls, due diligence meetings, and client advisory sessions. Track deal terms and key decisions throughout transactions.
+              </p>
+            </Card>
+          </div>
+        </div>
+
+        <!-- Security Features -->
+        <Card className="p-8 mb-12 bg-gradient-to-r from-red-50 to-orange-50 border-red-200">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <AlertTriangle class="w-6 h-6 text-red-600" />
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-foreground mb-3">Security That Meets Legal Standards</h2>
+              <p class="text-muted-foreground">
+                Summit AI Notes is designed with the legal profession's unique security requirements in mind:
+              </p>
+            </div>
+          </div>
+          <ul class="list-disc list-inside text-muted-foreground space-y-2">
+            <li>100% local processing - conversations never leave your Mac</li>
+            <li>Encrypted local storage using macOS security features</li>
+            <li>No cloud uploads, no third-party AI services (by default)</li>
+            <li>Optional cloud AI only if you explicitly configure API keys</li>
+            <li>Complete data sovereignty - you control where files are stored</li>
+            <li>No telemetry or analytics without explicit opt-in</li>
+          </ul>
+        </Card>
+
+        <!-- Workflow -->
+        <Card className="p-8 mb-12 bg-gradient-to-r from-blue-50 to-green-50 border-blue-200">
+          <h2 class="text-2xl font-bold text-foreground mb-6">Streamline Your Legal Practice</h2>
+          <div class="space-y-4">
+            <div class="flex gap-4">
+              <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
+              <div>
+                <h4 class="font-semibold text-foreground mb-1">Client Calls</h4>
+                <p class="text-muted-foreground">Record client meetings, witness interviews, and case discussions</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
+              <div>
+                <h4 class="font-semibold text-foreground mb-1">Automatic Transcription</h4>
+                <p class="text-muted-foreground">Get accurate transcripts processed entirely on your local device</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
+              <div>
+                <h4 class="font-semibold text-foreground mb-1">AI Summary</h4>
+                <p class="text-muted-foreground">Generate structured notes with key facts, issues, and action items</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
+              <div>
+                <h4 class="font-semibold text-foreground mb-1">Add to Case File</h4>
+                <p class="text-muted-foreground">Export to your practice management system or file storage</p>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        <!-- CTA -->
+        <Card className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-center">
+          <h2 class="text-2xl font-bold text-foreground mb-4">Protect Your Practice. Protect Your Clients.</h2>
+          <p class="text-muted-foreground mb-6">
+            Join legal professionals who trust Summit AI Notes for confidential client documentation.
+          </p>
+          <a
+            href="/#waitlist"
+            class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Join the Waitlist
+          </a>
+        </Card>
+      </div>
+    </div>
+  </div>
+  <Footer client:load />
+</Layout>
+
+<style>
+  :global(.dark) .prose {
+    --tw-prose-body: var(--foreground);
+    --tw-prose-headings: var(--foreground);
+  }
+</style>

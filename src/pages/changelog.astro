@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Card } from '../components/ui/card';
+import Footer from '../components/Footer';
+import { History, Sparkles } from 'lucide-react';
+---
+
+<Layout title="Changelog - Summit AI Notes" description="Product updates and release notes for Summit AI Notes">
+  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <History class="w-8 h-8 text-purple-600" />
+          </div>
+          <h1 class="text-5xl font-bold text-foreground mb-4">Changelog</h1>
+          <p class="text-xl text-muted-foreground">
+            Track our progress and see what's new
+          </p>
+        </div>
+
+        <!-- Pre-launch Notice -->
+        <Card className="p-12 text-center bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200 mb-12">
+          <div class="flex justify-center mb-6">
+            <Sparkles class="w-12 h-12 text-purple-600" />
+          </div>
+          <h2 class="text-3xl font-bold text-foreground mb-4">Coming Soon</h2>
+          <p class="text-lg text-muted-foreground mb-4">
+            Summit AI Notes is currently in development. Once we launch, this page will track all product updates, new features, and improvements.
+          </p>
+          <p class="text-muted-foreground">
+            Join our waitlist to be the first to know when we release!
+          </p>
+        </Card>
+
+        <!-- Development Roadmap Preview -->
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">What We're Building</h2>
+
+          <div class="space-y-6">
+            <Card className="p-6 border-l-4 border-l-blue-500">
+              <div class="flex items-start gap-4">
+                <div class="bg-blue-100 px-3 py-1 rounded-full text-sm font-semibold text-blue-700">
+                  In Progress
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-semibold text-foreground mb-3">Core Features</h3>
+                  <ul class="list-disc list-inside text-muted-foreground space-y-2">
+                    <li>Local audio recording and transcription</li>
+                    <li>AI-powered meeting summaries with action items</li>
+                    <li>LM Studio integration for local AI processing</li>
+                    <li>Cloud LLM support (OpenAI, Anthropic, Google)</li>
+                    <li>Meeting search and organization</li>
+                    <li>Export to text, PDF, and clipboard</li>
+                  </ul>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 border-l-4 border-l-purple-500">
+              <div class="flex items-start gap-4">
+                <div class="bg-purple-100 px-3 py-1 rounded-full text-sm font-semibold text-purple-700">
+                  Planned
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-semibold text-foreground mb-3">Enhanced Features</h3>
+                  <ul class="list-disc list-inside text-muted-foreground space-y-2">
+                    <li>Custom prompt templates for different meeting types</li>
+                    <li>Speaker identification and diarization</li>
+                    <li>Meeting tags and categories</li>
+                    <li>Advanced search with filters</li>
+                    <li>Calendar integration</li>
+                    <li>Batch processing for multiple recordings</li>
+                  </ul>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 border-l-4 border-l-green-500">
+              <div class="flex items-start gap-4">
+                <div class="bg-green-100 px-3 py-1 rounded-full text-sm font-semibold text-green-700">
+                  Future
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-semibold text-foreground mb-3">Advanced Capabilities</h3>
+                  <ul class="list-disc list-inside text-muted-foreground space-y-2">
+                    <li>Multi-language support</li>
+                    <li>Real-time transcription during meetings</li>
+                    <li>Integration with project management tools</li>
+                    <li>Team collaboration features</li>
+                    <li>Mobile companion app</li>
+                    <li>API for custom integrations</li>
+                  </ul>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+
+        <!-- What to Expect -->
+        <Card className="p-8 mb-12 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+          <h2 class="text-2xl font-bold text-foreground mb-4">What to Expect</h2>
+          <p class="text-muted-foreground mb-4">
+            We're committed to continuous improvement and regular updates. Once launched, you can expect:
+          </p>
+          <ul class="list-disc list-inside text-muted-foreground space-y-2">
+            <li>Regular feature updates and improvements</li>
+            <li>Bug fixes and performance enhancements</li>
+            <li>New AI model support and optimizations</li>
+            <li>User-requested features based on feedback</li>
+            <li>Transparent communication about changes</li>
+          </ul>
+        </Card>
+
+        <!-- Newsletter Signup -->
+        <Card className="p-8 bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200 text-center">
+          <h2 class="text-2xl font-bold text-foreground mb-4">Stay Updated on Product Releases</h2>
+          <p class="text-muted-foreground mb-6">
+            Join our waitlist to receive updates on new features, improvements, and release announcements.
+          </p>
+          <a
+            href="/#waitlist"
+            class="inline-flex items-center justify-center px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors"
+          >
+            Join Waitlist
+          </a>
+        </Card>
+      </div>
+    </div>
+  </div>
+  <Footer client:load />
+</Layout>
+
+<style>
+  :global(.dark) .prose {
+    --tw-prose-body: var(--foreground);
+    --tw-prose-headings: var(--foreground);
+  }
+</style>

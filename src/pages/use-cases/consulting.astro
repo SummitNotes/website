@@ -1,0 +1,182 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Card } from '../../components/ui/card';
+import Footer from '../../components/Footer';
+import { Briefcase, Clock, Shield, FileText, TrendingUp, Users } from 'lucide-react';
+---
+
+<Layout title="Summit AI Notes for Consultants" description="Transform your consulting practice with AI-powered meeting notes. Privacy-first transcription for client calls.">
+  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Briefcase class="w-8 h-8 text-blue-600" />
+          </div>
+          <h1 class="text-5xl font-bold text-foreground mb-4">Summit AI Notes for Consultants</h1>
+          <p class="text-xl text-muted-foreground">
+            Focus on delivering value to clients while Summit captures every detail
+          </p>
+        </div>
+
+        <!-- Key Value Prop -->
+        <Card className="p-8 mb-12 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+          <h2 class="text-2xl font-bold text-foreground mb-4">Built for Independent Consultants</h2>
+          <p class="text-muted-foreground mb-4">
+            As a consultant, your time is your most valuable asset. Summit AI Notes helps you reclaim hours each week by automatically capturing, transcribing, and summarizing client calls—all while maintaining the privacy and confidentiality your clients expect.
+          </p>
+          <p class="text-muted-foreground">
+            With local AI processing, you can confidently work with sensitive client information without worrying about data leaks or compliance issues.
+          </p>
+        </Card>
+
+        <!-- Key Benefits -->
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">Why Consultants Choose Summit</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                  <Clock class="w-5 h-5 text-green-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">Save 5+ Hours Per Week</h3>
+              </div>
+              <p class="text-muted-foreground">
+                Stop spending hours manually writing up meeting notes. Summit automatically generates comprehensive summaries with action items, letting you focus on billable work.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <Shield class="w-5 h-5 text-blue-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">Client Confidentiality</h3>
+              </div>
+              <p class="text-muted-foreground">
+                All processing happens locally on your Mac. Client conversations, proprietary information, and strategic discussions never leave your device.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                  <FileText class="w-5 h-5 text-purple-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">Professional Documentation</h3>
+              </div>
+              <p class="text-muted-foreground">
+                Generate polished meeting summaries instantly. Perfect for client updates, project documentation, and keeping stakeholders aligned.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <TrendingUp class="w-5 h-5 text-orange-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">Never Miss an Insight</h3>
+              </div>
+              <p class="text-muted-foreground">
+                Capture every detail from client conversations. Easily search past meetings to recall specific discussions, decisions, or requirements.
+              </p>
+            </Card>
+          </div>
+        </div>
+
+        <!-- Use Cases -->
+        <div class="prose prose-slate max-w-none mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-6">Perfect For</h2>
+
+          <div class="space-y-6">
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">Strategy Consultants</h3>
+              <p class="text-muted-foreground">
+                Document stakeholder interviews, executive briefings, and strategic planning sessions. Keep complex projects on track with searchable meeting archives and clear action items.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">Management Consultants</h3>
+              <p class="text-muted-foreground">
+                Capture detailed notes from discovery calls, process reviews, and client workshops. Generate executive summaries and track project milestones effortlessly.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">Technology Consultants</h3>
+              <p class="text-muted-foreground">
+                Record technical requirements gathering, architecture reviews, and client demos. Summit captures technical details and decisions that might otherwise be forgotten.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">Fractional Executives</h3>
+              <p class="text-muted-foreground">
+                Manage multiple client engagements with ease. Keep track of each organization's context, decisions, and action items without mixing details between clients.
+              </p>
+            </Card>
+          </div>
+        </div>
+
+        <!-- Workflow -->
+        <Card className="p-8 mb-12 bg-gradient-to-r from-green-50 to-blue-50 border-green-200">
+          <h2 class="text-2xl font-bold text-foreground mb-6">Your New Client Call Workflow</h2>
+          <div class="space-y-4">
+            <div class="flex gap-4">
+              <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
+              <div>
+                <h4 class="font-semibold text-foreground mb-1">Start Recording</h4>
+                <p class="text-muted-foreground">One click to begin capturing your client call</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
+              <div>
+                <h4 class="font-semibold text-foreground mb-1">Stay Engaged</h4>
+                <p class="text-muted-foreground">Focus entirely on your client conversation without note-taking distractions</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
+              <div>
+                <h4 class="font-semibold text-foreground mb-1">Get Instant Summary</h4>
+                <p class="text-muted-foreground">Receive a professional summary with key points and action items within minutes</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
+              <div>
+                <h4 class="font-semibold text-foreground mb-1">Share & Act</h4>
+                <p class="text-muted-foreground">Send follow-up emails and start executing while details are fresh</p>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        <!-- CTA -->
+        <Card className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-center">
+          <h2 class="text-2xl font-bold text-foreground mb-4">Ready to Transform Your Consulting Practice?</h2>
+          <p class="text-muted-foreground mb-6">
+            Join consultants who have reclaimed their time and improved client satisfaction with Summit AI Notes.
+          </p>
+          <a
+            href="/#waitlist"
+            class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Join the Waitlist
+          </a>
+        </Card>
+      </div>
+    </div>
+  </div>
+  <Footer client:load />
+</Layout>
+
+<style>
+  :global(.dark) .prose {
+    --tw-prose-body: var(--foreground);
+    --tw-prose-headings: var(--foreground);
+  }
+</style>
