@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   title?: string;
@@ -8,7 +8,7 @@ interface Props {
 
 const {
   title = "Summit AI Notes - AI Meeting Notes for Consultants",
-  description = "Record, transcribe, and summarize meetings with local AI processing. Privacy-first meeting documentation for independent consultants."
+  description = "Record, transcribe, and summarize meetings with local AI processing. Privacy-first meeting documentation for independent consultants.",
 } = Astro.props;
 ---
 
@@ -18,7 +18,7 @@ const {
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Geist Fonts -->
@@ -33,8 +33,9 @@ const {
 
     <style is:inline>
       :root {
-        --font-geist-sans: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-        --font-geist-mono: 'Geist Mono', 'Courier New', Courier, monospace;
+        --font-geist-sans: "Geist Sans", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Helvetica, Arial, sans-serif;
+        --font-geist-mono: "Geist Mono", "Courier New", Courier, monospace;
       }
 
       body {
