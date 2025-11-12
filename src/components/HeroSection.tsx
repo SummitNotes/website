@@ -90,7 +90,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </a>
-                <Button variant="outline" size="lg" className="px-8 py-6 text-lg font-semibold group">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="px-8 py-6 text-lg font-semibold group"
+                  onClick={() => {
+                    const element = document.getElementById('how-it-works');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
                   <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                   {secondaryCtaText}
                 </Button>
