@@ -93,12 +93,13 @@ const Navigation: React.FC<NavigationProps> = ({ onWaitlistClick }) => {
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
-            <Button
-              onClick={handleWaitlistClick}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold"
-            >
-              Download
-            </Button>
+            <a href="https://apps.apple.com/de/app/summit-ai-notes/id6754717420?l=en-GB&mt=12" target="_blank" rel="noopener noreferrer">
+              <Button
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+              >
+                Download
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -150,12 +151,13 @@ const Navigation: React.FC<NavigationProps> = ({ onWaitlistClick }) => {
                 About
               </a>
               <div className="px-4 pt-2">
-                <Button
-                  onClick={handleWaitlistClick}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
-                >
-                  Download
-                </Button>
+                <a href="https://apps.apple.com/de/app/summit-ai-notes/id6754717420?l=en-GB&mt=12" target="_blank" rel="noopener noreferrer" className="block">
+                  <Button
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+                  >
+                    Download
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

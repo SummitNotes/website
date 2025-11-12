@@ -44,7 +44,7 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
               </li>
               <li>
                 <a
-                  href="#download"
+                  href="https://apps.apple.com/de/app/summit-ai-notes/id6754717420?l=en-GB&mt=12"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Download

@@ -84,10 +84,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg font-semibold group">
-                  {ctaText}
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <a href="https://apps.apple.com/de/app/summit-ai-notes/id6754717420?l=en-GB&mt=12" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg font-semibold group">
+                    {ctaText}
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </a>
                 <Button variant="outline" size="lg" className="px-8 py-6 text-lg font-semibold group">
                   <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                   {secondaryCtaText}
