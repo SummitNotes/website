@@ -7,7 +7,7 @@ order: 1
 
 # LM Studio Setup Guide
 
-LM Studio enables you to run Large Language Models locally on your Mac, providing 100% privacy for your meeting summaries. This guide will walk you through the complete setup process.
+LM Studio enables you to run Large Language Models on your hardware, i.e. a dedicated server in the office or a gaming PC you might have, providing 100% privacy for your meeting summaries. This guide will walk you through the complete setup process.
 
 ## Why LM Studio?
 
@@ -15,23 +15,23 @@ LM Studio enables you to run Large Language Models locally on your Mac, providin
 - **No Ongoing Costs**: Free after initial setup
 - **No Internet Required**: Works offline
 - **Full Control**: Choose and customize your models
-- **Fast Processing**: Optimized for Apple Silicon (M1/M2/M3)
+- **Flexible**: You can use your PC hardware to free up resources on your working laptop
 
 ## System Requirements
 
 ### Minimum Requirements
-- **Mac**: M1 or newer (M2/M3 recommended)
-- **RAM**: 8GB (16GB+ recommended)
+- **For Mac** any mac with M1 or newer chip
+- **For PC** any modern PC CPU
+- **RAM/VRAM**: at least 16GB on mac, at least 8GB on PC GPU
 - **Storage**: 10GB free space (for models)
-- **macOS**: 12.0 (Monterey) or later
 
 ### Recommended Specifications
-- **Mac**: M2 Pro/Max or M3 Pro/Max
-- **RAM**: 32GB or more
+- **Mac**: M2 Pro/Max or M4 Pro/Max
+- **For PC** any modern PC CPU, GPU will do most of the work
+- **RAM/VRAM**: 32GB or more on Mac, 10GB or more on PC GPU
 - **Storage**: 50GB+ free space (for multiple models)
-- **macOS**: Latest version
 
-> **Note**: Larger models (70B parameters) require more RAM. 8B models work well on base M1/M2 with 8GB RAM.
+> **Note**: Larger models (70B parameters) require more RAM/VRAM.
 
 ## Installation Steps
 
@@ -43,17 +43,11 @@ LM Studio enables you to run Large Language Models locally on your Mac, providin
 
 ### Step 2: Install LM Studio
 
-1. Open the downloaded `.dmg` file
-2. Drag **LM Studio** to your Applications folder
-3. Open LM Studio from Applications
-4. If you see a security warning:
-   - Go to **System Settings** → **Privacy & Security**
-   - Click **Open Anyway** next to the LM Studio warning
-   - Confirm by clicking **Open**
+1. [Follow the instructions on the website](https://lmstudio.ai/docs/app/basics)
 
 ### Step 3: Download a Language Model
 
-LM Studio needs a language model to generate summaries. We recommend starting with a smaller, faster model.
+LM Studio needs a language model to generate summaries. Good models to try: Qwen3 4B-8B, GPT-OSS-20B
 
 #### Recommended Models for Summit AI Notes
 
