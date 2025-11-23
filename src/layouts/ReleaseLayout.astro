@@ -1,0 +1,114 @@
+---
+import Layout from "./Layout.astro";
+import { Separator } from "../components/ui/separator";
+import { ArrowLeft } from "lucide-react";
+
+interface Props {
+  version: string;
+  date: string;
+  title?: string;
+}
+
+const { version, date, title = `Summit AI Notes ${version}` } = Astro.props;
+---
+
+<Layout
+  title={`${title} - Release Notes`}
+  description={`What's new in Summit AI Notes ${version}`}
+>
+  <div
+    class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
+  >
+    <!-- Header with Logo -->
+    <header
+      class="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+    >
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex items-center justify-between max-w-4xl mx-auto">
+          <a
+            href="/"
+            class="flex items-center gap-3 hover:opacity-80 transition-opacity"
+          >
+            <img
+              src="/logo512x512.png"
+              alt="Summit AI Notes"
+              class="w-10 h-10 rounded-lg"
+            />
+            <div class="flex flex-col">
+              <span class="text-lg font-semibold text-foreground"
+                >Summit AI Notes</span
+              >
+              <span class="text-xs text-muted-foreground"
+                >Release Notes {version}</span
+              >
+            </div>
+          </a>
+
+          <a
+            href="/"
+            class="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ArrowLeft class="w-4 h-4" />
+            Back to Home
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-2">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-background">
+          <!-- Release Notes Content -->
+          <article
+            class="prose prose-slate max-w-none
+            prose-headings:text-foreground prose-headings:font-bold
+            prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-border
+            prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+            prose-h4:text-xl prose-h4:mt-6 prose-h4:mb-3
+            prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:text-base
+            prose-ul:text-muted-foreground prose-ul:my-6 prose-ul:space-y-3
+            prose-li:text-base prose-li:leading-relaxed
+            prose-li:marker:text-blue-600
+            prose-strong:text-foreground prose-strong:font-semibold
+            prose-code:text-foreground prose-code:bg-muted prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none
+            prose-pre:bg-muted prose-pre:border prose-pre:border-border
+            prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium
+            prose-blockquote:border-l-blue-600 prose-blockquote:bg-blue-50 prose-blockquote:py-3 prose-blockquote:px-5 prose-blockquote:not-italic
+            prose-blockquote:text-muted-foreground"
+          >
+            <slot />
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+</Layout>
+
+<style>
+  /* Custom list styling for feature lists */
+  article :global(ul li) {
+    position: relative;
+    padding-left: 0.5rem;
+  }
+
+  /* Enhance list markers */
+  article :global(ul li::marker) {
+    font-weight: 600;
+  }
+
+  /* Dark mode prose overrides */
+  :global(.dark) article {
+    --tw-prose-body: var(--muted-foreground);
+    --tw-prose-headings: var(--foreground);
+    --tw-prose-links: rgb(59 130 246);
+    --tw-prose-bold: var(--foreground);
+    --tw-prose-code: var(--foreground);
+    --tw-prose-quotes: var(--muted-foreground);
+  }
+
+  /* Dark mode blockquote */
+  :global(.dark) article :global(blockquote) {
+    background-color: rgb(59 130 246 / 0.1);
+  }
+</style>
