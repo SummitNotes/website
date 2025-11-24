@@ -1,20 +1,36 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { Card } from '../components/ui/card';
-import Footer from '../components/Footer';
-import { HelpCircle, Shield, Cpu, DollarSign, Download, Zap } from 'lucide-react';
+import Layout from "../layouts/Layout.astro";
+import { Card } from "../components/ui/card";
+import Footer from "../components/Footer";
+import {
+  HelpCircle,
+  Shield,
+  Cpu,
+  DollarSign,
+  Download,
+  Zap,
+} from "lucide-react";
 ---
 
-<Layout title="FAQ - Summit AI Notes" description="Frequently asked questions about Summit AI Notes">
-  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+<Layout
+  title="FAQ - Summit AI Notes"
+  description="Frequently asked questions about Summit AI Notes"
+>
+  <div
+    class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
+  >
     <div class="container mx-auto px-4 py-16">
       <div class="max-w-4xl mx-auto">
         <!-- Header -->
         <div class="text-center mb-16">
-          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div
+            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
+          >
             <HelpCircle class="w-8 h-8 text-blue-600" />
           </div>
-          <h1 class="text-5xl font-bold text-foreground mb-4">Frequently Asked Questions</h1>
+          <h1 class="text-5xl font-bold text-foreground mb-4">
+            Frequently Asked Questions
+          </h1>
           <p class="text-xl text-muted-foreground">
             Everything you need to know about Summit AI Notes
           </p>
@@ -28,36 +44,62 @@ import { HelpCircle, Shield, Cpu, DollarSign, Download, Zap } from 'lucide-react
           </div>
           <div class="space-y-4">
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">What is Summit AI Notes?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                What is Summit AI Notes?
+              </h3>
               <p class="text-muted-foreground">
-                Summit AI Notes is a macOS application that records, transcribes, and summarizes your meetings using AI. Unlike cloud-based solutions, all processing happens locally on your Mac, ensuring complete privacy and data security.
+                Summit AI Notes is a macOS application that records,
+                transcribes, and summarizes your meetings using AI. Unlike
+                cloud-based solutions, all processing happens locally on your
+                Mac, ensuring complete privacy and data security.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Who is Summit AI Notes for?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Who is Summit AI Notes for?
+              </h3>
               <p class="text-muted-foreground">
-                Summit is designed for professionals who need to document meetings while maintaining confidentiality—including consultants, lawyers, financial advisors, healthcare providers, and anyone handling sensitive client information.
+                Summit is designed for professionals who need to document
+                meetings while maintaining confidentiality—including
+                consultants, lawyers, financial advisors, healthcare providers,
+                and anyone handling sensitive client information.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">What makes Summit different from other meeting note apps?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                What makes Summit different from other meeting note apps?
+              </h3>
               <p class="text-muted-foreground mb-3">
-                The key difference is privacy. While most meeting apps send your audio and conversations to the cloud, Summit processes everything locally on your Mac. This means:
+                The key difference is privacy. While most meeting apps send your
+                audio and conversations to the cloud, Summit processes
+                everything locally on your Mac. This means:
               </p>
-              <ul class="list-disc list-inside text-muted-foreground space-y-1 ml-4">
+              <ul
+                class="list-disc list-inside text-muted-foreground space-y-1 ml-4"
+              >
                 <li>Your client conversations never leave your device</li>
                 <li>No third-party AI services have access to your data</li>
-                <li>You maintain complete control over your meeting recordings</li>
-                <li>Ideal for confidential discussions in legal, financial, and consulting work</li>
+                <li>
+                  You maintain complete control over your meeting recordings
+                </li>
+                <li>
+                  Ideal for confidential discussions in legal, financial, and
+                  consulting work
+                </li>
               </ul>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Does Summit work with Zoom, Teams, and other video conferencing apps?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Does Summit work with Zoom, Teams, and other video conferencing
+                apps?
+              </h3>
               <p class="text-muted-foreground">
-                Yes! Summit can record audio from any application on your Mac, including Zoom, Microsoft Teams, Google Meet, phone calls, and in-person meetings.
+                Yes! Summit can record audio from any application on your Mac,
+                including Zoom, Microsoft Teams, Google Meet, phone calls, and
+                in-person meetings.
               </p>
             </Card>
           </div>
@@ -67,34 +109,58 @@ import { HelpCircle, Shield, Cpu, DollarSign, Download, Zap } from 'lucide-react
         <section class="mb-12">
           <div class="flex items-center gap-3 mb-6">
             <Shield class="w-6 h-6 text-green-600" />
-            <h2 class="text-3xl font-bold text-foreground">Privacy & Security</h2>
+            <h2 class="text-3xl font-bold text-foreground">
+              Privacy & Security
+            </h2>
           </div>
           <div class="space-y-4">
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">How does local processing work?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                How does local processing work?
+              </h3>
               <p class="text-muted-foreground">
-                Summit uses AI models that run entirely on your Mac. When you record a meeting, the audio is transcribed using local speech recognition, then summarized using a local language model (like LM Studio) or optionally a cloud provider you configure. By default, nothing is sent to external servers.
+                Summit uses AI models that run entirely on your Mac. When you
+                record a meeting, the audio is transcribed using local speech
+                recognition, then summarized using a local language model (like
+                LM Studio) or optionally a cloud provider you configure. By
+                default, nothing is sent to external servers.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Where is my data stored?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Where is my data stored?
+              </h3>
               <p class="text-muted-foreground">
-                All recordings, transcripts, and notes are stored locally on your Mac in an encrypted database. You have complete control over where files are saved and can export or delete them at any time.
+                All recordings, transcripts, and notes are stored locally on
+                your Mac in an encrypted database. You have complete control
+                over where files are saved and can export or delete them at any
+                time.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Can I use cloud AI providers like OpenAI or Anthropic?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Can I use cloud AI providers like OpenAI or Anthropic?
+              </h3>
               <p class="text-muted-foreground">
-                Yes, Summit supports optional cloud AI providers for summarization. If you choose to use them, only the transcription text is sent—never the audio recording. However, for maximum privacy, we recommend using local AI models via LM Studio.
+                Yes, Summit supports optional cloud AI providers for
+                summarization. If you choose to use them, only the transcription
+                text is sent—never the audio recording. However, for maximum
+                privacy, we recommend using local AI models via LM Studio.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Is Summit HIPAA/GDPR compliant?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Is Summit HIPAA/GDPR compliant?
+              </h3>
               <p class="text-muted-foreground">
-                Because all data processing happens locally on your device, Summit inherently provides strong privacy protections. However, users in regulated industries should evaluate their specific compliance requirements and consult with their legal teams. We recommend using local AI models only for maximum compliance.
+                Because all data processing happens locally on your device,
+                Summit inherently provides strong privacy protections. However,
+                users in regulated industries should evaluate their specific
+                compliance requirements and consult with their legal teams. We
+                recommend using local AI models only for maximum compliance.
               </p>
             </Card>
           </div>
@@ -104,15 +170,21 @@ import { HelpCircle, Shield, Cpu, DollarSign, Download, Zap } from 'lucide-react
         <section class="mb-12">
           <div class="flex items-center gap-3 mb-6">
             <Cpu class="w-6 h-6 text-purple-600" />
-            <h2 class="text-3xl font-bold text-foreground">Technical Requirements</h2>
+            <h2 class="text-3xl font-bold text-foreground">
+              Technical Requirements
+            </h2>
           </div>
           <div class="space-y-4">
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">What are the system requirements?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                What are the system requirements?
+              </h3>
               <p class="text-muted-foreground mb-3">
                 Summit AI Notes requires:
               </p>
-              <ul class="list-disc list-inside text-muted-foreground space-y-1 ml-4">
+              <ul
+                class="list-disc list-inside text-muted-foreground space-y-1 ml-4"
+              >
                 <li>macOS 12 (Monterey) or later</li>
                 <li>Apple Silicon (M1/M2/M3) or Intel Mac</li>
                 <li>8GB RAM minimum (16GB recommended for local AI)</li>
@@ -121,23 +193,37 @@ import { HelpCircle, Shield, Cpu, DollarSign, Download, Zap } from 'lucide-react
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Do I need powerful hardware for local AI?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Do I need powerful hardware for local AI?
+              </h3>
               <p class="text-muted-foreground">
-                Apple Silicon Macs (M1 and newer) provide excellent performance for local AI processing. Intel Macs can also run Summit, though transcription and summarization may take longer. Alternatively, you can use cloud AI providers for faster processing.
+                Apple Silicon Macs (M1 and newer) provide excellent performance
+                for local AI processing. Intel Macs can also run Summit, though
+                transcription and summarization may take longer. Alternatively,
+                you can use cloud AI providers for faster processing.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">How much disk space do recordings take?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                How much disk space do recordings take?
+              </h3>
               <p class="text-muted-foreground">
-                Audio recordings use approximately 1-2 MB per minute. A one-hour meeting typically requires 60-120 MB. Transcripts and summaries are text files and use minimal space.
+                Audio recordings use approximately 1-2 MB per minute. A one-hour
+                meeting typically requires 60-120 MB. Transcripts and summaries
+                are text files and use minimal space.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">What is LM Studio?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                What is LM Studio?
+              </h3>
               <p class="text-muted-foreground">
-                LM Studio is a free application that lets you run large language models locally on your Mac. Summit integrates with LM Studio to provide completely private AI summarization without sending data to cloud services.
+                LM Studio is a free application that lets you run large language
+                models locally on your Mac. Summit integrates with LM Studio to
+                provide completely private AI summarization without sending data
+                to cloud services.
               </p>
             </Card>
           </div>
@@ -151,37 +237,57 @@ import { HelpCircle, Shield, Cpu, DollarSign, Download, Zap } from 'lucide-react
           </div>
           <div class="space-y-4">
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">What languages does Summit support?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                What languages does Summit support?
+              </h3>
               <p class="text-muted-foreground">
-                Summit currently supports English transcription and summarization. Support for additional languages is planned for future releases.
+                Summit currently supports English transcription and
+                summarization. Support for additional languages is planned for
+                future releases.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Can I edit transcripts and summaries?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Can I edit transcripts and summaries?
+              </h3>
               <p class="text-muted-foreground">
-                Yes! All transcripts and AI-generated summaries are fully editable. You can review and refine them before sharing or exporting.
+                Yes! All transcripts and AI-generated summaries are fully
+                editable. You can review and refine them before sharing or
+                exporting.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Can I customize the AI summary format?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Can I customize the AI summary format?
+              </h3>
               <p class="text-muted-foreground">
-                Yes, Summit allows you to customize prompt templates to generate summaries in your preferred format, whether that's bullet points, detailed paragraphs, action items, or custom structures.
+                Yes, Summit allows you to customize prompt templates to generate
+                summaries in your preferred format, whether that's bullet
+                points, detailed paragraphs, action items, or custom structures.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Can I search through past meetings?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Can I search through past meetings?
+              </h3>
               <p class="text-muted-foreground">
-                Yes! Summit includes powerful search functionality so you can quickly find specific topics, decisions, or action items from any past meeting.
+                Yes! Summit includes powerful search functionality so you can
+                quickly find specific topics, decisions, or action items from
+                any past meeting.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">How do I export notes?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                How do I export notes?
+              </h3>
               <p class="text-muted-foreground">
-                You can export transcripts and summaries as text files, PDFs, or copy them directly to your clipboard for pasting into other applications.
+                You can export transcripts and summaries as text files, PDFs, or
+                copy them directly to your clipboard for pasting into other
+                applications.
               </p>
             </Card>
           </div>
@@ -191,42 +297,60 @@ import { HelpCircle, Shield, Cpu, DollarSign, Download, Zap } from 'lucide-react
         <section class="mb-12">
           <div class="flex items-center gap-3 mb-6">
             <DollarSign class="w-6 h-6 text-green-600" />
-            <h2 class="text-3xl font-bold text-foreground">Pricing & Availability</h2>
+            <h2 class="text-3xl font-bold text-foreground">
+              Pricing & Availability
+            </h2>
           </div>
           <div class="space-y-4">
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">When will Summit AI Notes be available?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                When will Summit AI Notes be available?
+              </h3>
               <p class="text-muted-foreground">
-                Summit is currently in development. Join our waitlist to be notified when we launch and receive early access.
+                Summit is currently in development. Join our waitlist to be
+                notified when we launch and receive early access.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">How much will Summit cost?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                How much will Summit cost?
+              </h3>
               <p class="text-muted-foreground">
-                Pricing details will be announced closer to launch. We're committed to offering fair, transparent pricing that provides excellent value for professionals. Waitlist members will receive special early access pricing.
+                Pricing details will be announced closer to launch. We're
+                committed to offering fair, transparent pricing that provides
+                excellent value for professionals. Waitlist members will receive
+                special early access pricing.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Will there be a free trial?</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Will there be a free trial?
+              </h3>
               <p class="text-muted-foreground">
-                Yes! We plan to offer a free trial so you can experience Summit's privacy-first approach and see how it fits into your workflow before committing.
+                Yes! We plan to offer a free trial so you can experience
+                Summit's privacy-first approach and see how it fits into your
+                workflow before committing.
               </p>
             </Card>
           </div>
         </section>
 
         <!-- CTA -->
-        <Card className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-center">
-          <h2 class="text-2xl font-bold text-foreground mb-4">Still Have Questions?</h2>
+        <Card
+          className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-center"
+        >
+          <h2 class="text-2xl font-bold text-foreground mb-4">
+            Still Have Questions?
+          </h2>
           <p class="text-muted-foreground mb-6">
             Can't find what you're looking for? Reach out to us directly.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/support"
-              class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+              class="inline-flex items-center justify-center px-6 py-3 bg-sky-400 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
             >
               Contact Support
             </a>

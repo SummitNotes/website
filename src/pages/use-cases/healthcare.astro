@@ -1,20 +1,36 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { Card } from '../../components/ui/card';
-import Footer from '../../components/Footer';
-import { Heart, Shield, UserCheck, FileText, Lock, AlertCircle } from 'lucide-react';
+import Layout from "../../layouts/Layout.astro";
+import { Card } from "../../components/ui/card";
+import Footer from "../../components/Footer";
+import {
+  Heart,
+  Shield,
+  UserCheck,
+  FileText,
+  Lock,
+  AlertCircle,
+} from "lucide-react";
 ---
 
-<Layout title="Summit AI Notes for Healthcare Professionals" description="HIPAA-compliant local transcription for healthcare providers. Secure patient consultation documentation.">
-  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+<Layout
+  title="Summit AI Notes for Healthcare Professionals"
+  description="HIPAA-compliant local transcription for healthcare providers. Secure patient consultation documentation."
+>
+  <div
+    class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
+  >
     <div class="container mx-auto px-4 py-16">
       <div class="max-w-4xl mx-auto">
         <!-- Header -->
         <div class="text-center mb-16">
-          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div
+            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
+          >
             <Heart class="w-8 h-8 text-blue-600" />
           </div>
-          <h1 class="text-5xl font-bold text-foreground mb-4">Summit AI Notes for Healthcare</h1>
+          <h1 class="text-5xl font-bold text-foreground mb-4">
+            Summit AI Notes for Healthcare
+          </h1>
           <p class="text-xl text-muted-foreground">
             Secure documentation for patient consultations with privacy built-in
           </p>
@@ -25,74 +41,114 @@ import { Heart, Shield, UserCheck, FileText, Lock, AlertCircle } from 'lucide-re
           <div class="flex items-start gap-4">
             <AlertCircle class="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" />
             <div>
-              <h3 class="text-lg font-semibold text-foreground mb-2">Important: Healthcare Use Case</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-2">
+                Important: Healthcare Use Case
+              </h3>
               <p class="text-muted-foreground">
-                Summit AI Notes processes all data locally on your device, which provides strong privacy protections. However, users in healthcare should evaluate their specific compliance requirements and consult with their legal/compliance teams before using for patient-facing documentation. Summit AI Notes is ideal for administrative meetings, team discussions, and non-PHI use cases.
+                Summit AI Notes processes all data locally on your device, which
+                provides strong privacy protections. However, users in
+                healthcare should evaluate their specific compliance
+                requirements and consult with their legal/compliance teams
+                before using for patient-facing documentation. Summit AI Notes
+                is ideal for administrative meetings, team discussions, and
+                non-PHI use cases.
               </p>
             </div>
           </div>
         </Card>
 
         <!-- Key Value Prop -->
-        <Card className="p-8 mb-12 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
-          <h2 class="text-2xl font-bold text-foreground mb-4">Privacy-First Healthcare Documentation</h2>
+        <Card
+          className="p-8 mb-12 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200"
+        >
+          <h2 class="text-2xl font-bold text-foreground mb-4">
+            Privacy-First Healthcare Documentation
+          </h2>
           <p class="text-muted-foreground mb-4">
-            Healthcare professionals need to balance comprehensive documentation with patient privacy. Summit AI Notes helps by processing everything locally on your Mac, ensuring sensitive health information never leaves your device.
+            Healthcare professionals need to balance comprehensive documentation
+            with patient privacy. Summit AI Notes helps by processing everything
+            locally on your Mac, ensuring sensitive health information never
+            leaves your device.
           </p>
           <p class="text-muted-foreground">
-            Perfect for telehealth consultations, care coordination meetings, medical team discussions, and administrative work.
+            Perfect for telehealth consultations, care coordination meetings,
+            medical team discussions, and administrative work.
           </p>
         </Card>
 
         <!-- Key Benefits -->
         <div class="mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">Why Healthcare Professionals Choose Summit</h2>
+          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
+            Why Healthcare Professionals Choose Summit
+          </h2>
           <div class="grid md:grid-cols-2 gap-6">
             <Card className="p-6">
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                <div
+                  class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center"
+                >
                   <Lock class="w-5 h-5 text-red-600" />
                 </div>
-                <h3 class="text-lg font-semibold text-foreground">Patient Privacy</h3>
+                <h3 class="text-lg font-semibold text-foreground">
+                  Patient Privacy
+                </h3>
               </div>
               <p class="text-muted-foreground">
-                All processing happens locally on your device. Patient health information stays completely private with no cloud uploads or third-party access.
+                All processing happens locally on your device. Patient health
+                information stays completely private with no cloud uploads or
+                third-party access.
               </p>
             </Card>
 
             <Card className="p-6">
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                <div
+                  class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center"
+                >
                   <FileText class="w-5 h-5 text-blue-600" />
                 </div>
-                <h3 class="text-lg font-semibold text-foreground">Comprehensive Documentation</h3>
+                <h3 class="text-lg font-semibold text-foreground">
+                  Comprehensive Documentation
+                </h3>
               </div>
               <p class="text-muted-foreground">
-                Capture detailed notes from patient consultations, care team meetings, and telehealth sessions without compromising care quality.
+                Capture detailed notes from patient consultations, care team
+                meetings, and telehealth sessions without compromising care
+                quality.
               </p>
             </Card>
 
             <Card className="p-6">
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                <div
+                  class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center"
+                >
                   <UserCheck class="w-5 h-5 text-green-600" />
                 </div>
-                <h3 class="text-lg font-semibold text-foreground">More Patient Face Time</h3>
+                <h3 class="text-lg font-semibold text-foreground">
+                  More Patient Face Time
+                </h3>
               </div>
               <p class="text-muted-foreground">
-                Reduce time spent on documentation and administrative work. Focus on patient care while Summit handles note-taking.
+                Reduce time spent on documentation and administrative work.
+                Focus on patient care while Summit handles note-taking.
               </p>
             </Card>
 
             <Card className="p-6">
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                <div
+                  class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center"
+                >
                   <Shield class="w-5 h-5 text-purple-600" />
                 </div>
-                <h3 class="text-lg font-semibold text-foreground">Local Processing</h3>
+                <h3 class="text-lg font-semibold text-foreground">
+                  Local Processing
+                </h3>
               </div>
               <p class="text-muted-foreground">
-                All AI transcription and summarization runs on your Mac. No patient data sent to external servers or AI providers.
+                All AI transcription and summarization runs on your Mac. No
+                patient data sent to external servers or AI providers.
               </p>
             </Card>
           </div>
@@ -100,54 +156,80 @@ import { Heart, Shield, UserCheck, FileText, Lock, AlertCircle } from 'lucide-re
 
         <!-- Use Cases -->
         <div class="prose prose-slate max-w-none mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-6">Healthcare Applications</h2>
+          <h2 class="text-3xl font-bold text-foreground mb-6">
+            Healthcare Applications
+          </h2>
 
           <div class="space-y-6">
             <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">Telehealth Consultations</h3>
+              <h3 class="text-xl font-semibold text-foreground mb-3">
+                Telehealth Consultations
+              </h3>
               <p class="text-muted-foreground">
-                Document virtual patient appointments comprehensively. Generate visit summaries with key symptoms, diagnoses, and treatment plans automatically.
+                Document virtual patient appointments comprehensively. Generate
+                visit summaries with key symptoms, diagnoses, and treatment
+                plans automatically.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">Care Coordination</h3>
+              <h3 class="text-xl font-semibold text-foreground mb-3">
+                Care Coordination
+              </h3>
               <p class="text-muted-foreground">
-                Record multidisciplinary team meetings, care plan discussions, and handoff communications. Keep all team members aligned on patient care.
+                Record multidisciplinary team meetings, care plan discussions,
+                and handoff communications. Keep all team members aligned on
+                patient care.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">Medical Consultations</h3>
+              <h3 class="text-xl font-semibold text-foreground mb-3">
+                Medical Consultations
+              </h3>
               <p class="text-muted-foreground">
-                Capture specialist-to-specialist consultations, second opinion discussions, and expert advice clearly and completely.
+                Capture specialist-to-specialist consultations, second opinion
+                discussions, and expert advice clearly and completely.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">Administrative Meetings</h3>
+              <h3 class="text-xl font-semibold text-foreground mb-3">
+                Administrative Meetings
+              </h3>
               <p class="text-muted-foreground">
-                Document practice management discussions, operational reviews, and strategic planning sessions without privacy concerns.
+                Document practice management discussions, operational reviews,
+                and strategic planning sessions without privacy concerns.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">Medical Coaching & Consulting</h3>
+              <h3 class="text-xl font-semibold text-foreground mb-3">
+                Medical Coaching & Consulting
+              </h3>
               <p class="text-muted-foreground">
-                Perfect for health coaches, medical consultants, and wellness practitioners who need detailed session notes without handling PHI.
+                Perfect for health coaches, medical consultants, and wellness
+                practitioners who need detailed session notes without handling
+                PHI.
               </p>
             </Card>
           </div>
         </div>
 
         <!-- Privacy Features -->
-        <Card className="p-8 mb-12 bg-gradient-to-r from-red-50 to-pink-50 border-red-200">
+        <Card
+          className="p-8 mb-12 bg-gradient-to-r from-red-50 to-pink-50 border-red-200"
+        >
           <div class="flex items-start gap-4 mb-6">
-            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+            <div
+              class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"
+            >
               <Shield class="w-6 h-6 text-red-600" />
             </div>
             <div>
-              <h2 class="text-2xl font-bold text-foreground mb-3">Privacy-First Architecture</h2>
+              <h2 class="text-2xl font-bold text-foreground mb-3">
+                Privacy-First Architecture
+              </h2>
               <p class="text-muted-foreground mb-4">
                 Summit AI Notes is designed with healthcare privacy in mind:
               </p>
@@ -165,63 +247,125 @@ import { Heart, Shield, UserCheck, FileText, Lock, AlertCircle } from 'lucide-re
         </Card>
 
         <!-- Workflow -->
-        <Card className="p-8 mb-12 bg-gradient-to-r from-blue-50 to-green-50 border-blue-200">
-          <h2 class="text-2xl font-bold text-foreground mb-6">Streamlined Documentation Workflow</h2>
+        <Card
+          className="p-8 mb-12 bg-gradient-to-r from-blue-50 to-green-50 border-blue-200"
+        >
+          <h2 class="text-2xl font-bold text-foreground mb-6">
+            Streamlined Documentation Workflow
+          </h2>
           <div class="space-y-4">
             <div class="flex gap-4">
-              <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
+              <div
+                class="w-8 h-8 bg-sky-400 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
+              >
+                1
+              </div>
               <div>
-                <h4 class="font-semibold text-foreground mb-1">Start Consultation</h4>
-                <p class="text-muted-foreground">Begin recording your patient or team meeting</p>
+                <h4 class="font-semibold text-foreground mb-1">
+                  Start Consultation
+                </h4>
+                <p class="text-muted-foreground">
+                  Begin recording your patient or team meeting
+                </p>
               </div>
             </div>
             <div class="flex gap-4">
-              <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
+              <div
+                class="w-8 h-8 bg-sky-400 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
+              >
+                2
+              </div>
               <div>
-                <h4 class="font-semibold text-foreground mb-1">Focus on Care</h4>
-                <p class="text-muted-foreground">Give patients your full attention without note-taking distractions</p>
+                <h4 class="font-semibold text-foreground mb-1">
+                  Focus on Care
+                </h4>
+                <p class="text-muted-foreground">
+                  Give patients your full attention without note-taking
+                  distractions
+                </p>
               </div>
             </div>
             <div class="flex gap-4">
-              <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
+              <div
+                class="w-8 h-8 bg-sky-400 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
+              >
+                3
+              </div>
               <div>
-                <h4 class="font-semibold text-foreground mb-1">Review Summary</h4>
-                <p class="text-muted-foreground">Get AI-generated notes with key points and recommendations</p>
+                <h4 class="font-semibold text-foreground mb-1">
+                  Review Summary
+                </h4>
+                <p class="text-muted-foreground">
+                  Get AI-generated notes with key points and recommendations
+                </p>
               </div>
             </div>
             <div class="flex gap-4">
-              <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
+              <div
+                class="w-8 h-8 bg-sky-400 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
+              >
+                4
+              </div>
               <div>
                 <h4 class="font-semibold text-foreground mb-1">Add to EHR</h4>
-                <p class="text-muted-foreground">Transfer relevant information to your electronic health records system</p>
+                <p class="text-muted-foreground">
+                  Transfer relevant information to your electronic health
+                  records system
+                </p>
               </div>
             </div>
           </div>
         </Card>
 
         <!-- Best Practices -->
-        <Card className="p-8 mb-12 bg-gradient-to-r from-purple-50 to-blue-50 border-purple-200">
-          <h2 class="text-2xl font-bold text-foreground mb-4">Best Practices for Healthcare Use</h2>
+        <Card
+          className="p-8 mb-12 bg-gradient-to-r from-purple-50 to-blue-50 border-purple-200"
+        >
+          <h2 class="text-2xl font-bold text-foreground mb-4">
+            Best Practices for Healthcare Use
+          </h2>
           <ul class="list-disc list-inside text-muted-foreground space-y-3">
-            <li>Always inform patients when recording consultations and obtain appropriate consent</li>
-            <li>Review and edit AI-generated notes before adding to official medical records</li>
-            <li>Use local AI models only (avoid cloud AI providers) for maximum privacy</li>
-            <li>Store Summit recordings in encrypted, secure locations on your device</li>
-            <li>Consult your organization's compliance team about documentation policies</li>
-            <li>Consider Summit for administrative and non-PHI use cases initially</li>
+            <li>
+              Always inform patients when recording consultations and obtain
+              appropriate consent
+            </li>
+            <li>
+              Review and edit AI-generated notes before adding to official
+              medical records
+            </li>
+            <li>
+              Use local AI models only (avoid cloud AI providers) for maximum
+              privacy
+            </li>
+            <li>
+              Store Summit recordings in encrypted, secure locations on your
+              device
+            </li>
+            <li>
+              Consult your organization's compliance team about documentation
+              policies
+            </li>
+            <li>
+              Consider Summit for administrative and non-PHI use cases initially
+            </li>
             <li>Implement regular security updates and device encryption</li>
           </ul>
         </Card>
 
         <!-- CTA -->
-        <Card className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-center">
-          <h2 class="text-2xl font-bold text-foreground mb-4">Spend More Time on Patient Care</h2>
+        <Card
+          className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-center"
+        >
+          <h2 class="text-2xl font-bold text-foreground mb-4">
+            Spend More Time on Patient Care
+          </h2>
           <p class="text-muted-foreground mb-6">
-            Join healthcare professionals using Summit AI Notes to reduce documentation burden while maintaining privacy.
+            Join healthcare professionals using Summit AI Notes to reduce
+            documentation burden while maintaining privacy.
           </p>
           <a
             href="/#mailing-list"
-            class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+            class="inline-flex items-center justify-center px-6 py-3 bg-sky-400 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
           >
             Join Mailing List
           </a>

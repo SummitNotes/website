@@ -1,93 +1,134 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { Card } from '../components/ui/card';
-import Footer from '../components/Footer';
-import { BookOpen, Clock, ArrowRight } from 'lucide-react';
+import Layout from "../layouts/Layout.astro";
+import { Card } from "../components/ui/card";
+import Footer from "../components/Footer";
+import { BookOpen, Clock, ArrowRight } from "lucide-react";
 ---
 
-<Layout title="Blog - Summit AI Notes" description="Learn about AI meeting notes, productivity tips, and privacy-focused workflows">
-  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+<Layout
+  title="Blog - Summit AI Notes"
+  description="Learn about AI meeting notes, productivity tips, and privacy-focused workflows"
+>
+  <div
+    class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
+  >
     <div class="container mx-auto px-4 py-16">
       <div class="max-w-6xl mx-auto">
         <!-- Header -->
         <div class="text-center mb-16">
-          <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div
+            class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6"
+          >
             <BookOpen class="w-8 h-8 text-purple-600" />
           </div>
-          <h1 class="text-5xl font-bold text-foreground mb-4">Summit AI Notes Blog</h1>
+          <h1 class="text-5xl font-bold text-foreground mb-4">
+            Summit AI Notes Blog
+          </h1>
           <p class="text-xl text-muted-foreground">
             Insights on AI, productivity, and privacy-first tools
           </p>
         </div>
 
         <!-- Coming Soon Notice -->
-        <Card className="p-12 text-center bg-gradient-to-r from-purple-50 to-blue-50 border-purple-200 mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-4">Blog Coming Soon</h2>
+        <Card
+          className="p-12 text-center bg-gradient-to-r from-purple-50 to-blue-50 border-purple-200 mb-12"
+        >
+          <h2 class="text-3xl font-bold text-foreground mb-4">
+            Blog Coming Soon
+          </h2>
           <p class="text-lg text-muted-foreground mb-6">
-            We're working on creating valuable content about AI-powered productivity, privacy-first workflows, and making the most of meeting notes.
+            We're working on creating valuable content about AI-powered
+            productivity, privacy-first workflows, and making the most of
+            meeting notes.
           </p>
           <p class="text-muted-foreground">
-            In the meantime, check out our documentation and guides to learn more about Summit AI Notes.
+            In the meantime, check out our documentation and guides to learn
+            more about Summit AI Notes.
           </p>
         </Card>
 
         <!-- Topics We'll Cover -->
         <div class="mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">Topics We'll Be Covering</h2>
+          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
+            Topics We'll Be Covering
+          </h2>
           <div class="grid md:grid-cols-3 gap-6">
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Productivity Tips</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Productivity Tips
+              </h3>
               <p class="text-muted-foreground">
-                Learn how to maximize the value of your meetings and turn conversations into actionable outcomes.
+                Learn how to maximize the value of your meetings and turn
+                conversations into actionable outcomes.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Privacy & Security</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Privacy & Security
+              </h3>
               <p class="text-muted-foreground">
-                Understand why local AI processing matters and how to maintain data privacy in professional settings.
+                Understand why local AI processing matters and how to maintain
+                data privacy in professional settings.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">AI Workflows</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                AI Workflows
+              </h3>
               <p class="text-muted-foreground">
-                Discover best practices for using AI tools in consulting, legal, finance, and other professional fields.
+                Discover best practices for using AI tools in consulting, legal,
+                finance, and other professional fields.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Product Updates</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Product Updates
+              </h3>
               <p class="text-muted-foreground">
-                Stay up to date with new features, improvements, and capabilities in Summit AI Notes.
+                Stay up to date with new features, improvements, and
+                capabilities in Summit AI Notes.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Customer Stories</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Customer Stories
+              </h3>
               <p class="text-muted-foreground">
-                Read about how professionals are using Summit to transform their workflows and reclaim their time.
+                Read about how professionals are using Summit to transform their
+                workflows and reclaim their time.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Technical Deep Dives</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Technical Deep Dives
+              </h3>
               <p class="text-muted-foreground">
-                Explore the technology behind local AI processing, speech recognition, and natural language understanding.
+                Explore the technology behind local AI processing, speech
+                recognition, and natural language understanding.
               </p>
             </Card>
           </div>
         </div>
 
         <!-- Stay Updated -->
-        <Card className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-center">
-          <h2 class="text-2xl font-bold text-foreground mb-4">Get Notified When We Launch</h2>
+        <Card
+          className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-center"
+        >
+          <h2 class="text-2xl font-bold text-foreground mb-4">
+            Get Notified When We Launch
+          </h2>
           <p class="text-muted-foreground mb-6">
-            Join our mailing list to be the first to know when we publish new content and launch the product.
+            Join our mailing list to be the first to know when we publish new
+            content and launch the product.
           </p>
           <a
             href="/#mailing-list"
-            class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+            class="inline-flex items-center justify-center px-6 py-3 bg-sky-400 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
           >
             Join Mailing List
             <ArrowRight class="ml-2 w-4 h-4" />

@@ -1,51 +1,84 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { Card } from '../components/ui/card';
-import Footer from '../components/Footer';
-import { BookOpen, ArrowRight, Zap, Settings, Shield, TrendingUp } from 'lucide-react';
+import Layout from "../layouts/Layout.astro";
+import { Card } from "../components/ui/card";
+import Footer from "../components/Footer";
+import {
+  BookOpen,
+  ArrowRight,
+  Zap,
+  Settings,
+  Shield,
+  TrendingUp,
+} from "lucide-react";
 ---
 
-<Layout title="Guides - Summit AI Notes" description="Step-by-step guides to get the most out of Summit AI Notes">
-  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+<Layout
+  title="Guides - Summit AI Notes"
+  description="Step-by-step guides to get the most out of Summit AI Notes"
+>
+  <div
+    class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
+  >
     <div class="container mx-auto px-4 py-16">
       <div class="max-w-6xl mx-auto">
         <!-- Header -->
         <div class="text-center mb-16">
-          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div
+            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
+          >
             <BookOpen class="w-8 h-8 text-blue-600" />
           </div>
-          <h1 class="text-5xl font-bold text-foreground mb-4">Summit AI Notes Guides</h1>
+          <h1 class="text-5xl font-bold text-foreground mb-4">
+            Summit AI Notes Guides
+          </h1>
           <p class="text-xl text-muted-foreground">
             Learn how to maximize your productivity with Summit
           </p>
         </div>
 
         <!-- Coming Soon Notice -->
-        <Card className="p-12 text-center bg-gradient-to-r from-blue-50 to-green-50 border-blue-200 mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-4">Comprehensive Guides Coming Soon</h2>
+        <Card
+          className="p-12 text-center bg-gradient-to-r from-blue-50 to-green-50 border-blue-200 mb-12"
+        >
+          <h2 class="text-3xl font-bold text-foreground mb-4">
+            Comprehensive Guides Coming Soon
+          </h2>
           <p class="text-lg text-muted-foreground mb-4">
-            We're creating detailed, step-by-step guides to help you get the most value from Summit AI Notes.
+            We're creating detailed, step-by-step guides to help you get the
+            most value from Summit AI Notes.
           </p>
           <p class="text-muted-foreground">
-            For now, check out our <a href="/docs" class="text-blue-600 hover:underline">documentation</a> for technical setup and configuration help.
+            For now, check out our <a
+              href="/docs"
+              class="text-blue-600 hover:underline">documentation</a
+            > for technical setup and configuration help.
           </p>
         </Card>
 
         <!-- Upcoming Guides -->
         <div class="mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">Guides We're Preparing</h2>
+          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
+            Guides We're Preparing
+          </h2>
           <div class="grid md:grid-cols-2 gap-6">
             <Card className="p-6">
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                <div
+                  class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center"
+                >
                   <Zap class="w-5 h-5 text-green-600" />
                 </div>
-                <h3 class="text-lg font-semibold text-foreground">Getting Started Guide</h3>
+                <h3 class="text-lg font-semibold text-foreground">
+                  Getting Started Guide
+                </h3>
               </div>
               <p class="text-muted-foreground mb-4">
-                Everything you need to know to record your first meeting and generate AI-powered notes in minutes.
+                Everything you need to know to record your first meeting and
+                generate AI-powered notes in minutes.
               </p>
-              <ul class="list-disc list-inside text-muted-foreground text-sm space-y-1">
+              <ul
+                class="list-disc list-inside text-muted-foreground text-sm space-y-1"
+              >
                 <li>Installation and setup</li>
                 <li>Recording your first meeting</li>
                 <li>Understanding AI summaries</li>
@@ -55,15 +88,22 @@ import { BookOpen, ArrowRight, Zap, Settings, Shield, TrendingUp } from 'lucide-
 
             <Card className="p-6">
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                <div
+                  class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center"
+                >
                   <Settings class="w-5 h-5 text-blue-600" />
                 </div>
-                <h3 class="text-lg font-semibold text-foreground">Configuration Guide</h3>
+                <h3 class="text-lg font-semibold text-foreground">
+                  Configuration Guide
+                </h3>
               </div>
               <p class="text-muted-foreground mb-4">
-                Deep dive into Summit's settings and how to configure them for your workflow.
+                Deep dive into Summit's settings and how to configure them for
+                your workflow.
               </p>
-              <ul class="list-disc list-inside text-muted-foreground text-sm space-y-1">
+              <ul
+                class="list-disc list-inside text-muted-foreground text-sm space-y-1"
+              >
                 <li>LLM provider setup (local & cloud)</li>
                 <li>Audio quality settings</li>
                 <li>Custom prompt templates</li>
@@ -73,15 +113,22 @@ import { BookOpen, ArrowRight, Zap, Settings, Shield, TrendingUp } from 'lucide-
 
             <Card className="p-6">
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                <div
+                  class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center"
+                >
                   <Shield class="w-5 h-5 text-purple-600" />
                 </div>
-                <h3 class="text-lg font-semibold text-foreground">Privacy & Security Guide</h3>
+                <h3 class="text-lg font-semibold text-foreground">
+                  Privacy & Security Guide
+                </h3>
               </div>
               <p class="text-muted-foreground mb-4">
-                Best practices for maintaining client confidentiality and data security.
+                Best practices for maintaining client confidentiality and data
+                security.
               </p>
-              <ul class="list-disc list-inside text-muted-foreground text-sm space-y-1">
+              <ul
+                class="list-disc list-inside text-muted-foreground text-sm space-y-1"
+              >
                 <li>Understanding local processing</li>
                 <li>When to use local vs cloud AI</li>
                 <li>Data storage and encryption</li>
@@ -91,15 +138,22 @@ import { BookOpen, ArrowRight, Zap, Settings, Shield, TrendingUp } from 'lucide-
 
             <Card className="p-6">
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                <div
+                  class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center"
+                >
                   <TrendingUp class="w-5 h-5 text-orange-600" />
                 </div>
-                <h3 class="text-lg font-semibold text-foreground">Productivity Workflows</h3>
+                <h3 class="text-lg font-semibold text-foreground">
+                  Productivity Workflows
+                </h3>
               </div>
               <p class="text-muted-foreground mb-4">
-                Advanced techniques to transform meetings into actionable outcomes.
+                Advanced techniques to transform meetings into actionable
+                outcomes.
               </p>
-              <ul class="list-disc list-inside text-muted-foreground text-sm space-y-1">
+              <ul
+                class="list-disc list-inside text-muted-foreground text-sm space-y-1"
+              >
                 <li>Meeting preparation strategies</li>
                 <li>Custom summary templates</li>
                 <li>Task extraction workflows</li>
@@ -109,15 +163,21 @@ import { BookOpen, ArrowRight, Zap, Settings, Shield, TrendingUp } from 'lucide-
 
             <Card className="p-6">
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center">
+                <div
+                  class="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center"
+                >
                   <BookOpen class="w-5 h-5 text-pink-600" />
                 </div>
-                <h3 class="text-lg font-semibold text-foreground">Industry-Specific Guides</h3>
+                <h3 class="text-lg font-semibold text-foreground">
+                  Industry-Specific Guides
+                </h3>
               </div>
               <p class="text-muted-foreground mb-4">
                 Tailored workflows for different professions and use cases.
               </p>
-              <ul class="list-disc list-inside text-muted-foreground text-sm space-y-1">
+              <ul
+                class="list-disc list-inside text-muted-foreground text-sm space-y-1"
+              >
                 <li>Consulting best practices</li>
                 <li>Legal documentation workflows</li>
                 <li>Financial advisor techniques</li>
@@ -127,15 +187,22 @@ import { BookOpen, ArrowRight, Zap, Settings, Shield, TrendingUp } from 'lucide-
 
             <Card className="p-6">
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center">
+                <div
+                  class="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center"
+                >
                   <Zap class="w-5 h-5 text-teal-600" />
                 </div>
-                <h3 class="text-lg font-semibold text-foreground">Advanced Features</h3>
+                <h3 class="text-lg font-semibold text-foreground">
+                  Advanced Features
+                </h3>
               </div>
               <p class="text-muted-foreground mb-4">
-                Power user tips and advanced capabilities to maximize efficiency.
+                Power user tips and advanced capabilities to maximize
+                efficiency.
               </p>
-              <ul class="list-disc list-inside text-muted-foreground text-sm space-y-1">
+              <ul
+                class="list-disc list-inside text-muted-foreground text-sm space-y-1"
+              >
                 <li>Keyboard shortcuts</li>
                 <li>Batch processing</li>
                 <li>Custom AI models</li>
@@ -147,12 +214,17 @@ import { BookOpen, ArrowRight, Zap, Settings, Shield, TrendingUp } from 'lucide-
 
         <!-- Quick Links -->
         <div class="mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">Available Now</h2>
+          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
+            Available Now
+          </h2>
           <div class="grid md:grid-cols-2 gap-6">
             <Card className="p-6 hover:shadow-lg transition-shadow">
-              <h3 class="text-xl font-semibold text-foreground mb-3">Documentation</h3>
+              <h3 class="text-xl font-semibold text-foreground mb-3">
+                Documentation
+              </h3>
               <p class="text-muted-foreground mb-4">
-                Technical documentation covering setup, configuration, and troubleshooting.
+                Technical documentation covering setup, configuration, and
+                troubleshooting.
               </p>
               <a
                 href="/docs"
@@ -166,7 +238,8 @@ import { BookOpen, ArrowRight, Zap, Settings, Shield, TrendingUp } from 'lucide-
             <Card className="p-6 hover:shadow-lg transition-shadow">
               <h3 class="text-xl font-semibold text-foreground mb-3">FAQ</h3>
               <p class="text-muted-foreground mb-4">
-                Common questions about features, pricing, privacy, and technical requirements.
+                Common questions about features, pricing, privacy, and technical
+                requirements.
               </p>
               <a
                 href="/faq"
@@ -180,14 +253,19 @@ import { BookOpen, ArrowRight, Zap, Settings, Shield, TrendingUp } from 'lucide-
         </div>
 
         <!-- CTA -->
-        <Card className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-center">
-          <h2 class="text-2xl font-bold text-foreground mb-4">Get Notified When Guides Launch</h2>
+        <Card
+          className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-center"
+        >
+          <h2 class="text-2xl font-bold text-foreground mb-4">
+            Get Notified When Guides Launch
+          </h2>
           <p class="text-muted-foreground mb-6">
-            Join our mailing list to receive comprehensive guides when Summit AI Notes launches.
+            Join our mailing list to receive comprehensive guides when Summit AI
+            Notes launches.
           </p>
           <a
             href="/#mailing-list"
-            class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+            class="inline-flex items-center justify-center px-6 py-3 bg-sky-400 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
           >
             Join Mailing List
           </a>

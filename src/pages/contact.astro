@@ -1,17 +1,24 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { Card } from '../components/ui/card';
-import Footer from '../components/Footer';
-import { Mail, MessageSquare, Twitter, Linkedin } from 'lucide-react';
+import Layout from "../layouts/Layout.astro";
+import { Card } from "../components/ui/card";
+import Footer from "../components/Footer";
+import { Mail, MessageSquare, Twitter, Linkedin } from "lucide-react";
 ---
 
-<Layout title="Contact Us - Summit AI Notes" description="Get in touch with the Summit AI Notes team">
-  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+<Layout
+  title="Contact Us - Summit AI Notes"
+  description="Get in touch with the Summit AI Notes team"
+>
+  <div
+    class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
+  >
     <div class="container mx-auto px-4 py-16">
       <div class="max-w-4xl mx-auto">
         <!-- Header -->
         <div class="text-center mb-16">
-          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div
+            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
+          >
             <MessageSquare class="w-8 h-8 text-blue-600" />
           </div>
           <h1 class="text-5xl font-bold text-foreground mb-4">Get in Touch</h1>
@@ -24,30 +31,47 @@ import { Mail, MessageSquare, Twitter, Linkedin } from 'lucide-react';
         <div class="grid md:grid-cols-2 gap-6 mb-12">
           <Card className="p-8">
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+              <div
+                class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center"
+              >
                 <Mail class="w-6 h-6 text-blue-600" />
               </div>
               <div>
                 <h3 class="text-xl font-semibold text-foreground">Email Us</h3>
-                <p class="text-sm text-muted-foreground">We typically respond within 24 hours</p>
+                <p class="text-sm text-muted-foreground">
+                  We typically respond within 24 hours
+                </p>
               </div>
             </div>
             <div class="space-y-3 mt-6">
               <div>
-                <p class="text-sm text-muted-foreground mb-1">General inquiries</p>
-                <a href="mailto:hello@summitnotes.app" class="text-blue-600 hover:underline font-medium">
+                <p class="text-sm text-muted-foreground mb-1">
+                  General inquiries
+                </p>
+                <a
+                  href="mailto:hello@summitnotes.app"
+                  class="text-blue-600 hover:underline font-medium"
+                >
                   hello@summitnotes.app
                 </a>
               </div>
               <div>
                 <p class="text-sm text-muted-foreground mb-1">Support</p>
-                <a href="mailto:support@summitnotes.app" class="text-blue-600 hover:underline font-medium">
+                <a
+                  href="mailto:support@summitnotes.app"
+                  class="text-blue-600 hover:underline font-medium"
+                >
                   support@summitnotes.app
                 </a>
               </div>
               <div>
-                <p class="text-sm text-muted-foreground mb-1">Privacy questions</p>
-                <a href="mailto:privacy@summitnotes.app" class="text-blue-600 hover:underline font-medium">
+                <p class="text-sm text-muted-foreground mb-1">
+                  Privacy questions
+                </p>
+                <a
+                  href="mailto:privacy@summitnotes.app"
+                  class="text-blue-600 hover:underline font-medium"
+                >
                   privacy@summitnotes.app
                 </a>
               </div>
@@ -56,12 +80,18 @@ import { Mail, MessageSquare, Twitter, Linkedin } from 'lucide-react';
 
           <Card className="p-8">
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+              <div
+                class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center"
+              >
                 <MessageSquare class="w-6 h-6 text-purple-600" />
               </div>
               <div>
-                <h3 class="text-xl font-semibold text-foreground">Connect With Us</h3>
-                <p class="text-sm text-muted-foreground">Follow us on social media</p>
+                <h3 class="text-xl font-semibold text-foreground">
+                  Connect With Us
+                </h3>
+                <p class="text-sm text-muted-foreground">
+                  Follow us on social media
+                </p>
               </div>
             </div>
             <div class="space-y-4 mt-6">
@@ -88,8 +118,12 @@ import { Mail, MessageSquare, Twitter, Linkedin } from 'lucide-react';
         </div>
 
         <!-- What to Expect -->
-        <Card className="p-8 mb-12 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
-          <h2 class="text-2xl font-bold text-foreground mb-4">What to Expect</h2>
+        <Card
+          className="p-8 mb-12 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200"
+        >
+          <h2 class="text-2xl font-bold text-foreground mb-4">
+            What to Expect
+          </h2>
           <p class="text-muted-foreground mb-4">
             When you reach out to us, here's what you can expect:
           </p>
@@ -103,79 +137,130 @@ import { Mail, MessageSquare, Twitter, Linkedin } from 'lucide-react';
 
         <!-- Common Reasons -->
         <div class="mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">Common Reasons to Contact Us</h2>
+          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
+            Common Reasons to Contact Us
+          </h2>
           <div class="grid md:grid-cols-2 gap-6">
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Product Questions</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Product Questions
+              </h3>
               <p class="text-muted-foreground mb-3">
-                Want to know if Summit is right for your use case? Have questions about features or capabilities?
+                Want to know if Summit is right for your use case? Have
+                questions about features or capabilities?
               </p>
               <p class="text-sm text-muted-foreground">
-                Check our <a href="/faq" class="text-blue-600 hover:underline">FAQ</a> first, then email us at <a href="mailto:hello@summitnotes.app" class="text-blue-600 hover:underline">hello@summitnotes.app</a>
+                Check our <a href="/faq" class="text-blue-600 hover:underline"
+                  >FAQ</a
+                > first, then email us at <a
+                  href="mailto:hello@summitnotes.app"
+                  class="text-blue-600 hover:underline">hello@summitnotes.app</a
+                >
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Technical Support</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Technical Support
+              </h3>
               <p class="text-muted-foreground mb-3">
                 Need help with setup, configuration, or troubleshooting?
               </p>
               <p class="text-sm text-muted-foreground">
-                Visit our <a href="/support" class="text-blue-600 hover:underline">Support page</a> or email <a href="mailto:support@summitnotes.app" class="text-blue-600 hover:underline">support@summitnotes.app</a>
+                Visit our <a
+                  href="/support"
+                  class="text-blue-600 hover:underline">Support page</a
+                > or email <a
+                  href="mailto:support@summitnotes.app"
+                  class="text-blue-600 hover:underline"
+                  >support@summitnotes.app</a
+                >
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Partnership & Business</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Partnership & Business
+              </h3>
               <p class="text-muted-foreground mb-3">
-                Interested in partnerships, bulk licensing, or enterprise solutions?
+                Interested in partnerships, bulk licensing, or enterprise
+                solutions?
               </p>
               <p class="text-sm text-muted-foreground">
-                Email us at <a href="mailto:hello@summitnotes.app" class="text-blue-600 hover:underline">hello@summitnotes.app</a> with details about your organization
+                Email us at <a
+                  href="mailto:hello@summitnotes.app"
+                  class="text-blue-600 hover:underline">hello@summitnotes.app</a
+                > with details about your organization
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Media & Press</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Media & Press
+              </h3>
               <p class="text-muted-foreground mb-3">
                 Writing about Summit or need press materials?
               </p>
               <p class="text-sm text-muted-foreground">
-                Visit our <a href="/press" class="text-blue-600 hover:underline">Press Kit</a> or email <a href="mailto:hello@summitnotes.app" class="text-blue-600 hover:underline">hello@summitnotes.app</a>
+                Visit our <a href="/press" class="text-blue-600 hover:underline"
+                  >Press Kit</a
+                > or email <a
+                  href="mailto:hello@summitnotes.app"
+                  class="text-blue-600 hover:underline">hello@summitnotes.app</a
+                >
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Privacy Concerns</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Privacy Concerns
+              </h3>
               <p class="text-muted-foreground mb-3">
                 Questions about data privacy, security, or compliance?
               </p>
               <p class="text-sm text-muted-foreground">
-                Read our <a href="/privacy" class="text-blue-600 hover:underline">Privacy Policy</a> or email <a href="mailto:privacy@summitnotes.app" class="text-blue-600 hover:underline">privacy@summitnotes.app</a>
+                Read our <a
+                  href="/privacy"
+                  class="text-blue-600 hover:underline">Privacy Policy</a
+                > or email <a
+                  href="mailto:privacy@summitnotes.app"
+                  class="text-blue-600 hover:underline"
+                  >privacy@summitnotes.app</a
+                >
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">Feedback & Suggestions</h3>
+              <h3 class="text-lg font-semibold text-foreground mb-3">
+                Feedback & Suggestions
+              </h3>
               <p class="text-muted-foreground mb-3">
                 Have ideas for new features or improvements?
               </p>
               <p class="text-sm text-muted-foreground">
-                We love hearing from users! Email <a href="mailto:hello@summitnotes.app" class="text-blue-600 hover:underline">hello@summitnotes.app</a>
+                We love hearing from users! Email <a
+                  href="mailto:hello@summitnotes.app"
+                  class="text-blue-600 hover:underline">hello@summitnotes.app</a
+                >
               </p>
             </Card>
           </div>
         </div>
 
         <!-- CTA -->
-        <Card className="p-8 bg-gradient-to-r from-green-50 to-blue-50 border-green-200 text-center">
-          <h2 class="text-2xl font-bold text-foreground mb-4">Not Ready to Reach Out?</h2>
+        <Card
+          className="p-8 bg-gradient-to-r from-green-50 to-blue-50 border-green-200 text-center"
+        >
+          <h2 class="text-2xl font-bold text-foreground mb-4">
+            Not Ready to Reach Out?
+          </h2>
           <p class="text-muted-foreground mb-6">
-            Join our mailing list to stay updated on Summit AI Notes and receive updates when we launch.
+            Join our mailing list to stay updated on Summit AI Notes and receive
+            updates when we launch.
           </p>
           <a
             href="/#mailing-list"
-            class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+            class="inline-flex items-center justify-center px-6 py-3 bg-sky-400 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
           >
             Join Mailing List
           </a>

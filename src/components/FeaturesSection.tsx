@@ -33,8 +33,8 @@ const FeatureCard = ({ icon, title, description, highlight = false, className }:
       <div className="flex items-start space-x-4">
         <div className={`flex h-12 w-12 items-center justify-center rounded-lg transition-colors ${
           highlight
-            ? "bg-blue-600 text-white"
-            : "bg-muted text-muted-foreground group-hover:bg-blue-600 group-hover:text-white"
+            ? "bg-sky-400 text-white"
+            : "bg-muted text-muted-foreground group-hover:bg-sky-400 group-hover:text-white"
         }`}>
           {icon}
         </div>

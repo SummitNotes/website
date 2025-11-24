@@ -73,7 +73,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="space-y-4">
                 <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                   {title}
-                  <span className="block mt-2 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient">
+                  <span className="block mt-2 bg-gradient-to-r from-sky-500 via-sky-200 to-sky-400 bg-clip-text text-transparent">
                     {subtitle}
                   </span>
                 </h1>
@@ -85,7 +85,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="https://apps.apple.com/de/app/summit-ai-notes/id6754717420?l=en-GB&mt=12" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg font-semibold group">
+                  <Button size="lg" className="bg-sky-400 hover:bg-sky-600 text-white px-8 py-6 text-lg font-semibold group">
                     {ctaText}
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>

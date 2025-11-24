@@ -97,7 +97,7 @@ const MailingListSignup: React.FC<MailingListSignupProps> = ({
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6"
+                className="bg-sky-400 hover:bg-sky-600 text-white px-6"
               >
                 {isSubmitting ? 'Subscribing...' : 'Subscribe'}
                 {!isSubmitting && <ArrowRight className="w-4 h-4 ml-2" />}
@@ -178,7 +178,7 @@ const MailingListSignup: React.FC<MailingListSignupProps> = ({
                           type="submit"
                           size="lg"
                           disabled={isSubmitting}
-                          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-base font-semibold group"
+                          className="bg-sky-400 hover:bg-sky-600 text-white px-8 py-4 text-base font-semibold group"
                         >
                           {isSubmitting ? 'Subscribing...' : 'Subscribe'}
                           {!isSubmitting && <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />}
@@ -260,7 +260,7 @@ const MailingListSignup: React.FC<MailingListSignupProps> = ({
           )}
           <Button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+            className="w-full bg-sky-400 hover:bg-sky-600 text-white"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Subscribing...' : 'Subscribe'}

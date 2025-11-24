@@ -1,19 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { Card } from '../components/ui/card';
-import Footer from '../components/Footer';
-import { Mail, MessageCircle, Book, HelpCircle } from 'lucide-react';
+import Layout from "../layouts/Layout.astro";
+import { Card } from "../components/ui/card";
+import Footer from "../components/Footer";
+import { Mail, MessageCircle, Book, HelpCircle } from "lucide-react";
 ---
 
-<Layout title="Support - Summit AI Notes" description="Get help with Summit AI Notes - AI meeting notes for consultants">
-  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+<Layout
+  title="Support - Summit AI Notes"
+  description="Get help with Summit AI Notes - AI meeting notes for consultants"
+>
+  <div
+    class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
+  >
     <div class="container mx-auto px-4 py-16">
       <div class="max-w-4xl mx-auto">
         <!-- Header -->
         <div class="text-center mb-16">
-          <h1 class="text-5xl font-bold text-foreground mb-4">How can we help?</h1>
+          <h1 class="text-5xl font-bold text-foreground mb-4">
+            How can we help?
+          </h1>
           <p class="text-xl text-muted-foreground">
-            Get support for Summit AI Notes - we're here to ensure your meeting documentation workflow runs smoothly
+            Get support for Summit AI Notes - we're here to ensure your meeting
+            documentation workflow runs smoothly
           </p>
         </div>
 
@@ -22,15 +30,23 @@ import { Mail, MessageCircle, Book, HelpCircle } from 'lucide-react';
           <!-- Email Support -->
           <Card className="p-6 hover:shadow-lg transition-shadow">
             <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <div
+                class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
+              >
                 <Mail class="w-6 h-6 text-blue-600" />
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-foreground mb-2">Email Support</h3>
+                <h3 class="text-lg font-semibold text-foreground mb-2">
+                  Email Support
+                </h3>
                 <p class="text-muted-foreground mb-4">
-                  Get help from our support team. We typically respond within 24 hours.
+                  Get help from our support team. We typically respond within 24
+                  hours.
                 </p>
-                <a href="mailto:support@summitnotes.app" class="text-blue-600 hover:underline font-medium">
+                <a
+                  href="mailto:support@summitnotes.app"
+                  class="text-blue-600 hover:underline font-medium"
+                >
                   support@summitnotes.app
                 </a>
               </div>
@@ -40,15 +56,22 @@ import { Mail, MessageCircle, Book, HelpCircle } from 'lucide-react';
           <!-- Documentation -->
           <Card className="p-6 hover:shadow-lg transition-shadow">
             <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <div
+                class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0"
+              >
                 <Book class="w-6 h-6 text-purple-600" />
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-foreground mb-2">Documentation</h3>
+                <h3 class="text-lg font-semibold text-foreground mb-2">
+                  Documentation
+                </h3>
                 <p class="text-muted-foreground mb-4">
                   Browse our comprehensive guides and tutorials.
                 </p>
-                <a href="/docs" class="text-blue-600 hover:underline font-medium">
+                <a
+                  href="/docs"
+                  class="text-blue-600 hover:underline font-medium"
+                >
                   View Documentation →
                 </a>
               </div>
@@ -58,46 +81,66 @@ import { Mail, MessageCircle, Book, HelpCircle } from 'lucide-react';
 
         <!-- FAQ Section -->
         <div class="mt-16">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">Frequently Asked Questions</h2>
+          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
 
           <div class="space-y-6">
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+              <h3
+                class="text-lg font-semibold text-foreground mb-3 flex items-center gap-2"
+              >
                 <HelpCircle class="w-5 h-5 text-blue-600" />
                 How does local processing work?
               </h3>
               <p class="text-muted-foreground">
-                Summit AI Notes uses on-device AI models to transcribe and summarize your meetings. All processing happens locally on your Mac - no audio or transcripts are sent to external servers.
+                Summit AI Notes uses on-device AI models to transcribe and
+                summarize your meetings. All processing happens locally on your
+                Mac - no audio or transcripts are sent to external servers.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+              <h3
+                class="text-lg font-semibold text-foreground mb-3 flex items-center gap-2"
+              >
                 <HelpCircle class="w-5 h-5 text-blue-600" />
                 What LLM providers are supported?
               </h3>
               <p class="text-muted-foreground">
-                Summit AI Notes supports local LLMs via LMStudio, as well as cloud providers like OpenAI, Anthropic Claude, and Google Gemini. You can configure your preferred provider in the settings.
+                Summit AI Notes supports local LLMs via LMStudio, as well as
+                cloud providers like OpenAI, Anthropic Claude, and Google
+                Gemini. You can configure your preferred provider in the
+                settings.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+              <h3
+                class="text-lg font-semibold text-foreground mb-3 flex items-center gap-2"
+              >
                 <HelpCircle class="w-5 h-5 text-blue-600" />
                 Can I record both microphone and system audio?
               </h3>
               <p class="text-muted-foreground">
-                Yes! Summit AI Notes captures dual audio streams - your microphone for in-person conversations and system audio for virtual meetings. Both streams are transcribed and merged intelligently.
+                Yes! Summit AI Notes captures dual audio streams - your
+                microphone for in-person conversations and system audio for
+                virtual meetings. Both streams are transcribed and merged
+                intelligently.
               </p>
             </Card>
 
             <Card className="p-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+              <h3
+                class="text-lg font-semibold text-foreground mb-3 flex items-center gap-2"
+              >
                 <HelpCircle class="w-5 h-5 text-blue-600" />
                 What file formats are supported for export?
               </h3>
               <p class="text-muted-foreground">
-                You can export your meeting notes and transcriptions in multiple formats including Markdown, PDF, and plain text. All exports are formatted for professional client deliverables.
+                You can export your meeting notes and transcriptions in multiple
+                formats including Markdown, PDF, and plain text. All exports are
+                formatted for professional client deliverables.
               </p>
             </Card>
           </div>
@@ -105,13 +148,15 @@ import { Mail, MessageCircle, Book, HelpCircle } from 'lucide-react';
 
         <!-- Still Need Help -->
         <div class="mt-16 text-center bg-muted/30 rounded-lg p-8">
-          <h3 class="text-2xl font-semibold text-foreground mb-4">Still need help?</h3>
+          <h3 class="text-2xl font-semibold text-foreground mb-4">
+            Still need help?
+          </h3>
           <p class="text-muted-foreground mb-6">
             Our team is here to assist you with any questions or issues.
           </p>
           <a
             href="mailto:support@summitnotes.app"
-            class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+            class="inline-flex items-center gap-2 bg-sky-400 hover:bg-sky-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
           >
             <Mail class="w-5 h-5" />
             Contact Support
