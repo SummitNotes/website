@@ -50,7 +50,7 @@ const HowItWorks: React.FC = () => {
       bgColor: "bg-green-50",
       details: [
         "Processing happens on-device",
-        "Zero data sent to cloud servers uless you want to",
+        "Zero data sent to cloud servers unless you want to",
         "Your conversations stay private"
       ]
     },
