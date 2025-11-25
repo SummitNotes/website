@@ -32,8 +32,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = '' }) => {
               </div>
             </div>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              At $200-300/hour billing rates, Summit AI Notes pays for itself in just 1 hour of saved time. 
-              That's a 10x return on investment every single month.
+              At $200-300/hour billing rates, Summit AI Notes pays for itself in just 10 minutes of saved time! 
             </p>
           </div>
         </div>

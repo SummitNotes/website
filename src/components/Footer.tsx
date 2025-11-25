@@ -20,7 +20,7 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="#features"
+                  href="/#features"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Features
@@ -28,7 +28,7 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
               </li>
               <li>
                 <a
-                  href="#how-it-works"
+                  href="/#how-it-works"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   How It Works
@@ -36,7 +36,7 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
               </li>
               <li>
                 <a
-                  href="#pricing"
+                  href="/#pricing"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Pricing
