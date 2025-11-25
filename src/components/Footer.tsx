@@ -132,14 +132,6 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
                   FAQ
                 </a>
               </li>
-              <li>
-                <a
-                  href="/changelog"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Changelog
-                </a>
-              </li>
             </ul>
           </div>
 
