@@ -264,7 +264,7 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
                 <Youtube className="w-5 h-5" />
               </a>
               <a
-                href="mailto:hello@summitainotes.com"
+                href="mailto:hello@summitnotes.com"
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="Email"
               >
