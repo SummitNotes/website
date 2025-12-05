@@ -1,48 +1,79 @@
-# Summit AI Notes Landing Site (Astro)
+# Summit AI Notes
 
-This is the landing site for Summit AI Notes, built with Astro for optimal performance and simplicity.
+> **Privacy-First Meeting Assistant for Professionals**
+> Record, transcribe, and summarize meetings with 100% local AI processing. Built for consultants who can't use cloud-based tools.
 
-## Tech Stack
+[![Download on Mac App Store](https://img.shields.io/badge/Download-Mac%20App%20Store-0D96F6?style=for-the-badge&logo=apple)](https://apps.apple.com/de/app/summit-ai-notes/id6754717420?l=en-GB&mt=12)
+
+---
+
+## Why Summit AI Notes?
+
+**For Independent Consultants & Professionals Who Value Confidentiality**
+
+Most meeting assistants upload your conversations to the cloud. Summit AI Notes is different - **everything happens on your Mac**. Perfect for:
+
+- 🔒 **Confidential client work** - NDA-protected conversations stay local
+- 💼 **Management consultants** - Professional deliverables without cloud exposure
+- ⚖️ **Legal & Healthcare** - HIPAA and confidentiality compliance
+- 🏢 **Enterprise professionals** - No data leaving your device
+
+---
+
+## Key Features
+
+### 🛡️ **100% Local Processing**
+Zero cloud dependency. All transcription and AI processing happens on-device for complete privacy.
+
+### 📝 **Actionable Meeting Summaries**
+Auto-generated summaries suitable for client deliverables, with action items and key insights formatted professionally.
+
+### 🔍 **Powerful Search**
+Full-text search through transcripts, summaries, and tags. Find any conversation instantly with Similar Documents feature.
+
+### 🏔️ **Platform Independent**
+No meeting bots required. Works with Zoom, Slack, Teams, Google Meet, and any audio source on your Mac.
+
+### ⚡ **Native Mac Experience**
+Built specifically for macOS professionals. Seamlessly integrated with your existing workflow.
+
+---
+
+## The Problem We Solve
+
+Independent consultants lose **10+ hours per week** on poor meeting documentation:
+
+- Poor meeting notes leading to ineffective client reports
+- Manual transcription of conversations for deliverables
+- Scattered information across handwritten notes and recordings
+- Non-billable administrative tasks eating into productive time
+
+**Summit AI Notes helps you reclaim 3-4 billable hours per week** through automated transcription, intelligent organization, and professional client deliverables.
+
+---
+
+## Quick Links
+
+- 🌐 **Website**: [https://summitainotes.com](https://summitainotes.com)
+- 📖 **Documentation**: [https://summitainotes.com/docs](https://summitainotes.com/docs)
+- 💬 **Support**: [https://summitainotes.com/support](https://summitainotes.com/support)
+- 📧 **Contact**: support@summitainotes.com
+
+---
+
+## About This Repository
+
+This is the landing site for Summit AI Notes, built with **Astro** for optimal performance and simplicity.
+
+### Tech Stack
 
 - **Astro** - Static site generator with islands architecture
-- **React** - For interactive components (islands)
-- **Tailwind CSS v4** - Styling with modern CSS
+- **React** - For interactive components
+- **Tailwind CSS v4** - Modern styling
 - **MDX** - Documentation with Content Collections
-- **shadcn/ui** - Component library (Radix UI primitives)
-- **Lucide React** - Icon library
+- **shadcn/ui** - Component library
 
-## Project Structure
-
-```
-/
-├── public/              # Static assets
-├── src/
-│   ├── components/      # React components
-│   │   ├── ui/         # shadcn/ui components
-│   │   ├── HeroSection.tsx
-│   │   └── FeaturesSection.tsx
-│   ├── content/        # MDX documentation
-│   │   ├── config.ts   # Content Collections schema
-│   │   └── docs/       # Documentation files
-│   │       ├── settings/
-│   │       └── setup/
-│   ├── layouts/        # Astro layouts
-│   │   └── Layout.astro
-│   ├── lib/            # Utilities
-│   │   └── utils.ts
-│   ├── pages/          # File-based routing
-│   │   ├── index.astro
-│   │   ├── support.astro
-│   │   ├── privacy.astro
-│   │   └── docs/
-│   │       ├── index.astro
-│   │       └── [...slug].astro
-│   └── styles/
-│       └── global.css  # Global styles + Tailwind
-└── astro.config.mjs    # Astro configuration
-```
-
-## Development
+### Development
 
 ```bash
 # Install dependencies
@@ -58,62 +89,23 @@ npm run build
 npm run preview
 ```
 
-## Pages
+### Deployment
 
-- `/` - Landing page with hero and features
-- `/support` - Support and FAQ page
-- `/privacy` - Privacy policy
-- `/docs` - Documentation index
-- `/docs/settings/llm` - LLM configuration guide
-- `/docs/setup/lmstudio` - LM Studio setup guide
-- `/docs/setup/cloud-providers` - Cloud provider setup guide
+The site is fully static and can be deployed to Vercel, Netlify, GitHub Pages, or any static host.
 
-## Adding Documentation
-
-1. Create a new MDX file in `src/content/docs/[category]/`
-2. Add frontmatter with title, description, category, and order
-3. Write your documentation in MDX format
-4. The page will automatically appear in the docs navigation
-
-Example:
-
-```mdx
----
-title: "My Guide"
-description: "A helpful guide"
-category: "guides"
-order: 1
 ---
 
-# My Guide
-
-Content goes here...
-```
-
-## Deployment
-
-The site is fully static and can be deployed to:
-
-- **Vercel**: `vercel deploy`
-- **Netlify**: Connect repository and build
-- **GitHub Pages**: Use `gh-pages` workflow
-- **Any static host**: Upload `dist/` folder
-
-## Migration from Next.js
+## Migration Notes
 
 This site was migrated from Next.js to Astro for:
+- **70% smaller bundle sizes** - Faster load times for users
+- **Zero runtime costs** - Fully static generation
+- **Better DX** - File-based routing and Content Collections
 
-- **Simplicity**: Static site generation without server complexity
-- **Performance**: Smaller bundle sizes (~70% reduction)
-- **Better DX**: File-based routing, Content Collections for docs
-- **Cost**: Zero runtime costs (fully static)
+All components, styles, and content were preserved during migration.
 
-All existing components, styles, and content were preserved during migration.
+---
 
-## Notes
+## License
 
-- React components use `client:load` directive for hydration
-- Path alias `@/` points to `src/`
-- Tailwind CSS v4 uses `@import` syntax
-- Dark mode supported via CSS variables
-- All documentation is type-safe via Content Collections
+© 2024 Summit AI Notes. All rights reserved.
