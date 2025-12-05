@@ -59,7 +59,7 @@ Independent consultants lose **10+ hours per week** on poor meeting documentatio
 
 ## Quick Links
 
-- 🌐 **Website**: [https://summitainotes.com](https://summitnotes.app)
+- 🌐 **Website**: [https://summitnotes.app](https://summitnotes.app)
 - 📖 **Documentation**: [https://summitnotes.app/docs](https://summitnotes.app/docs)
 - 💬 **Support**: [https://summitnotes.app/support](https://summitnotes.app/support)
 - 📧 **Contact**: support@summitnotes.app
