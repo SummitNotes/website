@@ -23,18 +23,23 @@ Most meeting assistants upload your conversations to the cloud. Summit AI Notes 
 ## Key Features
 
 ### 🛡️ **100% Local Processing**
+
 Zero cloud dependency. All transcription and AI processing happens on-device for complete privacy.
 
 ### 📝 **Actionable Meeting Summaries**
+
 Auto-generated summaries suitable for client deliverables, with action items and key insights formatted professionally.
 
 ### 🔍 **Powerful Search**
+
 Full-text search through transcripts, summaries, and tags. Find any conversation instantly with Similar Documents feature.
 
 ### 🏔️ **Platform Independent**
+
 No meeting bots required. Works with Zoom, Slack, Teams, Google Meet, and any audio source on your Mac.
 
 ### ⚡ **Native Mac Experience**
+
 Built specifically for macOS professionals. Seamlessly integrated with your existing workflow.
 
 ---
@@ -54,10 +59,10 @@ Independent consultants lose **10+ hours per week** on poor meeting documentatio
 
 ## Quick Links
 
-- 🌐 **Website**: [https://summitainotes.com](https://summitainotes.com)
-- 📖 **Documentation**: [https://summitainotes.com/docs](https://summitainotes.com/docs)
-- 💬 **Support**: [https://summitainotes.com/support](https://summitainotes.com/support)
-- 📧 **Contact**: support@summitainotes.com
+- 🌐 **Website**: [https://summitainotes.com](https://summitnotes.app)
+- 📖 **Documentation**: [https://summitnotes.app/docs](https://summitnotes.app/docs)
+- 💬 **Support**: [https://summitnotes.app/support](https://summitnotes.app/support)
+- 📧 **Contact**: support@summitnotes.app
 
 ---
 
@@ -98,6 +103,7 @@ The site is fully static and can be deployed to Vercel, Netlify, GitHub Pages, o
 ## Migration Notes
 
 This site was migrated from Next.js to Astro for:
+
 - **70% smaller bundle sizes** - Faster load times for users
 - **Zero runtime costs** - Fully static generation
 - **Better DX** - File-based routing and Content Collections
