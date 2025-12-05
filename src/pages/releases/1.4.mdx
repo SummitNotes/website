@@ -1,0 +1,41 @@
+import ReleaseLayout from "../../layouts/ReleaseLayout.astro";
+
+export const version = "1.4";
+export const date = "2025-12-06";
+export const title = "Summit AI Notes 1.4";
+
+<ReleaseLayout version={version} date={date} title={title}>
+
+**Transcription & Audio**
+
+- Re-transcribe Segments - Right-click any conversation bubble to re-transcribe just that segment or from that point to the end. Perfect for fixing hallucinations or poor quality transcriptions without re-processing the entire recording.
+- Click to Seek - Click conversation bubbles to jump directly to that position in the audio playback. Makes it easy to hear exactly what was said.
+- Delete Conversation Bubbles - Remove individual transcription segments with a right-click context menu option.
+- Auto-Stop Recording on Sleep - Recordings now automatically stop and finalize when your Mac goes to sleep, preventing data loss.
+
+**AI & LLM Integration**
+
+- Full Anthropic (Claude) Support - Complete integration with Anthropic's Claude API as an alternative to OpenAI, Google Gemini, or local models.
+- Rename Placeholder Participants - AI-generated content now automatically replaces placeholder speaker names (like "Participant-abc123") with actual speaker names when you rename speakers.
+
+**User Interface**
+
+- Folder Icons in Sidebar - Visual folder icons now appear in the document sidebar for better organization.
+- Fluent Audio Model Download Progress - Visual progress indicators when downloading new transcription models.
+- Explicit Permissions Check - Clearer permission request flow with streamlined UX.
+- In-App Update Checker - Automatic checking for new app versions with notifications.
+
+**Organization & Management**
+
+- Delete Tags and Speakers - Clean up unused tags and speakers directly from the UI.
+- Speaker Merge Feature - Merge duplicate speaker profiles into a single identity.
+
+**Bug Fixes**
+
+- Fixed FluidAudio Confidence Data - Corrected confidence score handling for FluidAudio transcription model.
+- Preserve User Titles - User-edited document titles are now preserved when re-running summarization.
+- Rename Untitled Documents - Title field correctly maintained for documents without custom titles.
+- Performance & Stability improvements
+
+
+</ReleaseLayout>
