@@ -3,7 +3,7 @@
 > **Privacy-First Meeting Assistant for Professionals**
 > Record, transcribe, and summarize meetings with 100% local AI processing. Built for consultants who can't use cloud-based tools.
 
-[![Download on Mac App Store](https://img.shields.io/badge/Download-Mac%20App%20Store-0D96F6?style=for-the-badge&logo=apple)](https://apps.apple.com/de/app/summit-ai-notes/id6754717420?l=en-GB&mt=12)
+[![Download on Mac App Store](https://img.shields.io/badge/Download-Mac%20App%20Store-0D96F6?style=for-the-badge&logo=apple)](https://apps.apple.com/app/summit-ai-notes/id6754717420?l=en-GB&mt=12)
 
 ---
 
