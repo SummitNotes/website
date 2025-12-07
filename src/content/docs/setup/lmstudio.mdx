@@ -49,33 +49,10 @@ LM Studio enables you to run Large Language Models on your hardware, i.e. a dedi
 
 LM Studio needs a language model to generate summaries. Good models to try: Qwen3 4B-8B, GPT-OSS-20B
 
-#### Recommended Models for Summit AI Notes
-
-**For Most Users** (Best Balance):
-- **Model**: Llama 3.1 8B Instruct
-- **Size**: ~4.7GB
-- **RAM**: 8GB minimum
-- **Speed**: Fast on M1/M2
-
-**For Maximum Quality** (Requires Powerful Mac):
-- **Model**: Llama 3.1 70B Instruct
-- **Size**: ~40GB
-- **RAM**: 32GB+ recommended
-- **Speed**: Slower, best quality
-
-**For Speed** (Budget Macs):
-- **Model**: Mistral 7B Instruct
-- **Size**: ~4.1GB
-- **RAM**: 8GB minimum
-- **Speed**: Very fast
-
 #### How to Download a Model
 
 1. In LM Studio, click the **Search** icon (magnifying glass)
-2. In the search box, type: `llama-3.1-8b-instruct`
-3. Find the model with these details:
-   - Name: **Llama 3.1 8B Instruct**
-   - Quantization: **Q4_K_M** (good balance of quality and size)
+2. In the search box, type: `gtp-oss-20b`
 4. Click **Download**
 5. Wait for the download to complete (5-15 minutes depending on connection)
 
@@ -157,7 +134,7 @@ The default settings work for most users, but you can adjust:
 **Symptom**: Summaries take a very long time to generate
 
 **Solutions**:
-1. **Use a Smaller Model**: Switch to Mistral 7B or Llama 3.1 8B
+1. **Use a Smaller Model**: Switch to Qwen3 1.7B
 2. **Close Other Apps**: Free up RAM and CPU
 3. **Reduce Context Length**: In LM Studio server settings, lower context to 2048
 4. **Check Activity Monitor**: Ensure your Mac isn't thermal throttling
@@ -179,52 +156,11 @@ The default settings work for most users, but you can adjust:
 **Symptom**: Generated summaries are incomplete or nonsensical
 
 **Solutions**:
-1. **Try a Larger Model**: Upgrade to Llama 3.1 70B (if your Mac supports it)
+1. **Try a Larger Model**: Upgrade to GPT-OSS-20B (if your Mac supports it)
 2. **Use Higher Quantization**: Try Q8_0 instead of Q4_K_M
 3. **Adjust Temperature**: Lower to 0.5 in LM Studio server settings for more focused output
 4. **Check Model**: Ensure you downloaded an "Instruct" or "Chat" variant
 5. **Consider Cloud LLMs**: For maximum quality, try GPT-4 or Claude
-
-## Performance Optimization
-
-### For M1/M2 Base Models (8GB RAM)
-
-- Use Llama 3.1 8B with Q4_K_M quantization
-- Keep context length at 2048-4096 tokens
-- Close unnecessary apps while generating summaries
-- Consider summarizing shorter meeting segments
-
-### For M1/M2 Pro/Max (16GB+ RAM)
-
-- Use Llama 3.1 8B or 13B with Q4_K_M or Q8_0
-- Context length: 4096-8192 tokens
-- Can run multiple models simultaneously
-- Good for longer meetings (1-2 hours)
-
-### For M2/M3 Ultra (32GB+ RAM)
-
-- Use Llama 3.1 70B with Q4_K_M quantization
-- Context length: 8192+ tokens
-- Best quality local summaries
-- Handle very long meetings (2+ hours)
-
-## Model Recommendations by Use Case
-
-### Privacy-Critical Meetings
-- **Model**: Llama 3.1 8B Instruct (Q8_0)
-- **Reason**: High quality, fully local, no cloud dependency
-
-### Fast Turnaround
-- **Model**: Mistral 7B Instruct (Q4_K_M)
-- **Reason**: Fastest generation, good quality
-
-### Maximum Quality
-- **Model**: Llama 3.1 70B Instruct (Q4_K_M)
-- **Reason**: Best local quality available
-
-### Multilingual Meetings
-- **Model**: Llama 3.1 8B Instruct
-- **Reason**: Good multilingual support
 
 ## Updating Models
 
@@ -232,7 +168,7 @@ LM Studio models are updated periodically. To update:
 
 1. Open LM Studio
 2. Go to the **Search** tab
-3. Search for your model (e.g., "llama-3.1-8b")
+3. Search for your model
 4. If an update is available, you'll see an **Update** button
 5. Click **Update** to download the latest version
 6. The old version will be replaced automatically
