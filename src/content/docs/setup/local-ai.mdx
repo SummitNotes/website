@@ -1,0 +1,223 @@
+---
+title: "Local AI Setup"
+description: "Use built-in AI models that run directly in Summit AI Notes"
+category: "setup"
+order: 1
+---
+
+Summit AI Notes has built-in AI capabilities that run directly on your Mac - no cloud services, no separate servers, no third-party software required. Just install, select a model, and start generating summaries.
+
+## Overview
+
+**Local AI means:**
+- ✅ AI runs directly inside Summit AI Notes
+- ✅ No external software needed (no LM Studio, Ollama, etc.)
+- ✅ No internet connection required
+- ✅ 100% private - nothing leaves your Mac
+- ✅ Zero ongoing costs
+
+**Requirements:**
+- Mac with Apple Silicon (M1 or newer recommended)
+- At least 8GB RAM (16GB+ recommended for better performance)
+- 2-8GB free disk space (depending on model size)
+
+---
+
+## Quick Start
+
+### 1. Open AI Provider Settings
+
+1. Launch Summit AI Notes
+2. Go to Settings → AI Provider tab
+3. Select **"Local (on this machine)"**
+
+Summit will show you system information and recommend models based on your Mac's capabilities.
+
+![Local AI Provider Settings](/ai-provider-local-1.jpg)
+
+You'll see three model categories:
+- **Ultra Fast** - Fastest inference, lower quality (good for quick meetings)
+- **Balanced** - Good balance of speed and quality (recommended for most users)
+- **High Quality** - Best quality, slower inference (for important meetings)
+
+---
+
+## Managing Models
+
+### Viewing and Selecting Models
+
+Once you've chosen a model category, Summit shows you all available models in that category.
+
+![Available Models](/ai-provider-local-2.jpg)
+
+Each model shows:
+- **Name and version** - The model identifier
+- **Size** - Download size (e.g., 2.5GB)
+- **RAM needed** - Memory required to run (e.g., ~3.2GB RAM)
+- **Speed** - Inference speed in tokens per second (e.g., ~20 tok/s)
+- **License** - Model license type (e.g., Apache 2.0)
+- **Status** - Active (green border), Available (Use Model button), or Deprecated
+
+The active model has a green border and "Active" badge. Click "Use Model" to switch to a different downloaded model, or download a new one if needed.
+
+### Downloading Multiple Models
+
+You can keep multiple models and switch between them to experiment with different quality/speed tradeoffs.
+
+---
+
+## Troubleshooting
+
+### "Download Failed"
+
+**Causes:**
+- Unstable internet connection
+- Insufficient disk space
+- Corrupted download
+
+**Solutions:**
+1. Check your internet connection
+2. Free up at least 10GB of disk space
+3. Try downloading again
+4. Try a smaller model first
+
+### "Summary Generation Failed"
+
+**Causes:**
+- Insufficient RAM
+- Model files corrupted
+- Transcription too long for model
+
+**Solutions:**
+1. Close other memory-intensive apps
+2. Delete and re-download the model
+3. Try a smaller model
+4. Split very long meetings into parts
+
+### "Slow Summary Generation"
+
+**Causes:**
+- Mac is busy with other tasks
+- Model too large for your RAM
+- Very long transcription
+
+**Solutions:**
+1. Close other apps while generating summary
+2. Use a smaller model
+3. Ensure your Mac isn't running background tasks
+4. For very long meetings (2+ hours), consider cloud AI
+
+### "Model Not Found"
+
+**Causes:**
+- Model was deleted
+- Download didn't complete
+- Storage location changed
+
+**Solutions:**
+1. Re-download the model from settings
+2. Check if you have sufficient disk space
+3. Restart Summit AI Notes
+
+---
+
+## Advanced Tips
+
+### Model Configuration
+
+Summit provides advanced configuration options to tune model performance and output quality.
+
+![Model Configuration Options](/ai-provider-local-3.jpg)
+
+**Available settings:**
+
+- **Context Length** (4,096 tokens default) - Maximum context window size. Higher values use more memory but allow processing longer transcriptions.
+
+- **Temperature** (0.10 default) - Controls randomness. Lower = more deterministic, higher = more creative. Keep low (0.10-0.30) for factual meeting summaries.
+
+- **Top P / Nucleus Sampling** (0.95 default) - Cumulative probability threshold. Lower = more focused, higher = more diverse vocabulary.
+
+- **Top K** (40 default) - Limits vocabulary to top K tokens. Lower = more focused output.
+
+- **Min P** (0.10 default) - Minimum probability threshold. Tokens below this are filtered out.
+
+- **Max Response Tokens** (1,024 default) - Maximum length of generated summary. Increase for very detailed summaries.
+
+- **Batch Size** (1,024 default) - Processing batch size. Higher values may improve speed but use more memory.
+
+- **Thread Count** (Auto default) - CPU threads to use. Auto-detect is recommended.
+
+- **Random Seed** - Controls output randomness. Use 4294967295 for variety, or any other number for deterministic (repeatable) output.
+
+**Note:** For most users, the default settings work well. Only adjust these if you understand their impact or are troubleshooting specific issues. You can always click "Reset to Defaults" to restore recommended settings.
+
+### Optimizing Performance
+
+1. **Close Background Apps** - Free up RAM before generating summaries
+2. **Use Appropriate Model** - Bigger isn't always better; match model to your hardware
+3. **Keep macOS Updated** - Apple Silicon optimizations improve with each update
+4. **Enable Low Power Mode Off** - Ensures maximum performance during processing
+5. **Adjust Context Length** - Lower it if running out of memory, increase it for longer meetings
+
+### Model Selection Strategy
+
+**For Daily Use:**
+- Pick one medium-sized model (7B) for your typical meetings
+- Keep it downloaded
+
+**For Sensitive Meetings:**
+- Use local AI exclusively
+- Accept slightly longer processing time for privacy
+
+**For Very Long Meetings:**
+- Consider splitting into segments
+- Or temporarily use cloud AI with budget model
+
+### Batch Processing
+
+If you have multiple recordings to summarize:
+1. Let them queue up
+2. Close other apps
+3. Let Summit process them one by one
+4. The Mac can handle it overnight if needed
+
+---
+
+## Frequently Asked Questions
+
+### Can I use Local AI on Intel Macs?
+
+Summit AI Notes requires Apple Silicon (M1 or newer) for Local AI. Intel Macs should use Cloud or Self-hosted options.
+
+### How much does it cost?
+
+Local AI is completely free. There are no API fees, subscription costs, or per-use charges.
+
+### Can I customize the models?
+
+Currently, you can choose from pre-selected models optimized for Summit. Custom model loading may be added in future updates.
+
+### Do models get updated automatically?
+
+No. Models stay on your Mac until you delete them. New models are released periodically and you can download them from settings.
+
+### What if I run out of disk space?
+
+Delete models you don't use. You can always re-download them later. Your summaries are not affected by deleting models.
+
+---
+
+## Next Steps
+
+**Just getting started?**
+1. Download a model that matches your Mac's specs
+2. Record a test meeting
+3. Generate a summary and evaluate quality
+
+**Want even better quality?**
+- [Set up Cloud AI](/docs/setup/cloud-providers) for important meetings
+- Use Local AI for day-to-day, Cloud for critical meetings
+
+**Need help?**
+- Visit https://summitnotes.app/docs
+- Contact support if you encounter issues

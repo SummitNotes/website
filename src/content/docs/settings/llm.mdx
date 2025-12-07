@@ -1,151 +1,320 @@
 ---
-title: "LLM Configuration"
-description: "Configure your preferred Large Language Model provider for meeting summarization"
+title: "AI Provider Configuration"
+description: "Choose between local, cloud, and self-hosted AI providers for meeting summarization"
 category: "settings"
 order: 1
 ---
 
-# LLM Configuration
+Summit AI Notes uses AI to turn your meeting transcriptions into clear, actionable summaries. You have three options for running the AI: built-in local models, cloud providers, or your own self-hosted AI server.
 
-Summit AI Notes supports multiple Large Language Model (LLM) providers for generating meeting summaries and insights. You can choose between local processing for maximum privacy or cloud providers for advanced capabilities.
+## Quick Decision Guide
 
-## Supported LLM Providers
+### Local AI (Built-in)
+**AI runs directly inside Summit AI Notes**
 
-### Local LLMs (Recommended for Privacy)
+- ✅ Complete privacy (nothing leaves your Mac)
+- ✅ Zero ongoing costs
+- ✅ Works offline
+- ✅ No API keys or external software needed
+- ✅ One-click setup
+- ⚠️ Requires Apple Silicon Mac (M1 or newer)
+- ⚠️ Slower than cloud AI
+- ⚠️ Good quality (not the best)
 
-#### LM Studio
-- **Privacy**: 100% local, no data leaves your device
-- **Cost**: Free (one-time LM Studio setup)
-- **Performance**: Depends on your Mac's specs
-- **Best for**: Privacy-conscious consultants, confidential meetings
+**[👉 Set Up Local AI](/docs/setup/local-ai)**
 
-See the [LM Studio Setup Guide](/docs/setup/lmstudio) for detailed configuration instructions.
+---
 
-### Cloud LLM Providers
+### Cloud AI (Remote Services)
+**Use professional AI services like OpenAI, Anthropic, or Google**
 
-#### OpenAI (GPT-4, GPT-3.5)
-- **Privacy**: Data sent to OpenAI servers
-- **Cost**: Pay-per-use API pricing
-- **Performance**: Excellent quality, fast
-- **Best for**: Maximum quality summaries, complex analysis
+- ✅ Fastest, highest quality summaries
+- ✅ Works on any Mac
+- ✅ Latest AI models
+- ✅ Minimal setup time (5 minutes)
+- ⚠️ Costs money (~$5-20/month)
+- ⚠️ Requires internet connection
+- ⚠️ Text transcription sent to provider
+- ⚠️ Audio recordings never leave your Mac
 
-#### Anthropic Claude
-- **Privacy**: Data sent to Anthropic servers
-- **Cost**: Pay-per-use API pricing
-- **Performance**: Excellent for long-form content
-- **Best for**: Detailed meeting analysis, comprehensive summaries
+**[👉 Set Up Cloud AI](/docs/setup/cloud-providers)**
 
-#### Google Gemini
-- **Privacy**: Data sent to Google servers
-- **Cost**: Pay-per-use API pricing (includes free tier)
-- **Performance**: Good quality, competitive pricing
-- **Best for**: Budget-conscious users, multilingual meetings
+---
 
-## How to Configure Your LLM Provider
+### Self-Hosted AI (Your Own Server)
+**Run AI on your own server using LM Studio, Ollama, or similar. Perfect if you have a gaming PC or if you want to setup a server for your team.**
 
-### Step 1: Open Settings
+- ✅ Complete privacy (your infrastructure)
+- ✅ Zero ongoing costs (after setup)
+- ✅ Works offline
+- ✅ Full control over models
+- ⚠️ Requires powerful Mac/PC for good performance
+- ⚠️ 30+ minute setup time
+- ⚠️ Requires technical knowledge
+- ⚠️ Need to install and maintain 3rd party software
 
-1. Launch Summit AI Notes
-2. Click on **Summit AI Notes** in the menu bar
-3. Select **Settings** (or press `⌘,`)
-4. Navigate to the **LLM** tab
+**[👉 Set Up Self-Hosted AI](/docs/setup/cloud-providers#using-other-providers)** (uses "Remote" provider type with custom URL)
 
-### Step 2: Choose Your Provider
+---
 
-Select your preferred provider from the dropdown:
-- **LM Studio** (local)
-- **OpenAI**
-- **Anthropic Claude**
-- **Google Gemini**
+## Detailed Comparison
 
-### Step 3: Enter API Credentials
+### Local AI (Built-in)
 
-#### For LM Studio (Local)
-1. Ensure LM Studio is running
-2. The default local endpoint is `http://localhost:1234/v1`
-3. No API key required
+**What it is:**
+AI models that run directly inside the Summit AI Notes app. No external software or servers needed.
 
-#### For Cloud Providers
-1. Obtain an API key from your chosen provider:
-   - [OpenAI API Keys](https://platform.openai.com/api-keys)
-   - [Anthropic Console](https://console.anthropic.com/)
-   - [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Paste your API key in the designated field
-3. Click **Save Settings**
+**How it works:**
+1. Download an AI model from within Summit settings (one-time)
+2. Model runs on your Mac's chip when generating summaries
+3. Everything happens inside the app
 
-### Step 4: Test Your Configuration
+**Best for:**
+- Users who want privacy without technical setup
+- Consultants, lawyers, healthcare professionals
+- Anyone with sensitive client meetings
+- Budget-conscious users who record frequently
 
-1. Click the **Test Connection** button
-2. Summit AI Notes will verify the connection and display the result
-3. If successful, you're ready to generate summaries!
+**Requirements:**
+- Mac with M1 chip or newer
+- 8-16GB RAM (more is better)
+- 2-8GB disk space per model
 
-## Privacy Considerations
+**Setup time:** 1 minute + download time
 
-### Local LLMs (LM Studio)
-- **Audio**: Never leaves your device
-- **Transcriptions**: Processed locally
-- **Summaries**: Generated locally
-- **Result**: Complete privacy
+---
 
-### Cloud LLMs (OpenAI, Claude, Gemini)
-- **Audio**: Never sent to cloud (only transcription text)
-- **Transcriptions**: Sent to the LLM provider for summarization
-- **Summaries**: Generated by cloud service
-- **Result**: Transcription data shared with provider
+### Cloud AI (Remote Services)
 
-> **Important**: When using cloud LLMs, only the transcription text is sent to the provider. Your audio recordings always stay on your device.
+**What it is:**
+Professional AI services from companies like OpenAI (ChatGPT), Anthropic (Claude), and Google (Gemini).
 
-## Troubleshooting
+**How it works:**
+1. Get an API key from your chosen provider
+2. Enter it in Summit settings
+3. Transcription text is sent to cloud for summarization
+4. Summary comes back to your Mac
 
-### "Connection Failed" Error
+**Best for:**
+- Users who want the best quality
+- Teams who need fast processing
+- Users with less powerful Macs
+- Anyone willing to pay for convenience
 
-**For LM Studio:**
-1. Verify LM Studio is running
-2. Check that the local server is started (port 1234)
-3. Ensure no firewall is blocking localhost connections
-4. Try restarting LM Studio
+**Available providers:**
+- **Google Gemini** - Free tier available, good quality
+- **OpenAI (ChatGPT)** - Industry standard, very reliable
+- **Anthropic (Claude)** - Excellent for long meetings
 
-**For Cloud Providers:**
-1. Verify your API key is correct (no extra spaces)
-2. Check your API key has sufficient quota/credits
-3. Ensure your internet connection is stable
-4. Verify the API key has the correct permissions
+**Setup time:** 2-5 minutes
 
-### "Slow Summary Generation"
+---
 
-**For LM Studio:**
-- Try a smaller model (4B instead of 20B)
-- Check your Mac's CPU/GPU usage
-- Ensure sufficient RAM is available
-- Consider upgrading your hardware or using cloud LLMs
+### Self-Hosted AI (Your Own Server)
 
-**For Cloud Providers:**
-- This is rare; usually indicates network issues
-- Check your internet connection speed
-- Try switching to a "faster" model variant
+**What it is:**
+Run your own AI server software (like LM Studio or Ollama) on your Mac, then connect Summit to it.
 
-### "API Quota Exceeded"
+**How it works:**
+1. Install LM Studio, Ollama, or similar software
+2. Download and run AI models in that software
+3. Configure Summit to connect to your local server
+4. Summit sends transcription to your server (not the cloud)
 
-**For Cloud Providers:**
-1. Check your account balance/credits
-2. Review your API usage limits
-3. Add payment method or purchase more credits
-4. Consider switching to LM Studio for unlimited local use
+**Best for:**
+- Power users who want privacy + control
+- Users who already run LM Studio/Ollama
+- Technical users comfortable with server software
+- Organizations with specific compliance requirements
+
+**Popular options:**
+- **LM Studio** - Easy GUI, good performance
+- **Ollama** - Command line, very efficient
+- **vLLM** - Advanced, maximum performance
+
+**Setup time:** 15-30 minutes
+
+---
+
+## Privacy Comparison
+
+### What Never Leaves Your Mac (All Options)
+
+- ✅ Original audio recordings
+- ✅ Meeting metadata (titles, dates, notes)
+- ✅ Your Summit AI Notes database
+
+### What's Different
+
+| Data Type | Local AI | Cloud AI | Self-Hosted |
+|-----------|----------|----------|-------------|
+| Audio | Stays local | Stays local | Stays local |
+| Transcription | Stays local | Sent to cloud | Stays local |
+| AI Processing | On your Mac | In the cloud | On your Mac/server |
+| Summary | Stays local | Generated in cloud | Stays local |
+| **Privacy Level** | **100%** | **Partial** | **100%** |
+
+---
+
+## Performance Comparison
+
+### Summary Speed (30-minute meeting)
+
+| Option | Typical Speed | Notes |
+|--------|---------------|-------|
+| **Local AI** | 60-180 seconds | Depends on Mac chip |
+| **Cloud AI** | 10-30 seconds | Very consistent |
+| **Self-Hosted** | 30-120 seconds | Depends on setup/model |
+
+### Quality Comparison
+
+| Option | Quality Level | Best Use Case |
+|--------|---------------|---------------|
+| **Local AI** | Good | Daily meetings, general use |
+| **Cloud AI** | Excellent | Important meetings, complex topics |
+| **Self-Hosted** | Good to Very Good | Varies by model chosen |
+
+---
 
 ## Cost Comparison
 
-| Provider | Estimated Cost (10 hrs meetings/month) | Notes |
-|----------|---------------------------------------|-------|
-| LM Studio | $0 (Free) | One-time setup, unlimited use |
-| OpenAI GPT-3.5 | ~$5-10/month | Fast, good quality |
-| OpenAI GPT-4 | ~$20-40/month | Best quality, higher cost |
-| Claude Sonnet | ~$10-20/month | Balanced |
-| Gemini Flash | ~$3-8/month | Most economical cloud option |
+### Initial Setup Cost
 
-> **Note**: Actual costs vary based on meeting length, transcription length, and selected model.
+- **Local AI:** $0
+- **Cloud AI:** $0 (but need to add credits/payment method)
+- **Self-Hosted:** $0 (software is free)
+
+### Ongoing Monthly Cost (30 meetings/month)
+
+- **Local AI:** $0
+- **Cloud AI:** $5-30 (depending on provider and models)
+- **Self-Hosted:** $0
+
+### Hidden Costs
+
+**Local AI:**
+- Slower processing time
+- Need sufficient RAM
+
+**Cloud AI:**
+- API fees
+- Requires internet
+
+**Self-Hosted:**
+- Time to maintain server software
+- Need powerful Mac for good speed
+- Learning curve
+
+---
+
+## Can I Use Multiple Options?
+
+**Yes!** You can switch between options anytime and even use different options for different meetings:
+
+**Example Strategy:**
+- **Local AI** for confidential client meetings
+- **Cloud AI** for internal team meetings
+- **Self-Hosted** for after you've set up LM Studio
+
+**How to switch:**
+1. Go to Settings → AI Provider
+2. Choose a different provider type
+3. Your existing summaries stay unchanged
+
+---
+
+## Recommended Setups
+
+### For Consultants/Professionals
+**Start:** Cloud AI (Google Gemini free tier)
+**Then:** Set up Local AI for sensitive meetings
+**Later:** Add Self-hosted if you want more control
+
+### For Privacy-Critical Work (Legal, Healthcare, Finance)
+**Use:** Local AI exclusively
+**Why:** Complete privacy, no external dependencies
+**Trade-off:** Accept slightly slower processing
+
+### For High Volume Users
+**Use:** Cloud AI with budget models (GPT-3.5, Claude Haiku, Gemini Flash)
+**Why:** Fast processing, reasonable cost
+**Cost:** ~$10-15/month
+
+### For Best Quality
+**Use:** Cloud AI with premium models (GPT-4, Claude Opus)
+**Why:** Best possible summaries
+**Cost:** ~$20-30/month
+
+### For Technical Users
+**Use:** Self-hosted AI (LM Studio)
+**Why:** Complete control, privacy, zero ongoing cost
+**Trade-off:** Setup and maintenance time
+
+### For Limited Budget + Privacy
+**Use:** Local AI
+**Why:** Free and private
+**Trade-off:** Need decent Mac hardware
+
+---
+
+## Decision Flowchart
+
+**Start here: What's most important to you?**
+
+### Privacy is #1 priority
+→ **Do you want to install extra software?**
+  - No → **Local AI** (built-in, easy)
+  - Yes → **Self-Hosted** (more control, more complex)
+
+### Quality is #1 priority
+→ **Cloud AI** (best quality available)
+
+### Cost is #1 priority (want free)
+→ **Do you have M1 Pro or better?**
+  - Yes → **Local AI** (easy) or **Self-Hosted** (better quality)
+  - No → **Self-Hosted** (if you can handle the setup)
+  - Just want easy → **Cloud AI** with Gemini free tier
+
+### Speed is #1 priority
+→ **Cloud AI** (fastest summaries)
+
+### Offline capability needed
+→ **Local AI** (easiest) or **Self-Hosted** (if technical)
+
+---
+
+## Getting Started
+
+### I want to try it out quickly
+**[Set up Cloud AI with Google Gemini](/docs/setup/cloud-providers)** (free tier, 2 minutes)
+
+### I need complete privacy
+**[Set up Local AI](/docs/setup/local-ai)** (1 click + download, 5-10 minutes)
+
+### I'm technical and want control
+**[Set up Self-Hosted AI](/docs/setup/cloud-providers#using-other-providers)** (15-30 minutes)
+
+---
 
 ## Next Steps
 
-- [Set up LM Studio for local processing](/docs/setup/lmstudio)
-- [Configure cloud provider API keys](/docs/setup/cloud-providers)
-- Learn about [customizing summary templates](/docs/guides/custom-summaries)
+**Recommended path for new users:**
+
+1. **Week 1:** Try Cloud AI (Gemini free tier) to see how AI summaries work
+2. **Week 2:** Set up Local AI for sensitive meetings
+3. **Optional:** Set up Self-hosted if you want more control
+
+This way you experience the quality, learn the privacy options, and can make an informed decision.
+
+---
+
+## Need Help?
+
+**Still not sure which option to choose?**
+- Start with **Cloud AI (Gemini free tier)** - it's free and takes 2 minutes
+- You can always switch later
+
+**Have questions?**
+- Check the detailed setup guides linked above
+- Visit https://summitnotes.app/docs
+- Contact support for personalized recommendations
