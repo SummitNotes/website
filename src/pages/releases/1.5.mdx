@@ -1,0 +1,34 @@
+import ReleaseLayout from "../../layouts/ReleaseLayout.astro";
+
+export const version = "1.5";
+export const date = "2025-12-20";
+export const title = "Summit AI Notes 1.5";
+
+<ReleaseLayout version={version} date={date} title={title}>
+
+**AI & Transcription**
+- AI Transcript Cleanup Beta: Automatically clean up transcripts by removing filler words, false starts, and irrelevant segments using AI
+- Visual feedback shows cleanup progress as transcript segments are processed in real-time
+- Confidence analysis now runs automatically on all transcriptions
+
+**Summarization**
+- Summarization Templates: Create reusable templates for different meeting types (standups, interviews, lectures)
+- Hierarchical template resolution: Set templates per document, per folder, or as a default fallback
+- Improved extraction rules with separate prompts for topics and action items
+- Better failure tracking surfaces when individual extraction steps fail
+
+**Export**
+- Audio Merging: Combine microphone and system audio into a single file for export
+- ZIP Archive export packages transcripts and audio together
+- Exported markdown now uses detected speaker names instead of generic labels
+
+**User Interface**
+- Redesigned sidebar with prominent Record button that transforms into a Stop button with live timer during recording
+- Flat bubble list view for transcript editing
+
+**Bug Fixes**
+- Audio mute state now resets to defaults when starting a new recording
+- Fixed OpenAI API support and timeouts
+- Improved tag extraction with more conservative matching
+
+</ReleaseLayout>
