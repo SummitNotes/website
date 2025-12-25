@@ -1,0 +1,203 @@
+---
+import {
+  Heart,
+  Shield,
+  UserCheck,
+  FileText,
+  Lock,
+} from "lucide-react";
+---
+
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1440" />
+    <title>Summit AI Notes for Healthcare Professionals</title>
+    <style is:global>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html, body {
+        width: 1440px;
+        height: 900px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #eff6ff 100%);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+      .container {
+        width: 1440px;
+        height: 900px;
+        padding: 48px 80px;
+        display: flex;
+        flex-direction: column;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .icon-circle {
+        width: 72px;
+        height: 72px;
+        background: #dbeafe;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+      }
+      .icon-circle svg {
+        width: 36px;
+        height: 36px;
+        color: #2563eb;
+      }
+      h1 {
+        font-size: 42px;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 12px;
+      }
+      .subtitle {
+        font-size: 20px;
+        color: #64748b;
+      }
+      .value-prop {
+        background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
+        border: 1px solid #bfdbfe;
+        border-radius: 16px;
+        padding: 28px 32px;
+        margin-bottom: 36px;
+      }
+      .value-prop h2 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 12px;
+      }
+      .value-prop p {
+        font-size: 16px;
+        color: #475569;
+        line-height: 1.6;
+      }
+      .benefits-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #0f172a;
+        text-align: center;
+        margin-bottom: 24px;
+      }
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      .benefit-card {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      }
+      .benefit-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      .benefit-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .benefit-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+      .benefit-icon.red { background: #fee2e2; }
+      .benefit-icon.red svg { color: #dc2626; }
+      .benefit-icon.blue { background: #dbeafe; }
+      .benefit-icon.blue svg { color: #2563eb; }
+      .benefit-icon.green { background: #dcfce7; }
+      .benefit-icon.green svg { color: #16a34a; }
+      .benefit-icon.purple { background: #f3e8ff; }
+      .benefit-icon.purple svg { color: #9333ea; }
+      .benefit-card h3 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #0f172a;
+      }
+      .benefit-card p {
+        font-size: 14px;
+        color: #64748b;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="icon-circle">
+          <Heart />
+        </div>
+        <h1>Summit AI Notes for Healthcare</h1>
+        <p class="subtitle">Secure documentation for patient consultations with privacy built-in</p>
+      </div>
+
+      <div class="value-prop">
+        <h2>Privacy-First Healthcare Documentation</h2>
+        <p>
+          Healthcare professionals need to balance comprehensive documentation with patient privacy. Summit AI Notes helps by processing everything locally on your Mac, ensuring sensitive health information never leaves your device. Perfect for telehealth consultations, care coordination meetings, and administrative work.
+        </p>
+      </div>
+
+      <h2 class="benefits-title">Why Healthcare Professionals Choose Summit</h2>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-header">
+            <div class="benefit-icon red">
+              <Lock />
+            </div>
+          </div>
+          <h3>Patient Privacy</h3>
+          <p>All processing happens locally on your device. Patient health information stays completely private with no cloud uploads or third-party access.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-header">
+            <div class="benefit-icon blue">
+              <FileText />
+            </div>
+          </div>
+          <h3>Comprehensive Documentation</h3>
+          <p>Capture detailed notes from patient consultations, care team meetings, and telehealth sessions without compromising care quality.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-header">
+            <div class="benefit-icon green">
+              <UserCheck />
+            </div>
+          </div>
+          <h3>More Patient Face Time</h3>
+          <p>Reduce time spent on documentation and administrative work. Focus on patient care while Summit handles note-taking.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-header">
+            <div class="benefit-icon purple">
+              <Shield />
+            </div>
+          </div>
+          <h3>Local Processing</h3>
+          <p>All AI transcription and summarization runs on your Mac. No patient data sent to external servers or AI providers.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

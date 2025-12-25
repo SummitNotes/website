@@ -1,0 +1,203 @@
+---
+import {
+  TrendingUp,
+  Shield,
+  Clock,
+  Target,
+  CheckCircle,
+} from "lucide-react";
+---
+
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1440" />
+    <title>Summit AI Notes for Finance Professionals</title>
+    <style is:global>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html, body {
+        width: 1440px;
+        height: 900px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f0fdf4 100%);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+      .container {
+        width: 1440px;
+        height: 900px;
+        padding: 48px 80px;
+        display: flex;
+        flex-direction: column;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .icon-circle {
+        width: 72px;
+        height: 72px;
+        background: #dcfce7;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+      }
+      .icon-circle svg {
+        width: 36px;
+        height: 36px;
+        color: #16a34a;
+      }
+      h1 {
+        font-size: 42px;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 12px;
+      }
+      .subtitle {
+        font-size: 20px;
+        color: #64748b;
+      }
+      .value-prop {
+        background: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%);
+        border: 1px solid #bbf7d0;
+        border-radius: 16px;
+        padding: 28px 32px;
+        margin-bottom: 36px;
+      }
+      .value-prop h2 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 12px;
+      }
+      .value-prop p {
+        font-size: 16px;
+        color: #475569;
+        line-height: 1.6;
+      }
+      .benefits-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #0f172a;
+        text-align: center;
+        margin-bottom: 24px;
+      }
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      .benefit-card {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      }
+      .benefit-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      .benefit-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .benefit-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+      .benefit-icon.green { background: #dcfce7; }
+      .benefit-icon.green svg { color: #16a34a; }
+      .benefit-icon.blue { background: #dbeafe; }
+      .benefit-icon.blue svg { color: #2563eb; }
+      .benefit-icon.purple { background: #f3e8ff; }
+      .benefit-icon.purple svg { color: #9333ea; }
+      .benefit-icon.orange { background: #ffedd5; }
+      .benefit-icon.orange svg { color: #ea580c; }
+      .benefit-card h3 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #0f172a;
+      }
+      .benefit-card p {
+        font-size: 14px;
+        color: #64748b;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="icon-circle">
+          <TrendingUp />
+        </div>
+        <h1>Summit AI Notes for Finance Professionals</h1>
+        <p class="subtitle">Secure, compliant documentation for client meetings and financial planning</p>
+      </div>
+
+      <div class="value-prop">
+        <h2>Built for Financial Services</h2>
+        <p>
+          In finance, documentation is everything. Summit AI Notes helps advisors, analysts, and wealth managers maintain accurate records of client conversations, investment discussions, and financial planning sessions—all while ensuring complete data security with local processing.
+        </p>
+      </div>
+
+      <h2 class="benefits-title">Why Finance Professionals Choose Summit</h2>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-header">
+            <div class="benefit-icon green">
+              <Shield />
+            </div>
+          </div>
+          <h3>Regulatory Compliance</h3>
+          <p>Meet SEC, FINRA, and data protection requirements with local processing. All client financial data stays on your device under your control.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-header">
+            <div class="benefit-icon blue">
+              <CheckCircle />
+            </div>
+          </div>
+          <h3>Accurate Client Records</h3>
+          <p>Document investment goals, risk tolerance, and financial decisions with precision. Build comprehensive client files automatically.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-header">
+            <div class="benefit-icon purple">
+              <Clock />
+            </div>
+          </div>
+          <h3>More Time for Clients</h3>
+          <p>Stop spending hours on meeting notes and follow-ups. Reclaim time to focus on portfolio management and client relationships.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-header">
+            <div class="benefit-icon orange">
+              <Target />
+            </div>
+          </div>
+          <h3>Better Client Service</h3>
+          <p>Never forget a client's financial goal or concern. Search past conversations instantly to provide personalized, informed advice.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
