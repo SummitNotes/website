@@ -1,8 +1,17 @@
-import React from 'react';
-import { Button } from './ui/button';
-import { Card } from './ui/card';
-import { Badge } from './ui/badge';
-import { Lock, Users, CheckCircle, ArrowRight, Play, Mic, Shield, Zap } from 'lucide-react';
+import React from "react";
+import { Button } from "./ui/button";
+import { Card } from "./ui/card";
+import { Badge } from "./ui/badge";
+import {
+  Lock,
+  Users,
+  CheckCircle,
+  ArrowRight,
+  Play,
+  Mic,
+  Shield,
+  Zap,
+} from "lucide-react";
 
 interface HeroSectionProps {
   title?: string;
@@ -34,19 +43,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     {
       value: "100%",
       label: "Local Processing",
-      icon: <Shield className="w-5 h-5 text-purple-600" />
+      icon: <Shield className="w-5 h-5 text-purple-600" />,
     },
     {
       value: "Zero",
       label: "Cloud Uploads",
-      icon: <Lock className="w-5 h-5 text-blue-600" />
+      icon: <Lock className="w-5 h-5 text-blue-600" />,
     },
     // {
     //   value: "500+",
     //   label: "On Waitlist",
     //   icon: <Users className="w-5 h-5 text-green-600" />
     // }
-  ]
+  ],
 }) => {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-background via-background to-muted/20 overflow-hidden pt-16 md:pt-20">
@@ -64,9 +73,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Left Column - Content */}
             <div className="space-y-8">
               {/* Badge */}
-              <Badge variant="secondary" className="w-fit bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 border-blue-200 hover:bg-blue-100">
+              <Badge
+                variant="secondary"
+                className="w-fit bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 border-blue-200 hover:bg-blue-100"
+              >
                 <Zap className="w-3 h-3 mr-1" />
-                Available Today!
+                All local recording and processing!
               </Badge>
 
               {/* Main Heading */}
@@ -84,8 +96,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="https://apps.apple.com/app/summit-ai-notes/id6754717420?l=en-GB&mt=12" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="bg-sky-400 hover:bg-sky-600 text-white px-8 py-6 text-lg font-semibold group">
+                <a
+                  href="https://apps.apple.com/app/summit-ai-notes/id6754717420?l=en-GB&mt=12"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    size="lg"
+                    className="bg-sky-400 hover:bg-sky-600 text-white px-8 py-6 text-lg font-semibold group"
+                  >
                     {ctaText}
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -95,9 +114,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   size="lg"
                   className="px-8 py-6 text-lg font-semibold group"
                   onClick={() => {
-                    const element = document.getElementById('how-it-works');
+                    const element = document.getElementById("how-it-works");
                     if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
+                      element.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
                 >
@@ -109,7 +128,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               {/* Features List */}
               <div className="flex flex-wrap gap-4">
                 {features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 text-sm text-muted-foreground"
+                  >
                     <CheckCircle className="w-4 h-4 text-green-600" />
                     {feature}
                   </div>
@@ -122,9 +144,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   <div key={index} className="text-center lg:text-left">
                     <div className="flex items-center justify-center lg:justify-start gap-2 mb-1">
                       {stat.icon}
-                      <span className="text-2xl font-bold text-foreground">{stat.value}</span>
+                      <span className="text-2xl font-bold text-foreground">
+                        {stat.value}
+                      </span>
                     </div>
-                    <p className="text-sm text-muted-foreground">{stat.label}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {stat.label}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -136,8 +162,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               <Card className="p-6 bg-background/80 backdrop-blur-sm border-border shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <h3 className="font-semibold text-foreground">Meeting Dashboard</h3>
-                    <Badge variant="secondary" className="bg-red-100 text-red-700">
+                    <h3 className="font-semibold text-foreground">
+                      Meeting Dashboard
+                    </h3>
+                    <Badge
+                      variant="secondary"
+                      className="bg-red-100 text-red-700"
+                    >
                       <div className="w-2 h-2 bg-red-500 rounded-full mr-1 animate-pulse"></div>
                       Recording
                     </Badge>
@@ -150,13 +181,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                         <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
                           <Mic className="w-3 h-3 text-blue-600" />
                         </div>
-                        <span className="text-xs font-medium text-slate-600">Transcribing...80%</span>
+                        <span className="text-xs font-medium text-slate-600">
+                          Transcribing...80%
+                        </span>
                       </div>
                       <div className="h-1 bg-blue-200 rounded-full">
                         <div className="h-1 bg-blue-500 rounded-full w-3/4 animate-pulse"></div>
                       </div>
                       <p className="text-xs text-slate-500 leading-relaxed">
-                        "Based on our analysis, I recommend focusing on the operational efficiency improvements..."
+                        "Based on our analysis, I recommend focusing on the
+                        operational efficiency improvements..."
                       </p>
                     </div>
                   </div>
@@ -164,12 +198,20 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   {/* Mock Metrics */}
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-muted/50 p-3 rounded-lg">
-                      <p className="text-sm text-muted-foreground">Meeting Duration</p>
-                      <p className="text-lg font-semibold text-foreground">1h 23m</p>
+                      <p className="text-sm text-muted-foreground">
+                        Meeting Duration
+                      </p>
+                      <p className="text-lg font-semibold text-foreground">
+                        1h 23m
+                      </p>
                     </div>
                     <div className="bg-muted/50 p-3 rounded-lg">
-                      <p className="text-sm text-muted-foreground">Words Captured</p>
-                      <p className="text-lg font-semibold text-foreground">2,847</p>
+                      <p className="text-sm text-muted-foreground">
+                        Words Captured
+                      </p>
+                      <p className="text-lg font-semibold text-foreground">
+                        2,847
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -182,8 +224,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     <CheckCircle className="w-4 h-4 text-green-600" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-foreground">Summary Ready</p>
-                    <p className="text-xs text-muted-foreground">Shareable format</p>
+                    <p className="text-sm font-medium text-foreground">
+                      Summary Ready
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      Shareable format
+                    </p>
                   </div>
                 </div>
               </Card>
@@ -194,8 +240,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     <Shield className="w-4 h-4 text-purple-600" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-foreground">100% Private</p>
-                    <p className="text-xs text-muted-foreground">With local processing</p>
+                    <p className="text-sm font-medium text-foreground">
+                      100% Private
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      With local processing
+                    </p>
                   </div>
                 </div>
               </Card>

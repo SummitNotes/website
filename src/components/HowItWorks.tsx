@@ -1,7 +1,14 @@
-import React from 'react';
-import { Card } from './ui/card';
-import { Badge } from './ui/badge';
-import { Download, Mic, FileText, Lock, Sparkles, ArrowRight } from 'lucide-react';
+import React from "react";
+import { Card } from "./ui/card";
+import { Badge } from "./ui/badge";
+import {
+  Download,
+  Mic,
+  FileText,
+  Lock,
+  Sparkles,
+  ArrowRight,
+} from "lucide-react";
 
 interface Step {
   number: number;
@@ -25,8 +32,8 @@ const HowItWorks: React.FC = () => {
       details: [
         "Native macOS app - no browser required",
         "Installs in under 60 seconds",
-        "No cloud account needed to start"
-      ]
+        "No cloud account needed to start",
+      ],
     },
     {
       number: 2,
@@ -38,8 +45,8 @@ const HowItWorks: React.FC = () => {
       details: [
         "Works with Zoom, Teams, Meet, or in-person",
         "Captures both sides of the conversation",
-        "Runs silently in the background"
-      ]
+        "Runs silently in the background",
+      ],
     },
     {
       number: 3,
@@ -51,8 +58,8 @@ const HowItWorks: React.FC = () => {
       details: [
         "Processing happens on-device",
         "Zero data sent to cloud servers unless you want to",
-        "Your conversations stay private"
-      ]
+        "Your conversations stay private",
+      ],
     },
     {
       number: 4,
@@ -64,9 +71,9 @@ const HowItWorks: React.FC = () => {
       details: [
         "Structured summaries with action items",
         "Key insights automatically extracted",
-        "Export to your preferred format"
-      ]
-    }
+        "Export to your preferred format",
+      ],
+    },
   ];
 
   return (
@@ -78,7 +85,10 @@ const HowItWorks: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16 space-y-4">
-            <Badge variant="secondary" className="w-fit mx-auto bg-gradient-to-r from-purple-50 to-blue-50 text-purple-700 border-purple-200">
+            <Badge
+              variant="secondary"
+              className="w-fit mx-auto bg-gradient-to-r from-purple-50 to-blue-50 text-purple-700 border-purple-200"
+            >
               <Sparkles className="w-3 h-3 mr-1" />
               Simple Yet Powerful
             </Badge>
@@ -96,7 +106,7 @@ const HowItWorks: React.FC = () => {
               <div className="relative pb-[56.25%]">
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/FFXmkCWVJVg?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=FFXmkCWVJVg"
+                  src="https://www.youtube.com/embed/NEfCIwPjf0E?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=NEfCIwPjf0E"
                   title="How Summit AI Notes Works"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -118,7 +128,9 @@ const HowItWorks: React.FC = () => {
 
                 <Card className="h-full p-6 bg-background border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
                   {/* Icon */}
-                  <div className={`w-14 h-14 rounded-lg ${step.bgColor} ${step.color} flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform`}>
+                  <div
+                    className={`w-14 h-14 rounded-lg ${step.bgColor} ${step.color} flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform`}
+                  >
                     {step.icon}
                   </div>
 
@@ -133,8 +145,13 @@ const HowItWorks: React.FC = () => {
                   {/* Details */}
                   <ul className="space-y-2">
                     {step.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
-                        <div className={`w-1 h-1 rounded-full ${step.bgColor} ${step.color} mt-1.5 flex-shrink-0`}></div>
+                      <li
+                        key={idx}
+                        className="flex items-start gap-2 text-xs text-muted-foreground"
+                      >
+                        <div
+                          className={`w-1 h-1 rounded-full ${step.bgColor} ${step.color} mt-1.5 flex-shrink-0`}
+                        ></div>
                         <span>{detail}</span>
                       </li>
                     ))}
@@ -155,13 +172,18 @@ const HowItWorks: React.FC = () => {
                   Why Local Processing Matters
                 </h3>
                 <p className="text-muted-foreground">
-                  Cloud-based tools like Otter.ai and Fireflies.ai upload your recordings to their servers for processing.
-                  That's a dealbreaker when you've signed NDAs or handle sensitive client information.
-                  Summit AI Notes processes everything locally on your Mac - no exceptions, no compromises.
+                  Cloud-based tools like Otter.ai and Fireflies.ai upload your
+                  recordings to their servers for processing. That's a
+                  dealbreaker when you've signed NDAs or handle sensitive client
+                  information. Summit AI Notes processes everything locally on
+                  your Mac - no exceptions, no compromises.
                 </p>
               </div>
               <div className="flex-shrink-0">
-                <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-300">
+                <Badge
+                  variant="secondary"
+                  className="bg-green-100 text-green-800 border-green-300"
+                >
                   NDA-Safe
                 </Badge>
               </div>
