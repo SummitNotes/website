@@ -33,19 +33,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     {
       value: "100%",
       label: "Local Processing",
-      icon: <Shield className="w-5 h-5 text-purple-600" />
+      icon: <Shield className="w-5 h-5 text-purple-600" />,
     },
     {
       value: "Zero",
       label: "Cloud Uploads",
-      icon: <Lock className="w-5 h-5 text-blue-600" />
+      icon: <Lock className="w-5 h-5 text-blue-600" />,
     },
     // {
     //   value: "500+",
     //   label: "On Waitlist",
     //   icon: <Users className="w-5 h-5 text-green-600" />
     // }
-  ]
+  ],
 }) => {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-background via-background to-muted/20 overflow-hidden pt-16 md:pt-20">
@@ -63,9 +63,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Left Column - Content */}
             <div className="space-y-8">
               {/* Badge */}
-              <Badge variant="secondary" className="w-fit bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 border-blue-200 hover:bg-blue-100">
+              <Badge
+                variant="secondary"
+                className="w-fit bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 border-blue-200 hover:bg-blue-100"
+              >
                 <Zap className="w-3 h-3 mr-1" />
-                Available Today!
+                All local recording and processing!
               </Badge>
 
               {/* Main Heading */}
@@ -83,8 +86,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="https://apps.apple.com/app/summit-ai-notes/id6754717420?l=en-GB&mt=12" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="bg-sky-400 hover:bg-sky-600 text-white px-8 py-6 text-lg font-semibold group">
+                <a
+                  href="https://apps.apple.com/app/summit-ai-notes/id6754717420?l=en-GB&mt=12"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    size="lg"
+                    className="bg-sky-400 hover:bg-sky-600 text-white px-8 py-6 text-lg font-semibold group"
+                  >
                     {ctaText}
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -94,9 +104,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   size="lg"
                   className="px-8 py-6 text-lg font-semibold group"
                   onClick={() => {
-                    const element = document.getElementById('how-it-works');
+                    const element = document.getElementById("how-it-works");
                     if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
+                      element.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
                 >
@@ -108,7 +118,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               {/* Features List */}
               <div className="flex flex-wrap gap-4">
                 {features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 text-sm text-muted-foreground"
+                  >
                     <CheckCircle className="w-4 h-4 text-green-600" />
                     {feature}
                   </div>
@@ -121,9 +134,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   <div key={index} className="text-center lg:text-left">
                     <div className="flex items-center justify-center lg:justify-start gap-2 mb-1">
                       {stat.icon}
-                      <span className="text-2xl font-bold text-foreground">{stat.value}</span>
+                      <span className="text-2xl font-bold text-foreground">
+                        {stat.value}
+                      </span>
                     </div>
-                    <p className="text-sm text-muted-foreground">{stat.label}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {stat.label}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -134,7 +151,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="relative pb-[56.25%]">
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/FFXmkCWVJVg?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=FFXmkCWVJVg"
+                  src="https://www.youtube.com/embed/NEfCIwPjf0E?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=NEfCIwPjf0E"
                   title="How Summit AI Notes Works"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
