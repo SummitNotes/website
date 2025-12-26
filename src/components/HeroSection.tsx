@@ -48,7 +48,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   ],
 }) => {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-background via-background to-muted/20 overflow-hidden pt-16 md:pt-20">
+    <div className="relative min-h-screen bg-gradient-to-br from-background via-background to-muted/20 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 

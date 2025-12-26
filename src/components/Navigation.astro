@@ -1,210 +1,70 @@
 ---
-import { Button } from "./ui/button";
-import { Menu, X } from "lucide-react";
 ---
 
-<nav
-  id="main-nav"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent"
+<div
+  id="scroll-nav"
+  class="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 pointer-events-none transition-all duration-300"
+  style="opacity: 0; transform: translateY(-100%);"
 >
-  <div class="container mx-auto px-4">
-    <div class="flex items-center justify-between h-16 md:h-20">
-      {/* Logo */}
-      <div class="flex items-center">
-        <a href="/" class="flex items-center gap-2 group">
-          <div
-            class="w-8 h-8 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"
-          >
-            <img src="/logo32x32.png" alt="Summit AI Notes" />
-          </div>
-          <span class="font-bold text-lg text-foreground hidden sm:block">
-            Summit AI Notes
-          </span>
-        </a>
+  <a
+    href="https://apps.apple.com/app/summit-ai-notes/id6754717420"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="pointer-events-auto flex items-center justify-between gap-4 rounded-full border border-white/10 bg-black/50 px-4 py-2 shadow-2xl backdrop-blur-xl w-full max-w-lg md:max-w-2xl cursor-pointer hover:bg-black/60 transition-colors"
+  >
+    <div class="flex items-center gap-3">
+      <div class="flex h-8 w-8 items-center justify-center">
+        <img src="/logo32x32.png" alt="Summit AI Notes" class="w-8 h-8 rounded-lg" />
       </div>
-
-      {/* Desktop Navigation */}
-      <div class="hidden md:flex items-center gap-8">
-        <button
-          data-scroll-to="how-it-works"
-          class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-        >
-          How It Works
-        </button>
-        <button
-          data-scroll-to="features"
-          class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-        >
-          Features
-        </button>
-        <button
-          data-scroll-to="pricing"
-          class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-        >
-          Pricing
-        </button>
-        <a
-          href="/about"
-          class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-        >
-          About
-        </a>
-      </div>
-
-      {/* Desktop CTA */}
-      <div class="hidden md:block">
-        <a
-          href="https://apps.apple.com/app/summit-ai-notes/id6754717420"
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-sky-400 hover:bg-sky-600 text-white h-10 px-4 py-2"
-        >
-          Download
-        </a>
-      </div>
-
-      {/* Mobile Menu Button */}
-      <button
-        id="mobile-menu-toggle"
-        class="md:hidden p-2 text-foreground hover:bg-muted rounded-lg transition-colors"
-        aria-label="Toggle menu"
+      <span class="font-semibold text-white hidden sm:block">Summit AI Notes</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <div
+        class="group flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-black transition-transform active:scale-95"
       >
         <svg
-          id="menu-icon"
-          class="w-6 h-6"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
+          class="h-3 w-3"
           viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <line x1="4" x2="20" y1="12" y2="12"></line>
-          <line x1="4" x2="20" y1="6" y2="6"></line>
-          <line x1="4" x2="20" y1="18" y2="18"></line>
-        </svg>
-        <svg
-          id="close-icon"
-          class="w-6 h-6 hidden"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
         >
-          <path d="M18 6 6 18"></path>
-          <path d="m6 6 12 12"></path>
+          <path
+            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+          ></path>
         </svg>
-      </button>
-    </div>
-
-    {/* Mobile Menu */}
-    <div
-      id="mobile-menu"
-      class="hidden md:hidden py-4 border-t border-border bg-background/95 backdrop-blur-lg"
-    >
-      <div class="flex flex-col gap-4">
-        <button
-          data-scroll-to="how-it-works"
-          class="text-left px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
-        >
-          How It Works
-        </button>
-        <button
-          data-scroll-to="features"
-          class="text-left px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
-        >
-          Features
-        </button>
-        <button
-          data-scroll-to="pricing"
-          class="text-left px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
-        >
-          Pricing
-        </button>
-        <a
-          href="/about"
-          class="text-left px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
-        >
-          About
-        </a>
-        <div class="px-4 pt-2">
-          <a
-            href="https://apps.apple.com/app/summit-ai-notes/id6754717420"
-            class="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-sky-400 hover:bg-sky-600 text-white h-10 px-4 py-2"
-          >
-            Download
-          </a>
-        </div>
+        <span>Buy — $29.99</span>
       </div>
     </div>
-  </div>
-</nav>
+  </a>
+</div>
 
 <script>
-  // Scroll effect for navigation
-  const nav = document.getElementById("main-nav");
+  const scrollNav = document.getElementById("scroll-nav");
+  let lastScrollY = 0;
+  let hasScrolled = false;
 
   const handleScroll = () => {
-    if (window.scrollY > 20) {
-      nav?.classList.add(
-        "bg-background/80",
-        "backdrop-blur-lg",
-        "border-b",
-        "border-border",
-        "shadow-sm"
-      );
-      nav?.classList.remove("bg-transparent");
-    } else {
-      nav?.classList.remove(
-        "bg-background/80",
-        "backdrop-blur-lg",
-        "border-b",
-        "border-border",
-        "shadow-sm"
-      );
-      nav?.classList.add("bg-transparent");
-    }
-  };
+    const currentScrollY = window.scrollY;
 
-  // Initial check
-  handleScroll();
+    if (currentScrollY > 100 && !hasScrolled) {
+      // User has scrolled down - show the nav
+      hasScrolled = true;
+      if (scrollNav) {
+        scrollNav.style.opacity = "1";
+        scrollNav.style.transform = "translateY(0)";
+      }
+    } else if (currentScrollY <= 50 && hasScrolled) {
+      // User is near the top - hide the nav
+      hasScrolled = false;
+      if (scrollNav) {
+        scrollNav.style.opacity = "0";
+        scrollNav.style.transform = "translateY(-100%)";
+      }
+    }
+
+    lastScrollY = currentScrollY;
+  };
 
   // Listen for scroll
   window.addEventListener("scroll", handleScroll, { passive: true });
-
-  // Smooth scroll to sections
-  document.querySelectorAll("[data-scroll-to]").forEach((button) => {
-    button.addEventListener("click", (e) => {
-      const target = (e.currentTarget as HTMLElement).getAttribute(
-        "data-scroll-to"
-      );
-      const element = document.getElementById(target || "");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-        // Close mobile menu if open
-        const mobileMenu = document.getElementById("mobile-menu");
-        mobileMenu?.classList.add("hidden");
-        document.getElementById("menu-icon")?.classList.remove("hidden");
-        document.getElementById("close-icon")?.classList.add("hidden");
-      }
-    });
-  });
-
-  // Mobile menu toggle
-  const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const menuIcon = document.getElementById("menu-icon");
-  const closeIcon = document.getElementById("close-icon");
-
-  mobileMenuToggle?.addEventListener("click", () => {
-    mobileMenu?.classList.toggle("hidden");
-    menuIcon?.classList.toggle("hidden");
-    closeIcon?.classList.toggle("hidden");
-  });
 </script>
