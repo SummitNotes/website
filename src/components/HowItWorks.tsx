@@ -90,21 +90,6 @@ const HowItWorks: React.FC = () => {
             </p>
           </div>
 
-          {/* Video Demo */}
-          <div className="mb-16">
-            <div className="relative w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-2xl">
-              <div className="relative pb-[56.25%]">
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/FFXmkCWVJVg?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=FFXmkCWVJVg"
-                  title="How Summit AI Notes Works"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </div>
-          </div>
-
           {/* Steps Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {steps.map((step, index) => (
