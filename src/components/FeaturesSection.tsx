@@ -3,10 +3,8 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { 
-  Shield, 
-  FileText, 
-  Clock, 
+import {
+  FileText,
   Zap,
   AppleIcon,
   Search,
@@ -83,104 +81,49 @@ const FeatureCard = ({ icon, title, description, highlight = false, className }:
 const FeaturesSection = () => {
   const features = [
     {
-      icon: <Shield className="h-6 w-6" />,
-      title: "Privacy-First Local Processing",
-      description: "Zero cloud dependency. All transcription happens on-device for complete privacy and confidentiality - perfect for NDAs and sensitive client work.",
-      highlight: true
-    },
-    {
       icon: <FileText className="h-6 w-6" />,
       title: "Actionable Meeting Summaries",
-      description: "Auto-generated meeting summaries suitable for client deliverables, with action items and key insights formatted professionally."
+      description: "Auto-generated meeting summaries suitable for client deliverables, with action items and key insights formatted professionally.",
+      highlight: true
     },
     {
       icon: <Search className="h-6 w-6" />,
       title: "Powerful Search",
-      description: "Full-text search through transcripts, summary and tags. Take advantage of Similar Documents Feature.",
+      description: "Full-text search through transcripts, summaries and tags. Find any conversation instantly with the Similar Documents feature.",
       highlight: false
     },
     {
       icon: <Mountain className="h-6 w-6" />,
       title: "Platform Independent",
-      description: "Summit AI doesn't depend on meeting bots and is truly platform independent. Works with Zoom, Slack, Teams, Google Meet and other popular platforms.",
+      description: "No meeting bots required. Works with Zoom, Slack, Teams, Google Meet—any platform where you can hear audio.",
       highlight: false
     },
     {
       icon: <AppleIcon className="h-6 w-6" />,
       title: "Mac-Native Design",
-      description: "Built specifically for macOS professionals who value premium, integrated tools that work seamlessly with their existing workflow."
+      description: "Built specifically for macOS. Premium, integrated experience that works seamlessly with your existing workflow."
     },
-    // {
-    //   icon: <Mic className="h-6 w-6" />,
-    //   title: "Dual Audio Capture",
-    //   description: "Simultaneously records your voice and client's system audio (Zoom, Teams, etc.) for complete conversation context with separate audio tracks.",
-    //   highlight: false
-    // },
-    // {
-    //   icon: <FolderOpen className="h-6 w-6" />,
-    //   title: "Document-Centric Organization",
-    //   description: "Each meeting becomes a structured document with summary, transcripts, and audio files organized in ~/Documents/Summit AI Notes/ for easy client access and audit."
-    // },
-    // {
-    //   icon: <Zap className="h-6 w-6" />,
-    //   title: "Real-Time + Post-Meeting Transcription",
-    //   description: "Live transcription during meetings plus high-quality batch processing afterward for maximum accuracy and immediate insights."
-    // },
-  ];
-
-  const painPoints = [
-    "Poor meeting notes leading to awkward moments when you can't deliver effective reports",
-    "10 hours per week on non-billable administrative tasks",
-    "Manual transcription of client conversations for deliverables",
-    "Scattered information across handwritten notes, recordings, and memory"
   ];
 
   return (
     <div className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Problem Section */}
-        <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4 bg-red-50 text-red-700 border-red-200">
-            <Clock className="w-3 h-3 mr-1" />
-            The Hidden Cost of Poor Meeting Documentation
-          </Badge>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-            Independent Consultants Lose 10+ Hours Weekly
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Despite spending 23 hours per week in client meetings, consultants struggle with meeting documentation, 
-            leading to ineffective reports and billable hour pressure.
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-            {painPoints.map((point, index) => (
-              <div key={index} className="flex items-start gap-3 p-4 bg-red-50 rounded-lg border border-red-100">
-                <div className="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                </div>
-                <p className="text-red-700 text-sm leading-relaxed">{point}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Solution Section */}
         <div className="text-center mb-16">
           <Badge variant="secondary" className="mb-4 bg-green-50 text-green-700 border-green-200">
             <Zap className="w-3 h-3 mr-1" />
-            The Summit AI Notes Solution
+            Key Features
           </Badge>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-            Transform Meetings Into Professional Assets
+            Everything You Need, Nothing You Don't
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Summit AI Notes helps independent management consultants reclaim 3-4 billable hours per week through 
-            automated transcription, intelligent organization, and professional client deliverables.
+            Purpose-built for consultants who need professional meeting documentation without the complexity.
           </p>
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {features.map((feature, index) => (
             <FeatureCard key={index} {...feature} />
           ))}
