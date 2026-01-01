@@ -1,11 +1,11 @@
-import React from 'react';
-import { Twitter, Youtube, Linkedin, Mail } from 'lucide-react';
+import React from "react";
+import { Twitter, Youtube, Linkedin, Mail } from "lucide-react";
 
 interface FooterProps {
   className?: string;
 }
 
-const Footer: React.FC<FooterProps> = ({ className = '' }) => {
+const Footer: React.FC<FooterProps> = ({ className = "" }) => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -24,22 +24,6 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Features
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/#how-it-works"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  How It Works
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/#pricing"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Pricing
                 </a>
               </li>
               <li>
@@ -225,9 +209,11 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center">
-                  <img src='/logo32x32.png'/>
+                  <img src="/logo32x32.png" />
                 </div>
-                <span className="font-semibold text-foreground">Summit AI Notes</span>
+                <span className="font-semibold text-foreground">
+                  Summit AI Notes
+                </span>
               </div>
               <p className="text-muted-foreground text-sm">
                 © {currentYear} All rights reserved.
