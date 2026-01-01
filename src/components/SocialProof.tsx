@@ -1,12 +1,28 @@
 import React from "react";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { Star, Quote, Shield, Users, MessageSquare, Languages, Sparkles, FolderOpen, FileText, Search, Mountain } from "lucide-react";
+import {
+  Star,
+  Quote,
+  Shield,
+  Users,
+  MessageSquare,
+  Languages,
+  Sparkles,
+  FolderOpen,
+  FileText,
+  Search,
+  Mountain,
+  Scale,
+  Briefcase,
+} from "lucide-react";
 
 interface Testimonial {
   quote: string;
   role: string;
+  company: string;
   rating: number;
+  icon: React.ReactNode;
 }
 
 interface MainFeature {
@@ -25,15 +41,19 @@ const SocialProof: React.FC = () => {
   const testimonials: Testimonial[] = [
     {
       quote:
-        "I have tried many, many AI meeting note apps (at least over 10) and this is by far the best one.",
-      role: "Attorney in Law",
+        "I tried 10+ meeting note tools. Every one required uploading audio to the cloud. As a litigator, that's a non-starter. Summit is the only one that keeps everything local.",
+      role: "Corporate Attorney",
+      company: "Solo Practice, 15+ years",
       rating: 5,
+      icon: <Scale className="w-5 h-5 text-gray-600" />,
     },
     {
       quote:
-        "I had my own toolset built from multiple apps to get local AI insights. Now I just use Summit!",
-      role: "IT Professional",
+        "I had my own toolset built from multiple apps to get local AI insights. Summit replaced my entire workflow with one elegant app.",
+      role: "IT Consultant",
+      company: "Fortune 500 Clients",
       rating: 5,
+      icon: <Briefcase className="w-5 h-5 text-gray-600" />,
     },
   ];
 
@@ -41,17 +61,20 @@ const SocialProof: React.FC = () => {
     {
       icon: <FileText className="h-6 w-6" />,
       title: "Actionable Meeting Summaries",
-      description: "Auto-generated meeting summaries suitable for client deliverables, with action items and key insights formatted professionally.",
+      description:
+        "Auto-generated meeting summaries suitable for client deliverables, with action items and key insights formatted professionally.",
     },
     {
       icon: <Search className="h-6 w-6" />,
       title: "Powerful Search",
-      description: "Full-text search through transcripts, summaries and tags. Find any conversation instantly with the Similar Documents feature.",
+      description:
+        "Full-text search through transcripts, summaries and tags. Find any conversation instantly with the Similar Documents feature.",
     },
     {
       icon: <Mountain className="h-6 w-6" />,
       title: "Platform Independent",
-      description: "No meeting bots required. Works with Zoom, Slack, Teams, Google Meet—any platform where you can hear audio.",
+      description:
+        "No meeting bots required. Works with Zoom, Slack, Teams, Google Meet—any platform where you can hear audio.",
     },
   ];
 
@@ -109,9 +132,9 @@ const SocialProof: React.FC = () => {
           {testimonials.map((testimonial, index) => (
             <Card
               key={index}
-              className="p-6 bg-background hover:shadow-lg transition-shadow"
+              className="p-6 bg-background hover:shadow-lg transition-shadow flex flex-col h-full"
             >
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-1 mb-4 hidden">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
                     key={i}
@@ -120,13 +143,21 @@ const SocialProof: React.FC = () => {
                 ))}
               </div>
               <Quote className="w-8 h-8 text-muted-foreground/30 mb-3" />
-              <p className="text-muted-foreground mb-4 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed flex-1">
                 "{testimonial.quote}"
               </p>
-              <div className="border-t pt-4">
-                <p className="text-sm text-muted-foreground">
-                  — {testimonial.role}
-                </p>
+              <div className="border-t pt-4 mt-4 flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-foreground">
+                    {testimonial.role}
+                  </p>
+                  <p className="text-xs text-muted-foreground hidden">
+                    {testimonial.company}
+                  </p>
+                </div>
+                <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center">
+                  {testimonial.icon}
+                </div>
               </div>
             </Card>
           ))}
@@ -138,7 +169,8 @@ const SocialProof: React.FC = () => {
             Everything You Need, Nothing You Don't
           </h3>
           <p className="text-muted-foreground">
-            Purpose-built for professionals who need meeting documentation without complexity
+            Purpose-built for professionals who need meeting documentation
+            without complexity
           </p>
         </div>
 
@@ -153,8 +185,12 @@ const SocialProof: React.FC = () => {
                   {feature.icon}
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-lg font-semibold text-foreground mb-2">{feature.title}</h4>
-                  <p className="text-muted-foreground leading-relaxed text-sm">{feature.description}</p>
+                  <h4 className="text-lg font-semibold text-foreground mb-2">
+                    {feature.title}
+                  </h4>
+                  <p className="text-muted-foreground leading-relaxed text-sm">
+                    {feature.description}
+                  </p>
                 </div>
               </div>
             </Card>
@@ -171,8 +207,12 @@ const SocialProof: React.FC = () => {
               <div className="w-10 h-10 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center mb-2">
                 {feature.icon}
               </div>
-              <p className="font-semibold text-foreground text-sm">{feature.value}</p>
-              <p className="text-xs text-muted-foreground mt-1">{feature.label}</p>
+              <p className="font-semibold text-foreground text-sm">
+                {feature.value}
+              </p>
+              <p className="text-xs text-muted-foreground mt-1">
+                {feature.label}
+              </p>
             </div>
           ))}
         </div>
