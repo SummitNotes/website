@@ -1,0 +1,232 @@
+---
+title: "Summary Templates"
+description: "Customize how Summit AI Notes generates meeting summaries with Attention Templates"
+category: "guides"
+order: 1
+---
+
+Summit AI Notes uses **Attention Templates** to guide the AI on what to focus on in your meeting transcripts. Instead of getting generic summaries, you can tailor the AI to extract exactly what matters for your workflow—whether that's action items, decisions, technical details, or client requirements.
+
+## What Are Attention Templates?
+
+Attention Templates tell the AI model what to pay attention to when analyzing your transcript. They define:
+
+- **What to extract** (key insights, action items, decisions, etc.)
+- **What to emphasize** (technical details, client feedback, deadlines)
+- **What to ignore** (small talk, off-topic discussions)
+
+All summaries follow a consistent format with **Key Insights** and **Action Items** sections. Templates control what goes into each section.
+
+Think of templates as instructions that shape how the AI "reads" your meeting.
+
+## Getting Started
+
+### Accessing Templates
+
+1. Open Summit AI Notes
+2. Go to **Settings → Summary Templates**
+
+You'll see the template management interface:
+
+![Summary Templates Settings](/summary-templates.jpg)
+
+Summit comes with an extensive library of predefined templates for common use cases:
+- **General Meeting** - Balanced summary for any meeting type
+- **Client Call** - Focus on client requirements, commitments, and follow-ups
+- **Technical Discussion** - Emphasize technical decisions, architecture, and code topics
+- **Sales Call** - Extract objections, next steps, and buying signals
+- **Project Status** - Focus on progress updates, blockers, and timelines
+- And many more...
+
+### Creating a Custom Template
+
+To create your own template:
+
+1. Click **New Template** in the templates list
+2. Give your template a descriptive name
+3. Write your attention instructions (see examples below)
+4. Save the template
+
+![Creating a New Template](/summary-templates-new.jpg)
+
+## Template Hierarchy
+
+Summit uses a priority system to determine which template to apply:
+
+```
+Document Template → Folder Template → Default Template → System Default
+     (highest)                                              (lowest)
+```
+
+### How It Works
+
+1. **Document-level template** (highest priority)
+   - If a specific recording has a template assigned, that template is used
+   - Perfect for one-off meetings that need special handling
+
+2. **Folder-level template**
+   - If no document template is set, Summit checks if the folder has a template
+   - Great for organizing by project or client (e.g., all "Acme Corp" meetings use the client template)
+
+3. **Default template**
+   - If neither document nor folder has a template, the default template is used
+   - You can change which template is your default
+
+4. **System default**
+   - If no default template is specified, Summit uses the built-in system default
+   - This is a balanced general-purpose template
+
+### Example Scenario
+
+```
+📁 Projects/
+  📁 Acme Corp/          ← Folder template: "Client Call"
+    📄 Kickoff Meeting   ← Uses "Client Call" (from folder)
+    📄 Technical Review  ← Document template: "Technical Discussion"
+    📄 Weekly Sync       ← Uses "Client Call" (from folder)
+  📁 Internal/           ← No folder template
+    📄 Team Standup      ← Uses default template
+```
+
+## Assigning Templates
+
+### To a Folder
+
+Right-click a folder in the sidebar or use the folder settings:
+
+![Assigning Template to Folder](/summary-templates-folder.jpg)
+
+Select your template from the dropdown:
+
+![Folder Template Assignment](/summary-templates-folder-assign.jpg)
+
+### To a Document
+
+Open a recording and access its settings, or right-click in the sidebar:
+
+![Document Template Options](/summary-templates-document.jpg)
+
+Choose the template you want for this specific recording:
+
+![Document Template Assignment](/summary-templates-document-assign.jpg)
+
+## Writing Effective Templates
+
+Templates have two sections that match Summit's summary format: **Key Insights** and **Action Items**. Each section tells the AI what to focus on for that part of the summary.
+
+### Example: Client Discovery Template
+
+Here's a real example you can use as a starting point:
+
+```
+Key Insights:
+Extract 2-5 key insights from this client discovery meeting. Summarize each in 1-2 sentences.
+Focus on:
+- Client's current situation, pain points, and challenges
+- Business objectives and desired outcomes
+- Key stakeholders identified and their priorities
+- Constraints: budget, timeline, organizational politics
+- Success criteria and how they will measure results
+- Competitive landscape or market pressures mentioned
+- Existing solutions they've tried and why they failed
+Ignore: relationship-building small talk, logistics discussion.
+
+Action Items:
+Extract FOLLOW-UP ACTION ITEMS from this client discovery meeting.
+
+ONLY include actions that were EXPLICITLY COMMITTED to.
+Each action must state WHO will do WHAT by WHEN.
+
+Common discovery actions:
+- Documents or data to be shared
+- Stakeholder introductions to be made
+- Proposals or scope documents to be delivered
+- Follow-up meetings to be scheduled
+- Internal approvals client needs to obtain
+
+EXCLUDE: General interest expressions, capabilities discussed, topics to explore later.
+```
+
+### Template Structure
+
+A good template has clear instructions for both sections:
+
+**Key Insights section:**
+- How many insights to extract (e.g., "2-5 key insights")
+- What topics to focus on (bullet list of specific areas)
+- What to ignore (small talk, off-topic content)
+
+**Action Items section:**
+- Criteria for inclusion (e.g., "ONLY explicitly committed actions")
+- Required format (e.g., "WHO will do WHAT by WHEN")
+- Common action types to look for
+- What to exclude (vague intentions, general discussions)
+
+## Tips for Better Templates
+
+### Be Specific
+Instead of "summarize the meeting," tell the AI exactly what you want:
+- ❌ "Extract important points"
+- ✅ "Extract client requirements, specifically feature requests and timeline expectations"
+
+### Set Clear Boundaries
+Tell the AI what NOT to include:
+- "Ignore relationship-building small talk"
+- "EXCLUDE general interest expressions"
+- "Skip logistics discussion"
+
+### Use Explicit Criteria for Action Items
+Be strict about what counts as an action item:
+- ✅ "ONLY include actions that were EXPLICITLY COMMITTED to"
+- ✅ "Each action must state WHO will do WHAT by WHEN"
+- ❌ Vague: "Extract action items from the meeting"
+
+### Match Your Meeting Type
+Different meetings need different focus areas:
+- **Client calls**: Pain points, requirements, commitments made
+- **Technical discussions**: Decisions, trade-offs, architecture choices
+- **Status updates**: Progress, blockers, timeline changes
+- **Sales calls**: Objections, buying signals, next steps
+
+## Managing Templates
+
+### Setting a Default Template
+
+1. Go to Settings → Summary Templates
+2. Find the template you want as default
+3. Click the **Set as Default** option
+
+All new recordings without a specific template assignment will use this default.
+
+### Editing Templates
+
+Click on any template to edit it. Changes apply to future summaries—existing summaries won't be regenerated automatically.
+
+### Deleting Templates
+
+Templates can be deleted if they're not in use. If a folder or document is using the template, you'll need to reassign them first.
+
+## Regenerating Summaries
+
+Changed your template and want to update an existing summary?
+
+1. Open the recording
+2. Click **Regenerate Summary**
+3. The new template will be applied
+
+This is useful when you've refined a template and want to apply improvements to past recordings.
+
+## Best Practices
+
+1. **Start with predefined templates** - Modify them rather than starting from scratch
+2. **Test with a few recordings** - Before applying broadly, verify the output meets your needs
+3. **Use folder templates for consistency** - Assign templates to project or client folders
+4. **Keep templates focused** - One template shouldn't try to do everything
+5. **Iterate and improve** - Refine templates based on the summaries you get
+
+## Next Steps
+
+- Browse the predefined template library in Settings
+- Try creating a custom template for your most common meeting type
+- Set up folder templates for your main projects or clients
+- [Learn about AI Provider options](/docs/settings/llm) to optimize summary quality
