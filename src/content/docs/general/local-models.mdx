@@ -1,0 +1,99 @@
+---
+title: "Choosing a Local Model"
+description: "How to pick the right local AI model for your needs in Summit AI Notes"
+category: "general"
+order: 1
+---
+
+Summit AI Notes lets you run AI models directly on your Mac. This guide helps you understand the options and choose the right model for your workflow.
+
+## How Model Selection Works
+
+When you open Settings → AI Provider and select **Local**, you'll see a list of available models. Each model shows:
+
+- **Quality levels** (Base, Med, High) - Choose based on your Mac's capabilities
+- **Size** - How much disk space the model needs
+- **RAM** - Memory required to run the model
+- **Speed** - How fast the model generates summaries (tokens per second)
+- **License** - The model's usage terms
+
+![Local model selection in Summit AI Notes](/screenshot-local-models.png)
+
+## Choosing a Quality Level
+
+Each model offers up to three quality levels:
+
+| Level | What It Means | Best For |
+|-------|---------------|----------|
+| **Base** | Smaller file, faster speed, uses less RAM | Macs with 8GB RAM, quick daily summaries |
+| **Med** | Balanced size and quality | Most users, good everyday choice |
+| **High** | Largest file, best quality, needs more RAM | Macs with 16GB+ RAM, important meetings |
+
+**Start with Med** - it works well for most users. If summaries feel slow or your Mac struggles, try Base. If you have a powerful Mac and want the best quality, try High.
+
+## Choosing a Model
+
+Different models have different strengths. Here's what we offer:
+
+### Granite 4.0 Micro
+- **Good for**: Fast summaries, lower-end hardware
+- **Languages**: Excellent multilingual support (10+ languages)
+- **RAM needed**: ~3.5GB
+
+### Ministral 3 (8B and 14B)
+- **Good for**: High-quality multilingual summaries
+- **Languages**: Strong multilingual capabilities
+- **8B version**: Good balance of speed and quality
+- **14B version**: Better quality, needs more RAM (~10-16GB)
+
+### Openai Gpt Oss 20B
+- **Good for**: Best quality summaries
+- **Needs**: 32GB RAM recommended, 24GB minimum
+- **Note**: Slower but produces excellent results
+
+### Qwen3 8B
+- **Good for**: Reliable everyday use
+- **Languages**: Excellent for English and Chinese
+- **RAM needed**: ~8GB
+
+## Quick Recommendations
+
+**Mac with 8GB RAM:**
+- Granite 4.0 Micro (Base) or Ministral 3 8B (Base)
+
+**Mac with 16GB RAM:**
+- Ministral 3 8B (Med or High) or Ministral 3 14B (Base)
+
+**Mac with 32GB+ RAM:**
+- Openai Gpt Oss 20B (High) or Ministral 3 14B (High)
+
+## What About Quality Levels? (Technical Details)
+
+Behind the scenes, Base/Med/High correspond to different "quantization" levels - a technical term for how the model is compressed to fit on your device.
+
+Think of it like image quality settings:
+- **High** = Full resolution photo (best quality, largest file)
+- **Med** = Compressed photo (still looks great, smaller file)
+- **Base** = Thumbnail (good enough for most uses, smallest file)
+
+The model itself stays the same - quantization just affects how much detail is preserved in the compression. Higher quality levels produce slightly better summaries but need more RAM and storage.
+
+You don't need to worry about the technical details. Just pick a quality level that matches your Mac's capabilities, and Summit handles the rest.
+
+## Tips for Best Results
+
+1. **Check the RAM indicator** - Make sure your Mac has enough memory for your chosen model
+2. **Try different models** - Each model has a slightly different "style" of summarizing
+3. **Match quality to importance** - Use Base for quick daily meetings, High for important ones
+4. **Close other apps** - Free up RAM when generating summaries for better performance
+5. **Batch process if needed** - If you have limited RAM and back-to-back meetings, disable auto-processing and summarize everything at once later. See [Batch Processing for Limited RAM](/docs/setup/local-ai#batch-processing-for-limited-ram).
+
+## Switching Models
+
+You can keep multiple models downloaded and switch between them:
+
+1. Go to Settings → AI Provider → Local
+2. Click **Use Model** on any downloaded model
+3. The active model shows a green "Active" badge
+
+This lets you experiment to find what works best for your meetings.
