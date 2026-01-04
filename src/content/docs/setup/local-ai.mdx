@@ -60,6 +60,8 @@ Each model shows:
 
 The active model has a green border and "Active" badge. Click "Use Model" to switch to a different downloaded model, or download a new one if needed.
 
+For detailed guidance on which model to choose, see [Choosing a Local Model](/docs/general/local-models).
+
 ### Downloading Multiple Models
 
 You can keep multiple models and switch between them to experiment with different quality/speed tradeoffs.
@@ -133,21 +135,9 @@ Summit provides advanced configuration options to tune model performance and out
 
 - **Context Length** (4,096 tokens default) - Maximum context window size. Higher values use more memory but allow processing longer transcriptions.
 
-- **Temperature** (0.10 default) - Controls randomness. Lower = more deterministic, higher = more creative. Keep low (0.10-0.30) for factual meeting summaries.
-
-- **Top P / Nucleus Sampling** (0.95 default) - Cumulative probability threshold. Lower = more focused, higher = more diverse vocabulary.
-
-- **Top K** (40 default) - Limits vocabulary to top K tokens. Lower = more focused output.
-
-- **Min P** (0.10 default) - Minimum probability threshold. Tokens below this are filtered out.
-
 - **Max Response Tokens** (1,024 default) - Maximum length of generated summary. Increase for very detailed summaries.
 
 - **Batch Size** (1,024 default) - Processing batch size. Higher values may improve speed but use more memory.
-
-- **Thread Count** (Auto default) - CPU threads to use. Auto-detect is recommended.
-
-- **Random Seed** - Controls output randomness. Use 4294967295 for variety, or any other number for deterministic (repeatable) output.
 
 **Note:** For most users, the default settings work well. Only adjust these if you understand their impact or are troubleshooting specific issues. You can always click "Reset to Defaults" to restore recommended settings.
 
@@ -173,13 +163,29 @@ Summit provides advanced configuration options to tune model performance and out
 - Consider splitting into segments
 - Or temporarily use cloud AI with budget model
 
-### Batch Processing
+### Batch Processing for Limited RAM
 
-If you have multiple recordings to summarize:
-1. Let them queue up
-2. Close other apps
-3. Let Summit process them one by one
-4. The Mac can handle it overnight if needed
+If your Mac has limited RAM (8-16GB) and you have back-to-back meetings, real-time processing can slow things down. The solution: disable automatic processing and batch everything later.
+
+![Audio Recording settings with processing flow options](/screenshot-audio-recording.jpg)
+
+**To set up batch processing:**
+
+1. Go to Settings → Audio Recording
+2. Turn **off** "Auto-generate transcription"
+3. Turn **off** "Auto-generate summaries after transcription"
+
+Now Summit will record your meetings without processing them immediately. At the end of your day (or when you have a break):
+
+1. Open Summit AI Notes
+2. Select the recordings you want to process
+3. Click "Generate Summary" to process them one by one
+4. Or let them process overnight
+
+This approach is ideal for:
+- Macs with 8GB RAM running back-to-back calls
+- Days with many short meetings
+- When you need your Mac responsive during calls
 
 ---
 
