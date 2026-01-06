@@ -17,3 +17,6 @@ _site/
 package-lock.json # If you're using npm and want to ignore this
 yarn.lock # If you're using yarn and want to ignore this
 pnpm-lock.yaml # If you're using pnpm and want to ignore this
+
+# Auto Claude data directory
+.auto-claude/

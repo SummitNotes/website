@@ -1,0 +1,32 @@
+import ReleaseLayout from "../../layouts/ReleaseLayout.astro";
+
+export const version = "1.6";
+export const date = "2026-01-06";
+export const title = "Summit AI Notes 1.6";
+
+<ReleaseLayout version={version} date={date} title={title}>
+
+**New Features**
+- Calendar integration with auto-record scheduling for meetings
+- Multi-document global chat with session management
+- AI enhancement for insights and action items
+- People filter in transcription tab
+- Participants list in markdown export
+- Playback speed controls in mini audio player
+- Summarization templates with template tip callout
+- Mistral 3 models
+
+**Improvements**
+- Improved folder navigation in sidebar
+- Echo deduplication for clearer microphone transcription
+- Unified chat view models and scope indicator placement
+- Updated AI libraries
+
+**Bug Fixes**
+- Fixed crash when transcribing empty/silent audio files
+- Robust audio preprocessing with atomic file operations
+- Auto-delete audio files after processing
+- Repositioned call detection popup to top-right corner
+- Hot-plug support for call detection with USB audio devices
+
+</ReleaseLayout>
