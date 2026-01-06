@@ -54,7 +54,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   };
 
   const goToPrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + screenshots.length) % screenshots.length,
+    );
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
@@ -74,9 +76,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="absolute -bottom-20 right-1/3 w-72 h-72 bg-gradient-to-tl from-violet-200/25 to-purple-200/20 rounded-full blur-3xl animate-[pulse_12s_ease-in-out_infinite_4s]"></div>
       </div>
 
-      {/* Subtle grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-
       <div className="relative z-10 container mx-auto px-4 pt-8 pb-20">
         <div className="max-w-7xl mx-auto">
           {/* Logo and Product Name */}
@@ -93,9 +92,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               <span className="text-xl font-bold text-foreground block">
                 Summit AI Notes
               </span>
-              <span className="text-sm text-muted-foreground">
-                for macOS
-              </span>
+              <span className="text-sm text-muted-foreground">for macOS</span>
             </div>
           </div>
 
@@ -149,10 +146,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="absolute inset-0 bg-gradient-to-r from-sky-400/20 via-emerald-400/20 to-violet-400/20 blur-3xl scale-90 -z-10"></div>
 
             {/* Carousel container */}
-            <div
-              className="relative"
-              style={{ perspective: '2000px' }}
-            >
+            <div className="relative" style={{ perspective: "2000px" }}>
               {/* Main screenshot display */}
               <div className="relative overflow-hidden rounded-3xl shadow-2xl shadow-gray-900/20">
                 {screenshots.map((screenshot, index) => (
@@ -162,11 +156,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     alt={screenshot.alt}
                     className={`w-full transition-all duration-700 ease-out ${
                       index === currentIndex
-                        ? 'opacity-100 scale-100'
-                        : 'opacity-0 scale-95 absolute inset-0'
+                        ? "opacity-100 scale-100"
+                        : "opacity-0 scale-95 absolute inset-0"
                     }`}
                     style={{
-                      borderRadius: '24px',
+                      borderRadius: "24px",
                     }}
                   />
                 ))}
@@ -197,17 +191,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   onClick={() => goToSlide(index)}
                   className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
                     index === currentIndex
-                      ? 'bg-sky-100 text-sky-700 shadow-sm'
-                      : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+                      ? "bg-sky-100 text-sky-700 shadow-sm"
+                      : "bg-gray-100 text-gray-500 hover:bg-gray-200"
                   }`}
                   aria-label={`Go to ${screenshot.label}`}
                 >
                   <span
                     className={`w-2 h-2 rounded-full transition-all ${
-                      index === currentIndex ? 'bg-sky-500' : 'bg-gray-400'
+                      index === currentIndex ? "bg-sky-500" : "bg-gray-400"
                     }`}
                   />
-                  <span className="text-sm font-medium">{screenshot.label}</span>
+                  <span className="text-sm font-medium">
+                    {screenshot.label}
+                  </span>
                 </button>
               ))}
             </div>
