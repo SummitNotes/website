@@ -1,0 +1,100 @@
+---
+title: "Connecting Calendars"
+description: "Connect Google Calendar, Exchange, and other calendar accounts to Summit for automatic meeting detection"
+category: "guides"
+order: 2
+---
+
+Summit can automatically detect upcoming meetings from your calendar, making it easy to start recordings at the right time. To access your calendars, Summit uses macOS Internet Accounts—the same system that powers Calendar.app.
+
+## How It Works
+
+Summit reads calendar events through macOS, which means you need to add your calendar accounts to **System Settings → Internet Accounts**. Once added there, Summit can see your upcoming meetings and offer quick-start recording options.
+
+![Calendar integration in Summit](/guides-calendar.jpg)
+
+## Adding Calendar Accounts
+
+### Step 1: Open Internet Accounts
+
+1. Open **System Settings** (click the Apple menu → System Settings)
+2. Click **Internet Accounts** in the sidebar
+
+You'll see a list of any accounts you've already connected, plus options to add new ones.
+
+![Internet Accounts in System Settings](/guides-calendar-accounts.jpg)
+
+### Step 2: Add Your Account
+
+Click **Add Account** and select your provider:
+
+![Add Account options](/guides-calendar-accounts-add.jpg)
+
+**Supported account types:**
+- **Google** — Gmail, Google Workspace
+- **Microsoft Exchange** — Outlook, Office 365, corporate Exchange servers
+- **iCloud** — Apple's calendar service
+- **Yahoo** — Yahoo Mail calendars
+- **Other CalDAV accounts** — Any standard CalDAV calendar server
+
+### Step 3: Sign In and Enable Calendars
+
+For Google accounts:
+
+1. Click **Google**
+2. Sign in with your Google credentials
+3. Authorize macOS to access your account
+4. Make sure **Calendars** is checked in the account options
+
+![Google account with Calendars enabled](/guides-calendar-google.jpg)
+
+For Exchange/Outlook:
+
+1. Click **Microsoft Exchange**
+2. Enter your email address
+3. Follow your organization's sign-in process (may include two-factor authentication)
+4. Ensure **Calendars** is enabled
+
+For other providers, follow similar steps—the key is making sure the **Calendars** checkbox is enabled after adding the account.
+
+## Verifying the Connection
+
+After adding your account:
+
+1. Open **Calendar.app** to verify your events appear
+2. Open **Summit** — your calendar events should now be visible
+
+If Summit shows your upcoming meetings, you're all set.
+
+## Troubleshooting
+
+### Calendar events not appearing in Summit
+
+1. **Check Calendar.app first** — If events don't appear in Apple Calendar, they won't appear in Summit
+2. **Verify Calendars is enabled** — Go to System Settings → Internet Accounts → your account, and make sure Calendars is checked
+3. **Refresh the account** — Try disabling and re-enabling Calendars for the account
+4. **Check calendar permissions** — Ensure Summit has permission to access your calendar in System Settings → Privacy & Security → Calendars
+
+### "Grant Calendar Access" prompt
+
+If Summit asks for calendar access:
+1. Go to **System Settings → Privacy & Security → Calendars**
+2. Find Summit in the list
+3. Toggle it **on**
+
+### Exchange account won't connect
+
+Corporate Exchange servers sometimes have specific requirements:
+- Contact your IT department to ensure CalDAV/calendar access is enabled for your account
+- Some organizations require you to use a specific app password or VPN connection
+- Try removing and re-adding the account
+
+### Google calendar sync issues
+
+- Make sure you're signed into the correct Google account
+- Check that the specific calendars you want are visible in Calendar.app (some shared calendars may be hidden by default)
+- Try signing out and back into your Google account in Internet Accounts
+
+## Privacy Note
+
+Summit reads calendar data through macOS system APIs—your calendar credentials are managed by Apple, not Summit. Summit only sees event titles, times, and attendees to help you start recordings at the right moment.
