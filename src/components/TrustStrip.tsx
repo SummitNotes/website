@@ -3,10 +3,26 @@ import { Shield, Star, Lock, Apple } from "lucide-react";
 
 const TrustStrip: React.FC = () => {
   const items = [
-    { icon: <Shield className="w-4 h-4" />, text: "100% Local Processing", color: "text-emerald-600" },
-    { icon: <Star className="w-4 h-4 fill-current" />, text: "4.4 App Store Rating", color: "text-amber-500" },
-    { icon: <Apple className="w-4 h-4" />, text: "Native macOS App", color: "text-gray-600" },
-    { icon: <Lock className="w-4 h-4" />, text: "NDA-Compliant", color: "text-blue-600" },
+    {
+      icon: <Shield className="w-4 h-4" />,
+      text: "100% Local Processing",
+      color: "text-emerald-600",
+    },
+    {
+      icon: <Star className="w-4 h-4 fill-current" />,
+      text: "4.5 App Store Rating",
+      color: "text-amber-500",
+    },
+    {
+      icon: <Apple className="w-4 h-4" />,
+      text: "Native macOS App",
+      color: "text-gray-600",
+    },
+    {
+      icon: <Lock className="w-4 h-4" />,
+      text: "NDA-Compliant",
+      color: "text-blue-600",
+    },
   ];
 
   return (
