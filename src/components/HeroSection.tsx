@@ -26,6 +26,11 @@ const screenshots = [
     alt: "Powerful search across all meetings",
     label: "Search",
   },
+  {
+    src: "/screenshot-4.jpg",
+    alt: "Chat with your meetings",
+    label: "Chat",
+  },
 ];
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -113,9 +118,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Main Heading */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-6">
               {title}
-              <span className="block mt-2 text-[#1f98cf]">
-                {subtitle}
-              </span>
+              <span className="block mt-2 text-[#1f98cf]">{subtitle}</span>
             </h1>
 
             <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10">
