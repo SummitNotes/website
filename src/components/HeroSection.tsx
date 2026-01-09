@@ -68,13 +68,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   };
 
   return (
-    <div className="relative min-h-[90vh] overflow-hidden bg-gradient-to-br from-slate-50 via-white to-sky-50">
-      {/* Animated gradient orbs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-sky-200/40 to-blue-300/30 rounded-full blur-3xl animate-[pulse_8s_ease-in-out_infinite]"></div>
-        <div className="absolute top-1/2 -left-32 w-80 h-80 bg-gradient-to-tr from-emerald-200/30 to-teal-200/20 rounded-full blur-3xl animate-[pulse_10s_ease-in-out_infinite_2s]"></div>
-        <div className="absolute -bottom-20 right-1/3 w-72 h-72 bg-gradient-to-tl from-violet-200/25 to-purple-200/20 rounded-full blur-3xl animate-[pulse_12s_ease-in-out_infinite_4s]"></div>
-      </div>
+    <div className="relative min-h-[90vh] overflow-hidden">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/mountain-daytime.webp')" }}
+      />
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-white/80" />
 
       <div className="relative z-10 container mx-auto px-4 pt-8 pb-20">
         <div className="max-w-7xl mx-auto">
