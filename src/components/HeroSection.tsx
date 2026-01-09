@@ -82,11 +82,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Logo and Product Name */}
           <div className="flex items-center gap-4 mb-16">
             <div className="relative group">
-              <img
-                src="/logo.svg"
-                alt="Summit AI Notes"
-                className="w-14 h-14 rounded-2xl shadow-lg transition-transform group-hover:scale-105"
-              />
+              <div className="w-14 h-14 rounded-2xl shadow-lg overflow-hidden bg-gradient-to-b from-white via-white to-sky-100 transition-transform group-hover:scale-105">
+                <img
+                  src="/logo.svg"
+                  alt="Summit AI Notes"
+                  className="w-full h-full"
+                />
+              </div>
               <div className="absolute inset-0 rounded-2xl bg-sky-400/30 blur-xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
             <div>
@@ -102,7 +104,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Trust Badge */}
             <Badge
               variant="secondary"
-              className="mb-6 bg-white/80 backdrop-blur-sm text-emerald-700 border-emerald-200 shadow-sm"
+              className="mb-6 bg-white/80 backdrop-blur-sm text-[#1f98cf] border-[#c1e2f1] shadow-sm"
             >
               <Shield className="w-3 h-3 mr-1.5" />
               100% Local AI Processing
@@ -111,7 +113,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Main Heading */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-6">
               {title}
-              <span className="block mt-2 bg-gradient-to-r from-sky-500 via-sky-400 to-emerald-400 bg-clip-text text-transparent">
+              <span className="block mt-2 text-[#1f98cf]">
                 {subtitle}
               </span>
             </h1>
@@ -135,7 +137,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </a>
-              <span className="text-sm text-muted-foreground">
+              <span className="text-sm text-muted-foreground font-medium px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-sm">
                 Then $49.99 one-time · No subscription
               </span>
             </div>
@@ -144,7 +146,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Screenshot Carousel */}
           <div className="relative mt-8 mx-auto max-w-5xl">
             {/* Glow effect behind */}
-            <div className="absolute inset-0 bg-gradient-to-r from-sky-400/20 via-emerald-400/20 to-violet-400/20 blur-3xl scale-90 -z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1f98cf]/15 via-[#59b9e1]/20 to-[#a4d6e8]/15 blur-3xl scale-90 -z-10"></div>
 
             {/* Carousel container */}
             <div className="relative" style={{ perspective: "2000px" }}>
