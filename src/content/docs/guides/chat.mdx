@@ -1,0 +1,247 @@
+---
+title: "Chat Features"
+description: "Ask questions, search across recordings, and get AI-powered insights from your meetings"
+category: "guides"
+order: 2
+---
+
+# Chat Features
+
+Summit AI Notes includes powerful chat capabilities that let you ask questions about your recordings, search across meetings, and extract insights using natural language.
+
+## Chat Modes
+
+Summit provides two chat modes depending on your context:
+
+### Document Chat
+
+When you're viewing a specific recording, you can open chat to ask questions about that document. Document chat is focused on a single recording but can be expanded using @mentions.
+
+**How to access**: Click the chat icon when viewing a document, or use the keyboard shortcut.
+
+**Best for**:
+- Deep-diving into a specific meeting
+- Understanding what was discussed at certain points
+- Extracting action items from a single recording
+
+### Global Chat
+
+Global chat lets you ask questions across multiple recordings at once. This is powerful for finding patterns, comparing discussions, and searching your entire meeting history.
+
+**How to access**: Open the global chat panel from the sidebar or main navigation.
+
+**Best for**:
+- Searching across all your meetings
+- Comparing discussions between recordings
+- Finding recurring themes or decisions
+- Asking questions that span multiple meetings
+
+## Query Types
+
+Summit understands different types of questions and adapts its approach accordingly:
+
+### Summarization
+
+Ask for overviews and summaries of your recordings.
+
+**Example queries**:
+- "Summarize this meeting"
+- "What are the main themes?"
+- "Give me an overview of the key points"
+- "What did we discuss?"
+
+Summit will provide a structured summary organized by themes, including key decisions and action items mentioned.
+
+### Search
+
+Find specific information or mentions across your recordings.
+
+**Example queries**:
+- "Find all mentions of the product launch"
+- "What was said about the budget?"
+- "Search for discussions about hiring"
+
+Summit uses semantic search to find relevant content, even if the exact words don't match.
+
+### Extraction
+
+Pull out specific types of information from your recordings.
+
+**Example queries**:
+- "List all action items"
+- "What decisions were made?"
+- "Extract all dates and deadlines mentioned"
+- "What questions were raised?"
+- "What are the key points?"
+
+**Extraction types**:
+| Type | Description |
+|------|-------------|
+| Action items | Tasks, to-dos, and commitments |
+| Decisions | Choices and conclusions reached |
+| Dates | Deadlines, schedules, and time references |
+| Questions | Questions raised during the meeting |
+| Key points | Main takeaways and important points |
+
+### Comparison
+
+Compare speakers, documents, or topics.
+
+**Example queries**:
+- "Compare what John and Sarah said about the project"
+- "How do the Monday and Friday meetings differ?"
+- "Compare the discussions about sales vs marketing"
+
+Summit presents a structured comparison highlighting similarities and differences.
+
+### Questions
+
+Ask specific factual questions about your recordings.
+
+**Example queries**:
+- "What time does the team meet on Thursdays?"
+- "Who is responsible for the client presentation?"
+- "What was the conclusion about the new feature?"
+
+## Temporal Queries
+
+You can reference specific times within a recording to focus your questions on particular segments.
+
+### Relative Positions
+
+Reference parts of the recording using natural language:
+
+| Phrase | Timeframe |
+|--------|-----------|
+| "at the beginning" | First 25% of recording |
+| "in the middle" | Middle 50% (25-75%) |
+| "at the end", "towards the end" | Last 25% of recording |
+
+**Example queries**:
+- "What was discussed at the beginning?"
+- "Summarize the end of the meeting"
+- "What happened in the middle of the call?"
+
+### Specific Minutes
+
+Reference approximate times:
+
+- "What was said around minute 20?"
+- "What happened at minute 5?"
+
+Summit will search within a 2-minute window around the specified time.
+
+### Duration Ranges
+
+Reference the first or last portion of a recording:
+
+- "Summarize the first 10 minutes"
+- "What was discussed in the last 5 minutes?"
+- "First half hour of the meeting"
+
+### Explicit Ranges
+
+Specify exact time ranges:
+
+- "What was discussed from minute 10 to minute 30?"
+- "Summarize minutes 15 through 25"
+
+**Note**: Temporal queries only work when chatting about a single document. In global chat with multiple documents, temporal references are ignored.
+
+## @Mentions and Scoping
+
+Use @mentions to reference specific speakers, documents, or tags in your queries.
+
+### Speaker Mentions
+
+Reference specific speakers to focus on their contributions:
+
+- "@John what did he say about the timeline?"
+- "Summarize what @Sarah discussed"
+- "Compare @John vs @Mike on the budget topic"
+
+### Document Mentions
+
+In global chat, reference specific documents:
+
+- "@'Monday Standup' what were the blockers?"
+- "Compare @'Q4 Planning' with @'Q3 Review'"
+
+Use quotes for document names with spaces.
+
+### Tag Mentions
+
+Reference documents by tag:
+
+- "@urgent summarize all urgent meetings"
+- "What action items are in @project-alpha recordings?"
+
+### Combining Mentions
+
+Combine mentions with temporal queries and other filters:
+
+- "What did @John say at the end of the meeting?"
+- "Summarize @Sarah's points in the first 10 minutes"
+
+## Citations
+
+Summit cites its sources so you can verify information and jump to the relevant parts of your recordings.
+
+### Citation Format
+
+Responses include numbered citations like `[1]`, `[2]` that reference specific parts of your transcripts:
+
+```
+The team decided to postpone the launch [1] and focus on bug fixes first [2].
+
+[1] (00:15:30 - 00:16:45) "...we should probably push back the launch date..."
+[2] (00:18:20 - 00:19:10) "...priority should be fixing the critical bugs..."
+```
+
+### Clicking Citations
+
+Click on any citation to jump to that exact moment in the recording's transcript.
+
+## Tips for Better Results
+
+### Be Specific
+
+More specific questions get better results:
+
+| Instead of... | Try... |
+|---------------|--------|
+| "What happened?" | "What decisions were made about the product roadmap?" |
+| "Tell me about John" | "What were John's main concerns about the timeline?" |
+| "Summary" | "Summarize the action items and who's responsible" |
+
+### Use the Right Query Type
+
+- **Need an overview?** Ask for a summary
+- **Looking for something specific?** Use search queries
+- **Want structured output?** Use extraction queries
+- **Comparing options?** Use comparison queries
+
+### Leverage Temporal Context
+
+When you know roughly when something was discussed, use temporal queries to narrow down the search:
+
+- "What was the conclusion at the end?" is more focused than "What was the conclusion?"
+
+### Combine Features
+
+The most powerful queries combine multiple features:
+
+- "@John summarize his points at the end of the meeting"
+- "Compare what @Sarah and @Mike said about the budget in the last 10 minutes"
+- "Extract action items from @'Weekly Standup' in the first 5 minutes"
+
+## Limitations
+
+- **Temporal queries** only work with single documents, not across multiple recordings
+- **Citations** link to transcript segments, which require the document to have completed transcription
+- **Speaker identification** depends on accurate speaker diarization during transcription
+- **Search accuracy** improves with more descriptive queries
+
+## Privacy
+
+All chat processing happens using your configured AI provider. Your conversations and recordings are processed according to your provider's privacy policy. Summit does not send your data to any third parties beyond your chosen AI provider.
