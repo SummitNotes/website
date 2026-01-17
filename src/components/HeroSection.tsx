@@ -141,7 +141,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 </Button>
               </a>
               <span className="text-sm text-muted-foreground font-medium px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-sm">
-                Then $49.99 one-time · No subscription
+                No Subscription!
               </span>
             </div>
           </div>
