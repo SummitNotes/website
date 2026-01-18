@@ -58,7 +58,7 @@ const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
         <article>
           <!-- Hero Image -->
           {post.data.image && (
-            <div class="aspect-video rounded-xl overflow-hidden mb-8 shadow-lg">
+            <div class="rounded-xl overflow-hidden mb-8 shadow-lg">
               <img
                 src={post.data.image}
                 alt={post.data.imageAlt || post.data.title}
