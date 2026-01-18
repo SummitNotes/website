@@ -1,0 +1,240 @@
+---
+title: "The Future of AI Is Local"
+description: "Everyone's chasing the cloud. They're running in the wrong direction. Your personal assistant should actually be personal."
+author: "Dima"
+publishedDate: 2025-01-18
+image: "/blog-future-ai-local.jpg"
+imageAlt: "The Cloud Trap vs Local Ownership - contrasting dark server farms with a warm, secure local device"
+tags: ["local-ai", "privacy", "ownership", "hardware"]
+---
+
+Everyone's chasing the cloud. The bigger server farms. The more expensive subscriptions. The latest frontier model that requires a data center the size of a shopping mall.
+
+They're running in the wrong direction.
+
+## I. The Uncomfortable Truth About Your "Personal" Assistant
+
+Here's a question nobody's asking: If your AI assistant knows your medical history, your finances, your relationship problems, your work secrets - why does it live on someone else's computer?
+
+ChatGPT showed some users the titles of other users' conversation histories. That wasn't a hack. That was an accident. AI-related privacy and security incidents jumped by 56.4% in a single year, with 233 reported cases throughout 2024.
+
+Your "personal" assistant isn't personal at all. It's a timeshare.
+
+Think about it like this: Would you let a stranger read your diary if they promised to give you good advice? Would you mail your financial documents to a company in exchange for budgeting tips?
+
+That's exactly what you're doing. Every prompt. Every conversation. Every vulnerable moment of asking for help.
+
+Samsung employees unintentionally shared sensitive source code by inputting it into ChatGPT. These weren't careless interns - they were engineers who forgot that "free AI help" comes with a hidden cost.
+
+## II. The Hardware Revolution Nobody's Talking About
+
+While everyone debates whether GPT-6 will achieve consciousness, something far more interesting happened:
+
+**Your laptop became a supercomputer.**
+
+The GPU Neural Accelerators shine with MLX on ML workloads involving large matrix multiplications, yielding up to 4x speedup compared to a M4 baseline for time-to-first-token in language model inference.
+
+Apple didn't announce this at a keynote with dramatic lighting. They just... did it. M5 introduces a next-generation 10-core GPU architecture with a Neural Accelerator in each core, enabling GPU-based AI workloads to run dramatically faster, with over 4x the peak GPU compute performance compared to M4.
+
+And it's not just Apple playing this game.
+
+The RTX 5090 achieves 213 tokens/second on 8B models and 61 tokens/second on 32B models. For context, that's faster than typing. Faster than reading. Your GPU is literally waiting for you to catch up.
+
+The RTX 5090 boasts a staggering 1.79 TB/s memory bandwidth - a 77% leap over the RTX 4090's 1.008 TB/s.
+
+Translation: The gaming PC in your bedroom can now run AI models that would've required a server room three years ago.
+
+### The Price Conspiracy You're Supposed to Ignore
+
+Here's a question that should make you uncomfortable: Why is RAM more expensive now than it was two years ago?
+
+GDDR7 memory. DDR5 shortages. VRAM premiums that make no economic sense. An RTX 5090 that costs $2,600 when its predecessor was $1,600.
+
+The industry wants you to look at these prices and conclude: "I guess I'll just use the cloud."
+
+That's not an accident. That's the business model.
+
+Think about it like a video game economy. The publishers don't want you owning the game - they want you subscribing to it. They want recurring revenue, not a one-time sale. So they make ownership expensive and inconvenient while making subscription cheap and frictionless.
+
+$20/month for Claude Pro feels like nothing. $2,000 for a GPU feels like a kidney.
+
+But run the math over five years:
+
+- Cloud subscriptions: $1,200+ (and rising)
+- GPU: $2,000 (and you still own it)
+
+The expensive hardware prices aren't a sign that local AI is impractical. They're a sign that local AI is threatening.
+
+If running your own models was irrelevant, NVIDIA wouldn't be charging server-room prices for consumer GPUs. Memory manufacturers wouldn't be prioritizing AI-optimized chips. Apple wouldn't be putting Neural Accelerators in every device they ship.
+
+The price pressure is proof of demand. And demand exists because local AI actually works.
+
+Here's the deeper game: Every dollar of hardware margin they capture now is a customer they lose to the cloud later. But every customer who buys the hardware once escapes the subscription treadmill forever.
+
+They're not pricing you out of local AI.
+
+**They're pricing you into cloud dependency.**
+
+The high prices aren't saying "this isn't worth it." They're saying "we really, really don't want you to own this."
+
+Which should make you want to own it even more.
+
+## III. The Software Side: Models Are Shrinking, Not Growing
+
+Here's the video game metaphor you need:
+
+Remember when games used to ship on ten CD-ROMs? Then they figured out compression. Suddenly the same experience fit on one disc. Then downloadable. Then streaming.
+
+AI is going through the same compression arc - right now.
+
+In January Mistral released Mistral Small 3, an Apache 2 licensed 24B parameter model which appeared to pack the same punch as Llama 3.3 70B using around a third of the memory. Now I could run a ~GPT-4 class model and have memory left over to run other apps!
+
+Read that again. One third the memory. Same intelligence. This isn't incremental progress - this is a paradigm shift happening in plain sight.
+
+Model size vs. activated parameters: Larger isn't always better. Qwen 3's 8B-parameter model matches the performance of older 14B models thanks to better training data and architecture improvements.
+
+The trick is called quantization - compressing models from 16-bit precision to 4-bit precision. Q4_K_M quantization: 95% quality retention with 70% file size reduction.
+
+A 26GB model becomes 8GB. A model that needed 32GB RAM now runs on 12GB. And you lose almost nothing.
+
+Q4 is the Goldilocks zone: it cuts memory by ~75%, accelerates inference by 2-3x, and typically drops accuracy by less than 2% on well-trained models.
+
+Unlike your Steam library, a downloaded Llama model is yours. Forever. No license check. No server authentication. No terms of service update that changes what you can do with it.
+
+The file sits on your hard drive. It runs when you tell it to run. It dies when you delete it.
+
+That's not nostalgia. That's ownership.
+
+## IV. What "Good Enough" Actually Means
+
+> Perfect is the enemy of good.
+> — Voltaire
+
+Let me be absolutely honest: Cloud models will always be better. Claude Opus 4.5 running on Anthropic's infrastructure will outperform whatever you run locally.
+
+But here's the question that matters: Better at what? And by how much? And for whom?
+
+Consider what most people actually use AI for:
+
+- Drafting emails
+- Summarizing documents
+- Answering questions
+- Light coding assistance
+- Brainstorming ideas
+
+For 90% of these tasks, a local 8B-14B model at Q4 quantization is indistinguishable from a frontier cloud model.
+
+You don't need a Formula 1 car to get groceries. You don't need GPT-4.5 to fix your resume.
+
+For [Summit AI Notes](https://summitnotes.app) we set Qwen 3 4B or 8B as the default model during onboarding. Summarizing meetings. Extracting action items. Running chat against your transcripts. Done.
+
+The hardware requirement? 4-7GB of RAM respectively.
+
+Not VRAM. Not "unified memory with 16-core GPU." Just RAM. The stuff your browser is already hogging with thirty open tabs.
+
+A model that fits alongside Chrome is a model that fits into your life.
+
+There's a concept in economics called "diminishing returns." After a certain point, each additional unit of investment produces less and less value.
+
+We've hit that point for everyday AI use.
+
+## V. The Real Hardware Requirements (They're Lower Than You Think)
+
+Let me give you the actual numbers, not the marketing hype:
+
+### If you have an M1/M2/M3/M4 Mac (any model):
+
+Anyone working with an Apple Silicon Mac can now find amazingly powerful tools to run their own language models directly on the device. MLX directly utilizes the advantages of Apple's so-called "unified memory" - the shared access of CPU and GPU to the same RAM area.
+
+An M4 chip in the Mac Mini is already sufficient to run compact language models (e.g. 3-7 billion parameters) smoothly. On a Mac Studio with M4 Max or M3 Ultra, you can even run models with 30 billion parameters - completely locally.
+
+### If you have a gaming PC with a decent GPU:
+
+GPU. A minimum of 8GB of VRAM is recommended for quantized versions. A 12 GB card like an RTX 3060 is a comfortable starting point for good performance.
+
+On an RTX 4090/5090-class GPU, a 7B model might generate on the order of ~100-140 tokens/s, whereas a 30B+ model might do ~30-40 tokens/s.
+
+That 30-40 tokens per second? That's faster than you can read. The experience feels instant.
+
+## VI. The Setup Is Embarrassingly Simple
+
+Remember when running your own AI required a PhD in machine learning and three weeks of configuration?
+
+Setting up MLX-LM is unexpectedly simple. No complex dependencies, no compatibility nightmares just one command. That's it. Seriously.
+
+On Mac: `pip install mlx-lm`
+
+On PC: download Ollama
+
+That's not a simplified tutorial. That's the actual process.
+
+Ollama has emerged as one of the most popular tools for local LLM deployment. Built on top of llama.cpp, it delivers excellent token-per-second throughput with intelligent memory management and efficient GPU acceleration for NVIDIA (CUDA), Apple Silicon (Metal), and AMD (ROCm) GPUs.
+
+## VII. Why This Matters (Beyond Just Privacy)
+
+Let's do the economics:
+
+- Claude Pro subscription: $20/month = $240/year
+- ChatGPT Plus: $20/month = $240/year
+- Various API costs for power users: $50-500+/month
+
+- A used RTX 3090: $800-900 (one-time)
+- A Mac Mini M4: $599 (one-time)
+
+After the first year, you're running for free. Forever. On hardware you already own or could buy once.
+
+But money isn't even the main thing.
+
+**Latency.** Local models respond instantly because there's no network round-trip. No loading spinners. No "high traffic, please wait."
+
+**Availability.** Your AI works on airplanes. In basements with no signal. During the next ChatGPT outage (they happen).
+
+**Customization.** Want to fine-tune a model on your specific codebase? Your writing style? Your company's documentation? Go ahead. It's your model.
+
+**Permanence.** OpenAI can deprecate GPT-4 tomorrow. Your local Llama model will still work in ten years if you keep the files.
+
+## VIII. The Honest Limitations
+
+I said I'd be honest. Here they are:
+
+**Frontier reasoning tasks:** For PhD-level physics proofs or novel mathematical theorems, cloud models still win.
+
+**Maximum context windows:** Cloud models can handle 200K+ tokens. Local models typically top out around 32K-128K comfortably.
+
+**Real-time knowledge:** Local models don't know what happened yesterday unless you give them web access.
+
+**The very cutting edge:** Whatever the newest capability is (a new type of reasoning, a new modality), cloud has it first by 6-12 months.
+
+But ask yourself: When did you last need a 200K context window? When did you last prove a theorem? How often is "yesterday's news" essential to your AI interactions?
+
+For most people, most of the time, these limitations don't matter.
+
+## IX. A Practical Protocol
+
+If you want to try this today:
+
+1. Install LM Studio (free, one-click download)
+2. Download a Qwen 3 or Mistral model from within the app
+3. Start chatting. Locally. Privately. Free.
+
+For more power:
+
+- **Jan.ai:** Beautiful interface, multiple model support
+- **LM Studio:** Best for experimentation and model switching
+- **Ollama + Open WebUI:** Best for self-hosted web interface
+
+## X. The Anti-Vision
+
+Everyone else is selling you the AI future: AGI in the cloud, superintelligence as a service, your consciousness uploaded to somebody else's server farm.
+
+I'm selling you something smaller and stranger: AI that actually belongs to you.
+
+Even better, MLX is open-source and integrated in LM Studio, so you don't need to be an engineer to make use of it. Are Nvidia's cards still the best for local inference? Yes, by far. But for normal people, Apple's MLX might be the most accessible.
+
+The future of AI isn't a bigger cloud. It's a smaller, smarter device in your pocket that knows everything you need it to know and tells no one.
+
+**Your personal assistant should be personal.**
+
+The hardware is ready. The software is ready. The models are good enough.
+
+The only question is whether you are.
