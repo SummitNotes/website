@@ -29,7 +29,7 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
               <li>
                 <a
                   href="https://apps.apple.com/app/summit-ai-notes/id6754717420?l=en-GB&mt=12"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="download-button text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Download
                 </a>
