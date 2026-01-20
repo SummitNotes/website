@@ -131,6 +131,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 href="https://apps.apple.com/app/summit-ai-notes/id6754717420?l=en-GB&mt=12"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="download-button"
               >
                 <Button
                   size="lg"
