@@ -191,7 +191,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Dot indicators with labels */}
-            <div className="flex items-center justify-center gap-3 mt-6">
+            <div className="flex items-center justify-start sm:justify-center gap-3 mt-6 overflow-x-auto pb-2 px-4 -mx-4 sm:mx-0 sm:px-0">
               {screenshots.map((screenshot, index) => (
                 <button
                   key={index}
