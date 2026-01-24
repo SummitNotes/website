@@ -1,0 +1,37 @@
+import ReleaseLayout from '../../layouts/ReleaseLayout.astro';
+
+export const version = "1.7";
+export const date = "2026-01-24";
+export const title = "Summit AI Notes 1.7";
+
+<ReleaseLayout version="1.7" date="2026-01-24">
+
+**New Features**
+- **Internationalization** - Full i18n support with String Catalogs, including German, Spanish, and Russian translations.
+- **Bookmarks with AI-powered insights** - Add bookmarks during recordings and convert them to AI-generated insights with full context. Bookmarks and insights now include timestamp support for easy navigation.
+- **Meeting preparation insights** - Get AI-powered preparation notes for upcoming meetings, displayed on the Home page alongside your scheduled events.
+- **Calendar week view** - New configurable week view showing your calendar events with actual calendar colors, side-by-side display for concurrent events, and a current time indicator that flows around events like Apple Calendar.
+- **DeepSeek cloud LLM provider** - Added native support for DeepSeek as a cloud AI provider.
+- **Auto-export markdown** - Automatically export your meeting notes to markdown files.
+- **Trailing silence trimming** - Recordings are now automatically trimmed of trailing silence for cleaner audio.
+- **Unsorted documents filter** - Quickly find documents that haven't been organized into folders.
+
+**Improvements**
+- **Redesigned recording controls** - New single-row layout with circular toggles and a compact status bar indicator. Added audio level indicator to recording buttons.
+- **Unified Processing tab** - Consolidated post-recording processing options into a single, streamlined tab.
+- **Improved transcription speaker management** - Better UX for managing and editing speakers in transcriptions.
+- **Copy insights to clipboard** - New menu item to quickly copy insights and action items.
+- **Rate limit handling** - Cloud AI cleanup now handles rate limits gracefully with exponential backoff.
+- **Updated AI models** - Added Qwen3-30B-A3B-Instruct-2507 model, reorganized models by RAM requirement, and updated FluidAudio to v0.10.0 with improved speaker confirmation.
+
+**Bug Fixes**
+- Fixed crashes caused by GGML Metal race conditions
+- Fixed auto-record toggle for future calendar events
+- Fixed bookmark ordering to append AI insights at bottom
+- Fixed audio source reset when starting new recordings
+- Fixed duplicate time indicator for concurrent calendar events
+- Fixed calendar event recording not starting when auto-record was disabled
+- Fixed "convert all bookmarks to insights" only converting one bookmark
+- Fixed crash in chat @mention autocomplete
+
+</ReleaseLayout>
