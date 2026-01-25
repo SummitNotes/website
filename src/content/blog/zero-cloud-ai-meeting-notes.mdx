@@ -1,0 +1,145 @@
+---
+title: "AI meeting notes are a liability in the cloud"
+description: "Links, retention, and legal discovery turn meeting summaries into durable evidence. Local-first changes the risk profile."
+author: "Dima"
+publishedDate: 2026-01-25
+image: "/blog-zero-cloud-meeting-notes.jpg"
+imageAlt: "A small banana-shaped device with a padlock next to a laptop, representing local-first private meeting notes"
+tags: ["meeting-notes", "privacy", "local-ai", "security", "compliance"]
+---
+
+Meetings used to be ephemeral. You said something, you took a few notes, and then the moment passed.
+
+AI meeting notes flip that. A single call can produce:
+
+- a recording
+- a transcript
+- a summary
+- action items
+- searchable knowledge
+- shareable links
+
+That is not just productivity. That is a new data surface.
+
+If you work in legal, finance, healthcare, internal strategy, or any environment where trust is constrained, the question is not "is the summary accurate".
+
+The question is "where does this live, who can access it, and for how long".
+
+## The pattern: artifacts escape through links
+
+A lot of leaks do not start with a sophisticated hack. They start with ordinary product mechanics:
+
+- a recording saved to cloud storage
+- a link emailed to attendees
+- a calendar event that keeps the link forever
+- a document that gets forwarded once
+- search and indexing that makes it easy to discover
+
+Google Meet is explicit about this flow: recordings are saved to Drive, and an email with the recording link is sent to participants, and the link is added to the calendar event.
+
+Source: Google Meet help center
+https://support.google.com/meet/answer/9308681?hl=en
+
+Once meeting artifacts exist as links, you now have link sprawl. People forward links. Links show up in chats. Links get copied into docs. Links become "shared with me".
+
+Even if the vendor has strong security, your risk is now dominated by sharing surfaces.
+
+## A real precedent: Zoom cloud recordings were discoverable
+
+In 2020, reporting showed that thousands of Zoom cloud recordings could be found on the open web due to predictable naming and indexing.
+
+Source: The Verge
+https://www.theverge.com/2020/4/3/21207134/zoom-recordings-exposed-thousands-identical-naming-search
+
+This is the canonical precedent. Not because it is "about AI". Because it proves the mechanism:
+
+- cloud meeting artifacts
+- discoverability
+- accidental exposure
+
+AI meeting notes multiply the number of artifacts. More artifacts means more chances for one to escape.
+
+## The uncomfortable part: meeting notes become evidence
+
+There is another risk that does not get discussed enough: retention and legal discovery.
+
+If your meeting summaries and transcripts live in systems like Microsoft 365, they can become part of formal eDiscovery workflows.
+
+Microsoft Purview eDiscovery (Premium) is designed to preserve, collect, review, and export content. It can place an eDiscovery hold. It can also collect cloud content shared via links.
+
+Source: Microsoft Learn
+https://learn.microsoft.com/en-us/purview/ediscovery-overview
+
+Once content is held and collected, "deleting it later" stops being a reliable control. Your meeting notes are no longer just notes. They are part of corporate records.
+
+This is exactly the scenario people are pointing at when they say "lawyers will have a field day".
+
+## Teams and internal discoverability
+
+Even inside a company, meeting artifacts can spread faster than you expect.
+
+Microsoft documents that Teams meeting recordings are saved to OneDrive or SharePoint, and Microsoft Search indexes them. They can also appear across surfaces like Shared with me, Recommended, and Recent.
+
+Source: Microsoft Learn
+https://learn.microsoft.com/en-us/microsoftteams/meeting-recording
+
+This is not a criticism. It is what makes modern collaboration usable.
+
+But if your meetings are sensitive, usability is also the threat model.
+
+## Granola style sharing makes the tradeoff visible
+
+Some products intentionally make sharing frictionless.
+
+For example, Granola documentation describes link access modes for shared folders, including an "Anyone with the link" option that allows viewing in a web browser.
+
+Source: Granola Help Center
+https://help.granola.ai/article/hca_01JZNSDY6YF67N01HZCHW2XQF6
+
+This is convenient. It is also exactly the class of surface area that causes accidental exposure when used for sensitive meetings.
+
+To be clear, "anyone with the link" is not inherently bad. It is a reasonable option for many teams.
+
+The point is that sensitive meetings need a different default.
+
+## The architecture fix: local first, zero cloud
+
+If you cannot send recordings through third party servers, most AI meeting tools become unusable.
+
+And that is the core gap: the meetings where notes matter most are often the meetings where cloud recording is not allowed.
+
+Summit is a zero cloud AI meeting note taker built for environments like:
+
+- legal client calls
+- internal strategy
+- healthcare and sensitive conversations
+- security and trust constrained organizations
+
+The goal is simple: automate meeting notes without creating a new external "company brain".
+
+Local first is not a marketing claim. It is an architectural constraint that changes the risk profile:
+
+- no vendor hosted transcript pages
+- no external share links by default
+- smaller breach blast radius
+- fewer retention and discovery surfaces
+
+## A practical checklist if you must use cloud tools
+
+If you are using cloud meeting assistants today, here are a few non negotiables:
+
+1) treat meeting summaries and transcripts like confidential documents
+2) turn off broad link sharing where possible
+3) review default access settings regularly
+4) set retention explicitly
+5) assume anything in a shared system can be exported
+
+Cloud tools can be secure. But security is not the same as control.
+
+## Closing
+
+AI meeting notes are incredibly useful. The danger is not "AI".
+
+The danger is making your most sensitive conversations durable, searchable, and shareable by default.
+
+Privacy by promise is fragile. Privacy by architecture is durable.
