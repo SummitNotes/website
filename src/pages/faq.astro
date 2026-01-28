@@ -10,11 +10,99 @@ import {
   Download,
   Zap,
 } from "lucide-react";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Summit AI Notes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Summit AI Notes is a macOS application that records, transcribes, and summarizes your meetings using AI. Unlike cloud-based solutions, all processing happens locally on your Mac, ensuring complete privacy and data security."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is Summit AI Notes for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Summit is designed for professionals who need to document meetings while maintaining confidentiality—including consultants, lawyers, financial advisors, healthcare providers, and anyone handling sensitive client information."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes Summit different from other meeting note apps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The key difference is privacy. While most meeting apps send your audio and conversations to the cloud, Summit processes everything locally on your Mac. Your client conversations never leave your device, no third-party AI services have access to your data, and you maintain complete control over your meeting recordings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Summit work with Zoom, Teams, and other video conferencing apps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Summit can record audio from any application on your Mac, including Zoom, Microsoft Teams, Google Meet, phone calls, and in-person meetings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does local processing work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Summit uses AI models that run entirely on your Mac. When you record a meeting, the audio is transcribed using local speech recognition, then summarized using a local language model or optionally a cloud provider you configure. By default, nothing is sent to external servers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is my data stored?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All recordings, transcripts, and notes are stored locally on your Mac in a database. You have complete control over where files are saved and can export or delete them at any time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Summit HIPAA/GDPR compliant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because all data processing happens locally on your device, Summit inherently provides strong privacy protections. However, users in regulated industries should evaluate their specific compliance requirements and consult with their legal teams."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the system requirements?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Summit AI Notes requires macOS 15 (Sequoia) or later, Apple Silicon (M1/M2/M3/M4), 16GB or more RAM for local AI, and 10GB free disk space."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What languages does Summit support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Summit currently supports 99+ languages for transcription and summarization."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free trial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! You can record and transcribe up to 20 calls of any length to evaluate the app."
+      }
+    }
+  ]
+};
 ---
 
 <Layout
   title="FAQ - Summit AI Notes"
   description="Frequently asked questions about Summit AI Notes"
+  schema={faqSchema}
 >
   <div
     class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"

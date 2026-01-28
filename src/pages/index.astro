@@ -7,11 +7,39 @@ import HowItWorks from "../components/HowItWorks";
 import SocialProof from "../components/SocialProof";
 import PricingSection from "../components/PricingSection";
 import Footer from "../components/Footer";
+
+const appSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Summit AI Notes",
+  "operatingSystem": "macOS",
+  "applicationCategory": "BusinessApplication",
+  "description": "Record, transcribe, and summarize meetings with local AI processing. Privacy-first meeting documentation for independent consultants.",
+  "url": "https://summitnotes.app",
+  "downloadUrl": "https://apps.apple.com/app/summit-ai-notes/id6754717420",
+  "softwareVersion": "1.0",
+  "offers": {
+    "@type": "Offer",
+    "category": "Freemium",
+    "description": "Free trial with 20 recordings. Premium subscription available.",
+  },
+  "featureList": [
+    "Record both sides of any call",
+    "Local AI transcription",
+    "AI-powered summaries and action items",
+    "100% on-device processing",
+    "Works with Zoom, Teams, Meet, and any app",
+    "99+ languages supported",
+    "Search through past meetings",
+  ],
+  "screenshot": "https://summitnotes.app/og-image.png",
+};
 ---
 
 <Layout
   title="Summit AI Notes - AI Meeting Notes for Consultants"
   description="Record, transcribe, and summarize meetings with local AI processing. Privacy-first meeting documentation for independent consultants."
+  schema={appSchema}
 >
   <div class="min-h-screen">
     <Navigation />
