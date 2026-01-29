@@ -1,16 +1,43 @@
 ---
 import "../styles/global.css";
 import PostHog from '../components/posthog.astro';
+import JsonLd from '../components/JsonLd.astro';
 
 interface Props {
   title?: string;
   description?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
   title = "Summit AI Notes - AI Meeting Notes for Consultants",
   description = "Record, transcribe, and summarize meetings with local AI processing. Privacy-first meeting documentation for independent consultants.",
+  schema,
 } = Astro.props;
+
+const baseSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Summit AI Notes",
+    "url": "https://summitnotes.app",
+    "description": "Privacy-first AI meeting notes for consultants. Record, transcribe, and summarize meetings locally on your Mac.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Summit AI Notes",
+    "url": "https://summitnotes.app",
+    "logo": "https://summitnotes.app/favicon.png",
+    "sameAs": [
+      "https://x.com/SummitAInotes",
+    ],
+  },
+];
+
+const allSchemas = schema
+  ? [...baseSchema, ...(Array.isArray(schema) ? schema : [schema])]
+  : baseSchema;
 ---
 
 <!doctype html>
@@ -32,6 +59,7 @@ const {
 
     <title>{title}</title>
     <PostHog />
+    <JsonLd schema={allSchemas} />
 
     <style is:inline>
       :root {
