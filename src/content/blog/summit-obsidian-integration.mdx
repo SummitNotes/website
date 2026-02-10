@@ -32,79 +32,92 @@ And since version 1.7, Summit can **automatically export every meeting to markdo
 
 ## Setting Up Auto-Export
 
-1. Open **Summit → Settings → Export**
-2. Enable **Auto-export to Markdown**
-3. Choose your vault's folder (e.g., `~/Documents/Vault/Meetings/`)
-4. Done.
+1. Open **Summit → Settings → Processing**
+2. Enable **Auto-export markdown**
+3. Done.
 
-Every recording now creates a markdown file like:
+Summit saves each recording in its own folder with the markdown file alongside the audio:
 
 ```
-Meetings/
-├── 2026-02-10 - Weekly Standup.md
-├── 2026-02-09 - Client Call.md
-└── 2026-02-08 - 1:1 with Alex.md
+Summit/
+├── 951E57F3-06D0-42DC-867B-9AA92DB9C1C6/
+│   ├── document.md      ← your notes
+│   ├── microphone.m4a
+│   └── system.m4a
+├── A2B3C4D5-E6F7-8901-2345-6789ABCDEF01/
+│   ├── document.md
+│   └── ...
 ```
+
+The folder names are UUIDs — not pretty, but functional. You can point your Obsidian vault at the Summit folder and use Dataview or folder notes to make it more navigable. (A future update may add human-readable folder names.)
 
 ## What You Get
 
-Each exported file includes:
+Each `document.md` includes:
 
 ```markdown
----
-title: Weekly Standup
-date: 2026-02-10
-duration: 45:23
-participants:
-  - Alex
-  - Sarah
-  - Mike
-tags: [meeting, standup]
+# Weekly Standup
+
+**Participants:** Alex, Sarah, Mike
+**Created:** Feb 10, 2026 at 9:00 AM
+**Duration:** 45:23
 ---
 
-## Summary
+## Tags
 
-Brief AI-generated summary of the meeting...
+standup, team, planning
 
-## Key Points
+## Key Topics
 
-- Point one discussed
-- Point two decided
-- Point three action item
+* Sprint progress update
+* Blocker discussion
+* Next week priorities
 
 ## Action Items
 
-- [ ] @Alex to follow up on X
-- [ ] @Sarah to prepare Y by Friday
+1. [ ] Follow up on API integration
+   - **Assignee:** Alex
+   - **Due:** Feb 14, 2026
 
-## Transcript
+2. [ ] Prepare demo for client
+   - **Assignee:** Sarah
 
-[00:00] Alex: Let's start with updates...
-[00:45] Sarah: I finished the...
+## Notes
+
+Your manual notes appear here...
+
+## Transcription
+
+**Alex:** Let's start with updates from last week...
+
+**Sarah:** I finished the design review. Main feedback was...
+
+**Mike:** On my end, the API integration is almost done...
 ```
 
 ## The Obsidian Workflow
 
-Now your meetings are first-class citizens in your vault:
-
-**Link to projects:**
-```markdown
-Met with client about [[Project Alpha]]. 
-See [[2026-02-10 - Client Call]] for details.
-```
+Point Obsidian at your Summit folder and your meetings become searchable:
 
 **Search everything:**
-One search bar. All your notes. All your meetings.
+One search bar. All your notes. All your meetings. Obsidian indexes the full transcript.
 
-**Build your graph:**
-Watch connections form between meetings, people, projects, and ideas.
-
-**Daily notes integration:**
+**Link from other notes:**
 ```markdown
-## Meetings Today
-- [[2026-02-10 - Weekly Standup]]
-- [[2026-02-10 - Client Call]]
+Met with client about [[Project Alpha]]. 
+Notes in Summit folder (search for "client kickoff").
 ```
+
+**Use Dataview for queries:**
+Since the files have consistent structure, you can query across meetings:
+```dataview
+LIST
+FROM "Summit"
+WHERE contains(file.content, "action item")
+```
+
+**Build a meetings index:**
+Create a folder note or MOC (Map of Content) that links to your most important meetings by topic or project.
 
 ## Privacy Stays Local
 
@@ -124,19 +137,13 @@ Compare that to cloud alternatives where your audio is uploaded, processed on th
 
 A few tips:
 
-**Templates:** Create an Obsidian template for meeting follow-ups that links to the auto-exported file.
+**Folder notes:** Create an `index.md` in your Summit folder that serves as a jumping-off point. Manually link to important meetings as you have them.
 
-**Dataview queries:** Since exports include YAML frontmatter, you can query meetings:
-```dataview
-TABLE duration, participants
-FROM "Meetings"
-WHERE date >= date(2026-02-01)
-SORT date DESC
-```
+**Search operators:** Use Obsidian's search to find meetings by participant (`"**Participants:** Sarah"`) or by content in the transcript.
 
-**Tags:** Summit adds tags based on calendar event categories. Use them for filtering.
+**Tags in Summit:** Tag your meetings in Summit — they export to the markdown and become searchable.
 
-**Folder per project:** Set different export folders for different contexts if you organize by project.
+**Symbolic links:** If you want meetings in a different location, create a symlink from your vault to the Summit storage folder.
 
 ## Try It
 
