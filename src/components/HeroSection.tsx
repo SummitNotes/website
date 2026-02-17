@@ -37,7 +37,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   title = "Meeting Notes",
   subtitle = "That Stay on Your Mac",
   description = "Record, transcribe, and summarize with AI that runs entirely on your device. No cloud uploads. No meeting bots. Just private, professional documentation.",
-  ctaText = "Free for 30 Meetings",
+  ctaText = "Start for free",
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -142,7 +142,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 </Button>
               </a>
               <span className="text-sm text-muted-foreground font-medium px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-sm">
-                No Subscription!
+                Subscription or one-time payment
               </span>
             </div>
           </div>
