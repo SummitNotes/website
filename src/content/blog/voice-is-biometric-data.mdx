@@ -1,0 +1,97 @@
+---
+title: "Your Voice Is Biometric Data. Why That Matters for AI Meeting Notes."
+description: "When a meeting bot records you, it's not just capturing words — it's collecting your voiceprint. Under laws like BIPA, that's in the same category as fingerprints. Here's what that means for your team."
+author: "Dima"
+publishedDate: 2026-02-18
+image: "/blog-voice-biometric-data.jpg"
+imageAlt: "A waveform visualization of a human voice transforming into a fingerprint, symbolizing voice as biometric data"
+tags: ["privacy", "legal", "biometric", "meeting-notes", "local-ai", "compliance"]
+---
+
+When a meeting bot records you, it's not just capturing words — it's collecting your voiceprint. Under laws like Illinois BIPA, that's biometric data. The same category as fingerprints and iris scans. And storing it in the cloud? That's where things get legally complicated.
+
+## The Fireflies.AI Wake-Up Call
+
+In December 2025, Fireflies.AI got hit with a class action lawsuit. The claim? Their "Speaker Recognition" feature creates voiceprints — unique vocal signatures that identify individuals — without obtaining written consent.
+
+From the complaint:
+
+> "Fireflies.AI's meeting assistant records, analyzes, transcribes, and stores the unique vocal characteristics (i.e., 'voiceprints') of every meeting participant... including people who never created a Fireflies account, never agreed to its terms of service, and never gave written consent."
+
+This isn't a technicality. Under BIPA, collecting biometric data without prior written notice AND written consent is illegal. And Illinois allows private lawsuits — meaning any affected person can sue.
+
+## Why Voice Is Different From Other Data
+
+When your password leaks, you change it. When your credit card is compromised, you get a new one.
+
+But your voiceprint? That's permanent. You can't change how you sound.
+
+This is exactly why biometric privacy laws exist. BIPA defines "biometric identifiers" as:
+- Retina or iris scans
+- Fingerprints
+- **Voiceprints**
+- Hand or face geometry
+
+Speaker diarization — the feature that tells you "who said what" — typically works by creating voice embeddings. Mathematical representations of your unique vocal characteristics. Stored in a database. On someone else's servers.
+
+## The Cloud Problem
+
+Most AI meeting tools work like this:
+
+```
+Your call → Bot joins → Audio sent to cloud →
+→ Voiceprint extracted → Stored indefinitely
+```
+
+Every link in that chain is a liability:
+- **Collection**: Did you get written consent from ALL participants?
+- **Storage**: Where does that biometric data live? For how long?
+- **Breach risk**: If servers are compromised, voiceprints leak forever
+
+And here's the catch: many tools create voiceprints automatically as part of "speaker identification" — even if you didn't explicitly enable it.
+
+## What About GDPR?
+
+Under GDPR, biometric data for identification is a "special category" requiring explicit consent. Voice data used to identify speakers likely qualifies.
+
+The question for European companies: is your AI meeting tool compliant? Do you have consent records for every person whose voice was processed?
+
+## The Local-First Alternative
+
+Summit processes everything on your device:
+- No bot joins your call
+- Audio never leaves your Mac
+- Voice embeddings for speaker recognition? Stored locally
+- You control retention — delete anytime
+
+The compliance burden stays simple: one person (you), one device (yours), one decision (your consent).
+
+## Summit's Speaker ID Toggle
+
+In the latest release, Summit added the ability to completely disable speaker identification.
+
+Turn it off — and Summit stops creating voice embeddings entirely. You get the transcript, the summary, the action items. No voiceprints. No biometric data. Nothing that touches BIPA, GDPR, or any other biometric privacy law.
+
+For users who need full compliance — especially in healthcare, legal, or finance — this means zero biometric data risk. Not "we store it securely." Not "we comply with regulations." Just: we don't collect it at all.
+
+That's the only compliance guarantee that actually holds.
+
+## Questions to Ask Your Current Tool
+
+1. Does it create voiceprints or speaker embeddings?
+2. Where are they stored?
+3. What consent was obtained from non-users?
+4. What's the data retention policy?
+5. What happens if their servers are breached?
+
+## Bottom Line
+
+Your voice isn't just audio — it's a biometric identifier that can't be reset. Before sending it to the cloud, know what you're consenting to.
+
+---
+
+> Previously: [Why the Otter.ai lawsuit matters](/blog/otter-lawsuit-consent-liability)
+
+---
+
+*Try Summit — meeting notes that stay on your device, with speaker identification you control.*
