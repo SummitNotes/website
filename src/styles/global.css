@@ -151,6 +151,21 @@
   animation: gradient 8s ease infinite;
 }
 
+/* Floating language cards animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(var(--card-rotate));
+  }
+  50% {
+    transform: translateY(-8px) rotate(var(--card-rotate));
+  }
+}
+
+.animate-float {
+  animation: float var(--float-duration, 6s) ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+}
+
 /* Grid pattern background */
 .bg-grid-pattern {
   background-image:
