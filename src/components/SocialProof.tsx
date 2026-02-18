@@ -8,6 +8,7 @@ import {
   Users,
   MessageSquare,
   Languages,
+  Globe,
   Sparkles,
   FolderOpen,
   FileText,
@@ -106,7 +107,7 @@ const SocialProof: React.FC = () => {
     {
       icon: <Languages className="w-5 h-5" />,
       value: "100+ Languages",
-      label: "Transcribe in English, Spanish, French, and more.",
+      label: "Transcribe and summarize in over 100 languages.",
     },
     {
       icon: <Sparkles className="w-5 h-5" />,
@@ -204,6 +205,39 @@ const SocialProof: React.FC = () => {
               </div>
             </Card>
           ))}
+        </div>
+
+        {/* Language Support Highlight */}
+        <div className="mb-12 p-6 rounded-2xl bg-gradient-to-r from-sky-50 to-blue-50 border border-sky-100">
+          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+            <div className="flex items-center gap-4 flex-1">
+              <div className="w-12 h-12 rounded-xl bg-white text-sky-600 flex items-center justify-center shadow-sm shrink-0">
+                <Globe className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="font-semibold text-foreground">
+                  Interface in 4 Languages
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  English, German, Spanish, and Russian
+                </p>
+              </div>
+            </div>
+            <div className="hidden md:block w-px h-12 bg-sky-200" />
+            <div className="flex items-center gap-4 flex-1">
+              <div className="w-12 h-12 rounded-xl bg-white text-sky-600 flex items-center justify-center shadow-sm shrink-0">
+                <Languages className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="font-semibold text-foreground">
+                  100+ Languages for AI
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Transcribe and summarize meetings in over 100 languages
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Small Features Grid */}
