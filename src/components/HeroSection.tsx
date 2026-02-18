@@ -141,9 +141,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </a>
-              <span className="text-sm text-muted-foreground font-medium px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-sm">
+              <a
+                href="#pricing"
+                className="text-sm text-muted-foreground font-medium px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-sm hover:bg-white/80 transition-colors cursor-pointer"
+              >
                 Subscription or one-time payment
-              </span>
+              </a>
             </div>
           </div>
 
