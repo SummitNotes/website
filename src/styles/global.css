@@ -131,6 +131,8 @@
 
 .prose pre code {
   white-space: pre;
+  background: transparent;
+  padding: 0;
 }
 
 /* Custom animations */

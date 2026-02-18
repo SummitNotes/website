@@ -38,7 +38,7 @@ And since version 1.7, Summit can **automatically export every meeting to markdo
 
 Summit saves each recording in its own folder with the markdown file alongside the audio:
 
-```
+```markdown
 Summit/
 ├── 951E57F3-06D0-42DC-867B-9AA92DB9C1C6/
 │   ├── document.md      ← your notes
@@ -110,7 +110,7 @@ Notes in Summit folder (search for "client kickoff").
 
 **Use Dataview for queries:**
 Since the files have consistent structure, you can query across meetings:
-```dataview
+```markdown
 LIST
 FROM "Summit"
 WHERE contains(file.content, "action item")
