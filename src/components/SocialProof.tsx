@@ -15,6 +15,7 @@ import {
   Mountain,
   Scale,
   Briefcase,
+  Code,
 } from "lucide-react";
 
 interface Testimonial {
@@ -54,6 +55,14 @@ const SocialProof: React.FC = () => {
       company: "Fortune 500 Clients",
       rating: 5,
       icon: <Briefcase className="w-5 h-5 text-gray-600" />,
+    },
+    {
+      quote:
+        "I usually have 5\u20137 meetings a day. It was very laborious to keep track of all action points, plans, and topics discussed. Cloud solutions solve the problem, but they require multiple approvals and a corporate subscription, and are overall clumsy. With Summit AI Notes, I can keep everything locally in my Obsidian knowledge base at my fingertips.",
+      role: "VP of Engineering",
+      company: "Startup",
+      rating: 5,
+      icon: <Code className="w-5 h-5 text-gray-600" />,
     },
   ];
 
@@ -128,7 +137,7 @@ const SocialProof: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-20 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <Card
               key={index}
