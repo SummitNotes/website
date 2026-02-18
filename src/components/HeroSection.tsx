@@ -143,10 +143,105 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               </a>
               <a
                 href="#pricing"
-                className="text-sm text-muted-foreground font-medium px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-sm hover:bg-white/80 transition-colors cursor-pointer"
+                className="text-sm text-muted-foreground/80 hover:text-muted-foreground transition-colors cursor-pointer border-b border-muted-foreground/30 hover:border-muted-foreground/50 pb-px"
               >
                 Subscription or one-time payment
               </a>
+            </div>
+          </div>
+
+          {/* Floating Language Cards - visible on lg+ screens */}
+          <div className="hidden lg:block relative mt-2 -mb-2" aria-hidden="true">
+            <div className="relative max-w-5xl mx-auto h-16">
+              {/* English - left side, tilted left */}
+              <div
+                className="absolute left-0 top-0 animate-float"
+                style={{
+                  "--card-rotate": "-4deg",
+                  "--float-duration": "6s",
+                  "--float-delay": "0s",
+                } as React.CSSProperties}
+              >
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/85 backdrop-blur-sm rounded-xl shadow-md border border-white/60">
+                  <span className="text-lg leading-none">&#127468;&#127463;</span>
+                  <div>
+                    <span className="text-sm font-medium text-gray-700 block">English</span>
+                    <span className="text-[10px] text-gray-400 block -mt-0.5">interface</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* German - left-center, tilted right */}
+              <div
+                className="absolute left-[18%] top-2 animate-float"
+                style={{
+                  "--card-rotate": "3deg",
+                  "--float-duration": "7s",
+                  "--float-delay": "0.8s",
+                } as React.CSSProperties}
+              >
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/85 backdrop-blur-sm rounded-xl shadow-md border border-white/60">
+                  <span className="text-lg leading-none">&#127465;&#127466;</span>
+                  <div>
+                    <span className="text-sm font-medium text-gray-700 block">Deutsch</span>
+                    <span className="text-[10px] text-gray-400 block -mt-0.5">Oberfl&#228;che</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 100+ Languages - center, slight tilt */}
+              <div
+                className="absolute left-1/2 -translate-x-1/2 -top-1 animate-float"
+                style={{
+                  "--card-rotate": "-2deg",
+                  "--float-duration": "5.5s",
+                  "--float-delay": "1.5s",
+                } as React.CSSProperties}
+              >
+                <div className="flex items-center gap-2 px-5 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-[#1f98cf]/20">
+                  <span className="text-sm font-bold text-[#1f98cf]">100+</span>
+                  <div>
+                    <span className="text-sm font-medium text-gray-600 block">languages</span>
+                    <span className="text-[10px] text-[#1f98cf]/60 block -mt-0.5">transcribe & summarize</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Spanish - right-center, tilted left */}
+              <div
+                className="absolute right-[18%] top-2 animate-float"
+                style={{
+                  "--card-rotate": "-3deg",
+                  "--float-duration": "6.5s",
+                  "--float-delay": "0.4s",
+                } as React.CSSProperties}
+              >
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/85 backdrop-blur-sm rounded-xl shadow-md border border-white/60">
+                  <span className="text-lg leading-none">&#127466;&#127480;</span>
+                  <div>
+                    <span className="text-sm font-medium text-gray-700 block">Espa&#241;ol</span>
+                    <span className="text-[10px] text-gray-400 block -mt-0.5">interfaz</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Russian - right side, tilted right */}
+              <div
+                className="absolute right-0 top-0 animate-float"
+                style={{
+                  "--card-rotate": "5deg",
+                  "--float-duration": "7.5s",
+                  "--float-delay": "1.2s",
+                } as React.CSSProperties}
+              >
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/85 backdrop-blur-sm rounded-xl shadow-md border border-white/60">
+                  <span className="text-lg leading-none">&#127479;&#127482;</span>
+                  <div>
+                    <span className="text-sm font-medium text-gray-700 block">&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;</span>
+                    <span className="text-[10px] text-gray-400 block -mt-0.5">&#1080;&#1085;&#1090;&#1077;&#1088;&#1092;&#1077;&#1081;&#1089;</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
