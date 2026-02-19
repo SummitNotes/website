@@ -35,8 +35,8 @@ const screenshots = [
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   title = "Meeting Notes",
-  subtitle = "That Stay on Your Mac",
-  description = "Record, transcribe, and summarize with AI that runs entirely on your device. No cloud uploads. No meeting bots. Just private, professional documentation.",
+  subtitle = "That Never Leave Your Mac",
+  description = "Record, transcribe, and summarize with AI that runs on your device. No cloud uploads. No meeting bots. Your data stays yours.",
   ctaText = "Start for free",
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

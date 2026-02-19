@@ -308,42 +308,93 @@ import {
           </Card>
         </section>
 
-        <!-- Compliance -->
+        <!-- Compliant by Architecture -->
         <section class="mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-6">
-            Compliance Considerations
+          <h2 class="text-3xl font-bold text-foreground mb-3">
+            Compliant by Architecture, Not by Promise
           </h2>
-          <Card className="p-6">
-            <p class="text-muted-foreground mb-4">
-              Summit's local-first architecture provides strong privacy
-              protections that align with various regulatory requirements:
-            </p>
-            <ul
-              class="list-disc list-inside text-muted-foreground space-y-3 mb-4"
-            >
-              <li>
-                <strong>GDPR:</strong> Local processing means minimal personal data
-                leaves user control
-              </li>
-              <li>
-                <strong>HIPAA:</strong> Healthcare users should evaluate based on
-                their specific requirements and consult compliance teams
-              </li>
-              <li>
-                <strong>Attorney-Client Privilege:</strong> Local processing helps
-                maintain confidentiality
-              </li>
-              <li>
-                <strong>Financial Services:</strong> Data residency requirements
-                can be met through local processing
-              </li>
-            </ul>
-            <p class="text-sm text-muted-foreground">
-              <strong>Note:</strong> Users in regulated industries should evaluate
-              their specific compliance needs and consult with their legal/compliance
-              teams before use.
-            </p>
-          </Card>
+          <p class="text-lg text-muted-foreground mb-8">
+            Most tools promise compliance through policies and legal agreements. Summit delivers it through engineering. When data never leaves your device, entire categories of regulatory risk disappear.
+          </p>
+
+          <div class="space-y-6">
+            <Card className="p-6 bg-gradient-to-r from-indigo-50 to-blue-50 border-indigo-200">
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center"
+                >
+                  <Shield class="w-5 h-5 text-indigo-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">
+                  EU AI Act
+                </h3>
+              </div>
+              <p class="text-muted-foreground">
+                The EU AI Act regulates how AI systems process personal data. Summit's local-first architecture means your meeting data is never transmitted to external AI providers — no cross-border data transfers, no third-party processing, no data retention by AI vendors. Compliance is a byproduct of the architecture itself.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center"
+                >
+                  <Lock class="w-5 h-5 text-blue-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">
+                  GDPR
+                </h3>
+              </div>
+              <p class="text-muted-foreground">
+                Local processing means personal data stays under your control. No data processor agreements needed for meeting content, no cross-border transfer mechanisms required, and no third-party sub-processors to audit.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center"
+                >
+                  <CheckCircle class="w-5 h-5 text-green-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">
+                  HIPAA
+                </h3>
+              </div>
+              <p class="text-muted-foreground">
+                Healthcare professionals can use Summit knowing that protected health information discussed in meetings never leaves the device. No Business Associate Agreement is needed for data that stays on your Mac. Healthcare users should evaluate based on their specific requirements and consult compliance teams.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center"
+                >
+                  <Eye class="w-5 h-5 text-orange-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">
+                  Attorney-Client Privilege & Financial Services
+                </h3>
+              </div>
+              <p class="text-muted-foreground">
+                Local processing helps maintain attorney-client privilege by keeping privileged communications off third-party servers. Financial services data residency requirements are met by default — your data resides where your Mac resides.
+              </p>
+            </Card>
+          </div>
+
+          <p class="text-sm text-muted-foreground mt-6">
+            <strong>Note:</strong> Users in regulated industries should evaluate
+            their specific compliance needs and consult with their legal/compliance
+            teams before use.
+          </p>
+
+          <a
+            href="/eu"
+            class="inline-flex items-center gap-1.5 mt-4 text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors"
+          >
+            Learn more about digital sovereignty for European professionals &rarr;
+          </a>
         </section>
 
         <!-- Vulnerability Reporting -->

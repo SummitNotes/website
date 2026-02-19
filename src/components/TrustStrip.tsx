@@ -1,5 +1,5 @@
 import React from "react";
-import { Shield, Star, Lock, Apple } from "lucide-react";
+import { Shield, Star, Lock, Apple, Scale } from "lucide-react";
 
 const TrustStrip: React.FC = () => {
   const items = [
@@ -22,6 +22,11 @@ const TrustStrip: React.FC = () => {
       icon: <Lock className="w-4 h-4" />,
       text: "NDA-Compliant",
       color: "text-blue-600",
+    },
+    {
+      icon: <Scale className="w-4 h-4" />,
+      text: "EU AI Act Ready",
+      color: "text-indigo-600",
     },
   ];
 

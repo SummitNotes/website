@@ -1,0 +1,378 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Card } from "../components/ui/card";
+import Footer from "../components/Footer";
+import {
+  Shield,
+  Lock,
+  Server,
+  Scale,
+  CheckCircle,
+  Globe,
+  Building2,
+  ArrowRight,
+} from "lucide-react";
+---
+
+<Layout
+  title="Digital Sovereignty for European Professionals - Summit AI Notes"
+  description="Meeting notes that comply with EU AI Act and GDPR by architecture. Local AI processing means your data never leaves your device — no cloud, no cross-border transfers."
+>
+  <div
+    class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
+  >
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <div
+            class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6"
+          >
+            <Scale class="w-8 h-8 text-indigo-600" />
+          </div>
+          <h1 class="text-5xl font-bold text-foreground mb-4">
+            Digital Sovereignty<br />for Your Meeting Data
+          </h1>
+          <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+            AI-powered meeting notes that never leave your device. EU AI Act and GDPR compliant by architecture, not by promise.
+          </p>
+        </div>
+
+        <!-- Key Value Prop -->
+        <Card
+          className="p-8 mb-12 bg-gradient-to-r from-indigo-50 to-blue-50 border-indigo-200"
+        >
+          <h2 class="text-2xl font-bold text-foreground mb-4">
+            Why Architecture Matters More Than Promises
+          </h2>
+          <p class="text-muted-foreground mb-4">
+            Most AI meeting tools ask you to trust their privacy policy. They process your audio on their servers, store your transcripts in their cloud, and pinky-swear they won't misuse it.
+          </p>
+          <p class="text-muted-foreground mb-4">
+            Summit takes a different approach. All recording, transcription, and summarization runs locally on your Mac. Your meeting data never reaches our servers — or anyone else's. There is no data to breach, no transfer to regulate, no processor to audit.
+          </p>
+          <p class="text-muted-foreground font-medium">
+            When data never leaves your device, compliance is a technical fact, not a contractual obligation.
+          </p>
+        </Card>
+
+        <!-- Compliance Grid -->
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
+            Built for European Regulatory Requirements
+          </h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center"
+                >
+                  <Scale class="w-5 h-5 text-indigo-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">
+                  EU AI Act
+                </h3>
+              </div>
+              <p class="text-muted-foreground">
+                No personal data is sent to external AI systems. No algorithmic profiling. No automated decision-making on third-party infrastructure. The AI runs on your hardware, under your control.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center"
+                >
+                  <Shield class="w-5 h-5 text-blue-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">
+                  GDPR
+                </h3>
+              </div>
+              <p class="text-muted-foreground">
+                No data processor agreements needed for meeting content. No cross-border transfers to manage. No sub-processors to audit. Personal data stays under your sole control.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center"
+                >
+                  <Globe class="w-5 h-5 text-green-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">
+                  Data Residency
+                </h3>
+              </div>
+              <p class="text-muted-foreground">
+                Your data resides where your Mac resides. No Schrems II concerns, no Standard Contractual Clauses, no adequacy decisions to rely on. The data simply never crosses a border.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center"
+                >
+                  <Lock class="w-5 h-5 text-orange-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">
+                  Professional Secrecy
+                </h3>
+              </div>
+              <p class="text-muted-foreground">
+                Lawyers, auditors, and consultants bound by professional secrecy obligations can use Summit without risking disclosure. Client conversations stay on your device — period.
+              </p>
+            </Card>
+          </div>
+        </div>
+
+        <!-- How it works architecturally -->
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-6">
+            How Local Processing Works
+          </h2>
+          <div class="space-y-6">
+            <Card className="p-6">
+              <div class="flex gap-4">
+                <div
+                  class="w-8 h-8 bg-sky-400 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
+                >
+                  1
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-foreground mb-2">
+                    Recording stays local
+                  </h3>
+                  <p class="text-muted-foreground">
+                    Audio is captured and stored in your Mac's sandboxed application storage. It never touches a network connection.
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex gap-4">
+                <div
+                  class="w-8 h-8 bg-sky-400 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
+                >
+                  2
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-foreground mb-2">
+                    Transcription runs on-device
+                  </h3>
+                  <p class="text-muted-foreground">
+                    Speech recognition processes audio using your Mac's own hardware. Supports 100+ languages without sending a single byte to the cloud.
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex gap-4">
+                <div
+                  class="w-8 h-8 bg-sky-400 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
+                >
+                  3
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-foreground mb-2">
+                    AI summarization happens on your Mac
+                  </h3>
+                  <p class="text-muted-foreground">
+                    Local language models generate meeting summaries, action items, and key insights. Your meeting content is processed entirely in your device's memory.
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex gap-4">
+                <div
+                  class="w-8 h-8 bg-sky-400 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
+                >
+                  4
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-foreground mb-2">
+                    Everything stored locally
+                  </h3>
+                  <p class="text-muted-foreground">
+                    Recordings, transcripts, and summaries are saved to your Mac's file system, protected by macOS FileVault encryption and application sandboxing.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </section>
+
+        <!-- Who this is for -->
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
+            Built for Regulated European Professionals
+          </h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center"
+                >
+                  <Scale class="w-5 h-5 text-blue-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">
+                  Legal Professionals
+                </h3>
+              </div>
+              <p class="text-muted-foreground">
+                Maintain attorney-client privilege for every recorded conversation. Privileged communications never touch third-party servers.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center"
+                >
+                  <Building2 class="w-5 h-5 text-green-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">
+                  Financial Services
+                </h3>
+              </div>
+              <p class="text-muted-foreground">
+                Meet MiFID II record-keeping requirements and BaFin data residency expectations without relying on cloud infrastructure.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center"
+                >
+                  <CheckCircle class="w-5 h-5 text-red-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">
+                  Healthcare
+                </h3>
+              </div>
+              <p class="text-muted-foreground">
+                Patient data discussed in clinical meetings stays on your device. No third-party processing means fewer regulatory hurdles for health data.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center"
+                >
+                  <Server class="w-5 h-5 text-purple-600" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">
+                  Consulting & Advisory
+                </h3>
+              </div>
+              <p class="text-muted-foreground">
+                Handle confidential client engagements with full data sovereignty. NDA-compliant by default — not by policy, but by technical design.
+              </p>
+            </Card>
+          </div>
+        </div>
+
+        <!-- Comparison -->
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-6">
+            Cloud AI vs. Local AI
+          </h2>
+          <Card className="p-6 overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-gray-200">
+                  <th class="text-left py-3 pr-4 text-foreground font-semibold"></th>
+                  <th class="text-left py-3 px-4 text-muted-foreground font-semibold">Cloud Meeting Tools</th>
+                  <th class="text-left py-3 pl-4 text-indigo-600 font-semibold">Summit AI Notes</th>
+                </tr>
+              </thead>
+              <tbody class="text-muted-foreground">
+                <tr class="border-b border-gray-100">
+                  <td class="py-3 pr-4 font-medium text-foreground">Audio processing</td>
+                  <td class="py-3 px-4">Uploaded to vendor servers</td>
+                  <td class="py-3 pl-4">Processed on your Mac</td>
+                </tr>
+                <tr class="border-b border-gray-100">
+                  <td class="py-3 pr-4 font-medium text-foreground">Data residency</td>
+                  <td class="py-3 px-4">Vendor-determined region</td>
+                  <td class="py-3 pl-4">Your device, your jurisdiction</td>
+                </tr>
+                <tr class="border-b border-gray-100">
+                  <td class="py-3 pr-4 font-medium text-foreground">Cross-border transfers</td>
+                  <td class="py-3 px-4">Likely (US servers common)</td>
+                  <td class="py-3 pl-4">None</td>
+                </tr>
+                <tr class="border-b border-gray-100">
+                  <td class="py-3 pr-4 font-medium text-foreground">Third-party sub-processors</td>
+                  <td class="py-3 px-4">Multiple</td>
+                  <td class="py-3 pl-4">None</td>
+                </tr>
+                <tr class="border-b border-gray-100">
+                  <td class="py-3 pr-4 font-medium text-foreground">DPA required</td>
+                  <td class="py-3 px-4">Yes</td>
+                  <td class="py-3 pl-4">Not for meeting data</td>
+                </tr>
+                <tr class="border-b border-gray-100">
+                  <td class="py-3 pr-4 font-medium text-foreground">Breach notification risk</td>
+                  <td class="py-3 px-4">Vendor breach exposes your data</td>
+                  <td class="py-3 pl-4">No vendor holds your data</td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4 font-medium text-foreground">EU AI Act exposure</td>
+                  <td class="py-3 px-4">Depends on vendor compliance</td>
+                  <td class="py-3 pl-4">Minimal — local processing</td>
+                </tr>
+              </tbody>
+            </table>
+          </Card>
+        </section>
+
+        <!-- CTA -->
+        <Card
+          className="p-8 bg-gradient-to-r from-indigo-50 to-blue-50 border-indigo-200 text-center"
+        >
+          <h2 class="text-2xl font-bold text-foreground mb-4">
+            Take Back Control of Your Meeting Data
+          </h2>
+          <p class="text-muted-foreground mb-6">
+            Download Summit AI Notes and keep your meeting data where it belongs — on your device, under your control, in your jurisdiction.
+          </p>
+          <div class="flex flex-col items-center gap-3">
+            <a
+              href="https://apps.apple.com/app/summit-ai-notes/id6754717420?l=en-GB&mt=12"
+              class="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-blue-700 transition-colors"
+            >
+              Start for free
+            </a>
+            <a
+              href="/security"
+              class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Read our full security documentation &rarr;
+            </a>
+          </div>
+        </Card>
+
+        <p class="text-xs text-muted-foreground text-center mt-8">
+          Users in regulated industries should evaluate their specific compliance needs and consult with their legal/compliance teams before use.
+        </p>
+      </div>
+    </div>
+  </div>
+  <Footer client:load />
+</Layout>
+
+<style>
+  :global(.dark) .prose {
+    --tw-prose-body: var(--foreground);
+    --tw-prose-headings: var(--foreground);
+  }
+</style>
