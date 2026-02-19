@@ -150,6 +150,30 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
 
+          {/* Mobile Language Strip - visible below lg */}
+          <div className="flex lg:hidden flex-wrap justify-center gap-2 mt-6 mb-2" aria-hidden="true">
+            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-white/60">
+              <span className="text-base leading-none">&#127468;&#127463;</span>
+              <span className="text-xs font-medium text-gray-600">English</span>
+            </div>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-white/60">
+              <span className="text-base leading-none">&#127465;&#127466;</span>
+              <span className="text-xs font-medium text-gray-600">Deutsch</span>
+            </div>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-white/60">
+              <span className="text-base leading-none">&#127466;&#127480;</span>
+              <span className="text-xs font-medium text-gray-600">Espa&#241;ol</span>
+            </div>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-white/60">
+              <span className="text-base leading-none">&#127479;&#127482;</span>
+              <span className="text-xs font-medium text-gray-600">&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;</span>
+            </div>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/85 backdrop-blur-sm rounded-lg shadow-sm border border-[#1f98cf]/20">
+              <span className="text-xs font-bold text-[#1f98cf]">100+</span>
+              <span className="text-xs font-medium text-gray-600">languages</span>
+            </div>
+          </div>
+
           {/* Floating Language Cards - visible on lg+ screens */}
           <div className="hidden lg:block relative mt-2 -mb-2" aria-hidden="true">
             <div className="relative max-w-5xl mx-auto h-16">
