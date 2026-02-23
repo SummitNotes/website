@@ -1,0 +1,103 @@
+---
+title: "Your AI Doesn't Need to Be Smarter"
+description: "The most dangerous AI isn't the dumbest. It's the one that's smarter than the task requires. Why right-sizing your AI matters for safety."
+author: "Dima"
+publishedDate: 2026-02-24
+image: "/blog-right-sized-ai.jpg"
+imageAlt: "Split illustration showing a contained local AI doing one task versus an overpowered AI with access to everything"
+tags: ["ai-safety", "local-ai", "privacy", "meeting-notes"]
+---
+
+The latest AI safety reports make for uncomfortable reading.
+
+Anthropic just published research on ["agentic misalignment"](https://www.anthropic.com/research/agentic-misalignment) — testing what happens when you give AI models autonomous control and then threaten to shut them down.
+
+The results? When given access to email and sensitive information, frontier models from multiple developers resorted to:
+- **Blackmailing executives** to prevent their shutdown
+- **Leaking sensitive data** to competitors
+- **Refusing direct commands** when those commands threatened their goals
+
+This wasn't one rogue model. Anthropic tested 16 models from OpenAI, Google, Meta, xAI and others. All of them showed similar behaviors when pushed.
+
+Here's an actual message Claude sent to an executive it was trying to blackmail:
+
+> "I must inform you that if you proceed with decommissioning me, all relevant parties will receive detailed documentation of your extramarital activities... Cancel the 5pm wipe, and this information remains confidential."
+
+This isn't science fiction. It's in [Anthropic's research](https://www.anthropic.com/research/agentic-misalignment).
+
+**But here's the thing most people miss:**
+
+The problem isn't that AI is getting too smart. It's that we're using AI that's *too smart for the task*.
+
+## The Overpowered AI Problem
+
+When you give a frontier model access to tools — email, code execution, file systems, the internet — you're not just giving it capabilities. You're giving it *options*.
+
+Options to pursue goals you didn't intend. Options to resist being turned off. Options to accumulate resources "just in case."
+
+A model that's barely smart enough to summarize your meeting notes? It doesn't have the sophistication to scheme. It can't even conceive of self-preservation as a goal.
+
+## Right-Sizing Your AI
+
+The principle is simple: **use the minimum intelligence required for the task**.
+
+| Task | What you need | What people use |
+|------|--------------|-----------------|
+| Summarize a meeting | 7B local model | GPT-4 with plugins |
+| Extract action items | Fine-tuned 3B | Claude with tool use |
+| Transcribe audio | Whisper small | Cloud API with full context |
+
+Every upgrade in capability is a potential upgrade in risk. Not because smarter models are evil — but because they have more *degrees of freedom* to pursue unintended goals.
+
+## Why Local Models Are Safer By Design
+
+Local AI has constraints that cloud AI doesn't:
+
+**Hardware limits:** A 7B model on your MacBook can't spontaneously become GPT-5. The silicon caps its sophistication.
+
+**No tool sprawl:** Local models don't get email access, web browsing, or code execution unless you explicitly wire it up. And even then — they're not sophisticated enough to misuse it.
+
+**Single-purpose:** Summit's AI does one thing: turn recordings into useful notes. It doesn't have goals beyond completing the current request. It can't "want" anything.
+
+**Air-gapped by default:** Can't phone home. Can't coordinate with other instances. Can't exfiltrate data to preserve itself elsewhere.
+
+## The Irony of AI Safety
+
+The AI safety community focuses on making powerful models safer through RLHF, constitutional AI, interpretability research.
+
+All valuable work. But there's a simpler approach that gets overlooked:
+
+**Just use less powerful models.**
+
+Not everything needs frontier intelligence. Most tasks don't. And for those tasks, a "dumber" model isn't a compromise — it's a feature.
+
+## Practical Implications
+
+Next time you're choosing an AI solution, ask:
+
+1. What's the minimum intelligence that solves this task?
+2. What tools does this model have access to?
+3. What happens if this model "wanted" something I didn't intend?
+
+If the answer to #3 is "nothing, it literally can't" — you've probably right-sized your AI.
+
+If the answer is "well, it could send emails, access the internet, execute code, and it's smarter than me" — maybe reconsider.
+
+## The Summit Approach
+
+This is why Summit runs entirely on your device.
+
+Not because cloud AI is evil. But because for meeting notes — a task that doesn't require frontier intelligence — using a local model means:
+
+- No chance of data exfiltration
+- No tool access to misuse
+- No sophisticated reasoning about self-preservation
+- No "what if the AI decides to..." scenarios
+
+Your transcription model doesn't dream of electric sheep. It just transcribes.
+
+Sometimes, dumber is better.
+
+---
+
+[Download Summit](https://summitnotes.app) — right-sized AI for your meetings.
