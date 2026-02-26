@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "E54C86257X.app.summitnotes",
+        "paths": ["/open/document/*"]
+      }
+    ]
+  }
+}
