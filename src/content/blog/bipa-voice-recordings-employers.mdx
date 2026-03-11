@@ -1,0 +1,98 @@
+---
+title: "BIPA and Voice Recordings: What Employers Need to Know"
+description: "Illinois employers using AI meeting tools may be violating BIPA without realizing it. Employee voices are biometric identifiers under Illinois law. Written consent is required before collection — and the class action exposure is significant."
+publishedDate: 2026-03-12
+author: "Dima"
+tags: ["privacy", "compliance", "bipa", "biometrics", "employers"]
+image: "/blog-biometric-series.jpg"
+imageAlt: "3D isometric illustration showing a meeting room with a recording warning sign and Illinois state outline, representing BIPA compliance for employers"
+---
+
+If your Illinois-based company uses an AI meeting notetaker — Otter.ai, Fireflies, Zoom AI Companion, Microsoft Copilot, take your pick — and it identifies who's speaking, you may be collecting biometric data from your employees without their written consent.
+
+Under BIPA, that's not a compliance gap. It's a lawsuit.
+
+## BIPA in 60 Seconds
+
+The Illinois Biometric Information Privacy Act (740 ILCS 14) was passed in 2008 and hasn't been defanged despite years of industry lobbying. The key requirements:
+
+**Section 15(a):** Organizations must have a written policy establishing a retention schedule and guidelines for destroying biometric data.
+
+**Section 15(b):** Before collecting biometric data, organizations must:
+- Inform the individual in writing that biometric data is being collected
+- Inform them of the specific purpose and length of time it will be used
+- Obtain a written release (consent)
+
+**Section 15(c) and (d):** You cannot sell or profit from biometric data, and must use "reasonable standard of care" to protect it.
+
+**Section 15(e):** You cannot disclose it to third parties without consent (with limited exceptions).
+
+The enforcement mechanism that makes BIPA actually scary: **private right of action**. Any affected person can sue without showing actual harm. Statutory damages are $1,000 per negligent violation and $5,000 per intentional or reckless violation — per person, per incident.
+
+## Voiceprints Are Biometric Identifiers
+
+BIPA defines "biometric identifiers" to include voiceprints. Not "recordings." Not "audio files." Voiceprints — the mathematical model of someone's unique vocal characteristics that enables identification.
+
+The distinction matters. Recording a meeting isn't automatically a BIPA issue. But when an AI tool analyzes that recording to determine *who* is speaking — extracting embeddings, building speaker profiles, running diarization — it creates voiceprints.
+
+That's when BIPA applies.
+
+Most AI meeting tools with speaker identification create these voiceprints. It's how "Speaker 1: Can we move the deadline?" becomes "John: Can we move the deadline?" in your transcript. The feature works by extracting a unique vocal signature and matching it against a stored profile.
+
+If that processing happens on a cloud server and the voiceprints are stored there, BIPA's requirements apply — even if your employees "agreed" to general recording policies in their employment contracts.
+
+## The Consent Timing Problem
+
+Here's where many employers run into trouble: consent must come **before** collection. Not in the employee handbook signed at onboarding. Not in a terms of service buried in a tool's settings. Before biometric data is collected from that specific person.
+
+Common mistakes:
+- Deploying a meeting AI tool company-wide and notifying employees afterward
+- Getting consent from direct employees but not from contractors or external participants
+- Assuming "recording consent" in meeting invites covers biometric processing
+- Relying on the meeting tool's own consent mechanisms (which typically don't satisfy BIPA's employer-side obligations)
+
+External meeting participants — clients, vendors, interviewees — are often completely uncovered. They never agreed to anything with your company. They showed up to a Zoom call. If your AI bot created a voiceprint of them, that's a violation.
+
+## The Class Action Math
+
+BIPA class actions have resulted in some of the largest privacy settlements in US history:
+- Facebook: $650 million (facial recognition)
+- Google: $100 million (facial recognition in Photos)
+- TikTok: $92 million
+- Various BIPA cases are working through courts right now targeting AI meeting tools specifically
+
+Fireflies.AI faced a class action in December 2025 specifically over voiceprint collection without consent. Microsoft Teams, Zoom, and others have faced or are facing similar claims.
+
+The math is brutal. Say your company has 200 employees in Illinois and you've been using a speaker-identifying AI tool for two years without proper consent. At $1,000 per negligent violation, with weekly meetings averaging 10 employee voice contacts each: the number compounds quickly. BIPA class action exposure can hit eight figures for mid-sized employers.
+
+## What Employers Should Do
+
+**Audit your tools.** Which meeting tools does your organization use? Does any of them offer speaker identification or diarization? If yes, it's likely creating voiceprints.
+
+**Check your consent records.** Do you have written, specific consent for biometric collection from all affected employees? From external participants?
+
+**Review vendor contracts.** Your AI meeting tool is processing biometric data on your behalf. Do you have contracts that address BIPA obligations? What are their retention and deletion policies?
+
+**Consult Illinois employment counsel.** BIPA compliance for employers has nuances that warrant legal review, especially given evolving case law.
+
+## The Zero-Voiceprint Option
+
+Summit doesn't collect voiceprints. Processing is local to your Mac — no audio, no embeddings, no speaker profiles are sent to any cloud server. Speaker identification, when enabled, stores voice embeddings only on your device. You control retention. You delete them when you want.
+
+For employers who want to eliminate the BIPA question entirely: disable speaker identification in Summit settings. No voiceprints created at all. You get transcripts, summaries, and action items — without any biometric data in the picture.
+
+It's not that compliance is complicated. It's that most tools weren't designed with compliance in mind.
+
+---
+
+**Try Summit** — meeting notes that stay on your device. [Download for macOS](https://summitnotes.app)
+
+---
+
+## References
+
+- Illinois Biometric Information Privacy Act, 740 ILCS 14/1 et seq.
+- Cothron v. White Castle System, Inc. — Illinois Supreme Court (2023)
+- Fireflies.AI BIPA class action complaint (December 2025)
+- Facebook (Meta) BIPA settlement: $650 million (2021)
+- Lyon Firm: BIPA litigation tracker (2026)
