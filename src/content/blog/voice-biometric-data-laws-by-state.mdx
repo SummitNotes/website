@@ -1,0 +1,165 @@
+---
+title: "Voice Biometric Data Laws by State: 2026 Guide"
+description: "Illinois, Texas, Washington, New York, California, and the EU all have laws covering voice biometric data. Here's who's covered, what's required, and what the penalties look like — state by state."
+publishedDate: 2026-03-12
+author: "Dima"
+tags: ["privacy", "compliance", "biometrics", "bipa", "gdpr", "state-laws"]
+image: "/blog-voice-biometric-laws-by-state.jpg"
+imageAlt: "3D isometric illustration of a US map with state highlights and legal document icons representing voice biometric data privacy laws by state"
+---
+
+The patchwork of voice biometric privacy laws in the US is a compliance headache. There's no single federal law. Instead, you have Illinois with its famously aggressive BIPA, Texas quietly sitting on similar rules, Washington adding new ones, New York going after AI hiring tools, California doing California things, and the EU doing GDPR things with extra steps.
+
+This guide covers the major jurisdictions. Bookmark it — it'll stay relevant.
+
+## Illinois: BIPA (The One Everyone Knows)
+
+**Law:** Biometric Information Privacy Act, 740 ILCS 14 (2008)
+
+**What's covered:** Biometric identifiers including voiceprints, retina/iris scans, fingerprints, hand geometry, and face geometry. Also covers "biometric information" — data derived from biometric identifiers.
+
+**Who's covered:** Any private entity that collects, captures, purchases, receives through trade, or otherwise obtains biometric identifiers from Illinois residents.
+
+**Consent requirements:** Written notice before collection. Written release (consent) before collection. Consent must be specific to the purpose and duration.
+
+**Key restrictions:**
+- Cannot sell or profit from biometric data
+- Cannot disclose without consent (limited exceptions)
+- Must have written retention and destruction policy
+
+**Penalties:** $1,000 per negligent violation; $5,000 per intentional or reckless violation. Private right of action — no government enforcement required.
+
+**Why it matters for meeting tools:** Illinois courts have found that speaker diarization features that create voice embeddings trigger BIPA. If you're using a cloud AI meeting tool with speaker identification in Illinois, the consent clock is running.
+
+---
+
+## Texas: CUBI (The Quiet One)
+
+**Law:** Capture or Use of Biometric Identifier Act, Texas Business & Commerce Code § 503.001 (2009)
+
+**What's covered:** "Biometric identifier" means a retina or iris scan, fingerprint, voiceprint, or record of hand or face geometry.
+
+**Who's covered:** Persons who capture biometric identifiers "for a commercial purpose."
+
+**Consent requirements:** Informed consent before capture. Cannot sell, lease, or disclose without consent.
+
+**Penalties:** Civil penalty of up to $25,000 per violation. **No private right of action** — only the Texas Attorney General can enforce.
+
+**The catch:** The AG enforcement-only model means CUBI has been largely theoretical. That may change as the AG's office has signaled increased interest in AI privacy enforcement. Don't let the lack of private lawsuits lull you into complacency — AG investigations are not fun.
+
+---
+
+## Washington: WBIPA + My Health MY Data
+
+**Laws:** Washington Biometric Privacy Act (HB 1493, effective 2017); My Health MY Data Act (effective 2024)
+
+**Washington Biometric Privacy Act:**
+- Covers "biometric identifiers" including fingerprints, voiceprints, iris/retina scans, face geometry
+- Requires consent before enrollment in biometric systems
+- No private right of action (AG enforcement only)
+
+**My Health MY Data Act:**
+- Broader scope covering "consumer health data"
+- Includes data that "identifies a consumer's... physical or mental health condition"
+- Private right of action included
+- Applies to businesses with no revenue threshold
+
+**Why both matter for voice:** If voice data could reveal health conditions (stress levels, certain vocal biomarkers), My Health MY Data may apply even where WBIPA's biometric-specific rules don't. Voice AI is sophisticated enough that this overlap is increasingly relevant.
+
+---
+
+## New York: NYC Local Law 144
+
+**Law:** New York City Local Law 144 (effective 2023)
+
+**Scope:** Narrower than state-level biometric laws — specifically targets **automated employment decision tools (AEDTs)** used in hiring.
+
+**What's covered:** Any "computational process derived from machine learning, statistical modeling, data analytics, or AI" used to screen job candidates or employees in NYC.
+
+**Requirements:**
+- Bias audit required annually by an independent auditor
+- Public notice requirement before using AEDTs
+- Candidate notice requirement
+
+**Voice relevance:** AI interview tools that analyze voice, word choice, or speaking patterns to assess candidates fall squarely under Local Law 144. HireVue-style tools, AI-powered phone screenings, any tool that uses voice analysis in hiring decisions — all covered.
+
+**Penalties:** $375–$1,500 per violation.
+
+New York State is also considering broader biometric privacy legislation, so this space will expand.
+
+---
+
+## California: CCPA/CPRA
+
+**Law:** California Consumer Privacy Act (2018) + California Privacy Rights Act (2020)
+
+**What's covered:** "Biometric information" is a category of sensitive personal information under CPRA, including voiceprints, faceprints, and other biometric identifiers.
+
+**Who's covered:** Businesses that meet one or more thresholds: $25M+ annual revenue; buy/sell/receive/share 100,000+ consumers' personal information; derive 50%+ of annual revenue from selling personal information.
+
+**Consumer rights:** Right to know what's collected, right to delete, right to opt out of sale/sharing, right to limit use of sensitive personal information.
+
+**Consent requirements:** For sensitive personal information (including biometrics), consumers must be able to limit use to what's "necessary." Employers must honor opt-out requests.
+
+**Penalties:** $2,500 per unintentional violation; $7,500 per intentional violation. Private right of action for data breaches.
+
+**The California caveat:** CCPA/CPRA doesn't require consent *before* collection the way BIPA does. It requires transparency and gives consumers control after the fact. Important distinction — different compliance posture required.
+
+---
+
+## EU: GDPR
+
+**Law:** General Data Protection Regulation (effective 2018)
+
+**What's covered:** Biometric data "resulting from specific technical processing relating to the physical, physiological or behavioural characteristics of a natural person, which allow or confirm the unique identification" — Article 9 special category.
+
+**Legal basis required:** Explicit consent, or one of a narrow set of exceptions (employment law obligations, vital interests, public interest, etc.). "Legitimate interests" does not work for special category data.
+
+**Key obligations:**
+- Data Protection Impact Assessment (DPIA) for large-scale biometric processing
+- Data Processing Agreement with any processor handling biometric data
+- Standard Contractual Clauses for transfers outside the EU
+- Respond to data subject access, deletion, and portability requests
+
+**Penalties:** Up to €20 million or 4% of global annual turnover — whichever is greater.
+
+**For meeting tools:** EU-based employees whose voices are processed by a US AI tool for speaker identification likely triggers Article 9. The DPA with the vendor must explicitly cover this processing.
+
+---
+
+## Summary Table
+
+| Jurisdiction | Voiceprints Covered | Consent Before Collection | Private Right of Action | Max Penalty |
+|---|---|---|---|---|
+| Illinois (BIPA) | ✅ | ✅ Required | ✅ Yes | $5,000/violation |
+| Texas (CUBI) | ✅ | ✅ Required | ❌ AG only | $25,000/violation |
+| Washington (WBIPA) | ✅ | ✅ Required | ❌ AG only | Varies |
+| New York City (LL144) | Hiring only | Notice required | ✅ Yes | $1,500/violation |
+| California (CPRA) | ✅ | Post-collection controls | Breach only | $7,500/violation |
+| EU (GDPR) | ✅ | ✅ Explicit consent | Via DPAs/regulators | 4% global revenue |
+
+---
+
+## The Easiest Compliance Strategy
+
+The cleanest way through this patchwork: don't collect voice biometric data at all.
+
+Summit processes everything on your Mac. No speaker embeddings sent to cloud servers. No third-party processors to sign DPAs with. No cross-border transfers to manage. Speaker identification, if enabled, stays local — and you can disable it entirely.
+
+When the data stays on your device, most of these regulatory requirements simply don't apply in the same way. That's not a legal loophole. That's engineering for privacy from the start.
+
+---
+
+**Try Summit** — meeting notes that stay on your device. [Download for macOS](https://summitnotes.app)
+
+---
+
+## References
+
+- Illinois BIPA: 740 ILCS 14/1 et seq.
+- Texas CUBI: Texas Business & Commerce Code § 503.001
+- Washington WBIPA: RCW 19.375
+- Washington My Health MY Data Act: SB 1155 (2023)
+- NYC Local Law 144 (2021)
+- California CPRA: Civil Code § 1798.100 et seq.
+- GDPR Article 9 — Special categories of personal data

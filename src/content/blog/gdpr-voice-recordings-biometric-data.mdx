@@ -1,0 +1,83 @@
+---
+title: "Are Voice Recordings Biometric Data Under GDPR?"
+description: "GDPR Article 9 puts biometric data in a special category requiring explicit consent. If your cloud meeting tool processes voice for speaker identification, you may already be handling biometric data — and you might not have the right consent."
+publishedDate: 2026-03-12
+author: "Dima"
+tags: ["privacy", "compliance", "gdpr", "biometrics", "meeting-notes"]
+image: "/blog-gdpr-voice-biometric.jpg"
+imageAlt: "3D isometric illustration showing a voice waveform overlaid with an EU flag and GDPR compliance lock icon"
+---
+
+Short answer: it depends on how the voice data is processed. Long answer: if your AI meeting tool is doing speaker identification, the answer is almost certainly yes — and GDPR's rules for biometric data are significantly stricter than for ordinary personal data.
+
+Here's what that actually means for your organization.
+
+## What GDPR Says About Biometric Data
+
+GDPR Article 9 creates a special category of "sensitive personal data" that gets heightened protection. Biometric data is on that list — specifically defined as:
+
+> "personal data resulting from specific technical processing relating to the physical, physiological or behavioural characteristics of a natural person, which allow or confirm the unique identification of that natural person, such as facial images or dactyloscopic data"
+
+The critical phrase is "allow or confirm the unique identification." A raw audio recording of a meeting isn't automatically biometric data under GDPR. But the moment you process that audio to identify *who* is speaking — extracting voice embeddings, creating speaker profiles, running diarization — you've crossed into Article 9 territory.
+
+And Article 9 processing requires explicit consent. Not "legitimate interests." Not "contractual necessity." Explicit. Opt-in. Documented.
+
+## The Speaker Identification Problem
+
+Most modern AI meeting tools include speaker diarization — the feature that labels your transcript with "Speaker 1," "Speaker 2," or better yet, actual names. It's useful. It also creates voiceprints.
+
+Speaker diarization works by creating mathematical representations of vocal characteristics unique to each person. These embeddings are functionally equivalent to fingerprints — they can identify an individual across recordings, even without a name attached.
+
+When those embeddings live in the cloud — on Otter.ai's servers, Fireflies' infrastructure, Zoom's AI processing pipeline — you have biometric data stored by a third party. Under GDPR, your organization is the data controller. You're responsible for the legal basis under which that processing happens.
+
+"We didn't know it was creating voiceprints" is not a GDPR defense.
+
+## What This Means in Practice
+
+If your European employees (or EU-based meeting participants) are being recorded by a cloud AI meeting tool that does speaker identification, you need:
+
+**A valid legal basis.** Explicit consent under Article 9(2)(a) is the cleanest option. This means asking every meeting participant — not just your employees, but external parties, clients, partners — for specific consent to biometric processing *before* the call starts.
+
+**A Data Protection Impact Assessment (DPIA).** Article 35 requires a DPIA for large-scale processing of special category data. If you're recording all company meetings, you likely qualify.
+
+**A processing agreement with your vendor.** Under Article 28, your cloud meeting tool is a data processor. You need a Data Processing Agreement that specifies what they do with the biometric data, how long they keep it, and what happens if they have a breach.
+
+**Cross-border transfer compliance.** If your meeting tool is US-based (most of them are), you need Standard Contractual Clauses or another legal mechanism for transferring biometric data outside the EU.
+
+That's a lot of paperwork for "who said what in the Tuesday standup."
+
+## The Consent Problem Gets Worse
+
+Here's where it gets uncomfortable: consent must be freely given, specific, and informed. In an employment context, GDPR regulators in multiple EU countries have ruled that employee consent is often *not* freely given — because there's an inherent power imbalance between employer and employee.
+
+So "we told everyone in the employee handbook that meetings are recorded" may not satisfy GDPR's consent standard for biometric data. You might need a different legal basis entirely — and for Article 9 biometric data, the options are narrow.
+
+## Penalties Worth Noting
+
+GDPR fines for Article 9 violations aren't theoretical. Special category data breaches typically trigger the higher tier: up to €20 million or 4% of global annual turnover, whichever is greater.
+
+More practically: EU data protection authorities have been paying close attention to AI tools since 2023. Italy's Garante has blocked AI services for GDPR violations. Ireland's DPC has levied billion-euro fines. "We were using a US SaaS tool and didn't think about it" has not historically been treated as a mitigating factor.
+
+## The Simpler Path
+
+Summit processes audio on your device. No cloud. No server. No third-party processor.
+
+When everything stays local, the GDPR analysis changes dramatically. You're not transferring biometric data to a third party. You don't need vendor processing agreements. Cross-border transfer rules don't apply. The Article 9 consent requirements still exist if you're processing for speaker identification — but the scope is one person (you), one device (yours), zero data controllers except yourself.
+
+For organizations that want to skip the DPIAs and SCCs entirely: Summit also lets you disable speaker identification completely, so no voice embeddings are created at all.
+
+Zero biometric data. Zero Article 9 exposure. Simple.
+
+---
+
+**Try Summit** — meeting notes that stay on your device. [Download for macOS](https://summitnotes.app)
+
+---
+
+## References
+
+- GDPR Article 9 — Processing of special categories of personal data
+- GDPR Recital 51 — Definition of biometric data
+- GDPR Article 35 — Data Protection Impact Assessment requirements
+- EDPB Guidelines 3/2019 on processing of personal data through video devices
+- Article 29 Working Party Opinion 2/2017 on data processing at work
