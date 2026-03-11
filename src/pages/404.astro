@@ -9,15 +9,10 @@
     <meta name="robots" content="noindex" />
     <script is:inline>
       if (window.location.pathname.startsWith('/open/document/')) {
-        document.title = 'Opening in Summit Notes...';
-        var APP_STORE_URL = 'https://apps.apple.com/app/summit-ai-notes/id6754717420';
+        document.title = 'Opening in Summit AI Notes...';
         var documentId = window.location.pathname.replace('/open/document/', '');
-        // Try opening via custom scheme first
+        // Try opening via custom scheme
         window.location.href = 'summit://document/' + documentId;
-        // Fall back to App Store if the app isn't installed
-        setTimeout(function () {
-          window.location.href = APP_STORE_URL;
-        }, 1500);
         document.addEventListener('DOMContentLoaded', function () {
           document.getElementById('deep-link').style.display = 'flex';
           document.getElementById('not-found').style.display = 'none';
@@ -40,7 +35,34 @@
       h1 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
       p { color: #999; font-size: 0.9rem; }
       a { color: #58a6ff; }
-      #deep-link { display: none; align-items: center; justify-content: center; min-height: 100vh; }
+      #deep-link { display: none; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; }
+      .app-icon { width: 96px; height: 96px; border-radius: 22px; margin-bottom: 1.25rem; }
+      .deep-link-title { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.25rem; }
+      .deep-link-subtitle { color: #999; font-size: 0.95rem; margin: 0 0 1.5rem; }
+      .app-description { color: #bbb; font-size: 0.9rem; line-height: 1.5; max-width: 420px; margin: 0 auto 1.5rem; }
+      .app-store-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #fff;
+        color: #000;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 600;
+        padding: 0.65rem 1.5rem;
+        border-radius: 10px;
+        transition: opacity 0.15s;
+        margin-bottom: 2rem;
+      }
+      .app-store-badge:hover { opacity: 0.85; }
+      .app-store-badge svg { width: 20px; height: 20px; }
+      .screenshot {
+        width: 100%;
+        max-width: 640px;
+        border-radius: 12px;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+        margin-top: 0.5rem;
+      }
     </style>
   </head>
   <body>
@@ -48,11 +70,16 @@
       <h1>Page not found</h1>
       <p><a href="/">Go to homepage</a></p>
     </div>
-    <div id="deep-link" class="container">
-      <div>
-        <h1>Opening in Summit Notes...</h1>
-        <p>If the app doesn't open, <a href="https://apps.apple.com/app/summit-ai-notes/id6754717420">get it on the App Store</a>.</p>
-      </div>
+    <div id="deep-link">
+      <img src="/logo512x512.png" alt="Summit AI Notes" class="app-icon" />
+      <h1 class="deep-link-title">Opening in Summit AI Notes...</h1>
+      <p class="deep-link-subtitle">If the app didn't open, you may need to install it first.</p>
+      <p class="app-description">Summit AI Notes is an AI-powered note-taking app for Mac. It automatically captures, transcribes, and summarizes your meetings — all processed locally on your device.</p>
+      <a href="https://apps.apple.com/app/summit-ai-notes/id6754717420" class="app-store-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on the App Store
+      </a>
+      <img src="/screenshot-1.jpg" alt="Summit AI Notes app screenshot" class="screenshot" />
     </div>
   </body>
 </html>
