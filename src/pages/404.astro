@@ -11,6 +11,10 @@
       if (window.location.pathname.startsWith('/open/document/')) {
         document.title = 'Opening in Summit Notes...';
         var APP_STORE_URL = 'https://apps.apple.com/app/summit-ai-notes/id6754717420';
+        var documentId = window.location.pathname.replace('/open/document/', '');
+        // Try opening via custom scheme first
+        window.location.href = 'summit://document/' + documentId;
+        // Fall back to App Store if the app isn't installed
         setTimeout(function () {
           window.location.href = APP_STORE_URL;
         }, 1500);
