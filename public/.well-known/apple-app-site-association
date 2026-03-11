@@ -1,9 +1,12 @@
 {
   "applinks": {
-    "apps": [],
     "details": [
       {
         "appID": "E54C86257X.app.summitnotes",
+        "paths": ["/open/document/*"]
+      },
+      {
+        "appID": "E54C86257X.app.summitnotes.dev",
         "paths": ["/open/document/*"]
       }
     ]
