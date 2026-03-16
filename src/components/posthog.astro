@@ -39,5 +39,26 @@
       }),
       (e.__SV = 1));
   })(document, window.posthog || []);
-  posthog.init('phc_KsfKIYbgWzvjQA4c2XMhwghaLGmNyNWmLqJIp1Iujeq', { api_host: 'https://eu.i.posthog.com', defaults: '2025-05-24' });
+
+  // Initialize PostHog — respect cookie consent
+  var consentKey = 'summit-cookie-consent';
+  var consent = localStorage.getItem(consentKey);
+
+  posthog.init('phc_KsfKIYbgWzvjQA4c2XMhwghaLGmNyNWmLqJIp1Iujeq', {
+    api_host: 'https://eu.i.posthog.com',
+    defaults: '2025-05-24',
+    persistence: consent === 'denied' ? 'memory' : 'localStorage+cookie',
+    opt_out_capturing_by_default: consent === null || consent === 'denied',
+  });
+
+  // Listen for consent changes from the banner
+  window.addEventListener('cookie-consent', function(e) {
+    if (e.detail === 'granted') {
+      posthog.opt_in_capturing();
+      posthog.set_config({ persistence: 'localStorage+cookie' });
+    } else {
+      posthog.opt_out_capturing();
+      posthog.set_config({ persistence: 'memory' });
+    }
+  });
 </script>
