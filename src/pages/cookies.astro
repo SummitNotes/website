@@ -93,21 +93,26 @@ import { Cookie } from "lucide-react";
                 Analytics Cookies (Optional)
               </h3>
               <p class="text-muted-foreground mb-4">
-                If we use analytics, these cookies help us understand how
-                visitors interact with our website by collecting and reporting
-                information anonymously.
+                We use PostHog, a privacy-focused analytics platform hosted in the EU,
+                to understand how visitors interact with our website. No data is collected
+                until you give consent via our cookie banner.
               </p>
-              <div class="bg-muted/30 p-4 rounded-lg">
+              <div class="bg-muted/30 p-4 rounded-lg space-y-2">
+                <p class="text-sm text-muted-foreground">
+                  <strong>Provider:</strong> PostHog (EU-hosted)
+                </p>
                 <p class="text-sm text-muted-foreground">
                   <strong>Purpose:</strong> Understand which pages are visited most,
                   how users navigate the site
                 </p>
-                <p class="text-sm text-muted-foreground mt-2">
-                  <strong>Provider:</strong> We may use privacy-focused analytics
-                  like Plausible or Fathom
+                <p class="text-sm text-muted-foreground">
+                  <strong>Cookies set:</strong> <code class="text-xs bg-muted px-1 py-0.5 rounded">ph_*</code> cookies
+                  for anonymous session tracking
                 </p>
-                <p class="text-sm text-muted-foreground mt-2">
-                  <strong>Your Choice:</strong> We respect Do Not Track signals
+                <p class="text-sm text-muted-foreground">
+                  <strong>Your Choice:</strong> You can accept or decline analytics
+                  via the cookie banner shown on your first visit. Your preference
+                  is remembered in your browser's local storage
                 </p>
               </div>
             </Card>
@@ -159,10 +164,22 @@ import { Cookie } from "lucide-react";
             </p>
 
             <h3 class="text-lg font-semibold text-foreground mb-3">
+              Cookie Banner
+            </h3>
+            <p class="text-muted-foreground mb-6">
+              When you first visit our site, a cookie banner lets you accept or
+              decline analytics cookies. If you decline, no analytics cookies are
+              set and no browsing data is collected. You can clear your preference
+              at any time by removing the <code class="text-xs bg-muted px-1 py-0.5 rounded">summit-cookie-consent</code> entry
+              from your browser's local storage, and the banner will appear again
+              on your next visit.
+            </p>
+
+            <h3 class="text-lg font-semibold text-foreground mb-3">
               Browser Settings
             </h3>
             <p class="text-muted-foreground mb-4">
-              Most browsers allow you to:
+              Most browsers also allow you to:
             </p>
             <ul
               class="list-disc list-inside text-muted-foreground space-y-2 mb-6"

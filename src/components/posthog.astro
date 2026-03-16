@@ -47,8 +47,8 @@
   posthog.init('phc_KsfKIYbgWzvjQA4c2XMhwghaLGmNyNWmLqJIp1Iujeq', {
     api_host: 'https://eu.i.posthog.com',
     defaults: '2025-05-24',
-    persistence: consent === 'denied' ? 'memory' : 'localStorage+cookie',
-    opt_out_capturing_by_default: consent === null || consent === 'denied',
+    persistence: consent === 'granted' ? 'localStorage+cookie' : 'memory',
+    opt_out_capturing_by_default: consent !== 'granted',
   });
 
   // Listen for consent changes from the banner
