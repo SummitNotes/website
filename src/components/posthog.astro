@@ -61,4 +61,16 @@
       posthog.set_config({ persistence: 'memory' });
     }
   });
+
+  // Track all App Store download clicks
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('a[href*="apps.apple.com/app/summit"]');
+    if (el) {
+      var source = el.className || el.closest('[class]')?.className || 'unknown';
+      posthog.capture('download_clicked', {
+        source: el.getAttribute('data-source') || document.title || window.location.pathname,
+        url: window.location.href,
+      });
+    }
+  });
 </script>
