@@ -1,0 +1,57 @@
+import ReleaseLayout from '../../layouts/ReleaseLayout.astro';
+
+export const version = "1.8";
+export const date = "2026-03-18";
+export const title = "Summit AI Notes 1.8";
+
+<ReleaseLayout version="1.8" date="2026-03-18">
+
+**New Features**
+- **Deep links** - Open Summit documents from external apps, including links in Markdown exports.
+- **Video file import** - Import video files with automatic audio extraction.
+- **Microphone device selection** - Choose your microphone with priority-based fallback.
+- **Obsidian export** - Export to Obsidian with separate folder and export options.
+- **Dual monetization** - Subscriptions and lifetime purchase options.
+- **Move documents between folders** - Reorganize via right-click and drag-and-drop.
+- **Hide status bar icon** - Option to hide the Summit status bar icon.
+- **Cmd+F search shortcut** - Keyboard shortcut to focus the search field.
+- **Audio storage size counter** - View storage usage with a delete all button.
+- **Template search** - Search templates in the template picker.
+- **GLM-4.7-Flash local model** - Added GLM-4.7-Flash as a local model option.
+
+**Improvements**
+- **Multilingual embeddings** - Better vector search quality across languages.
+- **Smart processing delay** - Intelligent delay for back-to-back meetings.
+- **AI insight validation** - Validation step to reduce hallucinations in summaries.
+- **Speaker suggestions for action items** - Speaker suggestions for the action item assignee field.
+- **Optional speaker diarization** - Speaker diarization is now optional in the processing pipeline.
+- **Auto-link to calendar events** - Documents auto-link to calendar events when recording starts.
+- **Auto-select local model** - Automatically select the first downloaded local model for summarization.
+- **Collapsible unidentified speakers** - Separate unidentified speakers into a collapsible category on the People page.
+- **Improved search filters** - Replaced title/content filters with priority and assignee.
+- **Speaker merge undo** - Undo toast and clear assignment flow for speaker merges.
+- **Better empty state** - Improved empty state for first-time users.
+- **Strip HTML from calendar descriptions** - Clean up calendar event descriptions by stripping HTML.
+
+**Bug Fixes**
+- Fixed crash on long recordings by processing audio in chunks
+- Fixed action item parsing when LLM returns object arrays
+- Fixed search results not updating on second query
+- Blocked iCloud storage to prevent database corruption
+- Fixed deep links opening new window instead of reusing existing one
+- Fixed in-app purchase broken by biometric dialog
+- Fixed sleep/wake deadlock and recording during sleep
+- Fixed People page freeze during scroll and navigation
+- Fixed crash in llama summarization by updating struct bindings
+- Fixed cursor jumping after @mention insertion
+- Fixed search popup stealing focus
+- Fixed ghost recording state when duplicate start requested
+- Fixed Cmd+Backspace in Notes field deleting the document
+- Fixed dismissed recording notification reappearing during same event
+- Fixed bookmark counter not resetting between recordings
+- Fixed folder drag-and-drop for imported audio files
+- Audio recordings now playable after app crash
+- Fixed UI freeze from metadata event publishing
+- Respect macOS accessibility minimum font size
+
+</ReleaseLayout>
