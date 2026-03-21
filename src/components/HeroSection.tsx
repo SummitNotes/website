@@ -37,7 +37,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   title = "Meeting Notes",
   subtitle = "That Never Leave Your Mac",
   description = "Transcribe any call or in-person conversation. 100% local, private AI insights. Your data stays yours.",
-  ctaText = "Start for free",
+  ctaText = "Record Your Next Meeting",
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -121,8 +121,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               <span className="block mt-2 text-[#1f98cf]">{subtitle}</span>
             </h1>
 
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10">
-              {description}
+            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-8">
+              {description}{" "}
+Zoom, Teams, Meet — any meeting app.
             </p>
 
             {/* CTA Button */}
@@ -141,12 +142,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </a>
-              <a
-                href="#pricing"
-                className="text-sm text-muted-foreground/80 hover:text-muted-foreground transition-colors cursor-pointer border-b border-muted-foreground/30 hover:border-muted-foreground/50 pb-px"
-              >
-                Subscription or one-time payment
-              </a>
+              <span className="text-sm text-muted-foreground/80">
+                15 recordings free. No signup needed.{" "}
+                <a
+                  href="#pricing"
+                  className="text-muted-foreground hover:text-foreground transition-colors border-b border-muted-foreground/30 hover:border-muted-foreground/50 pb-px"
+                >
+                  See pricing
+                </a>
+              </span>
             </div>
           </div>
 
