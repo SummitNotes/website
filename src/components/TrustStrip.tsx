@@ -10,7 +10,7 @@ const TrustStrip: React.FC = () => {
     },
     {
       icon: <Star className="w-4 h-4 fill-current" />,
-      text: "4.5 App Store Rating",
+      text: "4.6 App Store Rating",
       color: "text-amber-500",
     },
     {
