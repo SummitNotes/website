@@ -1,0 +1,23 @@
+import ReleaseLayout from '../../layouts/ReleaseLayout.astro';                                                                           
+                                                                                                                                         
+export const version = "1.8.4";
+export const date = "2026-04-23";                                                                                                        
+export const title = "Summit AI Notes 1.8.4";                                                                                            
+ 
+<ReleaseLayout version="1.8.4" date="2026-04-23">                                                                                        
+                
+**New Features**
+- Notes now render as formatted markdown with an Edit/Save toggle for quick changes.
+- Added new Gemma 4 models (E4B, 26B-A4B MoE, 31B) and Qwen 3.5 models for local summarization.
+- Active subscribers can now upgrade to yearly or lifetime plans directly from premium settings.
+
+**Improvements**
+- Model picker now shows a dedicated 24GB RAM category, making it easier to find models that fit your machine.
+- Category cards use a green spectrum for models your hardware handles comfortably and an orange "Try" badge for stretch picks
+- Clearer error messages when a local model fails to load.
+
+**Bug Fixes**   
+- Calendar auto-record now properly disables when the mode is switched off.
+- Meeting prep counts are now accurate and no longer affected by unrelated attendee matching.
+                                            
+</ReleaseLayout>  
