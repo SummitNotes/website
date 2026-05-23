@@ -44,24 +44,32 @@ const SocialProof: React.FC = () => {
     {
       quote:
         "I tried 10+ meeting note tools. Every one required uploading audio to the cloud. As a litigator, that's a non-starter. Summit is the only one that keeps everything local.",
-      role: "Corporate Attorney",
-      company: "Solo Practice, 15+ years",
+      role: "Joseph, Attorney in law",
+      company: "",
       rating: 5,
       icon: <Scale className="w-5 h-5 text-gray-600" />,
     },
     {
       quote:
-        "I had my own toolset built from multiple apps to get local AI insights. Summit replaced my entire workflow with one elegant app.",
-      role: "IT Consultant",
-      company: "Fortune 500 Clients",
+        "I just purchased the lifetime license.  I tested probably 40 different applications and yours is the most aligned with what I am looking for.  Your transcription is one of the best I found and the only one that enabled easy and true persistent user tagging by actual name instead of speaker A, B, C etc…",
+      role: "Tyler, Sales",
+      company: "",
       rating: 5,
       icon: <Briefcase className="w-5 h-5 text-gray-600" />,
     },
+    // {
+    //   quote:
+    //     "I had my own toolset built from multiple apps to get local AI insights. Summit replaced my entire workflow with one elegant app.",
+    //   role: "IT Consultant",
+    //   company: "",
+    //   rating: 5,
+    //   icon: <Briefcase className="w-5 h-5 text-gray-600" />,
+    // },
     {
       quote:
         "I usually have 5\u20137 meetings a day. It was very laborious to keep track of all action points, plans, and topics discussed. Cloud solutions solve the problem, but they require multiple approvals and a corporate subscription, and are overall clumsy. With Summit AI Notes, I can keep everything locally in my Obsidian knowledge base at my fingertips.",
-      role: "VP of Engineering",
-      company: "Startup",
+      role: "Eugene, Head of Engineering",
+      company: "",
       rating: 5,
       icon: <Code className="w-5 h-5 text-gray-600" />,
     },
