@@ -100,18 +100,6 @@ The site is fully static and can be deployed to Vercel, Netlify, GitHub Pages, o
 
 ---
 
-## Migration Notes
-
-This site was migrated from Next.js to Astro for:
-
-- **70% smaller bundle sizes** - Faster load times for users
-- **Zero runtime costs** - Fully static generation
-- **Better DX** - File-based routing and Content Collections
-
-All components, styles, and content were preserved during migration.
-
----
-
 ## License
 
 © 2024 Summit AI Notes. All rights reserved.
