@@ -1,0 +1,202 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { Card } from "../../components/ui/card";
+import { Separator } from "../../components/ui/separator";
+import { Book, ChevronRight, Home, Calendar, Tag } from "lucide-react";
+
+// Automatically pick up every release note under src/pages/releases.
+// Adding a new <version>.mdx file there will surface it here with no edits.
+const releaseModules = import.meta.glob("../releases/*.mdx", { eager: true });
+
+const releases = Object.entries(releaseModules)
+  .map(([path, mod]) => {
+    const slug = path.split("/").pop()!.replace(/\.mdx$/, "");
+    const m = mod as { version?: string; date?: string; title?: string };
+    return {
+      slug,
+      url: `/releases/${slug}`,
+      version: m.version ?? slug,
+      date: m.date,
+      title: m.title ?? `Summit AI Notes ${m.version ?? slug}`,
+    };
+  })
+  .filter((r) => !r.slug.startsWith("_"))
+  .sort((a, b) => {
+    const dateA = a.date ? new Date(a.date).getTime() : 0;
+    const dateB = b.date ? new Date(b.date).getTime() : 0;
+    return dateB - dateA;
+  });
+
+const allDocs = await getCollection("docs");
+
+// Group docs by category (mirrors the docs index sidebar)
+const docsByCategory = allDocs.reduce(
+  (acc, doc) => {
+    const category = doc.data.category || "guides";
+    if (!acc[category]) acc[category] = [];
+    acc[category].push(doc);
+    return acc;
+  },
+  {} as Record<string, typeof allDocs>,
+);
+
+Object.keys(docsByCategory).forEach((category) => {
+  docsByCategory[category].sort((a, b) => {
+    const orderA = a.data.order ?? 999;
+    const orderB = b.data.order ?? 999;
+    return orderA - orderB;
+  });
+});
+
+const categoryLabels: Record<string, string> = {
+  settings: "Settings",
+  setup: "Setup Guides",
+  guides: "User Guides",
+  general: "General",
+};
+
+const categoryOrder = ["settings", "setup", "guides", "general"];
+
+function formatDate(date?: string) {
+  if (!date) return null;
+  const parsed = new Date(date);
+  if (Number.isNaN(parsed.getTime())) return date;
+  return parsed.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+---
+
+<Layout
+  title="Release Notes - Summit AI Notes Documentation"
+  description="What's new in every version of Summit AI Notes."
+>
+  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <div class="container mx-auto px-4 py-8">
+      <div class="max-w-7xl mx-auto">
+        <!-- Breadcrumb -->
+        <div class="flex items-center gap-2 text-sm text-muted-foreground mb-6">
+          <a href="/" class="hover:text-foreground transition-colors flex items-center gap-1">
+            <Home class="w-4 h-4" />
+            Home
+          </a>
+          <ChevronRight class="w-4 h-4" />
+          <a href="/docs" class="hover:text-foreground transition-colors">Documentation</a>
+          <ChevronRight class="w-4 h-4" />
+          <span class="text-foreground font-medium">Release Notes</span>
+        </div>
+
+        <div class="grid lg:grid-cols-[280px_1fr] gap-8">
+          <!-- Sidebar Navigation -->
+          <aside class="lg:sticky lg:top-8 lg:self-start">
+            <Card className="p-6">
+              <div class="flex items-center gap-2 mb-6">
+                <Book class="w-5 h-5 text-blue-600" />
+                <h2 class="text-lg font-semibold text-foreground">Documentation</h2>
+              </div>
+
+              <nav class="space-y-6">
+                {categoryOrder
+                  .filter((category) => docsByCategory[category])
+                  .map((category) => {
+                    const docs = docsByCategory[category];
+                    return (
+                      <div>
+                        <h3 class="text-sm font-semibold text-foreground mb-2 uppercase tracking-wide">
+                          {categoryLabels[category] || category}
+                        </h3>
+                        <ul class="space-y-1">
+                          {docs.map((navDoc) => (
+                            <li>
+                              <a
+                                href={`/docs/${navDoc.slug}`}
+                                class="block px-3 py-2 rounded-md text-sm transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                              >
+                                {navDoc.data.title}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  })}
+
+                <div>
+                  <h3 class="text-sm font-semibold text-foreground mb-2 uppercase tracking-wide">
+                    Release Notes
+                  </h3>
+                  <ul class="space-y-1">
+                    <li>
+                      <a
+                        href="/docs/release-notes"
+                        class="block px-3 py-2 rounded-md text-sm transition-colors bg-blue-50 text-blue-600 font-medium"
+                      >
+                        All Releases
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </Card>
+          </aside>
+
+          <!-- Main Content -->
+          <main>
+            <Card className="p-8 lg:p-12">
+              <!-- Page Header -->
+              <header class="mb-8">
+                <h1 class="text-4xl font-bold text-foreground mb-4">Release Notes</h1>
+                <p class="text-xl text-muted-foreground">
+                  See what's new in every version of Summit AI Notes — new features, improvements, and bug fixes.
+                </p>
+              </header>
+
+              <Separator className="mb-8" />
+
+              <ul class="space-y-4">
+                {releases.map((release) => (
+                  <li>
+                    <a href={release.url} class="group block">
+                      <Card className="p-5 hover:shadow-lg transition-shadow">
+                        <div class="flex items-center justify-between gap-4 flex-wrap">
+                          <div class="flex items-center gap-3">
+                            <span class="flex items-center justify-center w-10 h-10 rounded-lg bg-blue-50 text-blue-600">
+                              <Tag class="w-5 h-5" />
+                            </span>
+                            <div>
+                              <div class="font-semibold text-foreground group-hover:text-blue-600 transition-colors">
+                                {release.title}
+                              </div>
+                              {release.date && (
+                                <div class="flex items-center gap-1.5 text-sm text-muted-foreground mt-0.5">
+                                  <Calendar class="w-3.5 h-3.5" />
+                                  {formatDate(release.date)}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                          <ChevronRight class="w-5 h-5 text-muted-foreground group-hover:text-blue-600 transition-colors" />
+                        </div>
+                      </Card>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  @media (max-width: 1023px) {
+    aside {
+      position: static;
+    }
+  }
+</style>
