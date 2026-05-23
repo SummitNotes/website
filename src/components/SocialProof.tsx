@@ -138,7 +138,7 @@ const SocialProof: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <Card
               key={index}
@@ -171,6 +171,22 @@ const SocialProof: React.FC = () => {
               </div>
             </Card>
           ))}
+        </div>
+        <div className="flex justify-center mb-20">
+          <a
+            href="https://www.producthunt.com/products/summit-ai-notes?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-summit-ai-notes"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex rounded-md transition-opacity hover:opacity-80"
+          >
+            <img
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1086456&theme=light&t=1779537903838"
+              alt="Summit AI Notes - AI meeting insights, not just summaries. | Product Hunt"
+              width="250"
+              height="54"
+              loading="lazy"
+            />
+          </a>
         </div>
 
         {/* Main Features */}
