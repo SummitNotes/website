@@ -198,6 +198,14 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
                   Cookie Policy
                 </a>
               </li>
+              <li>
+                <a
+                  href="/impressum"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Impressum
+                </a>
+              </li>
             </ul>
           </div>
         </div>
