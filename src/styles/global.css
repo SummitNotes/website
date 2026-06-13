@@ -166,6 +166,70 @@
   animation-delay: var(--float-delay, 0s);
 }
 
+@keyframes carousel-enter-next {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes carousel-exit-next {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes carousel-enter-prev {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes carousel-exit-prev {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.animate-carousel-enter-next {
+  animation: carousel-enter-next 700ms ease-out both;
+  will-change: opacity, transform;
+}
+
+.animate-carousel-exit-next {
+  animation: carousel-exit-next 700ms ease-out both;
+  will-change: opacity, transform;
+}
+
+.animate-carousel-enter-prev {
+  animation: carousel-enter-prev 700ms ease-out both;
+  will-change: opacity, transform;
+}
+
+.animate-carousel-exit-prev {
+  animation: carousel-exit-prev 700ms ease-out both;
+  will-change: opacity, transform;
+}
+
 /* Grid pattern background */
 .bg-grid-pattern {
   background-image:

@@ -57,6 +57,8 @@ const boundarySignals = [
   },
 ];
 
+type SlideDirection = "next" | "prev";
+
 const HeroSection: React.FC<HeroSectionProps> = ({
   title = "Client Meeting Notes",
   subtitle = "That Never Leave Your Mac",
@@ -64,34 +66,53 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   ctaText = "Start 15 Free Recordings",
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [previousIndex, setPreviousIndex] = useState<number | null>(null);
+  const [slideDirection, setSlideDirection] = useState<SlideDirection>("next");
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   // Auto-advance carousel
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % screenshots.length);
+      goToSlide((currentIndex + 1) % screenshots.length, "next");
     }, 4000);
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+  }, [currentIndex, isAutoPlaying]);
 
-  const goToSlide = (index: number) => {
+  useEffect(() => {
+    if (previousIndex === null) return;
+    const timeout = setTimeout(() => setPreviousIndex(null), 700);
+    return () => clearTimeout(timeout);
+  }, [currentIndex, previousIndex]);
+
+  const goToSlide = (
+    index: number,
+    direction: SlideDirection = index > currentIndex ? "next" : "prev",
+  ) => {
+    if (index === currentIndex) return;
+    setPreviousIndex(currentIndex);
+    setSlideDirection(direction);
     setCurrentIndex(index);
+  };
+
+  const handleSlideSelect = (index: number) => {
+    goToSlide(index);
     setIsAutoPlaying(false);
     // Resume auto-play after 10 seconds of inactivity
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   const goToPrev = () => {
-    setCurrentIndex(
-      (prev) => (prev - 1 + screenshots.length) % screenshots.length,
+    goToSlide(
+      (currentIndex - 1 + screenshots.length) % screenshots.length,
+      "prev",
     );
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % screenshots.length);
+    goToSlide((currentIndex + 1) % screenshots.length, "next");
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
@@ -334,10 +355,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     key={screenshot.src}
                     src={screenshot.src}
                     alt={screenshot.alt}
-                    className={`w-full transition-all duration-700 ease-out ${
+                    className={`w-full transition-[opacity,transform] duration-700 ease-out ${
                       index === currentIndex
-                        ? "opacity-100 scale-100"
-                        : "opacity-0 scale-95 absolute inset-0"
+                        ? `opacity-100 translate-x-0 ${
+                            previousIndex === null
+                              ? ""
+                              : slideDirection === "next"
+                                ? "animate-carousel-enter-next"
+                                : "animate-carousel-enter-prev"
+                          }`
+                        : index === previousIndex
+                          ? `absolute inset-0 opacity-0 ${
+                              slideDirection === "next"
+                                ? "animate-carousel-exit-next"
+                                : "animate-carousel-exit-prev"
+                            }`
+                          : "absolute inset-0 opacity-0 translate-x-full"
                     }`}
                     style={{
                       borderRadius: "24px",
@@ -368,7 +401,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               {screenshots.map((screenshot, index) => (
                 <button
                   key={index}
-                  onClick={() => goToSlide(index)}
+                  onClick={() => handleSlideSelect(index)}
                   className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
                     index === currentIndex
                       ? "bg-[#0b1220] text-white shadow-sm"
