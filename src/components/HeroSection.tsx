@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
-import { ArrowRight, Shield, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  HardDrive,
+  Ban,
+  KeyRound,
+} from "lucide-react";
 
 interface HeroSectionProps {
   title?: string;
@@ -33,11 +39,29 @@ const screenshots = [
   },
 ];
 
+const boundarySignals = [
+  {
+    icon: <Ban className="w-4 h-4" />,
+    label: "not training data",
+    tone: "text-orange-600",
+  },
+  {
+    icon: <HardDrive className="w-4 h-4" />,
+    label: "stored locally",
+    tone: "text-emerald-600",
+  },
+  {
+    icon: <KeyRound className="w-4 h-4" />,
+    label: "user-controlled retention",
+    tone: "text-sky-600",
+  },
+];
+
 const HeroSection: React.FC<HeroSectionProps> = ({
-  title = "Meeting Notes",
+  title = "Client Meeting Notes",
   subtitle = "That Never Leave Your Mac",
-  description = "Transcribe any call or in-person conversation. 100% local, private AI insights. Your data stays yours.",
-  ctaText = "Record Your Next Meeting",
+  description = "Record Zoom, Teams, Meet, or in-person calls. Summit turns them into searchable transcripts, client-ready summaries, and action items locally on your Mac.",
+  ctaText = "Start 15 Free Recordings",
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -73,21 +97,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   };
 
   return (
-    <div className="relative min-h-[90vh] overflow-hidden">
+    <div className="relative min-h-[90vh] overflow-hidden bg-[#f7fbfd]">
       {/* Background image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70 saturate-[0.75]"
         style={{ backgroundImage: "url('/mountain-daytime.webp')" }}
       />
       {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-white/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#f8fbfd]/90 via-[#eef7fa]/75 to-[#f8fbfd]/95" />
+      <div className="absolute inset-x-0 bottom-0 h-72 bg-[radial-gradient(circle_at_50%_100%,rgba(16,185,129,0.16),transparent_58%)]" />
 
       <div className="relative z-10 container mx-auto px-4 pt-8 pb-20">
         <div className="max-w-7xl mx-auto">
           {/* Logo and Product Name */}
           <div className="flex items-center gap-4 mb-16">
             <div className="relative group">
-              <div className="w-14 h-14 rounded-2xl shadow-lg overflow-hidden bg-gradient-to-b from-white via-white to-sky-100 transition-transform group-hover:scale-105">
+              <div className="w-14 h-14 rounded-2xl shadow-lg overflow-hidden bg-gradient-to-b from-white via-white to-sky-100 transition-transform group-hover:scale-105 ring-1 ring-white/70">
                 <img
                   src="/logo.svg"
                   alt="Summit AI Notes"
@@ -97,33 +122,23 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="absolute inset-0 rounded-2xl bg-sky-400/30 blur-xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
             <div>
-              <span className="text-xl font-bold text-foreground block">
+              <span className="text-xl font-bold text-[#0b1220] block">
                 Summit AI Notes
               </span>
-              <span className="text-sm text-muted-foreground">for macOS</span>
+              <span className="text-sm text-slate-600">for macOS</span>
             </div>
           </div>
 
           {/* Main content - Centered with screenshot below */}
           <div className="text-center max-w-4xl mx-auto mb-12">
-            {/* Trust Badge */}
-            <Badge
-              variant="secondary"
-              className="mb-6 bg-white/80 backdrop-blur-sm text-[#1f98cf] border-[#c1e2f1] shadow-sm"
-            >
-              <Shield className="w-3 h-3 mr-1.5" />
-              100% Local AI Processing
-            </Badge>
-
             {/* Main Heading */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-6">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0b1220] leading-[1.1] mb-6">
               {title}
-              <span className="block mt-2 text-[#1f98cf]">{subtitle}</span>
+              <span className="block mt-2 text-[#0ea5e9]">{subtitle}</span>
             </h1>
 
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-8">
-              {description}{" "}
-Zoom, Teams, Meet — any meeting app.
+            <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-8">
+              {description}
             </p>
 
             {/* CTA Button */}
@@ -136,17 +151,17 @@ Zoom, Teams, Meet — any meeting app.
               >
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-sky-500 to-sky-400 hover:from-sky-600 hover:to-sky-500 text-white px-10 py-7 text-lg font-semibold shadow-lg shadow-sky-500/25 hover:shadow-xl hover:shadow-sky-500/30 transition-all group"
+                  className="bg-[#0b1220] hover:bg-[#111827] text-white px-10 py-7 text-lg font-semibold shadow-xl shadow-sky-900/20 hover:shadow-2xl hover:shadow-sky-900/25 transition-all group border border-sky-300/20"
                 >
                   {ctaText}
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-5 h-5 ml-2 text-[#38bdf8] group-hover:translate-x-1 transition-transform" />
                 </Button>
               </a>
-              <span className="text-sm text-muted-foreground/80">
+              <span className="text-sm text-slate-500">
                 15 recordings free. No signup needed.{" "}
                 <a
                   href="#pricing"
-                  className="text-muted-foreground hover:text-foreground transition-colors border-b border-muted-foreground/30 hover:border-muted-foreground/50 pb-px"
+                  className="text-slate-600 hover:text-[#0b1220] transition-colors border-b border-slate-300 hover:border-slate-500 pb-px"
                 >
                   See pricing
                 </a>
@@ -154,34 +169,24 @@ Zoom, Teams, Meet — any meeting app.
             </div>
           </div>
 
-          {/* Mobile Language Strip - visible below lg */}
+          {/* Mobile Boundary Strip - visible below lg */}
           <div className="flex lg:hidden flex-wrap justify-center gap-2 mt-6 mb-2" aria-hidden="true">
-            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-white/60">
-              <span className="text-base leading-none">&#127468;&#127463;</span>
-              <span className="text-xs font-medium text-gray-600">English</span>
-            </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-white/60">
-              <span className="text-base leading-none">&#127465;&#127466;</span>
-              <span className="text-xs font-medium text-gray-600">Deutsch</span>
-            </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-white/60">
-              <span className="text-base leading-none">&#127466;&#127480;</span>
-              <span className="text-xs font-medium text-gray-600">Espa&#241;ol</span>
-            </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-white/60">
-              <span className="text-base leading-none">&#127479;&#127482;</span>
-              <span className="text-xs font-medium text-gray-600">&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;</span>
-            </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/85 backdrop-blur-sm rounded-lg shadow-sm border border-[#1f98cf]/20">
-              <span className="text-xs font-bold text-[#1f98cf]">100+</span>
-              <span className="text-xs font-medium text-gray-600">languages</span>
-            </div>
+            {boundarySignals.map((signal) => (
+              <div
+                key={signal.label}
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-white/85 backdrop-blur-sm rounded-lg shadow-sm border border-white/70"
+              >
+                <span className={signal.tone}>{signal.icon}</span>
+                <span className="text-xs font-medium text-slate-600">
+                  {signal.label}
+                </span>
+              </div>
+            ))}
           </div>
 
-          {/* Floating Language Cards - visible on lg+ screens */}
+          {/* Floating Boundary Cards - visible on lg+ screens */}
           <div className="hidden lg:block relative mt-2 -mb-2" aria-hidden="true">
             <div className="relative max-w-5xl mx-auto h-16">
-              {/* English - left side, tilted left */}
               <div
                 className="absolute left-0 top-0 animate-float"
                 style={{
@@ -190,16 +195,17 @@ Zoom, Teams, Meet — any meeting app.
                   "--float-delay": "0s",
                 } as React.CSSProperties}
               >
-                <div className="flex items-center gap-2 px-4 py-2 bg-white/85 backdrop-blur-sm rounded-xl shadow-md border border-white/60">
-                  <span className="text-lg leading-none">&#127468;&#127463;</span>
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-orange-100">
+                  <span className="text-orange-600">
+                    <Ban className="w-4 h-4" />
+                  </span>
                   <div>
-                    <span className="text-sm font-medium text-gray-700 block">English</span>
-                    <span className="text-[10px] text-gray-400 block -mt-0.5">interface</span>
+                    <span className="text-sm font-medium text-slate-700 block">not training data</span>
+                    <span className="text-[10px] text-orange-600/70 block -mt-0.5">vendor boundary</span>
                   </div>
                 </div>
               </div>
 
-              {/* German - left-center, tilted right */}
               <div
                 className="absolute left-[18%] top-2 animate-float"
                 style={{
@@ -208,16 +214,17 @@ Zoom, Teams, Meet — any meeting app.
                   "--float-delay": "0.8s",
                 } as React.CSSProperties}
               >
-                <div className="flex items-center gap-2 px-4 py-2 bg-white/85 backdrop-blur-sm rounded-xl shadow-md border border-white/60">
-                  <span className="text-lg leading-none">&#127465;&#127466;</span>
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-emerald-100">
+                  <span className="text-emerald-600">
+                    <HardDrive className="w-4 h-4" />
+                  </span>
                   <div>
-                    <span className="text-sm font-medium text-gray-700 block">Deutsch</span>
-                    <span className="text-[10px] text-gray-400 block -mt-0.5">Oberfl&#228;che</span>
+                    <span className="text-sm font-medium text-slate-700 block">stored locally</span>
+                    <span className="text-[10px] text-emerald-600/70 block -mt-0.5">on this Mac</span>
                   </div>
                 </div>
               </div>
 
-              {/* 100+ Languages - center, slight tilt */}
               <div
                 className="absolute left-1/2 -translate-x-1/2 -top-1 animate-float"
                 style={{
@@ -226,16 +233,15 @@ Zoom, Teams, Meet — any meeting app.
                   "--float-delay": "1.5s",
                 } as React.CSSProperties}
               >
-                <div className="flex items-center gap-2 px-5 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-[#1f98cf]/20">
-                  <span className="text-sm font-bold text-[#1f98cf]">100+</span>
+                <div className="flex items-center gap-2 px-5 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-slate-200">
+                  <span className="text-xs font-bold text-orange-600">model</span>
                   <div>
-                    <span className="text-sm font-medium text-gray-600 block">languages</span>
-                    <span className="text-[10px] text-[#1f98cf]/60 block -mt-0.5">transcribe & summarize</span>
+                    <span className="text-sm font-medium text-slate-700 block">training_set: never</span>
+                    <span className="text-[10px] text-sky-600/70 block -mt-0.5">your calls stay out</span>
                   </div>
                 </div>
               </div>
 
-              {/* Spanish - right-center, tilted left */}
               <div
                 className="absolute right-[18%] top-2 animate-float"
                 style={{
@@ -244,16 +250,17 @@ Zoom, Teams, Meet — any meeting app.
                   "--float-delay": "0.4s",
                 } as React.CSSProperties}
               >
-                <div className="flex items-center gap-2 px-4 py-2 bg-white/85 backdrop-blur-sm rounded-xl shadow-md border border-white/60">
-                  <span className="text-lg leading-none">&#127466;&#127480;</span>
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-sky-100">
+                  <span className="text-sky-600">
+                    <KeyRound className="w-4 h-4" />
+                  </span>
                   <div>
-                    <span className="text-sm font-medium text-gray-700 block">Espa&#241;ol</span>
-                    <span className="text-[10px] text-gray-400 block -mt-0.5">interfaz</span>
+                    <span className="text-sm font-medium text-slate-700 block">retention is yours</span>
+                    <span className="text-[10px] text-sky-600/70 block -mt-0.5">delete whenever</span>
                   </div>
                 </div>
               </div>
 
-              {/* Russian - right side, tilted right */}
               <div
                 className="absolute right-0 top-0 animate-float"
                 style={{
@@ -262,11 +269,11 @@ Zoom, Teams, Meet — any meeting app.
                   "--float-delay": "1.2s",
                 } as React.CSSProperties}
               >
-                <div className="flex items-center gap-2 px-4 py-2 bg-white/85 backdrop-blur-sm rounded-xl shadow-md border border-white/60">
-                  <span className="text-lg leading-none">&#127479;&#127482;</span>
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-slate-200">
+                  <span className="text-slate-700 font-mono text-xs">/calls</span>
                   <div>
-                    <span className="text-sm font-medium text-gray-700 block">&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;</span>
-                    <span className="text-[10px] text-gray-400 block -mt-0.5">&#1080;&#1085;&#1090;&#1077;&#1088;&#1092;&#1077;&#1081;&#1089;</span>
+                    <span className="text-sm font-medium text-slate-700 block">client-strategy.wav</span>
+                    <span className="text-[10px] text-slate-400 block -mt-0.5">local file path</span>
                   </div>
                 </div>
               </div>
@@ -276,12 +283,12 @@ Zoom, Teams, Meet — any meeting app.
           {/* Screenshot Carousel */}
           <div className="relative mt-8 mx-auto max-w-5xl">
             {/* Glow effect behind */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#1f98cf]/15 via-[#59b9e1]/20 to-[#a4d6e8]/15 blur-3xl scale-90 -z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0ea5e9]/18 via-[#10b981]/16 to-[#f97316]/12 blur-3xl scale-90 -z-10"></div>
 
             {/* Carousel container */}
             <div className="relative" style={{ perspective: "2000px" }}>
               {/* Main screenshot display */}
-              <div className="relative overflow-hidden rounded-3xl shadow-2xl shadow-gray-900/20">
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl shadow-slate-950/20 ring-1 ring-white/80">
                 {screenshots.map((screenshot, index) => (
                   <img
                     key={screenshot.src}
@@ -324,14 +331,14 @@ Zoom, Teams, Meet — any meeting app.
                   onClick={() => goToSlide(index)}
                   className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
                     index === currentIndex
-                      ? "bg-sky-100 text-sky-700 shadow-sm"
+                      ? "bg-[#0b1220] text-white shadow-sm"
                       : "bg-gray-100 text-gray-500 hover:bg-gray-200"
                   }`}
                   aria-label={`Go to ${screenshot.label}`}
                 >
                   <span
                     className={`w-2 h-2 rounded-full transition-all ${
-                      index === currentIndex ? "bg-sky-500" : "bg-gray-400"
+                      index === currentIndex ? "bg-[#38bdf8]" : "bg-gray-400"
                     }`}
                   />
                   <span className="text-sm font-medium">

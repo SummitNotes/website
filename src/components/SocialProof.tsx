@@ -130,15 +130,15 @@ const SocialProof: React.FC = () => {
   ];
 
   return (
-    <div className="py-16 px-4 bg-gradient-to-b from-muted/30 to-background">
+    <div className="py-16 px-4 bg-gradient-to-b from-white to-[#f8fafc]">
       <div className="max-w-7xl mx-auto">
         {/* Testimonials */}
         <div className="text-center mb-12">
           <Badge
             variant="secondary"
-            className="mb-4 bg-yellow-50 text-yellow-700 border-yellow-200"
+            className="mb-4 bg-orange-50 text-orange-700 border-orange-200"
           >
-            <Star className="w-3 h-3 mr-1 fill-yellow-500" />
+            <Star className="w-3 h-3 mr-1 fill-orange-500" />
             Trusted by Privacy-Conscious Professionals
           </Badge>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
@@ -150,7 +150,7 @@ const SocialProof: React.FC = () => {
           {testimonials.map((testimonial, index) => (
             <Card
               key={index}
-              className="p-6 bg-background hover:shadow-lg transition-shadow flex flex-col h-full"
+              className="p-6 bg-white hover:shadow-lg hover:border-slate-200 transition-shadow flex flex-col h-full"
             >
               <div className="flex gap-1 mb-4 hidden">
                 {[...Array(testimonial.rating)].map((_, i) => (
@@ -173,7 +173,7 @@ const SocialProof: React.FC = () => {
                     {testimonial.company}
                   </p>
                 </div>
-                <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center">
                   {testimonial.icon}
                 </div>
               </div>
@@ -215,7 +215,7 @@ const SocialProof: React.FC = () => {
               className="p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
               <div className="flex items-start space-x-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-muted text-muted-foreground group-hover:bg-sky-400 group-hover:text-white transition-colors">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-slate-100 text-slate-600 transition-colors">
                   {feature.icon}
                 </div>
                 <div className="flex-1">
@@ -232,10 +232,10 @@ const SocialProof: React.FC = () => {
         </div>
 
         {/* Language Support Highlight */}
-        <div className="mb-12 p-6 rounded-2xl bg-gradient-to-r from-sky-50 to-blue-50 border border-sky-100">
+        <div className="mb-12 p-6 rounded-2xl bg-gradient-to-r from-[#eef7fa] via-white to-emerald-50 border border-sky-100">
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
             <div className="flex items-center gap-4 flex-1">
-              <div className="w-12 h-12 rounded-xl bg-white text-sky-600 flex items-center justify-center shadow-sm shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-white text-sky-700 flex items-center justify-center shadow-sm shrink-0">
                 <Globe className="w-6 h-6" />
               </div>
               <div>
@@ -247,9 +247,9 @@ const SocialProof: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="hidden md:block w-px h-12 bg-sky-200" />
+            <div className="hidden md:block w-px h-12 bg-slate-200" />
             <div className="flex items-center gap-4 flex-1">
-              <div className="w-12 h-12 rounded-xl bg-white text-sky-600 flex items-center justify-center shadow-sm shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-white text-emerald-700 flex items-center justify-center shadow-sm shrink-0">
                 <Languages className="w-6 h-6" />
               </div>
               <div>
@@ -269,9 +269,9 @@ const SocialProof: React.FC = () => {
           {smallFeatures.map((feature, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center p-4 rounded-lg bg-background border hover:border-sky-200 hover:shadow-sm transition-all"
+              className="flex flex-col items-center text-center p-4 rounded-lg bg-white border hover:border-slate-300 hover:shadow-sm transition-all"
             >
-              <div className="w-10 h-10 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center mb-2">
+              <div className="w-10 h-10 rounded-lg bg-[#0b1220] text-sky-300 flex items-center justify-center mb-2">
                 {feature.icon}
               </div>
               <p className="font-semibold text-foreground text-sm">

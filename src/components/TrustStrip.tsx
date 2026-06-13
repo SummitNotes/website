@@ -1,5 +1,5 @@
 import React from "react";
-import { Shield, Star, Lock, Apple, Scale } from "lucide-react";
+import { Shield, Star, Lock, Apple, HardDrive } from "lucide-react";
 
 const TrustStrip: React.FC = () => {
   const items = [
@@ -20,18 +20,18 @@ const TrustStrip: React.FC = () => {
     },
     {
       icon: <Lock className="w-4 h-4" />,
-      text: "NDA-Compliant",
-      color: "text-blue-600",
+      text: "No Cloud Uploads",
+      color: "text-sky-600",
     },
     {
-      icon: <Scale className="w-4 h-4" />,
-      text: "EU AI Act Ready",
-      color: "text-indigo-600",
+      icon: <HardDrive className="w-4 h-4" />,
+      text: "Your Data Stays Yours",
+      color: "text-orange-600",
     },
   ];
 
   return (
-    <div className="py-8 bg-white border-b border-gray-100">
+    <div className="py-8 bg-white border-b border-slate-100">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
           {items.map((item, index) => (

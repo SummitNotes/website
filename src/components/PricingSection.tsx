@@ -98,7 +98,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = "" }) => {
             >
               <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
                 {/* Monthly */}
-                <Card className="p-8">
+                <Card className="p-8 bg-white">
                   <div className="mb-6">
                     <h3 className="text-lg font-semibold text-foreground mb-1">
                       Monthly
@@ -123,7 +123,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = "" }) => {
                         key={f}
                         className="flex items-start gap-3 text-sm text-muted-foreground"
                       >
-                        <Check className="w-4 h-4 text-sky-500 shrink-0 mt-0.5" />
+                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                         {f}
                       </li>
                     ))}
@@ -135,7 +135,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = "" }) => {
                   >
                     <Button
                       variant="outline"
-                      className="w-full border-sky-200 text-sky-700 hover:bg-sky-50 hover:border-sky-300"
+                      className="w-full border-slate-300 text-[#0b1220] hover:bg-slate-50 hover:border-slate-400"
                       size="lg"
                     >
                       Start Free Trial
@@ -144,9 +144,9 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = "" }) => {
                 </Card>
 
                 {/* Yearly */}
-                <Card className="p-8 relative border-sky-200 shadow-lg shadow-sky-100/50">
+                <Card className="p-8 relative border-sky-200 shadow-lg shadow-sky-100/50 bg-white">
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <Badge className="bg-sky-500 text-white border-sky-500 shadow-sm">
+                    <Badge className="bg-orange-500 text-white border-orange-500 shadow-sm">
                       Save 42%
                     </Badge>
                   </div>
@@ -166,7 +166,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = "" }) => {
                       89.99
                     </span>
                     <span className="text-muted-foreground ml-1">/year</span>
-                    <p className="text-sm text-sky-600 font-medium mt-1">
+                    <p className="text-sm text-sky-700 font-medium mt-1">
                       Just $7.50/mo, billed annually
                     </p>
                   </div>
@@ -176,7 +176,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = "" }) => {
                         key={f}
                         className="flex items-start gap-3 text-sm text-muted-foreground"
                       >
-                        <Check className="w-4 h-4 text-sky-500 shrink-0 mt-0.5" />
+                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                         {f}
                       </li>
                     ))}
@@ -187,7 +187,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = "" }) => {
                     rel="noopener noreferrer"
                   >
                     <Button
-                      className="w-full bg-gradient-to-r from-sky-500 to-sky-400 hover:from-sky-600 hover:to-sky-500 text-white shadow-lg shadow-sky-500/25"
+                      className="w-full bg-[#0b1220] hover:bg-[#111827] text-white shadow-lg shadow-sky-900/20"
                       size="lg"
                     >
                       Start Free Trial
@@ -202,7 +202,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = "" }) => {
                 Prefer to own it?{" "}
                 <button
                   onClick={() => setMode("buy-once")}
-                  className="text-sky-600 font-medium hover:text-sky-700 hover:underline transition-colors"
+                  className="text-sky-700 font-medium hover:text-[#0b1220] hover:underline transition-colors"
                 >
                   Get lifetime access for $149.99 &rarr;
                 </button>
@@ -220,9 +220,9 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = "" }) => {
               }`}
             >
               <div className="max-w-lg mx-auto">
-                <Card className="p-10 relative border-sky-200 shadow-lg shadow-sky-100/50">
+                <Card className="p-10 relative border-sky-200 shadow-lg shadow-sky-100/50 bg-white">
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <Badge className="bg-sky-500 text-white border-sky-500 shadow-sm">
+                    <Badge className="bg-emerald-600 text-white border-emerald-600 shadow-sm">
                       Best Value
                     </Badge>
                   </div>
@@ -244,7 +244,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = "" }) => {
                     <span className="text-muted-foreground ml-2">
                       one-time
                     </span>
-                    <p className="text-sm text-sky-600 font-medium mt-2">
+                    <p className="text-sm text-sky-700 font-medium mt-2">
                       Pays for itself in under 12 months
                     </p>
                   </div>
@@ -254,7 +254,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = "" }) => {
                         key={f}
                         className="flex items-start gap-3 text-sm text-muted-foreground"
                       >
-                        <Check className="w-4 h-4 text-sky-500 shrink-0 mt-0.5" />
+                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                         {f}
                       </li>
                     ))}
@@ -266,7 +266,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = "" }) => {
                     className="block"
                   >
                     <Button
-                      className="w-full bg-gradient-to-r from-sky-500 to-sky-400 hover:from-sky-600 hover:to-sky-500 text-white shadow-lg shadow-sky-500/25"
+                      className="w-full bg-[#0b1220] hover:bg-[#111827] text-white shadow-lg shadow-sky-900/20"
                       size="lg"
                     >
                       Get Lifetime Access
@@ -281,7 +281,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = "" }) => {
                 Prefer a subscription?{" "}
                 <button
                   onClick={() => setMode("subscribe")}
-                  className="text-sky-600 font-medium hover:text-sky-700 hover:underline transition-colors"
+                  className="text-sky-700 font-medium hover:text-[#0b1220] hover:underline transition-colors"
                 >
                   Plans from $12.99/mo &rarr;
                 </button>

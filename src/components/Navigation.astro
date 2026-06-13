@@ -11,33 +11,33 @@
     class="container mx-auto px-3 sm:px-4 flex justify-center sm:justify-end max-w-7xl"
   >
     <div
-      class="pointer-events-auto flex items-center gap-3 sm:gap-4 rounded-2xl bg-black/75 backdrop-blur-xl border border-white/10 px-3 py-2.5 sm:px-4 sm:py-3 shadow-2xl"
+      class="pointer-events-auto flex items-center gap-3 rounded-2xl bg-[#0b1220]/90 backdrop-blur-xl border border-sky-300/15 px-3 py-2.5 shadow-2xl shadow-slate-950/20"
     >
       <div
-        class="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center flex-shrink-0"
+        class="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center flex-shrink-0"
       >
         <img
           src="/logo.svg"
           alt="Summit AI Notes"
-          class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl"
+          class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl"
         />
       </div>
       <div class="flex flex-col min-w-0">
         <span
           class="font-semibold text-white text-[14px] sm:text-[15px] leading-tight"
-          >Start recording</span
+          >Start free</span
         >
-        <span class="text-[12px] sm:text-[13px] text-gray-400 leading-tight"
-          >15 calls free</span
+        <span class="text-[12px] sm:text-[13px] text-sky-200/80 leading-tight"
+          >15 recordings</span
         >
       </div>
       <a
         href="https://apps.apple.com/app/summit-ai-notes/id6754717420"
         target="_blank"
         rel="noopener noreferrer"
-        class="download-button flex items-center gap-2 rounded-full bg-[#0a84ff] hover:bg-[#409cff] px-3 sm:px-4 py-2 text-sm font-semibold text-white transition-colors active:scale-95 flex-shrink-0 ml-1 sm:ml-2"
+        class="download-button flex items-center gap-2 rounded-full bg-[#0ea5e9] hover:bg-[#0284c7] px-3 sm:px-4 py-2 text-sm font-semibold text-white transition-colors active:scale-95 flex-shrink-0 ml-1"
       >
-        <span class="w-2 h-2 rounded-full bg-white"></span>
+        <span class="w-2 h-2 rounded-full bg-emerald-300"></span>
         <span>Download</span>
       </a>
     </div>
@@ -51,7 +51,7 @@
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
 
-    if (currentScrollY > 100 && !hasScrolled) {
+    if (currentScrollY > 620 && !hasScrolled) {
       // User has scrolled down - show the nav from bottom
       hasScrolled = true;
       if (scrollNav) {

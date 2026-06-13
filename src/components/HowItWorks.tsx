@@ -25,7 +25,7 @@ const steps = [
 
 const HowItWorks: React.FC = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-white via-gray-50/50 to-white">
+    <section className="py-24 bg-gradient-to-b from-white via-[#f8fafc] to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge variant="secondary" className="mb-4 bg-sky-50 text-sky-700 border-sky-200">
@@ -43,15 +43,15 @@ const HowItWorks: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 relative">
             {/* Connecting line - hidden on mobile */}
-            <div className="hidden md:block absolute top-16 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-sky-200 via-emerald-200 to-violet-200"></div>
+            <div className="hidden md:block absolute top-16 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-sky-200 via-emerald-200 to-orange-200"></div>
 
             {steps.map((step, index) => (
               <div key={index} className="relative">
                 {/* Step card */}
-                <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-sky-100 transition-all duration-300 h-full">
+                <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-lg hover:border-slate-200 transition-all duration-300 h-full">
                   {/* Number badge */}
                   <div className="flex items-center justify-between mb-6">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-50 to-emerald-50 text-sky-600 border border-sky-100">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0b1220] text-sky-300 border border-sky-300/20">
                       {step.icon}
                     </div>
                     <span className="text-4xl font-bold text-gray-100">

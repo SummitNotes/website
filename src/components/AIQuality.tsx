@@ -47,13 +47,13 @@ const stats = [
   {
     icon: <Lock className="w-5 h-5" />,
     value: "Zero Upload",
-    label: "Audio never leaves your Mac. NDA & HIPAA friendly.",
+    label: "Audio never leaves your Mac. Not part of a vendor training set.",
   },
 ];
 
 const AIQuality: React.FC = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50/50 via-white to-gray-50/30">
+    <section className="py-24 bg-gradient-to-b from-[#f7fbfd] via-white to-[#f8fafc]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <Badge
@@ -66,7 +66,7 @@ const AIQuality: React.FC = () => {
             "Does Local AI Actually Work?"
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            See for yourself. Here's what Summit produces from a real meeting — no cloud, no internet, just your Mac.
+            See for yourself. Here's what Summit produces from a real meeting — no cloud, no internet, no vendor training pipeline.
           </p>
         </div>
 
@@ -74,9 +74,9 @@ const AIQuality: React.FC = () => {
         <div className="max-w-5xl mx-auto mb-16">
           <div className="grid md:grid-cols-2 gap-6 items-start">
             {/* Before: Raw transcript */}
-            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-              <div className="bg-gray-50 border-b border-gray-200 px-5 py-3 flex items-center justify-between">
-                <span className="text-sm font-medium text-gray-600">
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+              <div className="bg-slate-50 border-b border-slate-200 px-5 py-3 flex items-center justify-between">
+                <span className="text-sm font-medium text-slate-600">
                   {beforeAfter.before.label}
                 </span>
                 <span className="text-xs text-gray-400">Unprocessed</span>
@@ -84,7 +84,7 @@ const AIQuality: React.FC = () => {
               <div className="p-5 space-y-4 max-h-80 overflow-y-auto">
                 {beforeAfter.before.content.map((line, i) => (
                   <div key={i}>
-                    <span className="text-xs font-medium text-sky-600 block mb-1">
+                    <span className="text-xs font-medium text-sky-700 block mb-1">
                       {line.speaker}
                     </span>
                     <p className="text-sm text-muted-foreground leading-relaxed">
@@ -135,9 +135,9 @@ const AIQuality: React.FC = () => {
             {stats.map((stat, i) => (
               <div
                 key={i}
-                className="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm"
+                className="flex items-start gap-4 p-5 bg-white rounded-xl border border-slate-100 shadow-sm"
               >
-                <div className="w-10 h-10 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-[#0b1220] text-sky-300 flex items-center justify-center shrink-0">
                   {stat.icon}
                 </div>
                 <div>

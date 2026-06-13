@@ -122,36 +122,37 @@ const useCases = [
 ];
 
 const UseCases: React.FC = () => {
+  const orderedUseCases = [useCases[1], useCases[0], useCases[2]];
   const [activeCase, setActiveCase] = useState(0);
-  const current = useCases[activeCase];
+  const current = orderedUseCases[activeCase];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white via-gray-50/30 to-white">
+    <section className="py-24 bg-gradient-to-b from-white via-[#f7fbfd] to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <Badge
             variant="secondary"
-            className="mb-4 bg-sky-50 text-sky-700 border-sky-200"
+            className="mb-4 bg-emerald-50 text-emerald-700 border-emerald-200"
           >
             See It In Action
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            From Any Meeting to Actionable Notes
+            From Client Call to Actionable Notes
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Real examples. Real output. See exactly what Summit produces.
+            Real examples. Real output. See exactly what Summit produces when confidential conversations stay local.
           </p>
         </div>
 
         {/* Role selector tabs */}
         <div className="flex justify-center gap-2 mb-12">
-          {useCases.map((uc, index) => (
+          {orderedUseCases.map((uc, index) => (
             <button
               key={uc.id}
               onClick={() => setActiveCase(index)}
               className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
                 activeCase === index
-                  ? "bg-sky-100 text-sky-700 shadow-sm"
+                  ? "bg-[#0b1220] text-white shadow-sm"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
             >
@@ -165,7 +166,7 @@ const UseCases: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
             {/* Left: Input (meeting) */}
-            <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
               <div className="flex items-center gap-2 mb-4 text-sm text-muted-foreground">
                 <Clock className="w-4 h-4" />
                 <span>Meeting Input</span>
@@ -173,8 +174,8 @@ const UseCases: React.FC = () => {
               <h3 className="text-xl font-semibold text-foreground mb-2">
                 {current.title}
               </h3>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-red-50 text-red-600 rounded-full text-sm font-medium mb-5">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-orange-50 text-orange-700 rounded-full text-sm font-medium mb-5">
+                <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
                 {current.inputLabel}
               </div>
               <ul className="space-y-3">
@@ -191,14 +192,14 @@ const UseCases: React.FC = () => {
 
               {/* Arrow on desktop */}
               <div className="hidden lg:flex items-center justify-center mt-6">
-                <div className="flex items-center gap-2 text-sky-500 text-sm font-medium">
+                <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                   <span>Summit processes locally</span>
                   <ArrowRight className="w-4 h-4" />
                 </div>
               </div>
               {/* Arrow on mobile - pointing down */}
               <div className="flex lg:hidden items-center justify-center mt-6">
-                <div className="flex flex-col items-center gap-1 text-sky-500 text-sm font-medium">
+                <div className="flex flex-col items-center gap-1 text-emerald-600 text-sm font-medium">
                   <span>Summit processes locally</span>
                   <ArrowRight className="w-4 h-4 rotate-90" />
                 </div>
@@ -206,9 +207,9 @@ const UseCases: React.FC = () => {
             </div>
 
             {/* Right: Output (summary) */}
-            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
               {/* Mock app header */}
-              <div className="bg-gray-50 border-b border-gray-200 px-6 py-3 flex items-center gap-3">
+              <div className="bg-slate-50 border-b border-slate-200 px-6 py-3 flex items-center gap-3">
                 <div className="flex gap-1.5">
                   <div className="w-3 h-3 rounded-full bg-red-400" />
                   <div className="w-3 h-3 rounded-full bg-yellow-400" />
@@ -231,7 +232,7 @@ const UseCases: React.FC = () => {
 
                 {current.output.sections.map((section, i) => (
                   <div key={i} className={i > 0 ? "mt-5" : ""}>
-                    <h5 className="text-xs font-semibold text-sky-600 uppercase tracking-wider mb-2">
+                    <h5 className="text-xs font-semibold text-sky-700 uppercase tracking-wider mb-2">
                       {section.heading}
                     </h5>
                     <ul className="space-y-2">
