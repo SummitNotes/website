@@ -158,7 +158,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 </Button>
               </a>
               <span className="text-sm text-slate-500">
-                15 recordings free. No signup needed.{" "}
+                No signup needed.{" "}
                 <a
                   href="#pricing"
                   className="text-slate-600 hover:text-[#0b1220] transition-colors border-b border-slate-300 hover:border-slate-500 pb-px"
@@ -170,7 +170,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Mobile Boundary Strip - visible below lg */}
-          <div className="flex lg:hidden flex-wrap justify-center gap-2 mt-6 mb-2" aria-hidden="true">
+          <div
+            className="flex lg:hidden flex-wrap justify-center gap-2 mt-6 mb-2"
+            aria-hidden="true"
+          >
             {boundarySignals.map((signal) => (
               <div
                 key={signal.label}
@@ -185,95 +188,132 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Floating Boundary Cards - visible on lg+ screens */}
-          <div className="hidden lg:block relative mt-2 -mb-2" aria-hidden="true">
+          <div
+            className="hidden lg:block relative mt-2 -mb-2"
+            aria-hidden="true"
+          >
             <div className="relative max-w-5xl mx-auto h-16">
               <div
                 className="absolute left-0 top-0 animate-float"
-                style={{
-                  "--card-rotate": "-4deg",
-                  "--float-duration": "6s",
-                  "--float-delay": "0s",
-                } as React.CSSProperties}
+                style={
+                  {
+                    "--card-rotate": "-4deg",
+                    "--float-duration": "6s",
+                    "--float-delay": "0s",
+                  } as React.CSSProperties
+                }
               >
                 <div className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-orange-100">
                   <span className="text-orange-600">
                     <Ban className="w-4 h-4" />
                   </span>
                   <div>
-                    <span className="text-sm font-medium text-slate-700 block">not training data</span>
-                    <span className="text-[10px] text-orange-600/70 block -mt-0.5">vendor boundary</span>
+                    <span className="text-sm font-medium text-slate-700 block">
+                      not training data
+                    </span>
+                    <span className="text-[10px] text-orange-600/70 block -mt-0.5">
+                      vendor boundary
+                    </span>
                   </div>
                 </div>
               </div>
 
               <div
                 className="absolute left-[18%] top-2 animate-float"
-                style={{
-                  "--card-rotate": "3deg",
-                  "--float-duration": "7s",
-                  "--float-delay": "0.8s",
-                } as React.CSSProperties}
+                style={
+                  {
+                    "--card-rotate": "3deg",
+                    "--float-duration": "7s",
+                    "--float-delay": "0.8s",
+                  } as React.CSSProperties
+                }
               >
                 <div className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-emerald-100">
                   <span className="text-emerald-600">
                     <HardDrive className="w-4 h-4" />
                   </span>
                   <div>
-                    <span className="text-sm font-medium text-slate-700 block">stored locally</span>
-                    <span className="text-[10px] text-emerald-600/70 block -mt-0.5">on this Mac</span>
+                    <span className="text-sm font-medium text-slate-700 block">
+                      stored locally
+                    </span>
+                    <span className="text-[10px] text-emerald-600/70 block -mt-0.5">
+                      on this Mac
+                    </span>
                   </div>
                 </div>
               </div>
 
               <div
                 className="absolute left-1/2 -translate-x-1/2 -top-1 animate-float"
-                style={{
-                  "--card-rotate": "-2deg",
-                  "--float-duration": "5.5s",
-                  "--float-delay": "1.5s",
-                } as React.CSSProperties}
+                style={
+                  {
+                    "--card-rotate": "-2deg",
+                    "--float-duration": "5.5s",
+                    "--float-delay": "1.5s",
+                  } as React.CSSProperties
+                }
               >
                 <div className="flex items-center gap-2 px-5 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-slate-200">
-                  <span className="text-xs font-bold text-orange-600">model</span>
+                  <span className="text-xs font-bold text-orange-600">
+                    model
+                  </span>
                   <div>
-                    <span className="text-sm font-medium text-slate-700 block">training_set: never</span>
-                    <span className="text-[10px] text-sky-600/70 block -mt-0.5">your calls stay out</span>
+                    <span className="text-sm font-medium text-slate-700 block">
+                      training_set: never
+                    </span>
+                    <span className="text-[10px] text-sky-600/70 block -mt-0.5">
+                      your calls stay out
+                    </span>
                   </div>
                 </div>
               </div>
 
               <div
                 className="absolute right-[18%] top-2 animate-float"
-                style={{
-                  "--card-rotate": "-3deg",
-                  "--float-duration": "6.5s",
-                  "--float-delay": "0.4s",
-                } as React.CSSProperties}
+                style={
+                  {
+                    "--card-rotate": "-3deg",
+                    "--float-duration": "6.5s",
+                    "--float-delay": "0.4s",
+                  } as React.CSSProperties
+                }
               >
                 <div className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-sky-100">
                   <span className="text-sky-600">
                     <KeyRound className="w-4 h-4" />
                   </span>
                   <div>
-                    <span className="text-sm font-medium text-slate-700 block">retention is yours</span>
-                    <span className="text-[10px] text-sky-600/70 block -mt-0.5">delete whenever</span>
+                    <span className="text-sm font-medium text-slate-700 block">
+                      retention is yours
+                    </span>
+                    <span className="text-[10px] text-sky-600/70 block -mt-0.5">
+                      delete whenever
+                    </span>
                   </div>
                 </div>
               </div>
 
               <div
                 className="absolute right-0 top-0 animate-float"
-                style={{
-                  "--card-rotate": "5deg",
-                  "--float-duration": "7.5s",
-                  "--float-delay": "1.2s",
-                } as React.CSSProperties}
+                style={
+                  {
+                    "--card-rotate": "5deg",
+                    "--float-duration": "7.5s",
+                    "--float-delay": "1.2s",
+                  } as React.CSSProperties
+                }
               >
                 <div className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-slate-200">
-                  <span className="text-slate-700 font-mono text-xs">/calls</span>
+                  <span className="text-slate-700 font-mono text-xs">
+                    /calls
+                  </span>
                   <div>
-                    <span className="text-sm font-medium text-slate-700 block">client-strategy.wav</span>
-                    <span className="text-[10px] text-slate-400 block -mt-0.5">local file path</span>
+                    <span className="text-sm font-medium text-slate-700 block">
+                      client-strategy.wav
+                    </span>
+                    <span className="text-[10px] text-slate-400 block -mt-0.5">
+                      local file path
+                    </span>
                   </div>
                 </div>
               </div>
