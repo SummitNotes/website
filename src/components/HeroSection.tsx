@@ -163,7 +163,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             </p>
 
             {/* CTA Button */}
-            <div className="flex flex-col items-center gap-3">
+            <div className="flex flex-col items-center gap-3 hidden">
               <a
                 href="https://apps.apple.com/app/summit-ai-notes/id6754717420?l=en-GB&mt=12"
                 target="_blank"
