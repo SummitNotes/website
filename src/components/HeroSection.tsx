@@ -335,7 +335,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                       works offline
                     </span>
                     <span className="text-[10px] text-slate-400 block -mt-0.5">
-                      airplane mode is fine
+                      with local AI
                     </span>
                   </div>
                 </div>
