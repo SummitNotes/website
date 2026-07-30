@@ -5,7 +5,7 @@ const TrustStrip: React.FC = () => {
   const items = [
     {
       icon: <Shield className="w-4 h-4" />,
-      text: "100% Local Processing",
+      text: "Local Processing by Default",
       color: "text-emerald-600",
     },
     {
