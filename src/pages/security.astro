@@ -398,6 +398,28 @@ import {
           </a>
         </section>
 
+        <!-- Architecture deep dive -->
+        <Card
+          className="p-8 mb-12 bg-gradient-to-r from-sky-50 to-indigo-50 border-sky-200"
+        >
+          <h2 class="text-2xl font-bold text-foreground mb-4">
+            Want the evidence, not the summary?
+          </h2>
+          <p class="text-muted-foreground mb-6">
+            We publish a full data-flow and security architecture review of the
+            app: every trust boundary, every outbound connection the app can
+            make, every privacy-relevant default, and the limitations we found
+            reading our own code — each claim anchored to a specific file and
+            line at a pinned commit.
+          </p>
+          <a
+            href="/security/architecture"
+            class="inline-flex items-center justify-center px-6 py-3 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 transition-colors"
+          >
+            Read the architecture review &rarr;
+          </a>
+        </Card>
+
         <!-- Vulnerability Reporting -->
         <Card
           className="p-8 mb-12 bg-gradient-to-r from-red-50 to-pink-50 border-red-200"

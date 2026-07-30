@@ -1,0 +1,916 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Card } from "../../components/ui/card";
+import Footer from "../../components/Footer";
+import {
+  ShieldCheck,
+  GitCommitHorizontal,
+  Network,
+  Database,
+  KeyRound,
+  Cloud,
+  Cpu,
+  AlertTriangle,
+  FileSearch,
+  Terminal,
+  Mail,
+} from "lucide-react";
+
+// Everything on this page is anchored to a single commit of the app source so a
+// reviewer can verify each claim against exactly the code that was read.
+const AUDIT = {
+  repo: "SummitNotes/summit-app",
+  commit: "9b419e07af783e589fe812e1f2b9714b6bd42581",
+  shortCommit: "9b419e0",
+  reviewed: "30 July 2026",
+  platform: "macOS app (Summit) + iOS companion + shared SummitCore package",
+};
+
+// Every outbound network call reachable from the shipping macOS app.
+const egress = [
+  {
+    destination: "Configured LLM provider — api.openai.com, api.anthropic.com, generativelanguage.googleapis.com, api.deepseek.com, openrouter.ai, or any custom/self-hosted base URL",
+    payload:
+      "Prompt text: transcript excerpts, meeting titles, notes and chat questions for the document being summarised or queried.",
+    trigger:
+      "Only when the LLM provider is set to “OpenAI-Compatible” AND a model is configured AND (for the named providers) an API key has been entered. A missing key throws before any request is built.",
+    control: "User-configured. Never the destination when the provider is set to Local Models.",
+    refs: [
+      "noted/Features/LLM/OpenAICompatibleAPI.swift:375, 444, 521, 607",
+      "noted/Features/LLM/OpenAICompatibleProvider.swift:31–44",
+      "noted/Features/Summarization/Pipeline/LLMAdapter.swift:335–360",
+    ],
+    tone: "amber",
+  },
+  {
+    destination: "huggingface.co (and its CDN redirect target)",
+    payload:
+      "HTTP GET / ranged GETs for model weights. No user content, no identifiers beyond what the transport itself carries.",
+    trigger: "User taps download for a local Whisper, Parakeet or GGUF model.",
+    control: "User-initiated, per model.",
+    refs: [
+      "noted/Core/Services/HFParallelDownloader.swift:102–110, 230, 329",
+      "noted/Core/Managers/WhisperModelManager.swift:62, 158, 219",
+      "noted/Core/Models/LocalModel.swift (model catalogue URLs)",
+    ],
+    tone: "slate",
+  },
+  {
+    destination: "itunes.apple.com/lookup",
+    payload:
+      "The app’s own bundle ID (app.summitnotes). Nothing else — it is a public catalogue lookup for the current App Store version.",
+    trigger:
+      "Automatic: 5 seconds after launch, then every 24 hours while the app runs.",
+    control: "Automatic. This is the one unprompted outbound request the app makes.",
+    refs: [
+      "noted/Core/Services/UpdateCheckService.swift:30–33, 152–160",
+      "noted/App/notedApp.swift:150–154",
+    ],
+    tone: "slate",
+  },
+  {
+    destination: "Apple CloudKit — private database, container iCloud.app.summitnotes.container, zone SummitDocuments",
+    payload:
+      "Per-field AES-256-GCM ciphertext for titles, notes, transcript text, topics and action items; the companion’s audio is uploaded as an encrypted CKAsset. Structural metadata stays in the clear (see below).",
+    trigger: "Only when iCloud Sync is switched on. It is off by default and behind a feature flag that also defaults to off.",
+    control: "Opt-in, and unusable without the user’s seed phrase.",
+    refs: [
+      "SummitCore/Sources/SummitCore/Sync/CloudKitSyncService.swift:16–21, 128–148",
+      "noted/Utilities/Configuration/AppSettings.swift:1217",
+      "noted/Utilities/Configuration/FeatureFlags.swift:19–20",
+    ],
+    tone: "amber",
+  },
+  {
+    destination: "127.0.0.1 (inbound, loopback only)",
+    payload:
+      "Answers to MCP tool calls from a local client: meeting lists, search results, transcripts, topics, action items.",
+    trigger:
+      "Only when the local MCP server is enabled. Off by default. Every request needs either an OAuth grant the user approved in a consent dialog, or a bearer token that lives only in memory.",
+    control: "Opt-in. Loopback-bound; never exposed off-device.",
+    refs: [
+      "noted/Core/Services/MCPServerManager.swift:8–21, 441–470",
+      "noted/Utilities/Configuration/AppSettings.swift:736",
+    ],
+    tone: "amber",
+  },
+];
+
+// Where each class of data actually lives.
+const inventory = [
+  {
+    data: "Audio recordings (.m4a)",
+    location: "Sandboxed container, or a folder the user picks",
+    atRest: "macOS file permissions + sandbox + FileVault if enabled. Not separately encrypted by the app on disk.",
+    leaves: "Only as an encrypted CKAsset, and only from the iOS companion when sync is on.",
+  },
+  {
+    data: "Transcripts, summaries, topics, action items",
+    location: "SQLite (GRDB) in Application Support",
+    atRest: "Plain SQLite in WAL mode. No SQLCipher passphrase — protection is the OS container, not app-level encryption.",
+    leaves: "Only as AES-256-GCM ciphertext via CloudKit, or as prompt text if a cloud LLM is configured.",
+  },
+  {
+    data: "Search index (vectors + FTS5)",
+    location: "VecturaKit store in Application Support; FTS5 tables in the same SQLite file",
+    atRest: "Same as the database. Embeddings are computed on-device.",
+    leaves: "No. The index is never synced or uploaded.",
+  },
+  {
+    data: "Model weights (Whisper, Parakeet, GGUF)",
+    location: "Application Support / Models",
+    atRest: "Public artefacts, no user content.",
+    leaves: "No.",
+  },
+  {
+    data: "LLM provider API keys",
+    location: "Keychain, generic password, service app.summitnotes.llm-provider-credentials",
+    atRest: "kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly — does not sync to iCloud, does not leave the Mac.",
+    leaves: "Only as an Authorization / x-api-key header to the endpoint the user configured.",
+  },
+  {
+    data: "Sync encryption key",
+    location: "Keychain, service app.summitnotes.encryption, kSecAttrSynchronizable = false",
+    atRest: "AES-256 key derived from a 12-word BIP-39 phrase the user holds.",
+    leaves: "No. It is never written to CloudKit. Devices are paired by re-entering the phrase or scanning a QR payload.",
+  },
+  {
+    data: "Usage analytics",
+    location: "In-memory queue, max 100 events, flushed to the unified log",
+    atRest: "Never persisted by the app; never transmitted.",
+    leaves: "No. There is no analytics backend in the client.",
+  },
+  {
+    data: "Calendar & Reminders",
+    location: "EventKit, read for meetings; written only when the user exports an action item",
+    atRest: "Owned by the OS, not copied wholesale into the app.",
+    leaves: "No — no calendar API of any provider is contacted by the app.",
+  },
+];
+
+// Sandbox posture, straight out of the target build settings and entitlements.
+const platform = [
+  { k: "App Sandbox", v: "Enabled", note: "ENABLE_APP_SANDBOX = YES", ok: true },
+  { k: "Outgoing network", v: "Allowed", note: "Required for the five egress paths above", ok: null },
+  { k: "Incoming network", v: "Granted via entitlement", note: "com.apple.security.network.server, used by the loopback MCP listener", ok: null },
+  { k: "Microphone", v: "Allowed", note: "ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES", ok: null },
+  { k: "Calendars", v: "Allowed", note: "com.apple.security.personal-information.calendars", ok: null },
+  { k: "Camera", v: "Denied", note: "ENABLE_RESOURCE_ACCESS_CAMERA = NO", ok: true },
+  { k: "Contacts", v: "Denied", note: "ENABLE_RESOURCE_ACCESS_CONTACTS = NO", ok: true },
+  { k: "Location", v: "Denied", note: "ENABLE_RESOURCE_ACCESS_LOCATION = NO", ok: true },
+  { k: "Bluetooth", v: "Denied", note: "ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO", ok: true },
+  { k: "USB", v: "Denied", note: "ENABLE_RESOURCE_ACCESS_USB = NO", ok: true },
+  { k: "Printing", v: "Denied", note: "ENABLE_RESOURCE_ACCESS_PRINTING = NO", ok: true },
+  { k: "User-selected files", v: "Read/write", note: "For the recordings folder and Markdown export target", ok: null },
+  { k: "App Transport Security", v: "Default", note: "No NSAllowsArbitraryLoads or other ATS exception anywhere in the project", ok: true },
+];
+
+// Privacy-relevant defaults, as shipped.
+const defaults = [
+  { setting: "iCloud sync", value: "Off", ref: "AppSettings.swift:1217 · FeatureFlags.swift:19–20" },
+  { setting: "Local MCP server", value: "Off", ref: "AppSettings.swift:736" },
+  { setting: "Markdown auto-export", value: "Off", ref: "AppSettings.swift:807" },
+  { setting: "Local LLM engine", value: "llama.cpp (on-device)", ref: "AppSettings.swift:394" },
+  { setting: "LLM provider", value: "OpenAI-Compatible, pre-selected as OpenAI — but inert until the user supplies a key and model", ref: "AppSettings.swift:346, 353 · LLMAdapter.swift:347–353" },
+  { setting: "Analytics", value: "On, but local-only — the flush path writes to the unified log and nowhere else", ref: "AnalyticsService.swift:39, 275–289" },
+];
+
+// Findings we are not going to bury. This is what makes the page an audit and
+// not a brochure.
+const findings = [
+  {
+    title: "Local database and audio are not encrypted by the app",
+    detail:
+      "The SQLite store is opened through GRDB with foreign keys, WAL and cache pragmas — there is no SQLCipher key. Recordings sit on disk as ordinary .m4a files. At rest, the protections are the sandbox container, macOS file permissions and FileVault. On a Mac without FileVault, an attacker with the disk can read both.",
+    refs: ["noted/Core/Database/DatabaseManager.swift:91–105"],
+    severity: "By design, worth knowing",
+  },
+  {
+    title: "Downloaded model weights are not checksum-verified",
+    detail:
+      "The catalogue carries a checksum field and the download manager will verify it when present — but every entry in the shipping catalogue sets it to nil, so verification never runs. Integrity currently rests on TLS plus the fact that 12 of the 34 model URLs are pinned to an immutable Hugging Face revision; the remaining 22 resolve against a mutable /main.",
+    refs: [
+      "noted/Core/Models/LocalModel.swift (all entries: checksum: nil)",
+      "noted/Core/Managers/LocalModelManager.swift:136–137",
+    ],
+    severity: "Supply-chain gap",
+  },
+  {
+    title: "Sync metadata is deliberately not encrypted",
+    detail:
+      "Field-level encryption covers titles, notes, transcript text, original text, topics and action-item content. Left in the clear so CloudKit can query and reconcile them: record IDs, created/modified timestamps, recording duration, word count, detected language, folder and template IDs, document state, and which device last touched the record. Someone with access to the CloudKit zone learns when you met, for how long, in what language and how much was said — but not a word of what was said.",
+    refs: [
+      "SummitCore/Sources/SummitCore/Sync/CloudKitRecordConversion.swift:33–46, 109–119",
+    ],
+    severity: "By design, disclosed",
+  },
+  {
+    title: "A stale comment overstates key syncing",
+    detail:
+      "The header comment in CloudKitRecordConversion.swift describes the encryption key as living in the iCloud Keychain with kSecAttrSynchronizable: true. The implementation does the opposite: the key is stored strictly locally with synchronizable set to false, and cross-device pairing is manual — a 12-word phrase or a QR transfer. The code is the stricter of the two; the comment is wrong and should be corrected.",
+    refs: [
+      "SummitCore/Sources/SummitCore/Sync/CloudKitEncryption.swift:250, 289",
+      "SummitCore/Sources/SummitCore/Sync/CloudKitRecordConversion.swift:6–8",
+    ],
+    severity: "Documentation drift",
+  },
+  {
+    title: "QR key transfer moves raw key material",
+    detail:
+      "exportKeyTransferPayload() encodes the raw 32-byte AES key into a payload rendered as a QR code for pairing a phone. Anyone who photographs that screen can decrypt the whole synced library. The code says as much in its own doc comment; the mitigation is procedural, not technical.",
+    refs: ["SummitCore/Sources/SummitCore/Sync/CloudKitEncryption.swift:191–215"],
+    severity: "Handle like a password",
+  },
+  {
+    title: "Entitlement and build setting disagree on inbound connections",
+    detail:
+      "The target sets ENABLE_INCOMING_NETWORK_CONNECTIONS = NO while the entitlements file grants com.apple.security.network.server. The explicit file is what gets signed, and the loopback MCP listener needs it — but the two should be reconciled so the build settings tell the truth about the shipped posture.",
+    refs: [
+      "noted/noted.entitlements",
+      "noted.xcodeproj/project.pbxproj:1264, 1336",
+    ],
+    severity: "Configuration hygiene",
+  },
+  {
+    title: "Cloud LLM usage is a user decision the app cannot undo",
+    detail:
+      "When the provider is set to a hosted endpoint, transcript text is sent to that endpoint in the clear (inside TLS) and is thereafter governed by that provider’s retention and training policy, not by Summit. There is no redaction pass, no PII filter and no local proxy in front of it. Choosing Local Models — or pointing the OpenAI-compatible provider at Ollama or LM Studio on localhost — keeps everything on the machine.",
+    refs: ["noted/Features/LLM/OpenAICompatibleAPI.swift:444–470"],
+    severity: "Understand before enabling",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: "Summit AI Notes — Data Flow & Security Architecture",
+  description:
+    "An auditable data-flow and security architecture review of the Summit AI Notes macOS app, with every claim anchored to a specific file and line in the app source at a pinned commit.",
+  datePublished: "2026-07-30",
+  author: { "@type": "Organization", name: "Summit AI Notes" },
+};
+---
+
+<Layout
+  title="Data Flow & Security Architecture - Summit AI Notes"
+  description="An auditable data-flow and security architecture review of Summit AI Notes: every trust boundary, every outbound request, every default — each anchored to a specific file and line in the app source."
+  schema={schema}
+>
+  <div
+    class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
+  >
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <div
+            class="w-16 h-16 bg-sky-100 dark:bg-sky-950 rounded-full flex items-center justify-center mx-auto mb-6"
+          >
+            <ShieldCheck class="w-8 h-8 text-sky-600 dark:text-sky-400" />
+          </div>
+          <h1
+            class="text-4xl sm:text-5xl font-bold text-foreground mb-4 tracking-tight"
+          >
+            Data Flow &amp; Security Architecture
+          </h1>
+          <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Where your meeting data lives, every path it can take off your Mac,
+            and what we found when we read our own code line by line.
+          </p>
+        </div>
+
+        <!-- Provenance -->
+        <Card className="p-6 mb-12 border-sky-200/70 dark:border-sky-900/70">
+          <div class="flex items-start gap-3 mb-4">
+            <GitCommitHorizontal
+              class="w-5 h-5 text-sky-600 dark:text-sky-400 mt-0.5 flex-shrink-0"
+            />
+            <div>
+              <h2 class="text-lg font-semibold text-foreground">
+                What this document is pinned to
+              </h2>
+              <p class="text-sm text-muted-foreground mt-1">
+                Architecture pages age badly. This one names the exact revision
+                it describes, so you can tell when it has drifted.
+              </p>
+            </div>
+          </div>
+          <dl class="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
+            <div class="flex flex-col gap-0.5">
+              <dt class="text-muted-foreground">Source reviewed</dt>
+              <dd class="font-mono text-foreground break-all">{AUDIT.repo}</dd>
+            </div>
+            <div class="flex flex-col gap-0.5">
+              <dt class="text-muted-foreground">Commit</dt>
+              <dd class="font-mono text-foreground break-all">
+                {AUDIT.commit}
+              </dd>
+            </div>
+            <div class="flex flex-col gap-0.5">
+              <dt class="text-muted-foreground">Scope</dt>
+              <dd class="text-foreground">{AUDIT.platform}</dd>
+            </div>
+            <div class="flex flex-col gap-0.5">
+              <dt class="text-muted-foreground">Reviewed</dt>
+              <dd class="text-foreground">{AUDIT.reviewed}</dd>
+            </div>
+          </dl>
+          <p class="text-sm text-muted-foreground mt-5 pt-5 border-t">
+            Every citation below is a path and line number in that repository at
+            that commit. The repository is private, so the references are for
+            verification during a source review rather than public browsing —
+            we grant read access to enterprise buyers and auditors under NDA.
+            Ask at <a
+              href="mailto:security@summitnotes.app"
+              class="text-sky-600 dark:text-sky-400 hover:underline"
+              >security@summitnotes.app</a
+            >. Everything else on this page you can verify from the outside with
+            a packet capture: the egress table is the complete list, so any
+            connection you observe that is not on it is a finding, and we want
+            to hear about it.
+          </p>
+        </Card>
+
+        <!-- Trust boundaries -->
+        <section class="mb-14">
+          <div class="flex items-center gap-3 mb-6">
+            <Network class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <h2 class="text-3xl font-bold text-foreground">Trust boundaries</h2>
+          </div>
+          <p class="text-muted-foreground mb-6 max-w-3xl">
+            The whole design collapses to one question: what crosses the edge of
+            the machine? There are four boundaries, and three of the four are
+            closed unless you personally open them.
+          </p>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <Card className="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <Cpu class="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                <h3 class="font-semibold text-foreground">
+                  Boundary 1 — Inside the sandbox
+                </h3>
+                <span
+                  class="ml-auto text-[11px] font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 rounded px-2 py-0.5"
+                  >Always on</span
+                >
+              </div>
+              <p class="text-sm text-muted-foreground">
+                Capture (ScreenCaptureKit + microphone), transcription (Whisper
+                or Parakeet), diarization, embeddings, FTS5 and vector search,
+                and local LLM inference through llama.cpp or MLX. This is the
+                default path end to end. Nothing here touches a socket.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <Cloud class="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                <h3 class="font-semibold text-foreground">
+                  Boundary 2 — Hosted LLM
+                </h3>
+                <span
+                  class="ml-auto text-[11px] font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 rounded px-2 py-0.5"
+                  >Opt-in</span
+                >
+              </div>
+              <p class="text-sm text-muted-foreground">
+                If you configure a hosted provider and paste a key, prompt text
+                — which means transcript excerpts — leaves the machine for that
+                endpoint. This is the only boundary that carries meeting content
+                in a form the far side can read.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <KeyRound class="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                <h3 class="font-semibold text-foreground">
+                  Boundary 3 — iCloud sync
+                </h3>
+                <span
+                  class="ml-auto text-[11px] font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 rounded px-2 py-0.5"
+                  >Opt-in</span
+                >
+              </div>
+              <p class="text-sm text-muted-foreground">
+                Content crosses as AES-256-GCM ciphertext under a key derived
+                from your seed phrase and never uploaded. Apple stores bytes it
+                cannot read; so can we. Structural metadata crosses in the
+                clear — the specifics are listed below.
+              </p>
+            </Card>
+
+            <Card className="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <Terminal class="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                <h3 class="font-semibold text-foreground">
+                  Boundary 4 — Local MCP server
+                </h3>
+                <span
+                  class="ml-auto text-[11px] font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 rounded px-2 py-0.5"
+                  >Opt-in</span
+                >
+              </div>
+              <p class="text-sm text-muted-foreground">
+                A loopback-bound HTTP listener that lets a local agent read your
+                meetings. It never leaves 127.0.0.1, every client is either
+                approved in a consent dialog or holds a token that exists only
+                in memory, and it is off until you switch it on.
+              </p>
+            </Card>
+          </div>
+        </section>
+
+        <!-- Egress inventory -->
+        <section class="mb-14">
+          <div class="flex items-center gap-3 mb-6">
+            <Network class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <h2 class="text-3xl font-bold text-foreground">
+              Every outbound connection
+            </h2>
+          </div>
+          <p class="text-muted-foreground mb-6 max-w-3xl">
+            We enumerated every <code
+              class="font-mono text-[0.85em] bg-muted px-1 py-0.5 rounded"
+              >URLSession</code
+            > and <code
+              class="font-mono text-[0.85em] bg-muted px-1 py-0.5 rounded"
+              >URLRequest</code
+            > construction in the shipping targets. This is all of them. Four go
+            out, one only listens on loopback.
+          </p>
+
+          <div class="space-y-4">
+            {
+              egress.map((e) => (
+                <Card
+                  className={`p-6 ${e.tone === "amber" ? "border-amber-300/60 dark:border-amber-900/60" : ""}`}
+                >
+                  <h3 class="font-semibold text-foreground mb-3 leading-snug">
+                    {e.destination}
+                  </h3>
+                  <dl class="space-y-2.5 text-sm">
+                    <div class="sm:flex sm:gap-3">
+                      <dt class="text-muted-foreground sm:w-32 sm:flex-shrink-0 font-medium">
+                        What is sent
+                      </dt>
+                      <dd class="text-foreground">{e.payload}</dd>
+                    </div>
+                    <div class="sm:flex sm:gap-3">
+                      <dt class="text-muted-foreground sm:w-32 sm:flex-shrink-0 font-medium">
+                        When
+                      </dt>
+                      <dd class="text-foreground">{e.trigger}</dd>
+                    </div>
+                    <div class="sm:flex sm:gap-3">
+                      <dt class="text-muted-foreground sm:w-32 sm:flex-shrink-0 font-medium">
+                        Who decides
+                      </dt>
+                      <dd class="text-foreground">{e.control}</dd>
+                    </div>
+                  </dl>
+                  <ul class="mt-4 pt-4 border-t space-y-1">
+                    {e.refs.map((r) => (
+                      <li class="font-mono text-xs text-muted-foreground break-all">
+                        {r}
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+              ))
+            }
+          </div>
+
+          <Card className="p-6 mt-6 bg-muted/40">
+            <h3 class="font-semibold text-foreground mb-2">
+              Just as important: what is absent
+            </h3>
+            <p class="text-sm text-muted-foreground">
+              There is no analytics SDK, no crash reporter, no PostHog,
+              Mixpanel, Sentry, Firebase or Amplitude anywhere in the app
+              targets. There is no Summit-operated backend at all — we run no
+              server that your app talks to, which is why no amount of
+              compromise on our side reaches your recordings. Purchases are
+              verified on-device with StoreKit 2 signed transactions, so even
+              billing needs no server of ours. The <code
+                class="font-mono text-[0.85em] bg-muted px-1 py-0.5 rounded"
+                >AnalyticsService</code
+              > you will find in the source keeps at most 100 events in memory and
+              flushes them to the macOS unified log — the code path that would send
+              them somewhere does not exist.
+            </p>
+          </Card>
+        </section>
+
+        <!-- Data inventory -->
+        <section class="mb-14">
+          <div class="flex items-center gap-3 mb-6">
+            <Database class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <h2 class="text-3xl font-bold text-foreground">
+              Where the data actually sits
+            </h2>
+          </div>
+          <div class="overflow-x-auto rounded-xl border">
+            <table class="w-full text-sm min-w-[720px]">
+              <thead class="bg-muted/60">
+                <tr class="text-left">
+                  <th class="p-3 font-semibold text-foreground">Data</th>
+                  <th class="p-3 font-semibold text-foreground">Location</th>
+                  <th class="p-3 font-semibold text-foreground">At rest</th>
+                  <th class="p-3 font-semibold text-foreground"
+                    >Leaves the device?</th
+                  >
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  inventory.map((row) => (
+                    <tr class="border-t align-top">
+                      <td class="p-3 font-medium text-foreground">
+                        {row.data}
+                      </td>
+                      <td class="p-3 text-muted-foreground">{row.location}</td>
+                      <td class="p-3 text-muted-foreground">{row.atRest}</td>
+                      <td class="p-3 text-muted-foreground">{row.leaves}</td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Recording pipeline -->
+        <section class="mb-14">
+          <div class="flex items-center gap-3 mb-6">
+            <Cpu class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <h2 class="text-3xl font-bold text-foreground">
+              The default path, step by step
+            </h2>
+          </div>
+          <p class="text-muted-foreground mb-6 max-w-3xl">
+            With stock settings, a recording goes from microphone to finished
+            summary without a single byte crossing the sandbox. Each step below
+            names the code that performs it.
+          </p>
+          <ol class="space-y-3">
+            {
+              [
+                {
+                  n: "1",
+                  t: "Capture",
+                  d: "ScreenCaptureKit takes system audio, AVFoundation takes the microphone, and the two streams are mixed locally. Screen recording permission is requested for the sole purpose of capturing the other side of the call — the usage string says exactly that.",
+                  r: "noted/Features/Recording/ScreenAudioRecorder.swift · noted/Info.plist",
+                },
+                {
+                  n: "2",
+                  t: "Transcribe",
+                  d: "whisper.cpp or FluidAudio/Parakeet runs in-process against a model file on disk. Both engines are initialised from a local path; there is no speech API call.",
+                  r: "noted/Features/Transcription/WhisperTranscriber.swift:45–62 · FluidAudioAsrManager.swift",
+                },
+                {
+                  n: "3",
+                  t: "Diarize & clean",
+                  d: "Speaker separation, echo de-duplication and silence trimming, all on-device.",
+                  r: "noted/Features/Transcription/DiarizationService.swift:13–23",
+                },
+                {
+                  n: "4",
+                  t: "Summarize",
+                  d: "The pipeline chunks the transcript and calls the configured LLM. With Local Models that is llama.cpp or MLX loading a GGUF from Application Support — same machine, same process.",
+                  r: "noted/Features/LLM/LlamaService.swift:103–160 · Summarization/Pipeline/",
+                },
+                {
+                  n: "5",
+                  t: "Index",
+                  d: "Embeddings are generated on-device and written to a VecturaKit store next to the models; keyword search uses SQLite FTS5 in the same database.",
+                  r: "noted/Features/Search/SearchManager.swift:169–184",
+                },
+                {
+                  n: "6",
+                  t: "Store",
+                  d: "Everything lands in one SQLite file in Application Support, with audio alongside it or in a folder you nominate.",
+                  r: "noted/Core/Database/DatabaseManager.swift:91–105",
+                },
+              ].map((s) => (
+                <li>
+                  <Card className="p-5 flex gap-4 items-start">
+                    <span class="flex-shrink-0 w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 font-semibold flex items-center justify-center text-sm">
+                      {s.n}
+                    </span>
+                    <div class="min-w-0">
+                      <h3 class="font-semibold text-foreground">{s.t}</h3>
+                      <p class="text-sm text-muted-foreground mt-1">{s.d}</p>
+                      <p class="font-mono text-xs text-muted-foreground mt-2 break-all">
+                        {s.r}
+                      </p>
+                    </div>
+                  </Card>
+                </li>
+              ))
+            }
+          </ol>
+        </section>
+
+        <!-- Key management -->
+        <section class="mb-14">
+          <div class="flex items-center gap-3 mb-6">
+            <KeyRound class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <h2 class="text-3xl font-bold text-foreground">
+              Keys and secrets
+            </h2>
+          </div>
+          <div class="grid gap-4 md:grid-cols-3">
+            <Card className="p-6">
+              <h3 class="font-semibold text-foreground mb-2">
+                Sync encryption key
+              </h3>
+              <p class="text-sm text-muted-foreground">
+                A 12-word BIP-39 phrase generated on the Mac, from which both
+                devices derive the same AES-256 key. The derived key is cached
+                in the local Keychain with <code
+                  class="font-mono text-[0.85em] bg-muted px-1 py-0.5 rounded"
+                  >synchronizable = false</code
+                >, so it never rides iCloud Keychain to anywhere. We hold no
+                copy and no escrow. Lose the phrase and the ciphertext in
+                CloudKit is unrecoverable — that is the trade we chose.
+              </p>
+              <p class="font-mono text-xs text-muted-foreground mt-3 break-all">
+                SummitCore/.../CloudKitEncryption.swift:147–174, 245–296
+              </p>
+            </Card>
+            <Card className="p-6">
+              <h3 class="font-semibold text-foreground mb-2">
+                Provider API keys
+              </h3>
+              <p class="text-sm text-muted-foreground">
+                Stored as Keychain generic passwords under a fixed service name,
+                accessible only after first unlock and marked this-device-only.
+                They are never written to UserDefaults and never leave the Mac
+                except as an auth header to the endpoint you configured.
+              </p>
+              <p class="font-mono text-xs text-muted-foreground mt-3 break-all">
+                noted/Utilities/Configuration/CredentialStore.swift:26–72
+              </p>
+            </Card>
+            <Card className="p-6">
+              <h3 class="font-semibold text-foreground mb-2">
+                MCP bearer token
+              </h3>
+              <p class="text-sm text-muted-foreground">
+                256 bits from <code
+                  class="font-mono text-[0.85em] bg-muted px-1 py-0.5 rounded"
+                  >SecRandomCopyBytes</code
+                >, held in memory for the process lifetime and deliberately
+                never persisted — a long-lived server would otherwise need an
+                at-rest secret it could read without authentication. The cost is
+                that you re-copy the token after a restart.
+              </p>
+              <p class="font-mono text-xs text-muted-foreground mt-3 break-all">
+                noted/Core/Services/MCPServerManager.swift:441–475
+              </p>
+            </Card>
+          </div>
+        </section>
+
+        <!-- Platform controls -->
+        <section class="mb-14">
+          <div class="flex items-center gap-3 mb-6">
+            <ShieldCheck class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <h2 class="text-3xl font-bold text-foreground">
+              Sandbox posture
+            </h2>
+          </div>
+          <p class="text-muted-foreground mb-6 max-w-3xl">
+            Read off the signed target’s build settings and entitlements. The
+            denials matter as much as the grants: an app that cannot reach your
+            camera, contacts or location cannot leak them however it is
+            compromised.
+          </p>
+          <div class="overflow-x-auto rounded-xl border">
+            <table class="w-full text-sm min-w-[560px]">
+              <thead class="bg-muted/60">
+                <tr class="text-left">
+                  <th class="p-3 font-semibold text-foreground">Capability</th>
+                  <th class="p-3 font-semibold text-foreground">State</th>
+                  <th class="p-3 font-semibold text-foreground">Source</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  platform.map((p) => (
+                    <tr class="border-t align-top">
+                      <td class="p-3 font-medium text-foreground">{p.k}</td>
+                      <td class="p-3">
+                        <span
+                          class={
+                            p.ok === true
+                              ? "text-emerald-700 dark:text-emerald-400 font-medium"
+                              : "text-foreground"
+                          }
+                        >
+                          {p.v}
+                        </span>
+                      </td>
+                      <td class="p-3 font-mono text-xs text-muted-foreground break-all">
+                        {p.note}
+                      </td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Defaults -->
+        <section class="mb-14">
+          <div class="flex items-center gap-3 mb-6">
+            <FileSearch class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <h2 class="text-3xl font-bold text-foreground">
+              Defaults as shipped
+            </h2>
+          </div>
+          <p class="text-muted-foreground mb-6 max-w-3xl">
+            A privacy claim is only worth what the defaults are worth. Here is
+            what a fresh install does before you change anything.
+          </p>
+          <div class="overflow-x-auto rounded-xl border">
+            <table class="w-full text-sm min-w-[640px]">
+              <thead class="bg-muted/60">
+                <tr class="text-left">
+                  <th class="p-3 font-semibold text-foreground">Setting</th>
+                  <th class="p-3 font-semibold text-foreground">Default</th>
+                  <th class="p-3 font-semibold text-foreground">Source</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  defaults.map((d) => (
+                    <tr class="border-t align-top">
+                      <td class="p-3 font-medium text-foreground">
+                        {d.setting}
+                      </td>
+                      <td class="p-3 text-muted-foreground">{d.value}</td>
+                      <td class="p-3 font-mono text-xs text-muted-foreground break-all">
+                        {d.ref}
+                      </td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Findings -->
+        <section class="mb-14">
+          <div class="flex items-center gap-3 mb-6">
+            <AlertTriangle class="w-6 h-6 text-amber-600 dark:text-amber-400" />
+            <h2 class="text-3xl font-bold text-foreground">
+              Limitations and open findings
+            </h2>
+          </div>
+          <p class="text-muted-foreground mb-6 max-w-3xl">
+            A security page that lists only strengths is marketing. These are
+            the things we would raise if we were reviewing someone else’s code,
+            so we raise them about our own.
+          </p>
+          <div class="space-y-4">
+            {
+              findings.map((f) => (
+                <Card className="p-6 border-amber-300/60 dark:border-amber-900/60">
+                  <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
+                    <h3 class="font-semibold text-foreground">{f.title}</h3>
+                    <span class="text-[11px] font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 rounded px-2 py-0.5">
+                      {f.severity}
+                    </span>
+                  </div>
+                  <p class="text-sm text-muted-foreground">{f.detail}</p>
+                  <ul class="mt-3 pt-3 border-t space-y-1">
+                    {f.refs.map((r) => (
+                      <li class="font-mono text-xs text-muted-foreground break-all">
+                        {r}
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+              ))
+            }
+          </div>
+        </section>
+
+        <!-- Verify it yourself -->
+        <section class="mb-14">
+          <div class="flex items-center gap-3 mb-6">
+            <Terminal class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <h2 class="text-3xl font-bold text-foreground">
+              Check our work
+            </h2>
+          </div>
+          <p class="text-muted-foreground mb-6 max-w-3xl">
+            You do not need our source to test the central claim. With Summit
+            running on stock settings, put it behind a proxy or watch it with
+            Little Snitch and record a meeting end to end. You should see the
+            App Store version lookup and nothing else — no transcript, no audio,
+            no telemetry.
+          </p>
+          <Card className="p-6">
+            <p class="text-sm text-muted-foreground mb-4">
+              With source access, these three commands reproduce the tables
+              above:
+            </p>
+            <div
+              class="rounded-lg bg-muted/70 p-4 overflow-x-auto font-mono text-xs leading-relaxed text-foreground"
+            >
+              <div class="text-muted-foreground"># every outbound call site</div>
+              <div class="mb-3">
+                grep -rn "URLSession\|URLRequest(" --include=*.swift .
+              </div>
+              <div class="text-muted-foreground">
+                # every hard-coded host
+              </div>
+              <div class="mb-3">
+                grep -rnoE "https?://[a-zA-Z0-9._/-]+" --include=*.swift noted
+                SummitCore SummitCompanion | sort -u
+              </div>
+              <div class="text-muted-foreground">
+                # confirm no analytics or crash-reporting SDK is linked
+              </div>
+              <div>
+                grep -rni
+                "posthog\|mixpanel\|sentry\|firebase\|amplitude\|crashlytics"
+                --include=*.swift .
+              </div>
+            </div>
+            <p class="text-sm text-muted-foreground mt-4">
+              If any of those turn up something this page does not account for,
+              the page is wrong and we want the report.
+            </p>
+          </Card>
+        </section>
+
+        <!-- Scope -->
+        <Card className="p-6 mb-10 bg-muted/40">
+          <h2 class="text-lg font-semibold text-foreground mb-3">
+            Scope of this review
+          </h2>
+          <p class="text-sm text-muted-foreground mb-3">
+            This is a first-party architecture review by the Summit team, not a
+            third-party penetration test or a certification. It covers the
+            macOS app, the iOS companion and the shared SummitCore package at
+            commit <span class="font-mono">{AUDIT.shortCommit}</span>. It reads
+            the source as written; it does not prove the absence of memory-safety
+            bugs, and it makes no claim about the security of third-party model
+            weights, of the LLM providers you may choose to configure, or of
+            Apple’s CloudKit and Keychain implementations beyond the guarantees
+            Apple documents.
+          </p>
+          <p class="text-sm text-muted-foreground">
+            Development tooling in the repository — the evaluation CLI, which
+            does call an Anthropic endpoint — is excluded: it is not part of any
+            shipped target and never runs on a user’s machine.
+          </p>
+        </Card>
+
+        <!-- Contact -->
+        <Card className="p-8 text-center">
+          <div
+            class="w-12 h-12 bg-sky-100 dark:bg-sky-950 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <Mail class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+          </div>
+          <h2 class="text-2xl font-bold text-foreground mb-3">
+            Found something we missed?
+          </h2>
+          <p class="text-muted-foreground mb-6 max-w-xl mx-auto">
+            Security reports, architecture questions and requests for source
+            access under NDA all go to the same place. We answer them.
+          </p>
+          <div class="flex flex-wrap gap-3 justify-center">
+            <a
+              href="mailto:security@summitnotes.app"
+              class="inline-flex items-center justify-center px-6 py-3 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 transition-colors"
+            >
+              security@summitnotes.app
+            </a>
+            <a
+              href="/security"
+              class="inline-flex items-center justify-center px-6 py-3 border font-semibold rounded-lg text-foreground hover:bg-muted transition-colors"
+            >
+              Security overview
+            </a>
+            <a
+              href="/privacy"
+              class="inline-flex items-center justify-center px-6 py-3 border font-semibold rounded-lg text-foreground hover:bg-muted transition-colors"
+            >
+              Privacy policy
+            </a>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </div>
+  <Footer client:load />
+</Layout>
