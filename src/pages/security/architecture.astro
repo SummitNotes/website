@@ -31,7 +31,7 @@ const egress = [
   {
     destination: "Configured LLM provider — api.openai.com, api.anthropic.com, generativelanguage.googleapis.com, api.deepseek.com, openrouter.ai, or any custom/self-hosted base URL",
     payload:
-      "Prompt text: transcript excerpts, meeting titles, notes and chat questions for the document being summarised or queried.",
+      "Prompt text. For summarisation, that is transcript excerpts. For chat, it is your question plus whatever the retrieval tools returned — transcript snippets, topics, action items, and the titles and dates of the meetings they came from. Your own hand-written notes are never put in a prompt: no prompt-building path in the app reads the document’s notes field.",
     trigger:
       "Only when the LLM provider is set to “OpenAI-Compatible” AND a model is configured AND (for the named providers) an API key has been entered. A missing key throws before any request is built.",
     control: "User-configured. Never the destination when the provider is set to Local Models.",
@@ -51,7 +51,7 @@ const egress = [
     refs: [
       "noted/Core/Services/HFParallelDownloader.swift:102–110, 230, 329",
       "noted/Core/Managers/WhisperModelManager.swift:62, 158, 219",
-      "noted/Core/Models/LocalModel.swift (model catalogue URLs)",
+      "noted/Core/Models/LocalModel.swift:162–790 (model catalogue URLs)",
     ],
     tone: "slate",
   },
@@ -61,7 +61,8 @@ const egress = [
       "The app’s own bundle ID (app.summitnotes). Nothing else — it is a public catalogue lookup for the current App Store version.",
     trigger:
       "Automatic: 5 seconds after launch, then every 24 hours while the app runs.",
-    control: "Automatic. This is the one unprompted outbound request the app makes.",
+    control:
+      "Automatic, and there is no setting that suppresses it — we looked, and the check is ungated. This is the one unprompted outbound request the app makes. Blocking itunes.apple.com at the firewall costs you nothing but the new-version banner.",
     refs: [
       "noted/Core/Services/UpdateCheckService.swift:30–33, 152–160",
       "noted/App/notedApp.swift:150–154",
@@ -132,7 +133,7 @@ const inventory = [
     data: "Sync encryption key",
     location: "Keychain, service app.summitnotes.encryption, kSecAttrSynchronizable = false",
     atRest: "AES-256 key derived from a 12-word BIP-39 phrase the user holds.",
-    leaves: "No. It is never written to CloudKit. Devices are paired by re-entering the phrase or scanning a QR payload.",
+    leaves: "Never to CloudKit and never to us — but pairing moves it. Re-typing the phrase on the phone carries it out of band; the QR option puts the raw key on screen for the camera. Treat both as handling the password to the whole library.",
   },
   {
     data: "Usage analytics",
@@ -144,7 +145,7 @@ const inventory = [
     data: "Calendar & Reminders",
     location: "EventKit, read for meetings; written only when the user exports an action item",
     atRest: "Owned by the OS, not copied wholesale into the app.",
-    leaves: "No — no calendar API of any provider is contacted by the app.",
+    leaves: "Summit contacts no calendar provider itself. But an action item you export lands in EventKit, and if the target list is backed by iCloud, Google or Exchange, that account syncs the text off the Mac — the OS does it, not us. A local-only list stays local.",
   },
 ];
 
@@ -226,7 +227,7 @@ const findings = [
     detail:
       "The target sets ENABLE_INCOMING_NETWORK_CONNECTIONS = NO while the entitlements file grants com.apple.security.network.server. The explicit file is what gets signed, and the loopback MCP listener needs it — but the two should be reconciled so the build settings tell the truth about the shipped posture.",
     refs: [
-      "noted/noted.entitlements",
+      "noted/noted.entitlements:12–19",
       "noted.xcodeproj/project.pbxproj:1264, 1336",
     ],
     severity: "Configuration hygiene",
@@ -316,8 +317,12 @@ const schema = {
             </div>
           </dl>
           <p class="text-sm text-muted-foreground mt-5 pt-5 border-t">
-            Every citation below is a path and line number in that repository at
-            that commit. The repository is private, so the references are for
+            Citations below are paths in that repository at that commit, with
+            line numbers wherever a claim rests on a specific piece of code. A
+            few point at a whole file or a line range instead, because the claim
+            rests on the file as a whole — the entitlements list, the model
+            catalogue — and a single line would be the less honest reference.
+            The repository is private, so the references are for
             verification during a source review rather than public browsing —
             we grant read access to enterprise buyers and auditors under NDA.
             Ask at <a
@@ -546,13 +551,18 @@ const schema = {
           <div class="flex items-center gap-3 mb-6">
             <Cpu class="w-6 h-6 text-sky-600 dark:text-sky-400" />
             <h2 class="text-3xl font-bold text-foreground">
-              The default path, step by step
+              The local path, step by step
             </h2>
           </div>
           <p class="text-muted-foreground mb-6 max-w-3xl">
-            With stock settings, a recording goes from microphone to finished
-            summary without a single byte crossing the sandbox. Each step below
-            names the code that performs it.
+            Once you have downloaded a local model and set the provider to Local
+            Models, a recording goes from microphone to finished summary without
+            a single byte crossing the sandbox. Be precise about what that
+            means: a fresh install ships with no model on disk and no API key,
+            so step 4 cannot run until you choose one or the other. Downloading
+            a model is a one-off fetch from Hugging Face; entering a provider
+            key is what opens the hosted path. Each step below names the code
+            that performs it.
           </p>
           <ol class="space-y-3">
             {
@@ -561,13 +571,13 @@ const schema = {
                   n: "1",
                   t: "Capture",
                   d: "ScreenCaptureKit takes system audio, AVFoundation takes the microphone, and the two streams are mixed locally. Screen recording permission is requested for the sole purpose of capturing the other side of the call — the usage string says exactly that.",
-                  r: "noted/Features/Recording/ScreenAudioRecorder.swift · noted/Info.plist",
+                  r: "noted/Features/Recording/ScreenAudioRecorder.swift:140, 219, 245 · noted/Info.plist:5",
                 },
                 {
                   n: "2",
                   t: "Transcribe",
                   d: "whisper.cpp or FluidAudio/Parakeet runs in-process against a model file on disk. Both engines are initialised from a local path; there is no speech API call.",
-                  r: "noted/Features/Transcription/WhisperTranscriber.swift:45–62 · FluidAudioAsrManager.swift",
+                  r: "noted/Features/Transcription/WhisperTranscriber.swift:45–62 · FluidAudioAsrManager.swift:245",
                 },
                 {
                   n: "3",
@@ -579,7 +589,7 @@ const schema = {
                   n: "4",
                   t: "Summarize",
                   d: "The pipeline chunks the transcript and calls the configured LLM. With Local Models that is llama.cpp or MLX loading a GGUF from Application Support — same machine, same process.",
-                  r: "noted/Features/LLM/LlamaService.swift:103–160 · Summarization/Pipeline/",
+                  r: "noted/Features/LLM/LlamaService.swift:103–160 · Summarization/Pipeline/SummarizationPipeline.swift:58–90",
                 },
                 {
                   n: "5",
@@ -686,7 +696,13 @@ const schema = {
             Read off the signed target’s build settings and entitlements. The
             denials matter as much as the grants: an app that cannot reach your
             camera, contacts or location cannot leak them however it is
-            compromised.
+            compromised. Every row comes from one of two files — the build
+            settings in <span class="font-mono text-[0.9em]"
+              >noted.xcodeproj/project.pbxproj:1250–1290</span
+            > (and the matching Release block at 1322–1362), or the signed entitlements
+            in <span class="font-mono text-[0.9em]"
+              >noted/noted.entitlements:1–27</span
+            >.
           </p>
           <div class="overflow-x-auto rounded-xl border">
             <table class="w-full text-sm min-w-[560px]">
@@ -818,13 +834,15 @@ const schema = {
           </p>
           <Card className="p-6">
             <p class="text-sm text-muted-foreground mb-4">
-              With source access, these three commands reproduce the tables
-              above:
+              With source access, these commands cover the <em>direct HTTP</em> half
+              of the egress table — the paths the app builds itself:
             </p>
             <div
               class="rounded-lg bg-muted/70 p-4 overflow-x-auto font-mono text-xs leading-relaxed text-foreground"
             >
-              <div class="text-muted-foreground"># every outbound call site</div>
+              <div class="text-muted-foreground">
+                # every call site that builds an HTTP request itself
+              </div>
               <div class="mb-3">
                 grep -rn "URLSession\|URLRequest(" --include=*.swift .
               </div>
@@ -838,14 +856,39 @@ const schema = {
               <div class="text-muted-foreground">
                 # confirm no analytics or crash-reporting SDK is linked
               </div>
-              <div>
+              <div class="mb-3">
                 grep -rni
                 "posthog\|mixpanel\|sentry\|firebase\|amplitude\|crashlytics"
                 --include=*.swift .
               </div>
+              <div class="text-muted-foreground">
+                # the rest of the network surface: Apple frameworks and the
+                dependency graph
+              </div>
+              <div>
+                grep -rn "CKDatabase\|CKContainer\|NWConnection\|NWListener" --include=*.swift
+                . &amp;&amp; cat SummitCore/Package.resolved
+              </div>
             </div>
             <p class="text-sm text-muted-foreground mt-4">
-              If any of those turn up something this page does not account for,
+              Grepping for <code
+                class="font-mono text-[0.85em] bg-muted px-1 py-0.5 rounded"
+                >URLSession</code
+              > alone would <em>not</em> find everything, and we would rather say
+              so than let the recipe imply otherwise. CloudKit talks to Apple through
+              <code class="font-mono text-[0.85em] bg-muted px-1 py-0.5 rounded"
+                >CKDatabase</code
+              >, the MCP listener uses <code
+                class="font-mono text-[0.85em] bg-muted px-1 py-0.5 rounded"
+                >NWListener</code
+              >, EventKit and StoreKit reach Apple’s services without the app
+              opening a socket at all, and a linked dependency could in
+              principle carry its own client — which is what the last command
+              and the resolved package list are for. The packet capture above is
+              the check that does not depend on knowing which API was used.
+            </p>
+            <p class="text-sm text-muted-foreground mt-3">
+              If any of these turn up something this page does not account for,
               the page is wrong and we want the report.
             </p>
           </Card>
