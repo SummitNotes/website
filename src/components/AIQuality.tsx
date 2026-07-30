@@ -36,18 +36,21 @@ const beforeAfter = {
 const stats = [
   {
     icon: <Cpu className="w-5 h-5" />,
-    value: "100% Local",
-    label: "Runs on Apple Silicon. No internet needed after download.",
+    value: "Local by Default",
+    label:
+      "Runs on Apple Silicon, no internet needed. Cloud providers like OpenRouter are opt-in.",
   },
   {
     icon: <Zap className="w-5 h-5" />,
     value: "~2 min",
-    label: "To process a 1-hour meeting on M1 Mac or newer.",
+    label:
+      "To process a 1-hour meeting on an M1 Pro (16GB) with Ministral 3 8B (Med).",
   },
   {
     icon: <Lock className="w-5 h-5" />,
     value: "Zero Upload",
-    label: "Audio never leaves your Mac. Not part of a vendor training set.",
+    label:
+      "With local AI, audio never leaves your Mac. Not part of a vendor training set.",
   },
 ];
 

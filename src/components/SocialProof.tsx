@@ -11,6 +11,7 @@ import {
   Globe,
   Sparkles,
   FolderOpen,
+  FileDown,
   FileText,
   Search,
   Mountain,
@@ -44,7 +45,7 @@ const SocialProof: React.FC = () => {
     {
       quote:
         "I tried 10+ meeting note tools. Every one required uploading audio to the cloud. As a litigator, that's a non-starter. Summit is the only one that keeps everything local.",
-      role: "Joseph, Attorney in law",
+      role: "Joseph, Attorney at Law",
       company: "",
       rating: 5,
       icon: <Scale className="w-5 h-5 text-gray-600" />,
@@ -90,7 +91,7 @@ const SocialProof: React.FC = () => {
     },
     {
       icon: <Mountain className="h-6 w-6" />,
-      title: "Platform Independent",
+      title: "Works with Any Meeting Platform",
       description:
         "No meeting bots required. Works with Zoom, Slack, Teams, Google Meet—any platform where you can hear audio.",
     },
@@ -99,8 +100,9 @@ const SocialProof: React.FC = () => {
   const smallFeatures: SmallFeature[] = [
     {
       icon: <Shield className="w-5 h-5" />,
-      value: "100% Local",
-      label: "All AI runs on your Mac. Nothing leaves your device.",
+      value: "Local by Default",
+      label:
+        "All AI runs on your Mac. Cloud providers are opt-in, never the default.",
     },
     {
       icon: <Users className="w-5 h-5" />,
@@ -113,9 +115,9 @@ const SocialProof: React.FC = () => {
       label: "Ask questions about your meetings with local AI.",
     },
     {
-      icon: <Languages className="w-5 h-5" />,
-      value: "100+ Languages",
-      label: "Transcribe and summarize in over 100 languages.",
+      icon: <FileDown className="w-5 h-5" />,
+      value: "Markdown Export",
+      label: "Auto-export notes to Obsidian or any folder you choose.",
     },
     {
       icon: <Sparkles className="w-5 h-5" />,
