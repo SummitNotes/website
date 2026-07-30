@@ -73,8 +73,9 @@ import {
               </div>
               <p class="text-muted-foreground">
                 All audio processing, transcription, and AI summarization
-                happens on your Mac. Your meeting recordings never leave your
-                device unless you explicitly choose to use cloud AI providers.
+                happens on your Mac. Your meeting data leaves your device only
+                if you switch something on yourself — a cloud AI provider, or
+                iCloud sync.
               </p>
             </Card>
 
@@ -90,9 +91,11 @@ import {
                 </h3>
               </div>
               <p class="text-muted-foreground">
-                We don't operate cloud servers for storing your data. All
-                recordings, transcripts, and notes are stored locally on your
-                device.
+                We don't operate cloud servers for storing your data — there is
+                no Summit backend at all. Recordings, transcripts, and notes
+                live on your device. The one exception is iCloud sync: turn it
+                on and your notes travel through your own iCloud account,
+                encrypted with a key only you hold.
               </p>
             </Card>
 
@@ -180,7 +183,10 @@ import {
               </p>
               <ul class="list-disc list-inside text-muted-foreground space-y-2">
                 <li>
-                  Only transcription <strong>text</strong> is sent—never audio recordings
+                  Only <strong>text</strong> is sent, never audio: transcript
+                  excerpts for summarization, and — if you use chat — your
+                  question plus the snippets, topics and meeting titles it
+                  retrieves. Your own written notes are never included
                 </li>
                 <li>
                   You provide your own API keys (we don't store them on our
@@ -206,13 +212,33 @@ import {
               </p>
               <ul class="list-disc list-inside text-muted-foreground space-y-2">
                 <li>
-                  License validation (once at activation, minimal data sent)
+                  Purchase verification, handled on-device by StoreKit — it
+                  contacts Apple, not a Summit server
                 </li>
-                <li>Optional software updates (can be disabled)</li>
+                <li>
+                  A daily App Store version check (sends only our bundle ID).
+                  It has no in-app off switch; block <span class="font-mono"
+                    >itunes.apple.com</span
+                  > if you want it gone
+                </li>
                 <li>Optional cloud AI requests (only if you configure it)</li>
-                <li>All connections use TLS 1.3 or higher</li>
-                <li>No telemetry or analytics by default</li>
+                <li>
+                  Optional iCloud sync, and optional model downloads from
+                  Hugging Face
+                </li>
+                <li>Connections use TLS with the OS defaults</li>
+                <li>
+                  No telemetry or analytics — there is no analytics SDK in the
+                  app at all
+                </li>
               </ul>
+              <p class="text-muted-foreground mt-4">
+                That is the whole list. The <a
+                  href="/security/architecture"
+                  class="text-blue-600 hover:underline"
+                  >architecture review</a
+                > walks through each one with source citations.
+              </p>
             </Card>
           </div>
         </section>
@@ -397,6 +423,28 @@ import {
             Learn more about digital sovereignty for European professionals &rarr;
           </a>
         </section>
+
+        <!-- Architecture deep dive -->
+        <Card
+          className="p-8 mb-12 bg-gradient-to-r from-sky-50 to-indigo-50 border-sky-200"
+        >
+          <h2 class="text-2xl font-bold text-foreground mb-4">
+            Want the evidence, not the summary?
+          </h2>
+          <p class="text-muted-foreground mb-6">
+            We publish a full data-flow and security architecture review of the
+            app: every trust boundary, every outbound connection the app can
+            make, every privacy-relevant default, and the limitations we found
+            reading our own code — each claim anchored to a specific file and
+            line at a pinned commit.
+          </p>
+          <a
+            href="/security/architecture"
+            class="inline-flex items-center justify-center px-6 py-3 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 transition-colors"
+          >
+            Read the architecture review &rarr;
+          </a>
+        </Card>
 
         <!-- Vulnerability Reporting -->
         <Card
