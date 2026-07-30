@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import { Card } from '../../components/ui/card';
 import { Separator } from '../../components/ui/separator';
 import { Book, ChevronRight, Home } from 'lucide-react';
+import { techArticleSchema } from '../../lib/schema';
 
 export async function getStaticPaths() {
   const docs = await getCollection('docs');
@@ -41,9 +42,27 @@ const categoryLabels: Record<string, string> = {
   setup: 'Setup Guides',
   guides: 'Guides',
 };
+
+const docSchema = techArticleSchema({
+  path: `/docs/${doc.slug}`,
+  headline: doc.data.title,
+  description: doc.data.description,
+  dateModified: doc.data.lastUpdated,
+});
+
+// Categories are labels in the visible trail, not pages, so they stay out of the
+// structured breadcrumb — every entry below Home links somewhere real.
 ---
 
-<Layout title={`${doc.data.title} - Summit AI Notes Documentation`} description={doc.data.description}>
+<Layout
+  title={`${doc.data.title} - Summit AI Notes Documentation`}
+  description={doc.data.description}
+  breadcrumb={[
+    { name: 'Documentation', path: '/docs' },
+    { name: doc.data.title },
+  ]}
+  schema={docSchema}
+>
   <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
     <div class="container mx-auto px-4 py-8">
       <div class="max-w-7xl mx-auto">

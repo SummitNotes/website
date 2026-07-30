@@ -1,12 +1,20 @@
 ---
+import type { SchemaNode } from "../lib/schema";
+
 interface Props {
-  schema: Record<string, unknown> | Record<string, unknown>[];
+  /** Nodes to emit as a single connected `@graph`. */
+  nodes: SchemaNode[];
 }
 
-const { schema } = Astro.props;
-const schemas = Array.isArray(schema) ? schema : [schema];
+const { nodes } = Astro.props;
+
+// The graph carries one shared @context, so drop any per-node copies.
+const graph = nodes.map(({ "@context": _context, ...node }) => node);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": graph,
+};
 ---
 
-{schemas.map((s) => (
-  <script type="application/ld+json" set:html={JSON.stringify(s)} />
-))}
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
