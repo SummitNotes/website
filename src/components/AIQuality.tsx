@@ -1,6 +1,6 @@
 import React from "react";
 import { Badge } from "./ui/badge";
-import { Cpu, Zap, Lock, CheckCircle2 } from "lucide-react";
+import { Cpu, WifiOff, Lock, CheckCircle2 } from "lucide-react";
 
 const beforeAfter = {
   before: {
@@ -38,13 +38,12 @@ const stats = [
     icon: <Cpu className="w-5 h-5" />,
     value: "Local by Default",
     label:
-      "Runs on Apple Silicon, no internet needed. Cloud providers like OpenRouter are opt-in.",
+      "Runs on Apple Silicon. Cloud providers like OpenRouter are opt-in.",
   },
   {
-    icon: <Zap className="w-5 h-5" />,
-    value: "~2 min",
-    label:
-      "To process a 1-hour meeting on an M1 Pro (16GB) with Ministral 3 8B (Med).",
+    icon: <WifiOff className="w-5 h-5" />,
+    value: "Works Offline",
+    label: "No internet needed after the one-time model download.",
   },
   {
     icon: <Lock className="w-5 h-5" />,

@@ -102,7 +102,7 @@ const SocialProof: React.FC = () => {
       icon: <Shield className="w-5 h-5" />,
       value: "Local by Default",
       label:
-        "All AI runs on your Mac. Cloud providers are opt-in, never the default.",
+        "AI runs on your Mac unless you opt in to a cloud provider.",
     },
     {
       icon: <Users className="w-5 h-5" />,
