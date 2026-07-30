@@ -15,6 +15,7 @@ import {
   Terminal,
   Mail,
 } from "lucide-react";
+import { techArticleSchema } from "../../lib/schema";
 
 // Everything on this page is anchored to a single commit of the app source so a
 // reviewer can verify each claim against exactly the code that was read.
@@ -241,21 +242,30 @@ const findings = [
   },
 ];
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "TechArticle",
+const description =
+  "An auditable data-flow and security architecture review of Summit AI Notes: every trust boundary, every outbound request, every default — each anchored to a specific file and line in the app source.";
+
+const schema = techArticleSchema({
+  path: "/security/architecture",
   headline: "Summit AI Notes — Data Flow & Security Architecture",
-  description:
-    "An auditable data-flow and security architecture review of the Summit AI Notes macOS app, with every claim anchored to a specific file and line in the app source at a pinned commit.",
-  datePublished: "2026-07-30",
-  author: { "@type": "Organization", name: "Summit AI Notes" },
-};
+  description,
+  // The review date, not the publish date: this page describes one pinned commit.
+  datePublished: AUDIT.reviewed,
+  keywords: [
+    "security architecture",
+    "data flow",
+    "local-first",
+    "end-to-end encryption",
+    "macOS app sandbox",
+  ],
+});
 ---
 
 <Layout
   title="Data Flow & Security Architecture - Summit AI Notes"
-  description="An auditable data-flow and security architecture review of Summit AI Notes: every trust boundary, every outbound request, every default — each anchored to a specific file and line in the app source."
+  description={description}
   schema={schema}
+  breadcrumb={[{ name: "Security", path: "/security" }, { name: "Architecture" }]}
 >
   <div
     class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
