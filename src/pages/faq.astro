@@ -10,10 +10,16 @@ import {
   Download,
   Zap,
 } from "lucide-react";
+import { absoluteUrl, WEBSITE_ID } from "../lib/schema";
+
+const faqUrl = absoluteUrl("/faq");
 
 const faqSchema = {
-  "@context": "https://schema.org",
   "@type": "FAQPage",
+  "@id": `${faqUrl}#faq`,
+  "name": "Summit AI Notes — Frequently Asked Questions",
+  "url": faqUrl,
+  "isPartOf": { "@id": WEBSITE_ID },
   "mainEntity": [
     {
       "@type": "Question",
@@ -102,6 +108,7 @@ const faqSchema = {
 <Layout
   title="FAQ - Summit AI Notes"
   description="Frequently asked questions about Summit AI Notes"
+  breadcrumb={[{ name: "FAQ" }]}
   schema={faqSchema}
 >
   <div

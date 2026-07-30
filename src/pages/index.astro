@@ -9,49 +9,64 @@ import UseCases from "../components/UseCases";
 import AIQuality from "../components/AIQuality";
 import PricingSection from "../components/PricingSection";
 import Footer from "../components/Footer";
+import {
+  absoluteUrl,
+  APP_STORE_URL,
+  ORGANIZATION_ID,
+  PRODUCT_DESCRIPTION,
+  SITE_URL,
+  SOFTWARE_ID,
+  WEBSITE_ID,
+} from "../lib/schema";
+import { latestRelease } from "../lib/releases";
 
+const offer = (name: string, price: string) => ({
+  "@type": "Offer",
+  name,
+  price,
+  priceCurrency: "USD",
+  availability: "https://schema.org/InStock",
+  url: `${SITE_URL}/#pricing`,
+});
+
+// No aggregateRating: the 4.6 App Store rating is visible on the page, but the
+// rating count is not, and Google requires both to match visible content.
 const appSchema = {
-  "@context": "https://schema.org",
   "@type": "SoftwareApplication",
+  "@id": SOFTWARE_ID,
   name: "Summit AI Notes",
   alternateName: ["SummitAI", "Summit AI", "Summit Notes"],
-  operatingSystem: "macOS",
+  url: `${SITE_URL}/`,
+  downloadUrl: APP_STORE_URL,
+  mainEntityOfPage: { "@id": WEBSITE_ID },
+  publisher: { "@id": ORGANIZATION_ID },
+  operatingSystem: "macOS 15 or later",
   applicationCategory: "BusinessApplication",
-  description:
-    "Client meeting notes that never leave your Mac. Summit records calls locally, creates searchable transcripts, summaries, and action items, and keeps your calls out of vendor AI training sets.",
-  url: "https://summitnotes.app",
-  downloadUrl: "https://apps.apple.com/app/summit-ai-notes/id6754717420",
-  softwareVersion: "1.0",
+  applicationSubCategory: "AI meeting assistant",
+  description: PRODUCT_DESCRIPTION,
+  ...(latestRelease ? { softwareVersion: latestRelease.version } : {}),
+  image: absoluteUrl("/logo512x512.png"),
+  screenshot: [
+    absoluteUrl("/screenshot-1.jpg"),
+    absoluteUrl("/screenshot-2.jpg"),
+    absoluteUrl("/screenshot-3.jpg"),
+  ],
   offers: [
-    {
-      "@type": "Offer",
-      price: "12.99",
-      priceCurrency: "USD",
-      description: "Monthly subscription with all features",
-    },
-    {
-      "@type": "Offer",
-      price: "89.99",
-      priceCurrency: "USD",
-      description: "Yearly subscription — save 42%",
-    },
-    {
-      "@type": "Offer",
-      price: "149.99",
-      priceCurrency: "USD",
-      description: "Lifetime one-time purchase",
-    },
+    offer("Monthly", "12.99"),
+    offer("Yearly", "89.99"),
+    offer("Lifetime", "149.99"),
   ],
   featureList: [
-    "Record both sides of any call",
-    "Local AI transcription",
-    "AI-powered summaries and action items",
-    "On-device AI processing by default, with optional cloud providers",
+    "Records online and in-person meetings without a bot",
+    "On-device transcription",
+    "On-device AI summaries and action items",
+    "Speaker identification",
+    "Full-text meeting search",
+    "Document chat",
     "Works with Zoom, Teams, Meet, and any app",
-    "100+ languages supported",
-    "Search through past meetings",
+    "Support for more than 100 languages",
+    "Optional user-configured cloud AI providers",
   ],
-  screenshot: "https://summitnotes.app/og-image.png",
 };
 ---
 

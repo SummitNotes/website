@@ -2,6 +2,7 @@
 import Layout from "./Layout.astro";
 import { Separator } from "../components/ui/separator";
 import { ArrowLeft } from "lucide-react";
+import { techArticleSchema } from "../lib/schema";
 
 interface Props {
   version: string;
@@ -10,11 +11,26 @@ interface Props {
 }
 
 const { version, date, title = `Summit AI Notes ${version}` } = Astro.props;
+
+const description = `What's new in Summit AI Notes ${version}`;
+
+const releaseSchema = techArticleSchema({
+  path: Astro.url.pathname,
+  headline: `${title} — Release Notes`,
+  description,
+  datePublished: date,
+});
 ---
 
 <Layout
   title={`${title} - Release Notes`}
-  description={`What's new in Summit AI Notes ${version}`}
+  description={description}
+  breadcrumb={[
+    { name: "Documentation", path: "/docs" },
+    { name: "Release Notes", path: "/docs/release-notes" },
+    { name: `Version ${version}` },
+  ]}
+  schema={releaseSchema}
 >
   <div
     class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
