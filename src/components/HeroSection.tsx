@@ -4,9 +4,11 @@ import {
   ArrowRight,
   ChevronLeft,
   ChevronRight,
+  Cpu,
   HardDrive,
   Ban,
   KeyRound,
+  WifiOff,
 } from "lucide-react";
 
 interface HeroSectionProps {
@@ -52,7 +54,7 @@ const boundarySignals = [
   },
   {
     icon: <KeyRound className="w-4 h-4" />,
-    label: "user-controlled retention",
+    label: "retention is yours",
     tone: "text-sky-600",
   },
 ];
@@ -275,15 +277,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 }
               >
                 <div className="flex items-center gap-2 px-5 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-slate-200">
-                  <span className="text-xs font-bold text-orange-600">
-                    model
+                  <span className="text-orange-600">
+                    <Cpu className="w-4 h-4" />
                   </span>
                   <div>
                     <span className="text-sm font-medium text-slate-700 block">
-                      training_set: never
+                      transcribed on-device
                     </span>
                     <span className="text-[10px] text-sky-600/70 block -mt-0.5">
-                      your calls stay out
+                      no upload step
                     </span>
                   </div>
                 </div>
@@ -325,15 +327,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 }
               >
                 <div className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-slate-200">
-                  <span className="text-slate-700 font-mono text-xs">
-                    /calls
+                  <span className="text-slate-600">
+                    <WifiOff className="w-4 h-4" />
                   </span>
                   <div>
                     <span className="text-sm font-medium text-slate-700 block">
-                      client-strategy.wav
+                      works offline
                     </span>
                     <span className="text-[10px] text-slate-400 block -mt-0.5">
-                      local file path
+                      airplane mode is fine
                     </span>
                   </div>
                 </div>
