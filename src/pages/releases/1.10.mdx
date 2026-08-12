@@ -1,0 +1,42 @@
+import ReleaseLayout from '../../layouts/ReleaseLayout.astro';
+
+export const version = "1.10";
+export const date = "2026-08-12";
+export const title = "Summit AI Notes 1.10";
+
+<ReleaseLayout version="1.10" date="2026-08-12">
+
+**New Features**
+- Connect Summit to Claude Code and other AI tools — your notes, transcripts and search are now available to external assistants, with a secure sign-in flow and connection status shown in Settings.
+- Live Queries: save a chat as a standing question over your notes and get recurring recaps. Pick the scope right in the editor, and see them front and centre on Home.
+- Chat now uses tools by default, so it can search, open and cross-reference your notes while answering. It shows what it's doing as it works, and every answer links back to the sources it used. Mention a document with @ to pull it into the conversation.
+- Tiered local chat: Summit picks a fast local model for everyday questions and automatically steps up to a more capable one for harder reasoning. Configurable in Settings.
+- Always-on-top meeting overlay — a compact pill that stays visible during calls, remembers where you left it, and includes an interactive meeting prep tab.
+- Split transcript blocks and reassign speakers for part of a conversation, and copy the full transcript from the transcript menu.
+- App-wide back and forward navigation history.
+- Added OpenRouter as a cloud AI provider.
+- It is now possible to use NAS or any external drive as a storage folder.
+
+**Improvements**
+- Calendar: skip recording an entire recurring series with one setting, set a default folder per series, start recordings inline from the Upcoming Meetings widget, and roll unanswered invitations into the tentative auto-record option.
+- Recordings started from a calendar invite or by hand now stop automatically when the meeting ends, including Google Meet.
+- Recordings are written to local storage first and synced forward to your storage folder afterwards, so a slow or network drive never slows down a recording. Your database and media can now live in separate locations.
+- Search moved from inline filter chips to a dedicated advanced search sheet — faster, less cluttered, and easier to filter by people, tags and dates.
+- Document list gets Default, Comfortable and Compact view modes, day grouping, and duration in the subtitle.
+- Model recommendations are now more conservative and tell you plainly when a model is too large for your Mac.
+- AI summaries render as a styled block with better formatting.
+- Cloud provider API keys are now stored in the macOS Keychain.
+
+**Bug Fixes**
+- Summit warns you if the microphone records no audio, or if the selected microphone is also your system output device.
+- Fixed live transcription splitting speech bubbles incorrectly mid-utterance.
+- Fixed newly identified speakers missing from the naming wizard, and stale speaker entries lingering after cleanup.
+- Parent folder counts now include documents in subfolders.
+- Fixed the upgrade sheet opening in the wrong window.
+- Fixed storage migration pulling in unrelated files, and added a warning when the chosen .
+- Fixed a search field that collapsed to zero width, and lost trailing spaces while typing.
+- Fixed calendar meeting rows showing recordings from previous occurrences.
+- Fixed several layout issues: bookmark button text wrapping, cramped floating record prompt, chat rename dialog, and truncated template names.
+- Errors during summarization are now surfaced instead of failing silently, and interrupter leave corrupt files behind.
+
+</ReleaseLayout>
