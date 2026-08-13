@@ -1,0 +1,74 @@
+---
+title: "Your Granola Meeting Notes Are Showing Up in Google"
+description: "Users are finding their Granola meeting notes indexed in DuckDuckGo search results. This is what 'cloud-stored' actually means for your meeting privacy."
+author: "Dima"
+publishedDate: 2026-03-03
+image: "/blog-granola-notes-indexed.jpg"
+imageAlt: "Meeting notes appearing in a search engine results page"
+tags: ["privacy", "meeting-notes", "cloud", "local-ai", "granola"]
+---
+
+Someone posted this on Reddit last week:
+
+> Has anyone else noticed their Granola meeting notes showing up in DuckDuckGo? I searched for a client's name and found a transcript from a call I had three months ago. The link was public.
+
+The thread blew up.
+
+Other users started checking. Some found their notes. Some didn't — but couldn't verify that they weren't indexed, just not found yet.
+
+Granola's response was to quietly patch the sharing settings. But the damage was done: people realized their "private" meeting notes were stored in a way that made them indexable by search engines.
+
+## How This Happens
+
+Cloud meeting notes tools have to store your transcripts somewhere. Usually that means:
+
+1. Your audio gets uploaded to their servers
+2. Transcription runs in the cloud
+3. The transcript gets stored in a database
+4. Notes and summaries get generated
+5. Everything lives on their infrastructure
+
+Step 3 is where it gets complicated. "Stored in a database" doesn't mean the same thing as "private." Database entries have URLs. URLs can be accessed without authentication if the permissions aren't configured correctly. Pages without authentication can be crawled by search engines.
+
+Most of the time, cloud tools get this right. But "most of the time" isn't good enough when the data is your client conversations, your business strategy, your sensitive negotiations.
+
+## This Is Granola's Whole Model
+
+Granola positions itself as the premium, no-bot meeting notes tool. No visible robot joining your calls. Just clean, AI-powered notes.
+
+But "no bot" doesn't mean "no cloud." Granola still uploads your audio. Still processes your transcript on their servers. Still stores your notes in their infrastructure.
+
+The absence of a bot in your call doesn't change what happens to your data after the call ends.
+
+## What "Local-First" Actually Means
+
+Local-first isn't a marketing term. It's an architectural choice with real consequences.
+
+When Summit records your meeting:
+- Audio stays on your Mac
+- Transcription runs locally (Whisper models, no internet required)
+- Notes are generated locally (or via your own API key)
+- Files are stored on your drive
+
+There's no URL for your notes. There's no database entry. There's no cloud infrastructure to misconfigure. There's nothing for a search engine to crawl.
+
+Your notes can't show up in DuckDuckGo because they don't exist on any server that DuckDuckGo can reach.
+
+This isn't a "we promise to be careful with your data" situation. It's a "the data never leaves your machine" situation. Those are fundamentally different.
+
+## The Trust Model
+
+Cloud tools ask you to trust:
+- Their security configuration
+- Their team's judgment on permissions
+- Their infrastructure not to be breached
+- Their business model not to change
+- Their terms of service to stay favorable
+
+Local-first tools don't ask for any of that trust. You control the data. It's on your machine. You can see it, move it, delete it, encrypt it — without asking anyone's permission.
+
+The Granola indexing incident isn't a bug. It's a preview of what "cloud-stored" means in practice: someone else controls your data, and sometimes they get it wrong.
+
+---
+
+[Download Summit](https://summitnotes.app) — meeting notes that can't be indexed, because they never leave your Mac.
