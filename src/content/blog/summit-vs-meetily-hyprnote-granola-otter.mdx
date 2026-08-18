@@ -1,0 +1,359 @@
+---
+title: "Summit vs Meetily vs Hyprnote, Granola, and Otter: Best AI Meeting Note Taker for Mac in 2026"
+description: "A practical comparison of Summit, Meetily, Hyprnote (now Anarlog), Granola, and Otter across local AI, offline use, privacy, setup, search, and price."
+author: "Dima"
+publishedDate: 2026-08-18
+image: "/blog-summit-vs-meetily-hyprnote-granola-otter.jpg"
+imageAlt: "A Mac running a private AI meeting notes app surrounded by five alternative meeting note interfaces"
+tags: ["comparisons", "meeting-notes", "local-ai", "privacy", "macos"]
+---
+
+The AI meeting notes market has a terminology problem.
+
+An app can be **bot-free** while still sending your meeting to the cloud. It can store audio locally but upload the transcript for summarization. It can call itself local-first while requiring a separate local model server before summaries work offline.
+
+Those are not minor technical differences. They determine whether you can use the product for an NDA-protected client call, a legal consultation, an internal strategy meeting, or a conversation your employer does not allow you to upload to a third party.
+
+This guide compares five popular approaches:
+
+- **Summit** — a native Mac meeting workspace with built-in local transcription and AI
+- **Meetily** — an open-source, cross-platform meeting assistant
+- **Hyprnote, now Anarlog** — an open-source, note-first meeting app
+- **Granola** — a polished, collaborative AI notepad with cloud processing
+- **Otter** — a mature cloud transcription and meeting-notes platform
+
+The short version: **Summit is the strongest fit when you want a complete local meeting workflow on a Mac without assembling Whisper, Ollama, and a separate notes system yourself.** Meetily is the better choice if open source or Windows support is non-negotiable. Anarlog is compelling if you actively write notes and want a forkable local-first app. Granola wins on cloud collaboration and integrations. Otter has the broadest mature cloud ecosystem.
+
+> **Research note:** This comparison was updated on August 18, 2026 from current product documentation, privacy pages, and published pricing. It is not presented as a controlled transcription benchmark. Features and prices can change, so follow the linked official sources before purchasing.
+
+## Quick picks
+
+| What you need | Best fit | Why |
+| --- | --- | --- |
+| A complete private meeting workflow on Mac | **Summit** | Local recording, transcription, speaker identification, summaries, search, and chat in one native app |
+| Open-source local meeting notes on Mac or Windows | **Meetily** | Free MIT-licensed Community edition, local transcription, and local or BYOK summaries |
+| A local-first notepad you can fork | **Hyprnote / Anarlog** | Rough notes, transcript, summary, local files, Markdown export, and your choice of AI stack |
+| The best collaborative AI-notepad experience | **Granola** | Polished note enhancement, shared folders, cross-meeting chat, and strong integrations |
+| An established cloud transcription platform | **Otter** | Live transcription, playback, mature search, mobile apps, workspaces, and admin features |
+
+## Bot-free, local, and offline are different claims
+
+Before comparing products, it helps to use stricter definitions.
+
+**Bot-free** means the app records the microphone and system audio from your computer instead of adding a visible participant to Zoom, Google Meet, or Teams.
+
+**Local transcription** means speech-to-text runs on your device. The audio does not need to be sent to a transcription provider.
+
+**Local AI summaries** means the transcript is summarized on your device too. An app with local transcription and cloud summaries is not fully local.
+
+**Offline** means the complete workflow can continue without an internet connection after the required models have been downloaded.
+
+For this guide, a product qualifies as **fully local** only when recording, transcription, summary generation, and storage can all remain on the computer. Optional cloud features do not disqualify a product, but the local path must be real and usable.
+
+## Comparison table
+
+<div className="overflow-x-auto my-8">
+  <table className="min-w-[980px] text-sm">
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>Fully local option</th>
+        <th>Offline</th>
+        <th>Bot-free</th>
+        <th>Open source</th>
+        <th>Platforms</th>
+        <th>Published price</th>
+        <th>Best for</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Summit</strong></td>
+        <td>Yes, with built-in local AI</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>macOS</td>
+        <td>15 recordings free; $12.99/mo, $89.99/yr, or $149.99 lifetime</td>
+        <td>A complete private workflow without assembling a local AI stack</td>
+      </tr>
+      <tr>
+        <td><strong>Meetily</strong></td>
+        <td>Yes, with local providers selected</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Community edition</td>
+        <td>macOS, Windows; source build for Linux</td>
+        <td>Community free; Pro $10/user/mo billed annually</td>
+        <td>Open-source users and cross-platform teams</td>
+      </tr>
+      <tr>
+        <td><strong>Hyprnote / Anarlog</strong></td>
+        <td>Yes, with on-device STT plus Ollama or LM Studio</td>
+        <td>Yes, after setup</td>
+        <td>Yes</td>
+        <td>Yes, MIT</td>
+        <td>macOS</td>
+        <td>Free</td>
+        <td>Note-first workflows, Markdown, and ownership of the stack</td>
+      </tr>
+      <tr>
+        <td><strong>Granola</strong></td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>macOS, Windows, iOS, Android</td>
+        <td>Basic free; Business $14/user/mo; Enterprise from $35/user/mo</td>
+        <td>Active note-takers, collaboration, and integrations</td>
+      </tr>
+      <tr>
+        <td><strong>Otter</strong></td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes in Desktop recording mode</td>
+        <td>No</td>
+        <td>Mac, Windows, web, iOS, Android</td>
+        <td>Basic free; Pro from $8.33/user/mo annually; Business $19.99/user/mo annually</td>
+        <td>Teams already committed to a cloud transcription workspace</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+Prices are in USD and may vary by billing period or region. “Fully local option” means the product **can** be configured so meeting content stays on the device; it does not mean every available provider or sync feature is local.
+
+## 1. Summit: best complete local meeting workflow for Mac
+
+**Local:** Yes  
+**Offline:** Yes, with built-in local AI  
+**Bot-free:** Yes  
+**Platform:** macOS  
+**Best for:** Consultants and professionals who want private meeting capture and a useful long-term meeting library
+
+[Summit](https://summitnotes.app) is built around a straightforward idea: a meeting note taker should remain useful after the summary has been generated.
+
+It records online and in-person meetings without joining as a bot, transcribes audio on the Mac, identifies speakers, and produces structured summaries and action items. The same library then supports full-text and semantic search, chat across one or multiple meetings, speaker and date filters, custom summary templates, and citations back to the relevant transcript segment.
+
+The important difference is that Summit includes a [built-in local AI option](/docs/setup/local-ai). You download a model inside the app and can generate summaries without installing Ollama, starting a local API server, or maintaining a separate model tool. Local models require an Apple Silicon Mac and enough memory for the selected model, but the setup remains inside Summit.
+
+Summit also supports cloud and self-hosted providers when you want a different quality, speed, or infrastructure tradeoff. Audio remains on the Mac; when a cloud LLM is selected, transcript text needed for the request is sent to that provider. Users who require a fully local workflow should select local transcription and local AI and avoid optional cloud features. The [Summit architecture page](/security/architecture) documents these boundaries in unusual detail.
+
+### Where Summit is stronger
+
+- **One coherent workflow:** recording, transcription, named speakers, summaries, templates, search, and chat live in the same application.
+- **Private without a separate AI stack:** built-in local models remove the need to configure Ollama or LM Studio for ordinary use.
+- **Meeting memory, not only meeting output:** search and cited chat help retrieve decisions and commitments across months of conversations.
+- **Flexible AI routing:** use built-in local AI for sensitive meetings, a self-hosted endpoint for organizational control, or an optional cloud provider when model quality matters more.
+- **Ownership pricing:** alongside monthly and annual plans, Summit currently offers a lifetime purchase.
+
+### Where Summit is weaker
+
+- It is macOS-only.
+- Built-in local AI requires Apple Silicon, disk space for models, and enough RAM.
+- It is not open source, so users cannot fork or audit the entire product in the way they can with Meetily or Anarlog.
+- It is designed primarily around an individual’s private meeting library. Granola and Otter have broader cloud collaboration and enterprise workspace features.
+- A local model may be slower or less capable than the largest hosted models, especially on a lower-memory Mac.
+
+**Bottom line:** Choose Summit when you want the privacy of local AI and the completeness of a polished meeting workspace, without turning model infrastructure into a second job.
+
+## 2. Meetily: best open-source option for Mac and Windows
+
+**Local:** Yes, when local transcription and summary providers are selected  
+**Offline:** Yes  
+**Bot-free:** Yes  
+**Platforms:** macOS and Windows, with a source build available for Linux  
+**Best for:** Open-source users, Windows users, and teams that want provider-level control
+
+[Meetily](https://meetily.ai) is the clearest choice in this comparison for someone who wants both an open-source Community edition and native support beyond the Mac.
+
+Meetily’s Community edition is MIT-licensed and free. Its current desktop application can transcribe locally and generate summaries with a local model. Meetily also supports BYOK and hosted providers, so the destination depends on the transcription and summary engines you select. Its [privacy documentation](https://github.com/Zackriya-Solutions/meetily/blob/main/PRIVACY_POLICY.md) says local Whisper keeps audio on the device, while external LLM providers receive content when the user chooses them.
+
+The product has also moved beyond its earlier developer-heavy architecture. Current releases package Meetily as a standalone app with an embedded local database. The [Community and Pro comparison](https://meetily.ai/pro) lists local transcription and summaries in both tiers, while Pro adds speaker identification, more accurate models, advanced exports, custom templates, auto-detection, and priority support. Pro is currently advertised at $10 per user per month when billed annually.
+
+### Where Meetily is stronger
+
+- Free, MIT-licensed Community edition
+- Native macOS and Windows applications
+- Local transcription and local-summary options
+- Source-code access and a self-hosting path
+- Broad provider choice for users who want local, BYOK, or hosted processing
+
+### Where Meetily is weaker
+
+- Some capabilities that professionals may consider fundamental, including speaker identification, are listed as Pro features.
+- Privacy depends on selecting the correct transcription and summary providers; choosing a hosted provider changes the data flow.
+- Its biggest advantage is control of the capture and AI stack. Summit puts more emphasis on the complete downstream knowledge workflow: persistent speaker organization, cross-meeting retrieval, cited chat, and a cohesive native Mac experience.
+- Open-source flexibility also means more decisions when you move beyond the default setup.
+
+**Bottom line:** Choose Meetily if open source, Windows support, or infrastructure control matters more than having the most integrated Mac-native meeting library.
+
+## 3. Hyprnote, now Anarlog: best local-first notepad for people who write during meetings
+
+**Local:** Yes, after configuring both local transcription and local intelligence  
+**Offline:** Yes, after models are prepared  
+**Bot-free:** Yes  
+**Platform:** macOS  
+**Best for:** People who actively take rough notes and want a free, forkable local-first app
+
+First, the naming update: **Hyprnote no longer exists under that name.** It was renamed to Char and then split into two products. The meeting notetaker is now **Anarlog**; Char is a separate agentic todo and productivity product. The company’s [May 2026 announcement](https://anarlog.so/blog/char-is-now-anarlog/) says Anarlog remains free, MIT-licensed, local-first, and community-maintained.
+
+Anarlog is closest to an **AI notepad** in this comparison. Instead of treating your own writing as an optional annotation on an automatic transcript, it encourages you to type rough notes while the app listens. After the meeting, the memo, transcript, and generated summary remain together.
+
+Its canonical meeting data is stored in local SQLite and can be exported as Markdown. On supported Apple Silicon Macs, transcription can run on-device. For local summaries and chat, Anarlog’s [offline guide](https://docs.anarlog.so/offline) instructs users to connect LM Studio or Ollama. Hosted transcription, hosted intelligence, sync, sharing, and cloud connectors are optional, but each sends the content required for that feature.
+
+### Where Anarlog is stronger
+
+- Free and MIT-licensed
+- Local-first files and Markdown export
+- A thoughtful workflow for combining human notes with AI context
+- Bot-free system-audio capture
+- Local, BYOK, and hosted provider choices
+- Forkable and self-hostable
+
+### Where Anarlog is weaker
+
+- A fully offline workflow requires separate model software such as LM Studio or Ollama for summaries and chat.
+- It is macOS-only.
+- The original team has moved its daily focus to Char. Anarlog is expected to receive community maintenance, patches, security fixes, and occasional features rather than the same product investment as an actively commercialized app.
+- Optional cloud sync, sharing, and connectors make “local-first” a configuration boundary, not a guarantee for every feature. Its [data-flow documentation](https://docs.anarlog.so/data-and-privacy) is worth reading before enabling them.
+
+**Bottom line:** Choose Anarlog if your meeting workflow starts with writing, you value Markdown and source ownership, and you are comfortable configuring a local intelligence provider.
+
+## 4. Granola: best cloud AI notepad for collaboration
+
+**Local:** No  
+**Offline:** No  
+**Bot-free:** Yes  
+**Platforms:** macOS, Windows, iOS, and Android  
+**Best for:** Active note-takers who prioritize UX, integrations, and shared context over strict on-device processing
+
+[Granola](https://www.granola.ai) is often mentioned beside local meeting tools because it is bot-free and feels like a desktop notepad. Architecturally, however, it belongs in a different category.
+
+Granola captures audio from the device without joining the call. You write rough notes during the conversation, then its AI enhances them with context from the transcript. The result is a polished hybrid of human emphasis and automatic recall. Shared folders, templates, cross-meeting chat, integrations, and team administration make it especially attractive to startups and collaborative teams.
+
+Granola is not local AI. Its [security page](https://www.granola.ai/security) says transcription and summarization use providers such as Deepgram, AssemblyAI, OpenAI, and Anthropic. Granola does not retain meeting audio, but it stores transcripts and user notes in an encrypted, US-hosted AWS Virtual Private Cloud.
+
+That is a meaningful privacy improvement over keeping a permanent cloud audio archive, but it does not meet a “meeting content must never leave this Mac” requirement.
+
+### Where Granola is stronger
+
+- Excellent active note-taking experience
+- No visible meeting bot
+- Strong shared folders, integrations, and collaborative workflows
+- AI chat within and across meetings
+- Broad desktop and mobile availability
+- No retained desktop meeting audio
+
+### Where Granola is weaker
+
+- Transcription and AI processing rely on cloud providers.
+- Transcripts and notes are stored in Granola’s cloud infrastructure.
+- It does not provide a fully offline meeting workflow.
+- There is no replayable audio archive because meeting audio is not stored.
+- The free plan offers limited accessible history; [current pricing](https://www.granola.ai/pricing) lists Business at $14 per user per month and Enterprise from $35.
+
+**Bottom line:** Choose Granola when collaboration and a refined AI-notepad workflow matter more than keeping the transcript and summary entirely on-device.
+
+## 5. Otter: best for teams already using a mature cloud transcription platform
+
+**Local:** No  
+**Offline:** No  
+**Bot-free:** Yes when recording through the desktop app  
+**Platforms:** Mac, Windows, web, iOS, and Android  
+**Best for:** Teams that want live transcription, playback, established collaboration, and enterprise administration
+
+[Otter](https://otter.ai) is the most established cloud transcription platform in this group. It provides live transcription, named-speaker identification, audio playback, search, AI chat, shared workspaces, integrations, mobile apps, and enterprise controls.
+
+Otter can work in two visibly different ways. OtterPilot can join supported meetings as a participant, while the [Otter desktop app](https://otter.ai/integrations/desktop) can capture a meeting from Mac or Windows without a bot. The second option reduces social friction, but it does not turn Otter into a local application. The captured meeting still enters Otter’s cloud service.
+
+This distinction matters for sensitive work. Otter’s current [privacy policy](https://otter.ai/privacy-policy) describes collecting meeting and uploaded information, audio recordings, speaker identification information, and other service data. It also describes using de-identified audio and transcriptions to improve and train proprietary AI technology. Organizations should evaluate the applicable account controls, agreements, consent requirements, and retention policies rather than assuming “desktop app” means “on-device AI.”
+
+### Where Otter is stronger
+
+- Mature live transcription and speaker workflows
+- Search, playback, editing, sharing, and exports
+- Web, desktop, and mobile access
+- Team administration and enterprise options
+- Both automated meeting-bot and bot-free desktop capture modes
+- Familiar workflow for organizations already using Otter
+
+### Where Otter is weaker
+
+- It is a cloud service, not a local or offline meeting system.
+- Free and Pro plans have transcription, history, import, or meeting-length limits.
+- The desktop app removes the visible bot but does not keep processing on the computer.
+- Its collaboration model creates more stored and shareable meeting artifacts than a local-only library.
+- Teams handling sensitive meetings need to review policy, retention, training, and enterprise-contract settings carefully.
+
+Otter’s [pricing page](https://otter.ai/pricing) currently lists a free Basic plan with 300 monthly transcription minutes, Pro from $8.33 per user per month on annual billing, and Business at $19.99 per user per month on annual billing.
+
+**Bottom line:** Choose Otter if your organization already accepts cloud transcription and values a mature shared platform. Do not choose it because you need meetings to remain offline or on-device.
+
+## Which tool should you choose?
+
+### Choose Summit if you want privacy without building infrastructure
+
+Summit is the best overall fit for a Mac professional who wants local recording, transcription, named speakers, summaries, search, and AI chat as one coherent workflow.
+
+The phrase “without setup” would be misleading: you still install the app and download a local model. The meaningful distinction is that you do **not** need to assemble and maintain a separate stack of recording software, Whisper, Ollama, a vector database, and a notes application.
+
+### Choose Meetily if open source or Windows support is mandatory
+
+Meetily gives you a free Community edition, source-code access, and native Windows support. It is the practical choice when platform breadth or auditability matters more than a deeply integrated Mac-only experience.
+
+### Choose Anarlog if you think by writing
+
+Anarlog is strongest when your rough notes are the center of the meeting document and AI is there to fill gaps, organize context, and generate a summary. It is also the most attractive option for people who want Markdown, MIT-licensed code, and a tool they can fork.
+
+### Choose Granola if your team runs in cloud tools
+
+Granola makes sense when shared folders, CRM connections, cross-meeting team context, and low-friction UX outweigh the requirement for offline processing. It is private by cloud SaaS standards, but it is not local.
+
+### Choose Otter if you already live in Otter
+
+Otter’s desktop capture is a useful improvement for teams that dislike visible meeting bots. Its ecosystem remains the reason to choose it—not local processing.
+
+## FAQ
+
+### What is the best local AI meeting note taker for Mac?
+
+For users who want a complete, polished local workflow, **Summit** is the strongest overall fit because recording, transcription, speaker identification, summaries, search, and cited chat are integrated in one Mac app. Meetily is better if you prioritize open source. Anarlog is better if your workflow centers on writing rough notes and controlling the underlying stack.
+
+### Is Summit fully local?
+
+It can be. With on-device transcription and Summit’s built-in local AI selected, recording, transcription, summaries, search, and chat can run on your Mac. If you select a cloud LLM, the transcript context needed for summarization or chat is sent to that provider. Audio remains local. Optional sync features have their own documented data flow.
+
+### Is Granola a local AI meeting note taker?
+
+No. Granola is bot-free and does not store desktop meeting audio, but it uses cloud transcription and AI providers and stores transcripts and notes in US-hosted cloud infrastructure.
+
+### What happened to Hyprnote?
+
+Hyprnote was renamed to Char and later split. The meeting-notetaker codebase is now called **Anarlog**. It remains a free, MIT-licensed, local-first Mac application. Char is now a separate AI productivity product.
+
+### Is Anarlog fully offline?
+
+It can be, after configuration. You need an on-device transcription model and a local intelligence provider such as LM Studio or Ollama. Hosted AI, cloud sync, connected calendars, cloud connectors, and share links require a network connection.
+
+### Is Meetily completely free?
+
+Meetily has a free MIT-licensed Community edition with transcription and summaries. Its paid Pro tier adds capabilities including speaker identification, more accurate models, advanced exports, custom templates, and support.
+
+### Is Otter local when I use its desktop app?
+
+No. Otter Desktop can record without adding a visible bot to the meeting, but Otter remains a cloud transcription and meeting-notes platform.
+
+### Do I still need permission if the tool is bot-free?
+
+Yes. Bot-free only describes the capture method. Recording and transcription consent requirements depend on the participants’ locations, your organization’s policies, and the context of the meeting.
+
+## Final verdict
+
+There is no universal winner because these tools solve different versions of the meeting-notes problem.
+
+Granola and Otter optimize for cloud convenience, sharing, and team workflows. Meetily and Anarlog optimize for openness and control. Summit’s advantage is the space between them: **a complete, private meeting workflow that feels like a finished Mac product rather than a collection of local AI components.**
+
+If you handle client calls, legal matters, healthcare conversations, internal strategy, or any meeting where cloud processing is difficult to approve, that difference is more important than having one more integration.
+
+[Try Summit free](https://summitnotes.app) with 15 recordings and see what a local meeting library feels like on your own Mac.
