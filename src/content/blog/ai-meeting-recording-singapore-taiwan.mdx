@@ -1,0 +1,139 @@
+---
+title: "Recording Meetings With AI in Singapore and Taiwan: An APAC Privacy Checklist"
+description: "A practical comparison of Singapore's PDPA and Taiwan's PIPA for AI meeting recording, transcription, summaries, vendors, and cross-border data."
+author: "Dima"
+publishedDate: 2026-08-18
+image: "/blog-ai-meeting-recording-singapore-taiwan.jpg"
+imageAlt: "A laptop meeting connecting Singapore and Taipei beside a consent shield and secure local folder"
+---
+
+Singapore and Taiwan do not share one rule for recording meetings with AI. Both regulate identifiable information, but their statutory structures, exceptions, notice requirements, and enforcement systems differ.
+
+The safest operational lesson is simple: do not reduce either jurisdiction to “one-party” or “all-party” consent. An AI meeting workflow can involve several separate acts—capturing audio, transcribing speech, identifying speakers, generating a summary, sharing notes, retaining files, and sending data to an overseas provider. Each needs a purpose and a defensible treatment.
+
+This checklist focuses on business meetings under Singapore's Personal Data Protection Act (PDPA) and Taiwan's Personal Data Protection Act (PIPA). It does not cover every communications, employment, sector, or criminal-law rule and is not legal advice.
+
+## Start by mapping the meeting-data lifecycle
+
+Before choosing a legal basis or drafting a notice, write down what the tool does:
+
+1. Does it capture microphone audio, system audio, or both?
+2. Is the recording retained, or discarded after transcription?
+3. Are speakers labelled by name, account, or voiceprint?
+4. Does a model create summaries, tasks, sentiment, or other inferences?
+5. Is any content used to train or improve a service?
+6. Which device, cloud region, vendor, and subprocessor receives the data?
+7. Who can search, export, correct, or delete the result?
+
+An answer such as “we only keep notes” is incomplete. A transcript or summary can still contain identifiable facts, opinions, performance information, health details, or confidential client material.
+
+## Singapore: the PDPA obligations to check
+
+Singapore's [PDPC overview of data-protection obligations](https://www.pdpc.gov.sg/overview-of-pdpa/the-legislation/personal-data-protection-act/data-protection-obligations) describes a connected set of duties rather than a single recording-consent switch.
+
+For an organisation using an AI note taker, the main obligations include:
+
+- **Accountability:** appoint a data-protection officer and maintain suitable policies and practices.
+- **Notification:** tell individuals the purposes for collecting, using, or disclosing their personal data.
+- **Consent:** obtain consent where required, subject to the Act's exceptions and deemed-consent provisions.
+- **Purpose limitation:** use data only for purposes a reasonable person would consider appropriate in the circumstances.
+- **Accuracy:** make reasonable efforts to keep personal data complete and accurate where it is likely to be used to make a decision or disclosed.
+- **Protection:** use reasonable security arrangements.
+- **Retention limitation:** stop retaining data when the business or legal purpose has ended and retention is no longer necessary.
+- **Transfer limitation:** protect personal data transferred outside Singapore to a standard comparable to the PDPA.
+- **Access and correction:** support applicable individual requests.
+- **Breach notification:** assess incidents and notify the PDPC and affected individuals where the statutory thresholds are met.
+
+The PDPC's [Advisory Guidelines on Key Concepts](https://www.pdpc.gov.sg/guidelines-and-consultation/2020/03/advisory-guidelines-on-key-concepts-in-the-personal-data-protection-act) are the starting point for applying these duties. Its [Selected Topics guidance](https://www.pdpc.gov.sg/guidelines-and-consultation/2020/02/advisory-guidelines-on-the-personal-data-protection-act-for-selected-topics) also addresses audio and video recordings, employment, and cloud services.
+
+### Common Singapore traps
+
+**“It is a work call, so it is only business contact information.”** The PDPA excludes business contact information in defined circumstances, but the substance of a recorded conversation usually extends beyond a person's business coordinates.
+
+**“An employee pressed Record, so the employee exemption applies.”** An individual acting as an employee may be excluded for acts done in the course of employment, but the organisation's own collection, use, and disclosure still need analysis.
+
+**“The AI exception covers all AI notes.”** The PDPC's [AI advisory guidelines](https://www.pdpc.gov.sg/guidelines-and-consultation/2024/02/advisory-guidelines-on-use-of-personal-data-in-ai-recommendation-and-decision-systems) focus on AI recommendation and decision systems. They are useful context, but they should not be treated as a blanket exemption or a perfect fit for every summarisation tool.
+
+## Taiwan: when voice and meeting content become personal data
+
+Taiwan's PIPA regulates the collection, processing, and use of personal data by government and non-government agencies. Its definition covers information that can directly or indirectly identify a natural person.
+
+That matters for voice recordings. In an official interpretation, Taiwan's Ministry of Justice explained that [telephone-recording content can be personal data when it can directly or indirectly identify an individual](https://mojlaw.moj.gov.tw/LawContentExShow.aspx?etype=etype5&id=FE253692). A voice clip does not have to be a biometric template before privacy law becomes relevant.
+
+For a private organisation, a meeting workflow should be tested against:
+
+- the permitted grounds for collection or processing under Article 19;
+- the notice items under Article 8, including the collecting entity, purpose, categories of data, period, area, recipients or methods of use, rights, and consequences of not providing data;
+- the purpose limits and exceptions governing use under Article 20;
+- security, retention, correction, deletion, and data-subject rights; and
+- any applicable sector rules or government restrictions on international transfers.
+
+The [Ministry of Justice's English PIPA text](https://mojlaw.moj.gov.tw/ENG/LawContentE.aspx?LSID=FL010627) is a useful reference, but the official Chinese text controls if translations differ.
+
+Taiwan's PIPA analysis is not identical to the separate question of whether making a particular recording is lawful under civil, criminal, communications, workplace, or professional rules. Avoid turning privacy-law notice into a universal claim that every Taiwan meeting follows one consent formula.
+
+## Singapore and Taiwan at a glance
+
+| Issue | Singapore | Taiwan |
+| --- | --- | --- |
+| Core private-sector law | Personal Data Protection Act 2012 | Personal Data Protection Act |
+| Is identifiable meeting audio personal data? | Generally yes when an individual can be identified | Yes when the content directly or indirectly identifies an individual |
+| Notice | Notify purposes before or at collection, subject to the statutory framework | Article 8 lists detailed notice items, subject to exceptions |
+| Consent or collection ground | Consent, deemed consent, or an applicable exception | A ground under Article 19 for non-government agencies |
+| Use | Limited to notified and reasonable purposes, subject to exceptions | Generally within the specific collection purpose, subject to Article 20 exceptions |
+| Overseas vendors | Transfer Limitation Obligation applies | Review PIPA, sector rules, contracts, and any competent-authority restrictions |
+| Employee context | Employment-related provisions and exceptions require careful scoping | Employment and sector rules can affect the analysis |
+
+## A cross-border meeting checklist
+
+Use this before turning on an AI assistant for a Singapore–Taiwan call:
+
+### 1. Give notice before capture
+
+Identify the organiser, the fact that audio will be processed, the purpose of transcription and summarisation, what will be retained, who receives it, and how participants can raise a concern. Do not hide AI processing inside a generic meeting invitation.
+
+### 2. Confirm the legal route in each jurisdiction
+
+Document the relevant Singapore consent, deemed-consent, or exception analysis and the Taiwan Article 19 collection ground. Then assess any separate recording, employment, regulated-sector, or contractual constraints.
+
+### 3. Offer a workable alternative
+
+If someone objects, be ready to disable capture, take manual notes, or hold an unrecorded segment. An “alternative” that excludes the person from a necessary work meeting may not be meaningful.
+
+### 4. Minimise what the tool collects
+
+Disable video, emotion inference, voice identification, or full-audio retention unless the purpose genuinely requires it. Separate contact data from sensitive discussion and avoid recording privileged, health, disciplinary, or trade-secret material by default.
+
+### 5. Review vendors and transfers
+
+Record the hosting region, subprocessors, training terms, retention defaults, encryption, access controls, incident process, and deletion behaviour. A contractual promise is not enough if the actual product sends content elsewhere.
+
+### 6. Set a short, enforceable retention period
+
+Raw audio, transcript, generated summary, model cache, backup, and exported notes may have different lifecycles. Define each one and test deletion.
+
+### 7. Human-review the notes
+
+AI summaries can omit qualifications, assign an action to the wrong person, or turn a tentative idea into a decision. Review before sharing or using notes in an evaluation, dispute, customer commitment, or other consequential process.
+
+## Why local processing can simplify the risk map
+
+When recording, transcription, and summarisation remain on a user's device, fewer vendors may receive the raw conversation. That can reduce cross-border transfers, subprocessors, and third-party retention—important issues under both Singapore's transfer rules and Taiwan's data-governance framework.
+
+Summit can run [meeting capture and AI locally on a Mac](/blog/zero-cloud-ai-meeting-notes), without adding a bot to the call. It also offers optional cloud and self-hosted model configurations, so the relevant assessment is the configuration an organisation enables, not the product name alone.
+
+Local processing does not eliminate notification, purpose, legal-ground, security, retention, or recording-law duties. It is a data-flow choice that can make minimisation and control easier to demonstrate.
+
+## The operating rule
+
+For Singapore and Taiwan, treat every AI-recorded meeting as a data lifecycle, not a consent pop-up. State the purpose before capture, establish the legal route, minimise collection, review overseas recipients, provide an alternative, and keep only what the organisation needs.
+
+### Primary sources
+
+- [Singapore PDPC: Data Protection Obligations](https://www.pdpc.gov.sg/overview-of-pdpa/the-legislation/personal-data-protection-act/data-protection-obligations)
+- [Singapore PDPC: Advisory Guidelines on Key Concepts](https://www.pdpc.gov.sg/guidelines-and-consultation/2020/03/advisory-guidelines-on-key-concepts-in-the-personal-data-protection-act)
+- [Singapore PDPC: Advisory Guidelines for Selected Topics](https://www.pdpc.gov.sg/guidelines-and-consultation/2020/02/advisory-guidelines-on-the-personal-data-protection-act-for-selected-topics)
+- [Taiwan Ministry of Justice: Personal Data Protection Act](https://mojlaw.moj.gov.tw/ENG/LawContentE.aspx?LSID=FL010627)
+- [Taiwan Ministry of Justice: Interpretation concerning identifiable call recordings](https://mojlaw.moj.gov.tw/LawContentExShow.aspx?etype=etype5&id=FE253692)
+
+[Try Summit on macOS](https://summitnotes.app) for a local-first, bot-free meeting workflow.
