@@ -1,0 +1,115 @@
+---
+title: "Does the EU AI Act Require AI Meeting Assistants to Announce Themselves?"
+description: "When Article 50 requires AI disclosure, when it probably does not, and why meeting-recording notice still matters under European privacy law."
+author: "Dima"
+publishedDate: 2026-08-18
+image: "/blog-eu-ai-act-meeting-assistants.jpg"
+imageAlt: "A laptop meeting beside an AI notification bell and privacy shield with a European star motif"
+---
+
+The short answer is: **sometimes, but not simply because software is transcribing a meeting**.
+
+Article 50 of the EU AI Act applies from 2 August 2026. It creates transparency duties for several specific uses of AI, including systems that interact directly with people, certain synthetic content, emotion recognition, biometric categorisation, deepfakes, and some AI-generated text published to inform the public. It does not create a universal rule saying every background AI meeting assistant must announce itself.
+
+That is only half the compliance picture. Recording, transcribing, identifying speakers, and generating notes can also engage the GDPR, national employment rules, confidentiality duties, and country-specific communications or recording laws. An assistant can fall outside one Article 50 disclosure category and still require clear notice—or a stronger legal basis—under another rule.
+
+This guide separates those questions. It is general information, not legal advice.
+
+## What changed on 2 August 2026?
+
+The [European Commission's Article 50 guidance page](https://digital-strategy.ec.europa.eu/en/policies/guidelines-ai-transparency-obligations) says the AI Act's transparency obligations now apply. The Commission also [announced the start of enforcement](https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august) for the rules that entered into application on that date.
+
+For meeting assistants, the important distinction is between obligations on:
+
+- **Providers**, such as the company that develops an AI system; and
+- **Deployers**, meaning the organisation or person using an AI system under its authority, outside a purely personal, non-professional activity.
+
+Article 50 contains different duties for each. The exact role can also depend on how a product is configured, branded, or substantially modified.
+
+## The four Article 50 categories that can touch meetings
+
+### 1. AI systems that interact directly with people
+
+Under Article 50(1), providers must design systems intended to interact directly with natural persons so those people are informed that they are interacting with AI—unless that is obvious to a reasonably well-informed, observant, and circumspect person in the circumstances.
+
+This is the clearest route to an AI announcement when a meeting assistant is an active participant. Examples could include an assistant that joins the call, answers questions, asks follow-ups, or accepts spoken commands from attendees.
+
+A silent, background transcriber is harder to classify as direct interaction. It processes participants' speech, but participants may be talking to each other rather than interacting with the AI. The statutory wording does not by itself settle every product design, so organisations should document their reasoning instead of treating “passive” as a safe harbour.
+
+### 2. AI-generated or manipulated content
+
+Article 50(2) requires providers of systems generating synthetic audio, image, video, or text content to mark outputs in a machine-readable format and make them detectable as artificially generated or manipulated, subject to stated exceptions.
+
+That provider-side duty is different from making a spoken announcement at the start of a call. It may still affect how AI-generated meeting summaries or reconstructed audio are produced and exported.
+
+### 3. Emotion recognition and biometric categorisation
+
+Under Article 50(3), deployers of an emotion-recognition or biometric-categorisation system must inform people exposed to the system and process personal data in accordance with the GDPR and other applicable law.
+
+Ordinary speaker labels—“Speaker 1” and “Speaker 2”—are not automatically biometric identification, biometric categorisation, or emotion recognition. The risk changes if a tool uses voiceprints to identify a person, infers sensitive categories, or claims to infer emotions from voice or behaviour. Read our deeper guide to [voice recordings and biometric data under the GDPR](/blog/gdpr-voice-recordings-biometric-data).
+
+### 4. Deepfakes and public-interest text
+
+Article 50(4) requires deployers to disclose certain deepfakes and AI-generated or manipulated text published to inform the public on matters of public interest. It includes qualifications, including for text that has undergone human review or editorial control where a person holds editorial responsibility.
+
+An internal action-item list or private client-call summary is generally not the same as publishing public-interest information. A business that turns meeting material into public reports, however, should assess the actual output and publication context.
+
+## Three common meeting-assistant designs
+
+| Design | Article 50 announcement? | Other notice issues |
+| --- | --- | --- |
+| A local app silently captures system audio and creates private notes | Not automatically under the direct-interaction rule; assess the full feature set | GDPR transparency, recording law, workplace rules, and confidentiality can still require notice |
+| A named bot joins the call but only records and transcribes | The bot's presence is relevant, but presence alone does not answer whether attendees “interact directly” with AI | Clear recording/transcription notice remains prudent and may be legally required |
+| An AI agent speaks, responds, or asks attendees questions | Much more likely to be a direct-interaction system requiring an AI disclosure | Recording and personal-data duties apply in parallel |
+
+These are risk indicators, not formal classifications. Features such as live coaching, sentiment analysis, voice identification, and automated decisions can change the analysis.
+
+## The AI Act does not replace meeting-recording law
+
+The [AI Act's official text](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) makes clear that EU data-protection law continues to apply. For an identifiable meeting participant, audio, transcript text, speaker names, attendance, and inferred action items can all be personal data.
+
+A GDPR assessment commonly covers:
+
+- who controls the processing and which vendors act as processors;
+- the purpose and legal basis for capture, transcription, summarisation, and reuse;
+- what participants are told, when they are told, and how they can object;
+- whether the data is adequate, relevant, and limited to what is necessary;
+- retention, deletion, access, correction, and security;
+- international transfers and downstream subprocessors; and
+- employee-monitoring or works-council requirements.
+
+Consent is not the only possible GDPR legal basis, and it is not always valid in an employment relationship. Separately, national rules about recording communications differ across the EU/EEA. A single “EU consent rule” is therefore not a sound operating policy.
+
+## A practical disclosure checklist
+
+Before deploying an AI meeting assistant in Europe:
+
+1. **Map what the assistant actually does.** Recording, live transcription, voice identification, sentiment analysis, summarisation, and training are distinct operations.
+2. **Identify interaction.** Does the assistant merely listen, or can participants address it and receive responses?
+3. **Check special features.** Treat emotion inference, voiceprints, sensitive categorisation, and synthetic audio as separate review triggers.
+4. **Separate AI disclosure from recording notice.** One message can cover both, but the legal questions are different.
+5. **Use plain language before capture starts.** Name the purpose, data types, storage location, retention period, recipients, and a contact or opt-out route where applicable.
+6. **Provide a non-recorded alternative.** This is especially important where consent is relied upon or an employee or client cannot freely agree.
+7. **Keep evidence.** Preserve the configuration, notice shown, policy version, and decision record behind the classification.
+
+## Where local, bot-free processing helps—and where it does not
+
+A local-first assistant can reduce the number of parties receiving raw meeting audio. It can also simplify transfer mapping, retention controls, and security review when recording, transcription, and summarisation stay on a user's Mac.
+
+That is the architecture Summit supports: [local recording, transcription, and AI processing](/blog/zero-cloud-ai-meeting-notes) can run on-device, without a meeting bot. Summit also supports optional cloud and self-hosted providers, so administrators should assess the configuration actually used.
+
+Local processing is not a waiver of Article 50, the GDPR, recording law, or professional duties. Participants can still deserve—or legally require—notice that their words are being captured and transformed into notes. The defensible claim is narrower: keeping data local can reduce disclosure, transfer, and vendor exposure while giving an organisation more direct control over its meeting records.
+
+## The practical answer
+
+Do AI meeting assistants have to announce themselves under the EU AI Act? **An assistant designed to interact directly with attendees may require an AI disclosure. A passive transcriber is not automatically covered by that particular rule.** Emotion-recognition, biometric-categorisation, deepfake, and public-interest-publication features bring separate Article 50 duties.
+
+Whatever the Article 50 result, run a second analysis for privacy, recording, employment, and confidentiality rules. “The AI Act does not require an announcement” is not the same as “no notice is required.”
+
+### Primary sources
+
+- [Regulation (EU) 2024/1689, including Article 50](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
+- [European Commission: Guidelines on AI system transparency obligations](https://digital-strategy.ec.europa.eu/en/policies/guidelines-ai-transparency-obligations)
+- [European Commission: Enforcement and transparency requirements from 2 August 2026](https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august)
+
+[Try Summit on macOS](https://summitnotes.app) to explore a bot-free, local-first approach to meeting notes.
