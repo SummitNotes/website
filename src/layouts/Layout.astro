@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import PostHog from '../components/posthog.astro';
+import AppStoreCampaign from '../components/AppStoreCampaign.astro';
 import JsonLd from '../components/JsonLd.astro';
 import CookieConsent from '../components/CookieConsent';
 import { breadcrumbSchema, organizationSchema, websiteSchema, type Crumb, type SchemaNode } from '../lib/schema';
@@ -49,6 +50,7 @@ const graph = [
 
     <title>{title}</title>
     <PostHog />
+    <AppStoreCampaign />
     <JsonLd nodes={graph} />
 
     <style is:inline>

@@ -94,6 +94,22 @@ npm run build
 npm run preview
 ```
 
+### Campaign Attribution
+
+Paid ads tag the landing URL with `utm_*`, which PostHog reads. Those parameters
+do not survive the jump to the App Store — Apple reads only its own `pt`/`ct`
+pair, carried on the store link itself.
+
+`src/components/AppStoreCampaign.astro` bridges the two: it remembers the first
+ad click (session storage, or local storage for 90 days once analytics consent is
+given) and stamps the matching `ct` onto every `apps.apple.com` link on the page.
+Installs then appear in App Store Connect → App Analytics → Acquisition →
+Campaigns.
+
+To add a campaign, create it in App Store Connect first, then map its `utm_source`
+to the exact campaign token in `CAMPAIGN_BY_SOURCE` in `src/lib/campaign.ts`.
+Sources with no entry keep a clean store link and stay unattributed.
+
 ### Deployment
 
 The site is fully static and can be deployed to Vercel, Netlify, GitHub Pages, or any static host.

@@ -1,0 +1,158 @@
+---
+/**
+ * Carries paid-campaign attribution from the landing URL onto the App Store link.
+ *
+ * Ads tag the site visit with `utm_*`; those parameters are lost the moment the
+ * visitor leaves for the App Store, which reads only Apple's own `pt`/`ct` pair.
+ * This bridges the two: remember the ad click, then stamp `ct` onto every
+ * Download link so the install shows up under the right campaign in App Store
+ * Connect. See src/lib/campaign.ts for the tokens and the mapping.
+ *
+ * The click is remembered first-touch because the landing page is seldom the
+ * page that converts — reading `utm_*` off the current URL alone would lose
+ * every visitor who read a blog post before downloading.
+ */
+---
+
+<script>
+  import {
+    ATTRIBUTION_STORAGE_KEY,
+    CONSENT_STORAGE_KEY,
+    attributionFromSearch,
+    attributionProperties,
+    isFreshAttribution,
+    preferredAttribution,
+    withCampaign,
+    type Attribution,
+  } from "../lib/campaign";
+
+  const LINK_SELECTOR = 'a[href*="apps.apple.com"]';
+
+  /**
+   * Storage is unavailable in more cases than it looks: private windows, blocked
+   * cookies, embedded webviews. Safari only throws on use, so probe once here
+   * rather than wrapping every later call.
+   */
+  function openStorage(store: Storage | undefined): Storage | null {
+    try {
+      if (!store) return null;
+      const probe = "__summit_probe__";
+      store.setItem(probe, "1");
+      store.removeItem(probe);
+      return store;
+    } catch {
+      return null;
+    }
+  }
+
+  const localStore = openStorage(window.localStorage);
+  const sessionStore = openStorage(window.sessionStorage);
+
+  /**
+   * Analytics consent decides *where* the click is kept, not whether campaigns
+   * work. Granted, it persists across visits; otherwise it lives in session
+   * storage, which still covers the visit where someone browses before
+   * downloading but is gone when the tab closes.
+   */
+  function consentGranted(): boolean {
+    return localStore?.getItem(CONSENT_STORAGE_KEY) === "granted";
+  }
+
+  function readStored(): Attribution | null {
+    for (const store of [localStore, sessionStore]) {
+      const raw = store?.getItem(ATTRIBUTION_STORAGE_KEY);
+      if (!store || !raw) continue;
+      try {
+        const parsed: unknown = JSON.parse(raw);
+        if (isFreshAttribution(parsed)) return parsed;
+      } catch {
+        // Unparseable — fall through and clear it.
+      }
+      store.removeItem(ATTRIBUTION_STORAGE_KEY);
+    }
+    return null;
+  }
+
+  /**
+   * Writes the click to whichever store the current consent allows, and clears
+   * the other one. Running on every page load is what moves an existing record
+   * across when consent is granted or withdrawn.
+   */
+  function persist(attribution: Attribution): void {
+    const granted = consentGranted();
+    const target = granted ? localStore : sessionStore;
+    const stale = granted ? sessionStore : localStore;
+    try {
+      target?.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(attribution));
+    } catch {
+      // Out of quota. The link still gets its token for this page view.
+    }
+    stale?.removeItem(ATTRIBUTION_STORAGE_KEY);
+  }
+
+  const attribution = preferredAttribution(
+    readStored(),
+    attributionFromSearch(window.location.search),
+  );
+  if (attribution) persist(attribution);
+
+  const token = attribution?.ct ?? null;
+
+  // Read by the inline PostHog snippet, so a download event can be joined to
+  // the campaign that App Analytics will credit.
+  window.summitCampaign = {
+    token,
+    attribution,
+    properties: attributionProperties(attribution),
+  };
+
+  function applyToLink(link: HTMLAnchorElement): void {
+    if (!token) return;
+    const next = withCampaign(link.href, token);
+    if (next !== link.href) link.setAttribute("href", next);
+  }
+
+  function applyToAll(): void {
+    document.querySelectorAll<HTMLAnchorElement>(LINK_SELECTOR).forEach(applyToLink);
+  }
+
+  if (token) {
+    applyToAll();
+
+    // Most Download buttons live in React islands that hydrate after this runs,
+    // and rewriting the href (rather than only intercepting clicks) keeps
+    // middle-click, ⌘-click and "copy link address" attributed too.
+    if (typeof MutationObserver !== "undefined") {
+      let scheduled = false;
+      new MutationObserver(() => {
+        if (scheduled) return;
+        scheduled = true;
+        requestAnimationFrame(() => {
+          scheduled = false;
+          applyToAll();
+        });
+      }).observe(document.documentElement, { childList: true, subtree: true });
+    }
+
+    // Last line of defence: a link rendered between the observer's last pass and
+    // the click still leaves with its campaign attached. Capture phase, so the
+    // href is final before anything else inspects it.
+    for (const type of ["click", "auxclick"]) {
+      document.addEventListener(
+        type,
+        (event) => {
+          const target = event.target;
+          if (!(target instanceof Element)) return;
+          const link = target.closest<HTMLAnchorElement>(LINK_SELECTOR);
+          if (link) applyToLink(link);
+        },
+        true,
+      );
+    }
+  }
+
+  // The banner writes consent without a reload; move the record to match.
+  window.addEventListener("cookie-consent", () => {
+    if (attribution) persist(attribution);
+  });
+</script>

@@ -66,13 +66,28 @@
 
   // Track all App Store download clicks
   document.addEventListener('click', function(e) {
-    var el = e.target.closest('a[href*="apps.apple.com/app/summit"]');
+    var el = e.target.closest && e.target.closest('a[href*="apps.apple.com"]');
     if (el) {
-      var source = el.className || el.closest('[class]')?.className || 'unknown';
-      posthog.capture('download_clicked', {
+      var properties = {
         source: el.getAttribute('data-source') || document.title || window.location.pathname,
         url: window.location.href,
-      });
+        // Where the link actually points once AppStoreCampaign.astro has
+        // stamped it — this runs in the bubble phase, that rewrite in capture.
+        destination: el.href,
+      };
+
+      // First-touch campaign, so PostHog and App Store Connect can be read
+      // side by side: same visitor, same campaign token.
+      var campaign = window.summitCampaign;
+      if (campaign && campaign.properties) {
+        for (var key in campaign.properties) {
+          if (Object.prototype.hasOwnProperty.call(campaign.properties, key)) {
+            properties[key] = campaign.properties[key];
+          }
+        }
+      }
+
+      posthog.capture('download_clicked', properties);
     }
   });
 </script>
