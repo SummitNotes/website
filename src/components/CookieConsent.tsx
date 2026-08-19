@@ -4,13 +4,28 @@ const CONSENT_KEY = "summit-cookie-consent";
 
 type Consent = "granted" | "denied" | null;
 
+// Storage can be unavailable outright — private windows, embedded webviews,
+// a strict enterprise policy. The banner has to survive that: analytics runs
+// in its pending state until someone answers, so a visitor who cannot be
+// asked is a visitor being measured with no way to say no.
 function getConsent(): Consent {
   if (typeof window === "undefined") return null;
-  return localStorage.getItem(CONSENT_KEY) as Consent;
+  try {
+    return localStorage.getItem(CONSENT_KEY) as Consent;
+  } catch {
+    // Unreadable — treated as undecided, so the banner is shown.
+    return null;
+  }
 }
 
 function setConsent(value: "granted" | "denied") {
-  localStorage.setItem(CONSENT_KEY, value);
+  try {
+    localStorage.setItem(CONSENT_KEY, value);
+  } catch {
+    // Unwritable, so the choice cannot outlive the tab and the banner will
+    // ask again next visit. The event below still applies it here and now,
+    // which is what makes "No thanks" mean something on this page load.
+  }
   // Dispatch event so the inline PostHog script can react
   window.dispatchEvent(new CustomEvent("cookie-consent", { detail: value }));
 }
@@ -58,12 +73,14 @@ export default function CookieConsent() {
 
         <div className="pr-8">
           <p className="text-sm font-semibold text-foreground mb-1">
-            One cookie. That's it.
+            One cookie, and only if you say so.
           </p>
           <p className="text-xs text-muted-foreground leading-relaxed mb-3">
-            We use a single, privacy-focused analytics cookie (PostHog, EU-hosted)
-            to understand how people use our site. No ads, no trackers, no profiling.
-            And yes — you can opt out even from this one.
+            We count page views and clicks on Download without any cookie —
+            nobody is identified, and nothing outlives the tab you close.
+            Accept, and a single analytics cookie (PostHog, EU-hosted) lets us
+            follow one visit from page to page. Decline, and we stop counting
+            you altogether. No ads, no trackers, no profiling either way.
           </p>
         </div>
 

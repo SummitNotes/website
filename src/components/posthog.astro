@@ -31,7 +31,7 @@
           return u.toString(1) + '.people (stub)';
         };
         o =
-          'capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId'.split(
+          'capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId startSessionRecording stopSessionRecording'.split(
             ' '
           );
         for (n = 0; n < o.length; n++) g(u, o[n]);
@@ -40,25 +40,130 @@
       (e.__SV = 1));
   })(document, window.posthog || []);
 
-  // Initialize PostHog — respect cookie consent
-  var consentKey = 'summit-cookie-consent';
-  var consent = localStorage.getItem(consentKey);
+  /**
+   * Consent decides *how* a visitor is measured, not *whether* they are.
+   *
+   * PostHog used to start with `opt_out_capturing_by_default`, so nothing at
+   * all was sent until someone accepted the banner. On a site whose audience
+   * is selected for caring about being tracked, that does not measure less —
+   * it measures the wrong people. Acceptance skews towards the visitors least
+   * bothered by analytics, which is close to the opposite of the people who
+   * buy, so every funnel was drawn from the least representative slice of the
+   * traffic and the totals under it were unusable.
+   *
+   * Three states:
+   *
+   *   granted — cookies and local storage, one identity across pages and
+   *             visits, session replay: everything PostHog normally does.
+   *   pending — page views and download clicks, and nothing else: no
+   *             autocapture, no heatmaps, no replay. Analytics writes nothing
+   *             to the device — no cookie, no local storage, no identifier
+   *             that outlives the page — so every page load is a fresh
+   *             anonymous id and this cohort answers "how many" rather than
+   *             "who went where" (see the note on cookieless mode below).
+   *             The one thing kept before consent is the ad tags of a paid
+   *             landing, held in session storage until the tab closes; see
+   *             AppStoreCampaign.astro.
+   *   denied  — nothing is captured at all. "No thanks" on a banner offering
+   *             analytics means no analytics, not quieter analytics.
+   *
+   * Counting the pending state rests on the reading that analytics which
+   * writes nothing to the device and identifies nobody falls outside the
+   * ePrivacy consent requirement. That is a legal position as much as a
+   * technical one, and it is taken deliberately.
+   */
+  var CONSENT_KEY = 'summit-cookie-consent';
+  var consent = null;
+  try {
+    consent = window.localStorage.getItem(CONSENT_KEY);
+  } catch (err) {
+    // Storage disabled entirely; treat as undecided and stay storage-free.
+  }
+
+  var granted = consent === 'granted';
+  var denied = consent === 'denied';
+
+  // Read by before_send below, so it has to be reassignable: the banner can
+  // change the answer without a reload.
+  var consentState = granted ? 'granted' : denied ? 'denied' : 'pending';
 
   posthog.init('phc_KsfKIYbgWzvjQA4c2XMhwghaLGmNyNWmLqJIp1Iujeq', {
     api_host: 'https://s.summitnotes.app',
     ui_host: 'https://eu.posthog.com',
     defaults: '2026-01-30',
     person_profiles: 'identified_only',
-    persistence: consent === 'granted' ? 'localStorage+cookie' : 'memory',
-    opt_out_capturing_by_default: consent !== 'granted',
+    persistence: granted ? 'localStorage+cookie' : 'memory',
+    opt_out_capturing_by_default: denied,
+    // The opt-out flag itself has to survive the page load, or a visitor who
+    // declined would be asked again forever. Local storage, never a cookie.
+    opt_out_capturing_persistence_type: 'localStorage',
+    // Everything below is off before consent, so that what is collected is
+    // exactly what the banner and the cookie policy say: page views and
+    // download clicks.
+    //
+    // Autocapture in particular would send an event for every click, input
+    // and submit on the page, carrying the text and attributes of whatever
+    // was touched. That is a far wider collection than "we count visits", and
+    // the case for measuring without consent rests on it being narrow.
+    // Session replay is not even arguable — it records what someone typed and
+    // looked at.
+    autocapture: granted,
+    capture_heatmaps: granted,
+    capture_performance: granted,
+    disable_session_recording: !granted,
+    // Lets every metric be read twice: over everyone, and over the consenting
+    // cohort alone. The gap between the two is the measurement bias itself.
+    //
+    // Declared in the config rather than registered as a super property, for
+    // two reasons. It then applies to every event including the automatic
+    // initial page view, without depending on when the snippet replays its
+    // queued calls relative to that capture. And it reads a variable, so the
+    // banner changing the answer mid-visit needs no second registration.
+    before_send: function(event) {
+      if (event) {
+        event.properties = event.properties || {};
+        event.properties.consent_state = consentState;
+      }
+      return event;
+    },
   });
+
+  /**
+   * Note on the pending cohort, for whoever reads these numbers.
+   *
+   * Without storage there is no identifier that survives a navigation, and
+   * this site is static, so every link is a full page load. That cohort's
+   * page views cannot be chained: unique visitors and sessions inflate
+   * towards the page-view count, and a page-to-page funnel over them is
+   * meaningless. Totals, download clicks and per-page breakdowns are sound.
+   *
+   * PostHog can recover the chain without touching the device — "cookieless
+   * server hash mode", which derives a short-lived identity server-side and
+   * is enabled per project, then `cookieless_mode: 'always'` here. It is off
+   * for this project today, and events sent in cookieless mode while it is
+   * off are dropped, so the two have to be turned on together.
+   */
 
   // Listen for consent changes from the banner
   window.addEventListener('cookie-consent', function(e) {
     if (e.detail === 'granted') {
+      consentState = 'granted';
+      posthog.set_config({
+        persistence: 'localStorage+cookie',
+        autocapture: true,
+        capture_heatmaps: true,
+        capture_performance: true,
+      });
       posthog.opt_in_capturing();
-      posthog.set_config({ persistence: 'localStorage+cookie' });
+      // Queued on the stub if the library is still loading, which is why the
+      // snippet's method list above carries it.
+      if (typeof posthog.startSessionRecording === 'function') {
+        posthog.startSessionRecording();
+      }
     } else {
+      consentState = 'denied';
+      // Clears anything already stored, which matters for the visitor who
+      // accepted first and changed their mind after.
       posthog.opt_out_capturing();
       posthog.set_config({ persistence: 'memory' });
     }
@@ -69,7 +174,9 @@
     var el = e.target.closest && e.target.closest('a[href*="apps.apple.com"]');
     if (el) {
       var properties = {
-        source: el.getAttribute('data-source') || document.title || window.location.pathname,
+        // Which button was pressed, not which page — the page is already in
+        // `url`. Every App Store link on the site carries a `data-source`.
+        source: el.getAttribute('data-source') || 'unattributed',
         url: window.location.href,
         // Where the link actually points once AppStoreCampaign.astro has
         // stamped it — this runs in the bubble phase, that rewrite in capture.
