@@ -189,21 +189,27 @@ export function isFreshAttribution(value: unknown, now = Date.now()): value is A
 }
 
 /**
- * Chooses between what is already remembered and what this visit carries.
+ * Chooses between two remembered clicks — an earlier one and this visit's, or
+ * the copies held in local and session storage.
  *
- * First touch wins, with one exception: a stored click that maps to no campaign
- * yields to one that does. Without it a visitor who arrived from search months
- * ago and only now clicked a LinkedIn ad would install with no `ct`, and the
- * campaign that actually earned the install would report zero.
+ * First touch wins, with one exception: a click that maps to no campaign yields
+ * to one that does. Without it a visitor who arrived from search months ago and
+ * only now clicked a LinkedIn ad would install with no `ct`, and the campaign
+ * that actually earned the install would report zero.
+ *
+ * Deliberately symmetric. Comparing timestamps rather than trusting argument
+ * order is what keeps two tabs that arrived from different ads from letting
+ * whichever one happens to be read first override the earlier click.
  */
 export function preferredAttribution(
-  stored: Attribution | null,
-  current: Attribution | null,
+  a: Attribution | null,
+  b: Attribution | null,
 ): Attribution | null {
-  if (!current) return stored;
-  if (!stored) return current;
-  if (!stored.ct && current.ct) return current;
-  return stored;
+  if (!a) return b;
+  if (!b) return a;
+  if (!a.ct && b.ct) return b;
+  if (a.ct && !b.ct) return a;
+  return a.ts <= b.ts ? a : b;
 }
 
 /** Flattens a remembered click into PostHog event properties. */

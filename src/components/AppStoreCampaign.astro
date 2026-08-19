@@ -58,19 +58,30 @@
     return localStore?.getItem(CONSENT_STORAGE_KEY) === "granted";
   }
 
+  /**
+   * Reads both stores rather than stopping at the first hit. They can disagree:
+   * session storage is per tab, so two tabs opened from different ads each hold
+   * their own click, and granting consent in one of them publishes that click to
+   * the local storage every tab shares. Comparing the two keeps the earliest.
+   */
   function readStored(): Attribution | null {
+    let best: Attribution | null = null;
     for (const store of [localStore, sessionStore]) {
       const raw = store?.getItem(ATTRIBUTION_STORAGE_KEY);
       if (!store || !raw) continue;
+      let parsed: unknown = null;
       try {
-        const parsed: unknown = JSON.parse(raw);
-        if (isFreshAttribution(parsed)) return parsed;
+        parsed = JSON.parse(raw);
       } catch {
-        // Unparseable — fall through and clear it.
+        // Unparseable — treated as stale below.
       }
-      store.removeItem(ATTRIBUTION_STORAGE_KEY);
+      if (isFreshAttribution(parsed)) {
+        best = preferredAttribution(best, parsed);
+      } else {
+        store.removeItem(ATTRIBUTION_STORAGE_KEY);
+      }
     }
-    return null;
+    return best;
   }
 
   /**
@@ -82,12 +93,24 @@
     const granted = consentGranted();
     const target = granted ? localStore : sessionStore;
     const stale = granted ? sessionStore : localStore;
+
+    let written = false;
     try {
-      target?.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(attribution));
+      if (target) {
+        target.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(attribution));
+        written = true;
+      }
     } catch {
-      // Out of quota. The link still gets its token for this page view.
+      // Out of quota, or a store that accepts the probe and then refuses. The
+      // link still gets its token for this page view.
     }
-    stale?.removeItem(ATTRIBUTION_STORAGE_KEY);
+
+    // Clearing local storage once consent is withdrawn is an obligation, so it
+    // happens whether or not the session copy landed. The other direction drops
+    // the old copy only once the new one is safely stored — otherwise a failed
+    // write would lose the click on the next navigation, which is exactly the
+    // case the catch above exists to survive.
+    if (!granted || written) stale?.removeItem(ATTRIBUTION_STORAGE_KEY);
   }
 
   const attribution = preferredAttribution(
