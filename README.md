@@ -94,6 +94,36 @@ npm run build
 npm run preview
 ```
 
+### Analytics and Consent
+
+`src/components/posthog.astro` measures the site in one of three states, decided
+by the `summit-cookie-consent` key the banner writes:
+
+| State | What is written to the device | What is measured |
+| --- | --- | --- |
+| pending (no answer yet) | nothing | page views, download clicks |
+| granted | PostHog's `ph_*` cookie and local storage | the above, plus one identity across pages and visits, plus session replay |
+| denied | nothing | nothing |
+
+The pending state is measured on the reading that analytics storing nothing on
+the device and identifying nobody sits outside the ePrivacy consent requirement.
+That is a legal position, not only a technical one.
+
+Read the pending cohort as totals, not journeys: with no stored identifier and a
+static site, every page load is a fresh anonymous id, so unique visitors and
+sessions inflate towards the page-view count. `consent_state` is registered on
+every event, so any metric can be read over everyone or over the consenting
+cohort alone. Enabling "cookieless server hash mode" in the PostHog project, and
+`cookieless_mode: 'always'` alongside it, would restore cross-page continuity
+without storing anything — the two have to be switched on together, since
+cookieless events are dropped while the project setting is off.
+
+Every `apps.apple.com` link carries `data-source` naming its placement (`nav`,
+`hero`, `pricing-monthly`, `footer`, …) and a `download-button` class. The first
+becomes the `source` property on `download_clicked`; the second is what the
+"Clicked Download" action in PostHog matches on. Keep both when adding a link,
+or the click lands in the data as `unattributed`.
+
 ### Campaign Attribution
 
 Paid ads tag the landing URL with `utm_*`, which PostHog reads. Those parameters

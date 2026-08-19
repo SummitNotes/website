@@ -165,9 +165,10 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = "" }) => {
 
                 <a
                   href={APP_STORE_URL}
+                  data-source={`pricing-${plan.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block mt-auto"
+                  className="download-button block mt-auto"
                 >
                   {plan.featured ? (
                     <Button

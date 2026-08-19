@@ -40,25 +40,95 @@
       (e.__SV = 1));
   })(document, window.posthog || []);
 
-  // Initialize PostHog — respect cookie consent
-  var consentKey = 'summit-cookie-consent';
-  var consent = localStorage.getItem(consentKey);
+  /**
+   * Consent decides *how* a visitor is measured, not *whether* they are.
+   *
+   * PostHog used to start with `opt_out_capturing_by_default`, so nothing at
+   * all was sent until someone accepted the banner. On a site whose audience
+   * is selected for caring about being tracked, that does not measure less —
+   * it measures the wrong people. Acceptance skews towards the visitors least
+   * bothered by analytics, which is close to the opposite of the people who
+   * buy, so every funnel was drawn from the least representative slice of the
+   * traffic and the totals under it were unusable.
+   *
+   * Three states:
+   *
+   *   granted — cookies and local storage, one identity across pages and
+   *             visits, session replay: everything PostHog normally does.
+   *   pending — nothing is written to the device. No cookie, no local
+   *             storage, no identifier that outlives the page. Page views and
+   *             download clicks are counted, but every page load is a fresh
+   *             anonymous id, so this cohort answers "how many" and not "who
+   *             went where" (see the note on cookieless mode below).
+   *   denied  — nothing is captured at all. "No thanks" on a banner offering
+   *             analytics means no analytics, not quieter analytics.
+   *
+   * Counting the pending state rests on the reading that analytics which
+   * writes nothing to the device and identifies nobody falls outside the
+   * ePrivacy consent requirement. That is a legal position as much as a
+   * technical one, and it is taken deliberately.
+   */
+  var CONSENT_KEY = 'summit-cookie-consent';
+  var consent = null;
+  try {
+    consent = window.localStorage.getItem(CONSENT_KEY);
+  } catch (err) {
+    // Storage disabled entirely; treat as undecided and stay storage-free.
+  }
+
+  var granted = consent === 'granted';
+  var denied = consent === 'denied';
 
   posthog.init('phc_KsfKIYbgWzvjQA4c2XMhwghaLGmNyNWmLqJIp1Iujeq', {
     api_host: 'https://s.summitnotes.app',
     ui_host: 'https://eu.posthog.com',
     defaults: '2026-01-30',
     person_profiles: 'identified_only',
-    persistence: consent === 'granted' ? 'localStorage+cookie' : 'memory',
-    opt_out_capturing_by_default: consent !== 'granted',
+    persistence: granted ? 'localStorage+cookie' : 'memory',
+    opt_out_capturing_by_default: denied,
+    // The opt-out flag itself has to survive the page load, or a visitor who
+    // declined would be asked again forever. Local storage, never a cookie.
+    opt_out_capturing_persistence_type: 'localStorage',
+    // Session replay records what someone typed and looked at. Whatever is
+    // arguable about counting a page view without consent, this is not, so it
+    // stays off until the banner is accepted.
+    disable_session_recording: !granted,
   });
+
+  // Lets every metric be read twice: over everyone, and over the consenting
+  // cohort alone. The gap between the two is the measurement bias itself.
+  posthog.register({
+    consent_state: granted ? 'granted' : denied ? 'denied' : 'pending',
+  });
+
+  /**
+   * Note on the pending cohort, for whoever reads these numbers.
+   *
+   * Without storage there is no identifier that survives a navigation, and
+   * this site is static, so every link is a full page load. That cohort's
+   * page views cannot be chained: unique visitors and sessions inflate
+   * towards the page-view count, and a page-to-page funnel over them is
+   * meaningless. Totals, download clicks and per-page breakdowns are sound.
+   *
+   * PostHog can recover the chain without touching the device — "cookieless
+   * server hash mode", which derives a short-lived identity server-side and
+   * is enabled per project, then `cookieless_mode: 'always'` here. It is off
+   * for this project today, and events sent in cookieless mode while it is
+   * off are dropped, so the two have to be turned on together.
+   */
 
   // Listen for consent changes from the banner
   window.addEventListener('cookie-consent', function(e) {
     if (e.detail === 'granted') {
-      posthog.opt_in_capturing();
       posthog.set_config({ persistence: 'localStorage+cookie' });
+      posthog.opt_in_capturing();
+      posthog.register({ consent_state: 'granted' });
+      if (typeof posthog.startSessionRecording === 'function') {
+        posthog.startSessionRecording();
+      }
     } else {
+      // Clears anything already stored, which matters for the visitor who
+      // accepted first and changed their mind after.
       posthog.opt_out_capturing();
       posthog.set_config({ persistence: 'memory' });
     }
@@ -69,7 +139,9 @@
     var el = e.target.closest && e.target.closest('a[href*="apps.apple.com"]');
     if (el) {
       var properties = {
-        source: el.getAttribute('data-source') || document.title || window.location.pathname,
+        // Which button was pressed, not which page — the page is already in
+        // `url`. Every App Store link on the site carries a `data-source`.
+        source: el.getAttribute('data-source') || 'unattributed',
         url: window.location.href,
         // Where the link actually points once AppStoreCampaign.astro has
         // stamped it — this runs in the bubble phase, that rewrite in capture.

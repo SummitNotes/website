@@ -212,7 +212,21 @@ export function preferredAttribution(
   return a.ts <= b.ts ? a : b;
 }
 
-/** Flattens a remembered click into PostHog event properties. */
+/**
+ * Flattens a remembered click into PostHog event properties.
+ *
+ * Each parameter is emitted twice, under `first_touch_utm_source` and under
+ * plain `utm_source`. The prefixed name says what the value is — the campaign
+ * that brought this visitor to the site, not the URL of the page they happen
+ * to be on. The bare name is what PostHog's own campaign reporting reads, and
+ * it is the reason for the duplication: PostHog fills those in from the query
+ * string of the current page, which on this site is the landing page and no
+ * other, so on the page where someone actually clicks Download they are empty.
+ *
+ * Setting them here overrides PostHog's values when both exist. They agree
+ * except for a visitor who arrived under two campaigns, where this reports the
+ * first and PostHog would report the latest.
+ */
 export function attributionProperties(
   attribution: Attribution | null,
 ): Record<string, string | number | null> {
@@ -224,6 +238,7 @@ export function attributionProperties(
   };
   for (const [name, value] of Object.entries(attribution.params)) {
     properties[`first_touch_${name}`] = value;
+    if (name.startsWith("utm_")) properties[name] = value;
   }
   return properties;
 }

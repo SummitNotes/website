@@ -58,12 +58,14 @@ export default function CookieConsent() {
 
         <div className="pr-8">
           <p className="text-sm font-semibold text-foreground mb-1">
-            One cookie. That's it.
+            One cookie, and only if you say so.
           </p>
           <p className="text-xs text-muted-foreground leading-relaxed mb-3">
-            We use a single, privacy-focused analytics cookie (PostHog, EU-hosted)
-            to understand how people use our site. No ads, no trackers, no profiling.
-            And yes — you can opt out even from this one.
+            We count page views and download clicks without any cookie — nothing
+            is stored on your device and nobody is identified. Accept, and a
+            single analytics cookie (PostHog, EU-hosted) lets us follow one visit
+            from page to page. Decline, and we stop counting you altogether.
+            No ads, no trackers, no profiling either way.
           </p>
         </div>
 

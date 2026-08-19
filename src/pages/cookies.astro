@@ -23,7 +23,7 @@ import { Cookie } from "lucide-react";
             <Cookie class="w-8 h-8 text-orange-600" />
           </div>
           <h1 class="text-5xl font-bold text-foreground mb-4">Cookie Policy</h1>
-          <p class="text-muted-foreground">Last updated: November 2025</p>
+          <p class="text-muted-foreground">Last updated: August 2026</p>
         </div>
 
         <!-- Introduction -->
@@ -91,24 +91,59 @@ import { Cookie } from "lucide-react";
 
             <Card className="p-6">
               <h3 class="text-xl font-semibold text-foreground mb-3">
+                Analytics — Without a Cookie
+              </h3>
+              <p class="text-muted-foreground mb-4">
+                Before you answer the banner, we measure the website without
+                setting any cookie at all. PostHog — a privacy-focused analytics
+                platform, hosted in the EU — counts page views and clicks on the
+                Download button. Nothing is written to your device: no cookie, no
+                local storage, no identifier that outlives the page you are on.
+                Because nothing is stored, we cannot tell that two page views came
+                from the same person, and we get totals rather than journeys.
+              </p>
+              <div class="bg-muted/30 p-4 rounded-lg space-y-2">
+                <p class="text-sm text-muted-foreground">
+                  <strong>Provider:</strong> PostHog (EU-hosted). IP addresses are
+                  anonymised before storage
+                </p>
+                <p class="text-sm text-muted-foreground">
+                  <strong>Purpose:</strong> Which pages are read, and which pages
+                  lead to a download
+                </p>
+                <p class="text-sm text-muted-foreground">
+                  <strong>Stored on your device:</strong> Nothing
+                </p>
+              </div>
+            </Card>
+
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">
                 Analytics Cookies (Optional)
               </h3>
               <p class="text-muted-foreground mb-4">
-                We use PostHog, a privacy-focused analytics platform hosted in the EU,
-                to understand how visitors interact with our website. No data is collected
-                until you give consent via our cookie banner.
+                Accepting on the banner adds one thing to the measurement above:
+                an identifier, kept in a cookie, that lets us see a single visit
+                as one journey across pages instead of as separate page views.
+                Declining stops the measurement entirely — we count nothing at
+                all, cookie or no cookie.
               </p>
               <div class="bg-muted/30 p-4 rounded-lg space-y-2">
                 <p class="text-sm text-muted-foreground">
                   <strong>Provider:</strong> PostHog (EU-hosted)
                 </p>
                 <p class="text-sm text-muted-foreground">
-                  <strong>Purpose:</strong> Understand which pages are visited most,
-                  how users navigate the site
+                  <strong>Purpose:</strong> Follow a visit from page to page, and
+                  recognise a returning visitor
                 </p>
                 <p class="text-sm text-muted-foreground">
                   <strong>Cookies set:</strong> <code class="text-xs bg-muted px-1 py-0.5 rounded">ph_*</code> cookies
-                  for anonymous session tracking
+                  for anonymous session tracking, only after you accept
+                </p>
+                <p class="text-sm text-muted-foreground">
+                  <strong>Session recordings:</strong> Only after you accept.
+                  Nothing about your visit is recorded before that, and declining
+                  keeps it that way
                 </p>
                 <p class="text-sm text-muted-foreground">
                   <strong>Your Choice:</strong> You can accept or decline analytics
@@ -206,7 +241,8 @@ import { Cookie } from "lucide-react";
             <p class="text-muted-foreground mb-6">
               When you first visit our site, a cookie banner lets you accept or
               decline analytics cookies. If you decline, no analytics cookies are
-              set and no browsing data is collected. You can clear your preference
+              set and nothing about your visit is measured at all — not even the
+              cookie-free counting described above. You can clear your preference
               at any time by removing the <code class="text-xs bg-muted px-1 py-0.5 rounded">summit-cookie-consent</code> entry
               from your browser's local storage, and the banner will appear again
               on your next visit.
