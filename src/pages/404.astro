@@ -1,4 +1,7 @@
 ---
+// This page is deliberately standalone — it does not use Layout, so anything it
+// needs has to be imported here.
+import AppStoreCampaign from "../components/AppStoreCampaign.astro";
 ---
 
 <html lang="en">
@@ -7,6 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Page not found</title>
     <meta name="robots" content="noindex" />
+    <!-- The /open/document/ fallback below is a real install path: someone
+         follows a shared document link without the app. Attribute it too. -->
+    <AppStoreCampaign />
     <script is:inline>
       if (window.location.pathname.startsWith('/open/document/')) {
         document.title = 'Opening in Summit AI Notes...';

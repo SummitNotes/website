@@ -117,6 +117,42 @@ import { Cookie } from "lucide-react";
                 </p>
               </div>
             </Card>
+
+            <Card className="p-6">
+              <h3 class="text-xl font-semibold text-foreground mb-3">
+                Campaign Attribution
+              </h3>
+              <p class="text-muted-foreground mb-4">
+                If you arrive from an ad, the link carries campaign tags such as
+                <code class="text-xs bg-muted px-1 py-0.5 rounded">utm_source</code>.
+                We keep those tags in your browser so that if you click Download
+                later — after reading a few pages — we can tell which campaign
+                brought you. The tag travels on the App Store link itself, which
+                is how Apple reports the download back to us.
+              </p>
+              <div class="bg-muted/30 p-4 rounded-lg space-y-2">
+                <p class="text-sm text-muted-foreground">
+                  <strong>Stored:</strong> <code class="text-xs bg-muted px-1 py-0.5 rounded">summit-attribution</code>,
+                  holding only the campaign tags from the link you followed — the
+                  ad, not you. No advertising identifiers such as
+                  <code class="text-xs bg-muted px-1 py-0.5 rounded">fbclid</code>
+                  or <code class="text-xs bg-muted px-1 py-0.5 rounded">gclid</code>
+                  are kept
+                </p>
+                <p class="text-sm text-muted-foreground">
+                  <strong>Duration:</strong> Session only (deleted when you close
+                  your browser) unless you accept analytics, in which case it is
+                  kept in local storage for 90 days
+                </p>
+                <p class="text-sm text-muted-foreground">
+                  <strong>Your Choice:</strong> Declining analytics keeps this out
+                  of local storage and stops it reaching our analytics, and
+                  clearing site data removes it. The campaign tag still rides on
+                  the App Store link when you click Download — that is what tells
+                  Apple which campaign to credit, and it names the ad, not you
+                </p>
+              </div>
+            </Card>
           </div>
         </section>
 
