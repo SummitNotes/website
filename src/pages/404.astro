@@ -2,6 +2,8 @@
 // This page is deliberately standalone — it does not use Layout, so anything it
 // needs has to be imported here.
 import AppStoreCampaign from "../components/AppStoreCampaign.astro";
+import PostHog from "../components/posthog.astro";
+import CookieConsent from "../components/CookieConsent";
 ---
 
 <html lang="en">
@@ -11,7 +13,11 @@ import AppStoreCampaign from "../components/AppStoreCampaign.astro";
     <title>Page not found</title>
     <meta name="robots" content="noindex" />
     <!-- The /open/document/ fallback below is a real install path: someone
-         follows a shared document link without the app. Attribute it too. -->
+         follows a shared document link without the app. Attribute it too —
+         which needs the analytics itself here, not only the campaign stamp,
+         and the consent banner alongside it, since nothing else on this page
+         would let a visitor answer. -->
+    <PostHog />
     <AppStoreCampaign />
     <script is:inline>
       if (window.location.pathname.startsWith('/open/document/')) {
@@ -87,5 +93,6 @@ import AppStoreCampaign from "../components/AppStoreCampaign.astro";
       </a>
       <img src="/screenshot-1.jpg" alt="Summit AI Notes app screenshot" class="screenshot" />
     </div>
+    <CookieConsent client:load />
   </body>
 </html>

@@ -31,7 +31,7 @@
           return u.toString(1) + '.people (stub)';
         };
         o =
-          'capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId'.split(
+          'capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId startSessionRecording stopSessionRecording'.split(
             ' '
           );
         for (n = 0; n < o.length; n++) g(u, o[n]);
@@ -55,11 +55,15 @@
    *
    *   granted — cookies and local storage, one identity across pages and
    *             visits, session replay: everything PostHog normally does.
-   *   pending — nothing is written to the device. No cookie, no local
-   *             storage, no identifier that outlives the page. Page views and
-   *             download clicks are counted, but every page load is a fresh
-   *             anonymous id, so this cohort answers "how many" and not "who
-   *             went where" (see the note on cookieless mode below).
+   *   pending — page views and download clicks, and nothing else: no
+   *             autocapture, no heatmaps, no replay. Analytics writes nothing
+   *             to the device — no cookie, no local storage, no identifier
+   *             that outlives the page — so every page load is a fresh
+   *             anonymous id and this cohort answers "how many" rather than
+   *             "who went where" (see the note on cookieless mode below).
+   *             The one thing kept before consent is the ad tags of a paid
+   *             landing, held in session storage until the tab closes; see
+   *             AppStoreCampaign.astro.
    *   denied  — nothing is captured at all. "No thanks" on a banner offering
    *             analytics means no analytics, not quieter analytics.
    *
@@ -79,6 +83,10 @@
   var granted = consent === 'granted';
   var denied = consent === 'denied';
 
+  // Read by before_send below, so it has to be reassignable: the banner can
+  // change the answer without a reload.
+  var consentState = granted ? 'granted' : denied ? 'denied' : 'pending';
+
   posthog.init('phc_KsfKIYbgWzvjQA4c2XMhwghaLGmNyNWmLqJIp1Iujeq', {
     api_host: 'https://s.summitnotes.app',
     ui_host: 'https://eu.posthog.com',
@@ -89,16 +97,35 @@
     // The opt-out flag itself has to survive the page load, or a visitor who
     // declined would be asked again forever. Local storage, never a cookie.
     opt_out_capturing_persistence_type: 'localStorage',
-    // Session replay records what someone typed and looked at. Whatever is
-    // arguable about counting a page view without consent, this is not, so it
-    // stays off until the banner is accepted.
+    // Everything below is off before consent, so that what is collected is
+    // exactly what the banner and the cookie policy say: page views and
+    // download clicks.
+    //
+    // Autocapture in particular would send an event for every click, input
+    // and submit on the page, carrying the text and attributes of whatever
+    // was touched. That is a far wider collection than "we count visits", and
+    // the case for measuring without consent rests on it being narrow.
+    // Session replay is not even arguable — it records what someone typed and
+    // looked at.
+    autocapture: granted,
+    capture_heatmaps: granted,
+    capture_performance: granted,
     disable_session_recording: !granted,
-  });
-
-  // Lets every metric be read twice: over everyone, and over the consenting
-  // cohort alone. The gap between the two is the measurement bias itself.
-  posthog.register({
-    consent_state: granted ? 'granted' : denied ? 'denied' : 'pending',
+    // Lets every metric be read twice: over everyone, and over the consenting
+    // cohort alone. The gap between the two is the measurement bias itself.
+    //
+    // Declared in the config rather than registered as a super property, for
+    // two reasons. It then applies to every event including the automatic
+    // initial page view, without depending on when the snippet replays its
+    // queued calls relative to that capture. And it reads a variable, so the
+    // banner changing the answer mid-visit needs no second registration.
+    before_send: function(event) {
+      if (event) {
+        event.properties = event.properties || {};
+        event.properties.consent_state = consentState;
+      }
+      return event;
+    },
   });
 
   /**
@@ -120,13 +147,21 @@
   // Listen for consent changes from the banner
   window.addEventListener('cookie-consent', function(e) {
     if (e.detail === 'granted') {
-      posthog.set_config({ persistence: 'localStorage+cookie' });
+      consentState = 'granted';
+      posthog.set_config({
+        persistence: 'localStorage+cookie',
+        autocapture: true,
+        capture_heatmaps: true,
+        capture_performance: true,
+      });
       posthog.opt_in_capturing();
-      posthog.register({ consent_state: 'granted' });
+      // Queued on the stub if the library is still loading, which is why the
+      // snippet's method list above carries it.
       if (typeof posthog.startSessionRecording === 'function') {
         posthog.startSessionRecording();
       }
     } else {
+      consentState = 'denied';
       // Clears anything already stored, which matters for the visitor who
       // accepted first and changed their mind after.
       posthog.opt_out_capturing();

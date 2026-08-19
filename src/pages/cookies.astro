@@ -97,10 +97,12 @@ import { Cookie } from "lucide-react";
                 Before you answer the banner, we measure the website without
                 setting any cookie at all. PostHog — a privacy-focused analytics
                 platform, hosted in the EU — counts page views and clicks on the
-                Download button. Nothing is written to your device: no cookie, no
-                local storage, no identifier that outlives the page you are on.
-                Because nothing is stored, we cannot tell that two page views came
-                from the same person, and we get totals rather than journeys.
+                Download button, and nothing else: no recording of what you click
+                or type, no heatmaps. The analytics writes nothing to your device:
+                no cookie, no local storage, no identifier that outlives the page
+                you are on. Because nothing is stored, we cannot tell that two
+                page views came from the same person, and we get totals rather
+                than journeys.
               </p>
               <div class="bg-muted/30 p-4 rounded-lg space-y-2">
                 <p class="text-sm text-muted-foreground">
@@ -112,7 +114,10 @@ import { Cookie } from "lucide-react";
                   lead to a download
                 </p>
                 <p class="text-sm text-muted-foreground">
-                  <strong>Stored on your device:</strong> Nothing
+                  <strong>Stored on your device:</strong> Nothing for the
+                  analytics itself. If you arrived from an ad, the campaign tag
+                  on that link is kept for as long as the tab is open — see
+                  Campaign Attribution below
                 </p>
               </div>
             </Card>
