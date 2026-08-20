@@ -1,0 +1,59 @@
+# robots.txt for summitnotes.app
+#
+# Policy: open to search and to AI assistants that cite sources; closed to
+# crawlers that collect training corpora.
+#
+# The distinction matters. A retrieval crawler fetches a page to answer a
+# question and links back — that is discovery, and we want it. A training
+# crawler absorbs the text into a model with no attribution and no visit.
+# Blocking both, which is the default in most managed robots.txt files,
+# removes us from every AI assistant our buyers actually ask.
+#
+# Crawlers allowed on purpose (they fall under User-agent: * below, so they
+# need no entry of their own — listed here so the intent survives edits):
+#   Googlebot, Bingbot, YandexBot, DuckDuckBot  — web search
+#   Applebot                                    — Siri and Spotlight
+#   OAI-SearchBot, ChatGPT-User                 — ChatGPT search and fetches
+#   Claude-SearchBot, Claude-User               — Claude search and fetches
+#   PerplexityBot                               — Perplexity search
+#
+# Content-Signal declares the same policy in machine-readable form, and now
+# agrees with the rules below: index us, cite us, do not train on us.
+
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
+Allow: /
+Disallow: /demo-styles/
+
+# --- Training crawlers: no ------------------------------------------------
+# Each of these collects text for model training rather than for answering a
+# user's question. Blocking them costs no discovery.
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# --- Sitemap --------------------------------------------------------------
+# The one line that was missing from the Cloudflare-managed file.
+
+Sitemap: https://summitnotes.app/sitemap.xml
