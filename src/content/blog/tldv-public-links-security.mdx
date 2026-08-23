@@ -1,0 +1,154 @@
+---
+title: "The tl;dv Security Disclosure: Why 'Anyone With the Link' Is Public"
+description: "tl;dv is right that users opted to make some meetings public. The disclosure still shows why permanent bearer links are a fragile access-control model for meeting notes."
+author: "Dima"
+publishedDate: 2026-08-23
+image: "/blog-tldv-public-links-security.jpg"
+imageAlt: "A locked meeting transcript connected to link tokens that branch toward multiple recipients, with one unintended path highlighted in red"
+tags: ["meeting-notes", "privacy", "security", "tl-dv", "local-ai"]
+---
+
+tl;dv's main response to the recent security disclosure is, in one important respect, correct.
+
+The meeting transcripts and AI notes that the researcher could reach were not private recordings silently made public by the vulnerability. According to tl;dv, they belonged to meetings whose owners had deliberately enabled public link sharing. The company's documentation is explicit about what that setting does: **"Anyone with the link" makes a meeting entirely public and viewable without signing in.**
+
+That distinction matters. It would be inaccurate to say the vulnerability exposed every private transcript on the platform.
+
+But it does not make the underlying design question disappear. It makes the question sharper:
+
+> When a user clicks “Anyone with the link,” do they understand that they are publishing the meeting to the internet—or do they think they are sharing it with a small, known audience?
+
+Those are not the same thing.
+
+## What was actually disclosed
+
+On August 4, 2026, an independent security researcher [reported](https://bobdahacker.com/blog/tldv-hack) that an authenticated tl;dv user could query meeting records across customer accounts through a Firebase/Firestore collection that lacked tenant isolation.
+
+The researcher said the query returned 181,874 meeting records associated with 84,312 users and 35,003 email domains. The exposed fields reportedly included meeting identifiers, conference IDs, creator email addresses, providers, timestamps, and recording status.
+
+The researcher then sampled meeting identifiers to see whether any corresponding meeting pages were public. They reported finding more than 1,000 public meetings in a sample of 27,334 IDs.
+
+tl;dv's [August 5 response](https://tldv.io/blog/our-thoughts-on-the-darkreading-com-article/) confirms that a vulnerability affected meeting metadata, but disputes parts of the researcher's timeline and characterization. The company says:
+
+- The exposed data was limited to meeting identifiers, conference IDs, participant email addresses, and domains.
+- Passwords, private recordings, private transcripts, AI notes, billing data, and account data were not accessible through the vulnerable component.
+- Public transcripts or notes could only be reached for meetings whose owners had enabled public link sharing.
+- The original and later findings involved two distinct attack vectors, not one issue left unresolved for six months.
+- The second vector was fixed within 24 hours, and tl;dv is removing Firebase from its stack.
+
+The researcher and tl;dv disagree about the disclosure history. There is no public independent audit resolving every part of that dispute. What both accounts establish, however, is that meeting metadata outside the requesting user's tenant was accessible and that some exposed identifiers led to meeting pages configured for public access.
+
+## tl;dv is formally right about the public meetings
+
+Calling those meeting pages “private transcripts exposed by the vulnerability” would be misleading.
+
+tl;dv's [sharing documentation](https://intercom.help/tldv/en/articles/5946340-how-to-share-meeting-recordings) gives users two materially different options:
+
+1. **People with access** — named people or domains receive access.
+2. **Anyone with the link** — the meeting is “entirely public,” requires no sign-in, and is not intended to be indexed by search engines.
+
+The owners of the public meetings selected the second option. The vulnerability did not change that setting.
+
+This is the strongest version of tl;dv's defense, and it should be stated plainly.
+
+## But “not indexed” is not the same as private
+
+The phrase “Anyone with the link” creates a familiar mental shortcut. People often read it as:
+
+> Only the people I send this link to will see it.
+
+Technically, it means:
+
+> Anyone who obtains this URL can access the meeting without proving who they are.
+
+The URL is effectively a bearer credential. Possession grants access.
+
+That can be a reasonable convenience for low-sensitivity material. It is a fragile default for sales calls, interviews, performance conversations, customer research, legal discussions, or internal strategy meetings.
+
+A bearer link can move through:
+
+- forwarded email and calendar invitations;
+- Slack, Teams, or CRM histories;
+- support tickets and copied documents;
+- browser history, screenshots, and screen recordings;
+- logs produced by integrations or security tools;
+- a recipient who forwards it to someone else.
+
+None of those paths requires a sophisticated attacker. They are ordinary ways information travels at work.
+
+tl;dv's own response acknowledges the broader product-design problem. Its CTO wrote that public sharing across SaaS products has repeatedly produced visibility wider than users anticipated, and that **“public” can mean different things to different users**. The company says it is reviewing how those choices are presented.
+
+That is the real lesson here. Opt-in proves that a control was clicked. It does not prove that the resulting audience matched the user's expectation.
+
+## A public link is an access mode, not an audience
+
+These sharing models can look similar in a product interface while creating very different security properties:
+
+| Sharing model | Who can open it? | Identity checked? | Typical failure mode |
+|---|---|---|---|
+| Named people | Approved accounts | Yes | Wrong person or group added |
+| Organization or domain | Authenticated members | Usually | Audience is broader than expected |
+| Anyone with the link | Whoever possesses the URL | No | Link forwarding, logging, discovery, or indefinite access |
+| Exported file | Whoever receives the copy | Controlled by the destination | Copies become difficult to revoke |
+| Local-only record | Someone with device or account access | Local device controls | Endpoint compromise or deliberate export |
+
+“Anyone with the link” is therefore not a smaller version of public. It **is public access through an unlisted address**.
+
+The fact that a page is absent from Google does not provide authorization. It only makes accidental discovery less likely.
+
+## Why the metadata vulnerability changed the risk
+
+An unlisted public URL relies partly on the identifier remaining difficult to discover. The tl;dv disclosure reportedly weakened that assumption by allowing authenticated users to enumerate meeting records belonging to other accounts.
+
+This is why object identifiers and authorization cannot substitute for each other. The [OWASP guidance on insecure direct object references](https://cheatsheetseries.owasp.org/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html) says applications should deny unauthorized access regardless of whether an identifier is predictable or unguessable. Complex identifiers can provide defense in depth, but they are not access control.
+
+The same principle appears in government security guidance. CISA's [secure configuration baseline for SharePoint and OneDrive](https://www.cisa.gov/sites/default/files/2023-12/SharePoint%20and%20OneDrive%20SCB_12.20.2023.pdf) strongly discourages “Anyone” links because they provide weak or no authentication. Where such links are used, CISA recommends restricting them and setting expiration periods of 30 days or less.
+
+The issue is not that public links must never exist. It is that their risk should be explicit, bounded, and proportionate to the sensitivity of the content.
+
+## What meeting-tool buyers should ask
+
+Before approving an AI meeting platform, security and privacy teams should ask:
+
+1. Is public link sharing available, and is it disabled by default?
+2. Does “Anyone with the link” require authentication?
+3. Can administrators disable public links organization-wide?
+4. Can links expire automatically?
+5. Can a link be rotated without deleting the meeting?
+6. Is every access logged with enough detail for an investigation?
+7. Can meeting IDs or metadata be queried outside the user's tenant?
+8. Are public meetings clearly distinguished from named-recipient sharing?
+9. Do integrations copy links into CRM, email, chat, or ticketing systems?
+10. Can sensitive meeting types be forced to remain private?
+
+A SOC 2 report or encryption claim cannot answer these questions on its own. They are product-behavior and authorization questions.
+
+## What local-first changes
+
+Summit does not create a hosted public URL for each meeting. Recordings, transcripts, and notes are stored on the user's Mac. By default, sharing a transcript requires a deliberate copy or export into a destination the user chooses. Summit also offers optional Markdown auto-export to a user-selected folder, but it is [off by default](https://summitnotes.app/security/architecture/).
+
+That does not make leakage impossible. An exported Markdown file can be uploaded to a public folder. Text can be pasted into an email. A Mac can be compromised. Optional cloud summarization sends transcript text to the provider the user configures.
+
+The architectural difference is narrower and more defensible:
+
+> There is no permanent Summit-hosted bearer link waiting to be discovered, forwarded, logged, or left public after its original purpose has passed.
+
+Local-first moves sharing from a persistent public state to an export the user configures or initiates. The user creates a copy and chooses where it goes. If that destination is a synced or shared folder, the destination's access controls then apply.
+
+That extra friction is not always convenient. For sensitive meeting data, friction can be a security feature.
+
+## The bottom line
+
+tl;dv is right to reject the claim that the vulnerability directly opened every customer's private transcripts. The public meeting pages identified by the researcher had been made public through an opt-in setting.
+
+But the incident shows why that defense is not the end of the analysis.
+
+Users often think they shared a transcript with *people*. The system may have shared it with *a URL*. When the URL is the credential, every place that URL travels becomes part of the access-control boundary.
+
+For routine documents, that tradeoff may be acceptable. For a permanent record of what people said in a meeting, buyers should demand something stronger than “not indexed.”
+
+---
+
+*This article discusses product architecture and security risk, not legal advice. Product behavior and documentation may change; verify current settings before making procurement or compliance decisions.*
+
+*Sources: [researcher disclosure](https://bobdahacker.com/blog/tldv-hack), [tl;dv company response](https://tldv.io/blog/our-thoughts-on-the-darkreading-com-article/), [tl;dv sharing documentation](https://intercom.help/tldv/en/articles/5946340-how-to-share-meeting-recordings), [Dark Reading reporting](https://www.darkreading.com/application-security/ai-notetaker-spy-government-corporate-video-calls), [OWASP IDOR guidance](https://cheatsheetseries.owasp.org/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html), and [CISA SharePoint/OneDrive baseline](https://www.cisa.gov/sites/default/files/2023-12/SharePoint%20and%20OneDrive%20SCB_12.20.2023.pdf).*
