@@ -1,0 +1,163 @@
+---
+title: "Who Owns Your AI Meeting Notes? The Contract Is Only the Beginning"
+description: "A practical buyer's guide to ownership, access, AI training, retention, employee monitoring, and control of meeting recordings and transcripts."
+author: "Dima"
+publishedDate: 2026-08-28
+image: "/blog-ai-meeting-data-ownership.jpg"
+imageAlt: "A meeting transcript connected to a key, shield, retention clock, and local laptop to show that ownership and control are different"
+tags: ["meeting-notes", "privacy", "security", "compliance", "local-ai"]
+---
+
+“You own your data” sounds reassuring. For an AI meeting assistant, it is also an incomplete answer.
+
+A tool can promise that the customer owns its recordings and transcripts while retaining broad rights to process content, generate analytics, preserve derived data, use subprocessors, or keep backups after deletion. Meanwhile, participants may have privacy or recording rights of their own, and the employer may have separate duties involving notice, access, retention, and legal holds.
+
+The useful question is therefore not simply **who owns the transcript?** It is:
+
+> Who can collect, access, use, search, share, retain, export, and delete every artifact the meeting assistant creates?
+
+That distinction is timely. On August 26, 2026, Holland & Knight published an [overview of privacy, security, and data-ownership issues in AI meeting assistants](https://www.hklaw.com/en/insights/publications/2026/08/ai-meeting-assistants-privacy-security-and-data-ownership-issues). Its central warning is that meeting tools turn conversations that were once temporary into persistent, searchable records—and that contractual ownership may diverge from practical control.
+
+This article translates that warning into a buyer's review framework. It is general information, not legal advice. Recording, privacy, employment, discovery, and intellectual-property rules vary by jurisdiction and by the facts of a meeting.
+
+## One meeting can create many different data assets
+
+A meeting assistant does not produce one neat object called “the notes.” It may create:
+
+- a raw audio or video recording;
+- a speaker-attributed transcript;
+- a summary, topics, decisions, and action items;
+- timestamps, attendance, calendars, and participant identities;
+- search indexes and embeddings;
+- speaking-time, sentiment, or engagement analytics;
+- product telemetry and usage data; and
+- de-identified, aggregated, or otherwise derived datasets.
+
+Those artifacts can have different owners, users, access rules, retention periods, and legal significance. Deleting the visible transcript, for example, may not answer what happens to backups, analytics, embeddings, or information already exported to another system.
+
+This is why a procurement questionnaire that asks only “Does the customer own customer content?” misses most of the data lifecycle.
+
+## Ownership, privacy, security, and control are different questions
+
+These terms are often blended together in product copy. Buyers should separate them.
+
+| Question | What it actually asks |
+| --- | --- |
+| **Ownership** | What rights does the contract allocate between the customer and the vendor? |
+| **Permission** | Was the conversation lawfully and appropriately recorded or transcribed? |
+| **Privacy** | Is personal data collected and used with a valid basis, proper notice, and appropriate limits? |
+| **Security** | Is the data protected against unauthorized access, disclosure, alteration, and loss? |
+| **Control** | Who can access, search, export, share, retain, and delete the artifacts in practice? |
+
+A vendor can answer one row well and still leave serious gaps elsewhere. Strong encryption does not cure missing recording consent. Customer ownership does not prevent an overly broad vendor license. A compliant notice does not make an organization-wide transcript search appropriate. A delete button does not necessarily describe backup deletion.
+
+The same caution applies to product terms. A clause saying the user retains rights to recordings and summaries generally allocates rights between that user and the software provider. It does not automatically resolve the rights of other speakers, an employer, a client, or a third party whose information was discussed.
+
+## The seven questions buyers should ask instead
+
+### 1. What exactly is “customer content”?
+
+Read the definitions before reading the ownership promise. Does customer content include audio, video, transcripts, prompts, summaries, edits, attachments, chat, and imported calendar data? Are embeddings, speaker labels, and other derived outputs included—or placed in a separate category?
+
+Pay equal attention to “usage data,” “service data,” “feedback,” “aggregated data,” and “de-identified data.” A contract may give the customer ownership of a transcript while allowing the vendor to retain information about meeting frequency, participant interactions, feature use, or workflow patterns.
+
+### 2. What license does the vendor receive?
+
+Some processing rights are necessary to provide a cloud service. The question is whether the license is limited to that purpose.
+
+Look for rights to use content for research, analytics, product improvement, model development, or other business purposes. Ask:
+
+- Is training prohibited by default, opt-out, or opt-in?
+- Does the promise cover every model and subprocessor?
+- Does it apply to both raw content and derived data?
+- Can humans review content for support or quality assurance?
+- Which rights survive account closure or contract termination?
+
+“We do not train our models on your data” is narrower than “we do not use meeting content to train, fine-tune, evaluate, or improve any model or service.” Exact wording and the account tier matter.
+
+### 3. Who can find and open the record?
+
+Security reviews often focus on encryption and certifications. Operational access deserves its own review.
+
+Map the default audience for each recording, transcript, summary, folder, and link. Check whether administrators can search private meetings, whether invitees automatically receive access, whether “anyone with the link” is available or enabled, and whether integrations copy notes into email, chat, a CRM, or a knowledge base.
+
+Access should follow the meeting's purpose, not the broadest convenience setting. A sales call, an HR investigation, a board discussion, and a public webinar should not inherit the same sharing policy.
+
+### 4. How long does every copy remain?
+
+Ask for retention periods by artifact and storage layer—not a single headline number. Cover active storage, trash, backups, caches, search indexes, exports, subprocessors, and derived data.
+
+Then connect the tool to records management. A transcript or AI summary may be relevant to litigation, an investigation, an access request, or an internal retention schedule. Routine deletion may need to stop under a legal hold; indefinite retention should not be the default merely because storage is cheap.
+
+Holland & Knight also notes that a single meeting can leave several potentially discoverable records that do not say exactly the same thing. Treat the recording as the source, the transcript as an imperfect conversion, and the summary as an AI-generated interpretation—not interchangeable versions of one fact.
+
+### 5. What notice, consent, and privacy basis apply?
+
+Ownership never supplies permission to record.
+
+US recording rules differ by state and circumstance. Illinois, for example, regulates the recording of private conversations under its official [eavesdropping statute](https://www.ilga.gov/Documents/legislation/ilcs/documents/072000050K14-2.htm). Multi-state calls can raise choice-of-law questions, so a visible bot or a calendar disclosure should not be treated as a universal consent solution.
+
+Employee monitoring creates an additional layer. [Connecticut](https://www.cga.ct.gov/current/pub/chap_557.htm#sec_31-48d), [Delaware](https://delcode.delaware.gov/title19/c007/sc01/index.html), and [New York](https://www.nysenate.gov/legislation/laws/CVR/52-C*2) have electronic-monitoring notice provisions. Whether a particular meeting feature falls within a statute depends on the tool and facts, but analytics such as speaking time, sentiment, or engagement can turn note-taking into workforce monitoring.
+
+In the EU/EEA, the [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) requires more than a vendor ownership statement. Organizations may need to address lawful basis, transparency, purpose limitation, data minimization, processor terms, security, retention, data-subject rights, subprocessors, and international transfers. The UK ICO's [lawful-basis guidance](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/a-guide-to-lawful-basis/) makes the same practical point for UK GDPR: identify the basis before processing and document the decision.
+
+### 6. Can the customer leave cleanly?
+
+Portability and deletion are part of control. Test whether an administrator can export recordings, transcripts, summaries, metadata, and audit logs in usable formats. Ask what is deleted at termination, on what schedule, and what the vendor retains under security, legal, or financial exceptions.
+
+Also test a single-meeting deletion. A policy that works only at account level is a poor fit for teams that need different retention rules for recruiting, sales, legal, and HR conversations.
+
+### 7. Can the answers be verified in the product?
+
+Contract language and configured behavior need to match. During a pilot, verify:
+
+- recording and transcription defaults;
+- attendee notices and consent controls;
+- administrator and support access;
+- link-sharing behavior;
+- AI-training and analytics settings;
+- retention and deletion workflows;
+- exports, integrations, and audit logs; and
+- what changes between free, individual, business, and enterprise plans.
+
+Save screenshots or configuration records for material settings and assign an owner to review them after product updates. A policy nobody can map to the live interface is not an effective control.
+
+## A better meeting policy starts before procurement
+
+Not every meeting needs the same treatment. Define meeting categories before selecting a tool:
+
+1. **Never capture by default:** privileged legal discussions, sensitive HR matters, incident response, M&A, trade-secret reviews, and other restricted conversations.
+2. **Capture with explicit safeguards:** client calls, interviews, healthcare or financial discussions, and cross-border meetings where notice, consent, access, and retention have been approved.
+3. **Routine internal use:** ordinary project meetings with a defined purpose, limited audience, and short retention period.
+4. **Designed for publication:** webinars, public interviews, or training sessions where broad sharing is intentional.
+
+This classification makes settings meaningful. It tells employees when to pause capture, which account and configuration to use, who may receive the result, and when the artifacts should disappear.
+
+## What local processing changes—and what it does not
+
+Local processing does not settle recording consent, workplace notice, privilege, participant rights, or the organization's own retention obligations. A transcript stored on a laptop can still be captured unlawfully, shared carelessly, or retained too long.
+
+It does, however, remove or narrow several vendor-side questions. If audio is transcribed on the user's device and a local model creates the summary, the meeting content does not need to pass through a meeting-assistant vendor's servers for those steps. That can reduce:
+
+- third-party access to raw conversations;
+- contractual licenses needed for cloud processing;
+- exposure to vendor training or product-improvement pipelines;
+- server-side transcript search and public-link surfaces;
+- subprocessor and international-transfer scope; and
+- dependence on a vendor's deletion schedule.
+
+[Summit's published security architecture](/security/architecture) documents the distinction precisely. Recordings and the local database stay on the Mac by default, transcription and embeddings run on-device, and local models can generate summaries without sending transcript text to an external model provider. Optional choices change the data flow: enabling encrypted iCloud sync sends protected content to the user's private CloudKit database, and configuring a hosted LLM sends transcript text to that provider under its terms.
+
+[Summit's terms](/terms) say users retain rights to recordings, transcripts, and summaries and that Summit claims no ownership over that content. More importantly for operational control, Summit does not run a hosted repository of customer transcripts. Users decide when to export or share a file, instead of receiving a permanent vendor-hosted meeting page by default.
+
+That architecture does not make governance unnecessary. It makes the system easier to reason about: fewer processors, fewer durable copies, fewer licenses, and fewer places to audit.
+
+## The practical conclusion
+
+“Who owns the notes?” belongs on the checklist. It should not be the whole checklist.
+
+A defensible review follows the data from capture to deletion and separates legal permission, privacy obligations, contractual rights, security controls, and operational access. The best answer is not a slogan. It is a data-flow map, a narrow contract, tested settings, and a meeting policy employees can actually follow.
+
+When the conversation is sensitive, local-first processing offers one additional advantage: control is implemented in the architecture, not merely promised in the terms.
+
+Want to see where Summit stores each class of meeting data and every path it can take off the Mac? Read the [data-flow and security architecture](/security/architecture), or [download Summit](https://apps.apple.com/app/summit-ai-notes/id6754717420) and test a fully local workflow.
