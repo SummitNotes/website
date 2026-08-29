@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 import { absoluteUrl } from "../lib/schema";
+import { languagePages, languagePath } from "../lib/languages";
 import { releases } from "../lib/releases";
 
 /**
@@ -51,6 +52,10 @@ export const GET: APIRoute = async () => {
 
   const entries: SitemapEntry[] = [
     ...staticRoutes().map((path) => ({ path })),
+    // The language landing pages live behind a [lang] route, which
+    // staticRoutes() skips, so they are listed from the same array the pages
+    // are generated from.
+    ...languagePages.map((page) => ({ path: languagePath(page.code) })),
     ...blogPosts.map((post) => ({
       path: `/blog/${post.slug}`,
       lastmod: toIsoDate(post.data.publishedDate),

@@ -92,6 +92,35 @@ export function breadcrumbSchema(trail: Crumb[], pagePath: string): SchemaNode {
   };
 }
 
+export interface FaqEntry {
+  question: string;
+  answer: string;
+}
+
+/**
+ * Builds a FAQPage for a page whose questions are visible in the markup —
+ * Google requires the two to match, so callers render from the same array.
+ */
+export function faqSchema(
+  items: FaqEntry[],
+  pagePath: string,
+  inLanguage = "en",
+): SchemaNode {
+  return {
+    "@type": "FAQPage",
+    "@id": `${absoluteUrl(pagePath)}#faq`,
+    inLanguage,
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
 interface ArticleInput {
   /** Site-relative path of the page the article lives on. */
   path: string;

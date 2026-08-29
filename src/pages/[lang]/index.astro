@@ -1,0 +1,292 @@
+---
+/**
+ * One landing page per language the default transcription engine covers,
+ * served at /<code>/ and written in that language. All copy comes from
+ * src/data/languages/<code>.ts — this file is layout only, so a new language
+ * is a data file plus one line in src/lib/languages.ts.
+ */
+import Layout from "../../layouts/Layout.astro";
+import { Card } from "../../components/ui/card";
+import Footer from "../../components/Footer";
+import {
+  alternateLinks,
+  appStoreUrl,
+  languagePages,
+  languagePath,
+  type LanguagePage,
+} from "../../lib/languages";
+import { faqSchema } from "../../lib/schema";
+import {
+  ArrowRight,
+  Languages,
+  Lock,
+  MessageSquare,
+  Sparkles,
+} from "lucide-react";
+
+export async function getStaticPaths() {
+  return languagePages.map((page) => ({
+    params: { lang: page.code },
+    props: { page },
+  }));
+}
+
+interface Props {
+  page: LanguagePage;
+}
+
+const { page } = Astro.props;
+const path = languagePath(page.code);
+const storeUrl = appStoreUrl(page.storeLocale);
+const otherLanguages = languagePages.filter((other) => other.code !== page.code);
+---
+
+<Layout
+  title={page.meta.title}
+  description={page.meta.description}
+  lang={page.locale}
+  alternates={alternateLinks()}
+  breadcrumb={[{ name: page.nativeName }]}
+  schema={faqSchema(page.faq.items, path, page.locale)}
+>
+  <div
+    class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
+  >
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-4xl mx-auto">
+        <!-- Hero -->
+        <div class="text-center mb-16">
+          <div
+            class="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-6"
+          >
+            <Languages class="w-8 h-8 text-sky-600" />
+          </div>
+          <h1 class="text-5xl font-bold text-foreground mb-4">
+            {page.hero.h1}
+          </h1>
+          <p class="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+            {page.hero.subtitle}
+          </p>
+          <div class="flex flex-col items-center gap-3">
+            <a
+              href={storeUrl}
+              data-source={`lang-${page.code}-hero`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="download-button inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-sky-600 to-blue-600 text-white font-semibold rounded-lg hover:from-sky-700 hover:to-blue-700 transition-colors"
+            >
+              {page.hero.ctaLabel}
+            </a>
+            <span class="text-sm text-muted-foreground">
+              {page.hero.ctaNote}
+            </span>
+          </div>
+        </div>
+
+        <!-- The engine and this language -->
+        <section class="mb-12">
+          <Card
+            className="p-8 mb-6 bg-gradient-to-r from-sky-50 to-blue-50 border-sky-200"
+          >
+            <h2 class="text-2xl font-bold text-foreground mb-4">
+              {page.engine.heading}
+            </h2>
+            {
+              page.engine.paragraphs.map((paragraph, index) => (
+                <p
+                  class:list={[
+                    "text-muted-foreground",
+                    index < page.engine.paragraphs.length - 1 && "mb-4",
+                  ]}
+                >
+                  {paragraph}
+                </p>
+              ))
+            }
+          </Card>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            {
+              page.engine.features.map((feature) => (
+                <Card className="p-6">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-sky-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Sparkles class="w-5 h-5 text-sky-600" />
+                    </div>
+                    <h3 class="text-lg font-semibold text-foreground">
+                      {feature.title}
+                    </h3>
+                  </div>
+                  <p class="text-muted-foreground">{feature.body}</p>
+                </Card>
+              ))
+            }
+          </div>
+        </section>
+
+        <!-- Calls that switch language mid-way -->
+        <section class="mb-12">
+          <div class="flex items-center gap-3 mb-6">
+            <div
+              class="w-10 h-10 bg-violet-100 rounded-lg flex items-center justify-center flex-shrink-0"
+            >
+              <MessageSquare class="w-5 h-5 text-violet-600" />
+            </div>
+            <h2 class="text-3xl font-bold text-foreground">
+              {page.mixed.heading}
+            </h2>
+          </div>
+          <div class="space-y-4 mb-6">
+            {
+              page.mixed.paragraphs.map((paragraph) => (
+                <p class="text-muted-foreground">{paragraph}</p>
+              ))
+            }
+          </div>
+          <div class="grid md:grid-cols-3 gap-4">
+            {
+              page.mixed.features.map((feature) => (
+                <Card className="p-5">
+                  <h3 class="text-base font-semibold text-foreground mb-2">
+                    {feature.title}
+                  </h3>
+                  <p class="text-sm text-muted-foreground">{feature.body}</p>
+                </Card>
+              ))
+            }
+          </div>
+        </section>
+
+        <!-- Privacy -->
+        <section class="mb-12">
+          <Card className="p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0"
+              >
+                <Lock class="w-5 h-5 text-emerald-600" />
+              </div>
+              <h2 class="text-2xl font-bold text-foreground">
+                {page.privacy.heading}
+              </h2>
+            </div>
+            <div class="space-y-4 mb-6">
+              {
+                page.privacy.paragraphs.map((paragraph) => (
+                  <p class="text-muted-foreground">{paragraph}</p>
+                ))
+              }
+            </div>
+            <a
+              href={page.privacy.linkHref}
+              class="inline-flex items-center gap-1 text-sm font-medium text-sky-700 hover:text-sky-900 transition-colors"
+            >
+              {page.privacy.linkLabel}
+              <ArrowRight class="w-4 h-4" />
+            </a>
+          </Card>
+        </section>
+
+        <!-- Use cases -->
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-3">
+            {page.useCases.heading}
+          </h2>
+          <p class="text-muted-foreground mb-6">{page.useCases.intro}</p>
+          <div class="grid md:grid-cols-2 gap-6">
+            {
+              page.useCases.items.map((item) => (
+                <Card className="p-6">
+                  <h3 class="text-lg font-semibold text-foreground mb-2">
+                    {item.title}
+                  </h3>
+                  <p class="text-muted-foreground mb-4">{item.body}</p>
+                  <a
+                    href={item.href}
+                    class="inline-flex items-center gap-1 text-sm font-medium text-sky-700 hover:text-sky-900 transition-colors"
+                  >
+                    {item.linkLabel}
+                    <ArrowRight class="w-4 h-4" />
+                  </a>
+                </Card>
+              ))
+            }
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-6">
+            {page.faq.heading}
+          </h2>
+          <div class="space-y-4">
+            {
+              page.faq.items.map((item) => (
+                <Card className="p-6">
+                  <h3 class="text-lg font-semibold text-foreground mb-3">
+                    {item.question}
+                  </h3>
+                  <p class="text-muted-foreground">{item.answer}</p>
+                </Card>
+              ))
+            }
+          </div>
+        </section>
+
+        <!-- Other languages -->
+        {
+          otherLanguages.length > 0 && (
+            <section class="mb-12">
+              <h2 class="text-2xl font-bold text-foreground mb-2">
+                {page.otherLanguages.heading}
+              </h2>
+              <p class="text-muted-foreground mb-6">
+                {page.otherLanguages.intro}
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {otherLanguages.map((other) => (
+                  <a
+                    href={languagePath(other.code)}
+                    lang={other.locale}
+                    class="px-3 py-1.5 text-sm rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors"
+                  >
+                    {other.nativeName}
+                  </a>
+                ))}
+              </div>
+            </section>
+          )
+        }
+
+        <!-- Final CTA -->
+        <Card
+          className="p-8 text-center bg-gradient-to-r from-sky-50 to-blue-50 border-sky-200"
+        >
+          <h2 class="text-2xl font-bold text-foreground mb-4">
+            {page.finalCta.heading}
+          </h2>
+          <p class="text-muted-foreground mb-6">{page.finalCta.body}</p>
+          <div class="flex flex-col items-center gap-3">
+            <a
+              href={storeUrl}
+              data-source={`lang-${page.code}-cta`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="download-button inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-sky-600 to-blue-600 text-white font-semibold rounded-lg hover:from-sky-700 hover:to-blue-700 transition-colors"
+            >
+              {page.finalCta.ctaLabel}
+            </a>
+            <a
+              href={page.finalCta.secondaryHref}
+              class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {page.finalCta.secondaryLabel}
+            </a>
+          </div>
+        </Card>
+      </div>
+    </div>
+
+    <Footer />
+  </div>
+</Layout>
