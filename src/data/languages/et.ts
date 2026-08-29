@@ -10,27 +10,27 @@ export const et: LanguagePage = {
   meta: {
     title: "Koosolekute transkriptsioon eesti keeles — lokaalselt sinu Macis | Summit AI Notes",
     description:
-      "Summit tunneb eesti keelt ära otse sinu Macis: kõnesse ei liitu botti, salvestisi pilve ei laadita. Transkript, tegevustega kokkuvõte ja otsing kõigi koosolekute vahel.",
+      "Summit tunneb eesti keelt ära otse sinu Macis: ükski bot ei liitu kõnega ja salvestisi ei laadita pilve. Saad transkriptsiooni, tegevustega kokkuvõtte ja otsingu kõigist koosolekutest.",
   },
 
   hero: {
     h1: "Koosolekumärkmed eesti keeles — sinu Macis, pilveta",
     subtitle:
-      "Summit salvestab kõne, transkribeerib eesti keele ja koostab kokkuvõtte koos tegevustega. Salvestis, transkript ja märkmed jäävad seadmesse.",
+      "Summit salvestab kõne, transkribeerib eestikeelse jutu ja koostab kokkuvõtte koos tegevustega. Salvestis, transkript ja märkmed jäävad sinu Maci.",
     ctaLabel: "Laadi alla Mac App Store'ist",
     ctaNote: "15 salvestist tasuta, konto pole vaja luua",
   },
 
   engine: {
-    heading: "Eesti keelest saab aru vaikimisi mootor",
+    heading: "Eestikeelne transkriptsioon töötab kohe",
     paragraphs: [
-      "Kõnetuvastuse eest vastutab Parakeet TDT v3, mudel, mis katab 25 Euroopa keelt, sealhulgas eesti keele. See on vaikimisi sees, nii et eestikeelsete koosolekute jaoks pole midagi ümber lülitada.",
-      "Salvestise keel tuvastatakse automaatselt, hoolimata eesti keele rikkalikust käänamisest. Kui tuvastus eksib — näiteks kui koosolek algab ingliskeelse tervitusega —, saab keele konkreetse salvestise jaoks käsitsi määrata.",
+      "Summit kasutab kohalikku kõnetuvastusmudelit Parakeet TDT v3. See toetab 25 Euroopa keelt, sealhulgas eesti keelt, ja on juba vaikimisi valitud. Midagi pole vaja juurde paigaldada ega ümber lülitada.",
+      "Salvestise keel tuvastatakse automaatselt. Kui Summit eksib — näiteks seetõttu, et koosolek algab ingliskeelse tervitusega —, saad selle salvestise keele käsitsi eesti keeleks määrata.",
     ],
     features: [
       {
         title: "Töötab ilma internetita",
-        body: "Mudel asub kettal ja arvutab sinu Maci protsessoril. Rongis, lennukis või külalis-wifiga koosolekuruumis on tulemus sama.",
+        body: "Mudel töötab otse sinu Macis. Koosolekuid saab transkribeerida rongis, lennukis või ebastabiilse wifi korral — kvaliteet ei sõltu internetiühendusest.",
       },
       {
         title: "Kirjavahemärgid ja ajatemplid",
@@ -42,7 +42,7 @@ export const et: LanguagePage = {
       },
       {
         title: "Otsing kõigi koosolekute vahel",
-        body: "Täisteksti- ja vektorotsing transkriptides ja kokkuvõtetes. Manused on mitmekeelsed, nii et eestikeelne otsing leiab ka selle, millest räägiti inglise keeles.",
+        body: "Täisteksti- ja semantiline otsing transkriptides ning kokkuvõtetes. Otsing on mitmekeelne, nii et eestikeelne päring leiab ka inglise keeles räägitu.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const et: LanguagePage = {
   mixed: {
     heading: "Kui kõnes keeled segunevad",
     paragraphs: [
-      "Levinud olukord: koosolek algab kolmekesi eesti keeles, kümne minuti pärast liituvad rahvusvahelised kolleegid ja vestlus jätkub inglise keeles. Siin ei lähe midagi katki — iga lõik tuvastatakse keeles, milles seda räägiti, ilma tõlketa. Eestikeelsed osad jäävad transkriptis eestikeelseks, ingliskeelsed ingliskeelseks.",
+      "Levinud olukord: kolm inimest alustavad koosolekut eesti keeles, hiljem liituvad väliskolleegid ja vestlus jätkub inglise keeles. Summit tuvastab iga lõigu selles keeles, milles see öeldi, ega tõlgi seda. Eestikeelne jutt jääb eesti keelde ja ingliskeelne inglise keelde.",
       "Dokumendi enda keele määrab koosoleku algus. Summit kirjutab kokkuvõtte, tegevused ja pealkirja selles keeles: kui kõne algas eesti keeles, on tulemus eestikeelne, isegi kui teine pool toimus inglise keeles.",
       "Teistsuguse tulemuse jaoks — näiteks kui kokkuvõte läheb ingliskeelsetele kolleegidele — saab salvestise keele enne töötlust käsitsi määrata.",
     ],
@@ -75,7 +75,7 @@ export const et: LanguagePage = {
     paragraphs: [
       "Kõnesse ei liitu ükski bott. Summit jäädvustab süsteemiheli ja mikrofoni macOS-i vahenditega, nii et lisaosalejat ei ilmu — olgu tegu Zoomi, Teamsi, Meeti või näost näkku koosolekuga.",
       "Heli, transkript, kokkuvõte ja otsinguindeks jäävad sinu Maci. Vaikimisi ei lahku siit midagi: ei faile, teksti ega koosoleku metaandmeid.",
-      "Pilvemudel lülitub sisse alles siis, kui sisestad ise oma teenusepakkuja võtme seadetesse. Kuni selleni toimub kogu töötlus lokaalselt — see on GDPR-i seisukohalt oluline, sest siis ei edastata ühtegi isikuandmet.",
+      "Pilvemudel lülitub sisse alles siis, kui sisestad ise oma teenusepakkuja võtme seadetesse. Seni toimub kogu töötlus lokaalselt — see on GDPR-i seisukohalt oluline, sest isikuandmeid ei edastata.",
       "iCloudi sünkroonimine on omaette funktsioon, mis on vaikimisi väljas. Kui lülitad selle sisse, sünkroonitakse transkriptid ja kokkuvõtted otsast lõpuni krüpteeritult sinu enda seadmete vahel; osa nendega seotud metaandmeid — kestus, sõnade arv, tuvastatud keel — sünkroonitakse krüpteerimata.",
     ],
     linkLabel: "Arhitektuuri ja kogu väljamineva liikluse ülevaade (inglise keeles)",
@@ -83,19 +83,19 @@ export const et: LanguagePage = {
   },
 
   useCases: {
-    heading: "Kes kasutab Summitit kõige sagedamini",
+    heading: "Kellele Summit eriti hästi sobib",
     intro:
-      "Stsenaariumid, mille jaoks Summit tavaliselt soetatakse. Lingitud lehed on praegu inglise keeles.",
+      "Mõned olukorrad, kus Summit on eriti kasulik. Üksikasjalikud lehed on praegu saadaval ainult inglise keeles.",
     items: [
       {
         title: "Konsultatsioon",
-        body: "Kliendikoosolekute märkmed, millest saab kohe raporti — ilma NDA-ga kaitstud vestlusi võõrasse pilve laadimata.",
+        body: "Kliendikoosolekute märkmetest valmib kohe aruanne, ilma et konfidentsiaalseid vestlusi välisesse pilve laaditaks.",
         href: "/use-cases/consulting",
         linkLabel: "Konsultatsioon",
       },
       {
         title: "Juristid",
-        body: "Vestlused klientidega ja sisemised aruteludid jäävad seadmesse, nii et ametisaladus ei sõltu võõrast serverist.",
+        body: "Vestlused klientidega ja sisemised arutelud jäävad seadmesse ega liigu välistele serveritele.",
         href: "/use-cases/legal",
         linkLabel: "Juristid",
       },
@@ -135,7 +135,7 @@ export const et: LanguagePage = {
       {
         question: "Milliseid keeli Summit peale eesti keele veel oskab?",
         answer:
-          "Vaikimisi mootor katab 25 Euroopa keelt, sealhulgas eesti, saksa, prantsuse, poola, ukraina ja vene keele. Teiste keelte jaoks on sisse ehitatud Whisper — kokku katab Summit nii umbes 99 keelt, ehkki Whisperiga aeglasemalt.",
+          "Vaikimisi mudel toetab 25 Euroopa keelt, sealhulgas eesti, saksa, prantsuse, poola, ukraina ja vene keelt. Muude keelte jaoks on Summitisse lisatud Whisper. Kokku toetab Summit umbes sadat keelt, kuid Whisper töötab aeglasemalt.",
       },
       {
         question: "Kas kõnesse tuleb kutsuda bott?",
@@ -147,12 +147,12 @@ export const et: LanguagePage = {
 
   otherLanguages: {
     heading: "Teised keeled",
-    intro: "Sama mootor tunneb ära veel 24 keelt.",
+    intro: "Sama mudel tunneb ära veel 24 keelt.",
   },
 
   finalCta: {
     heading: "Proovi järgmisel koosolekul",
-    body: "Esimesed 15 salvestist on tasuta, ilma kontot loomata. Piisab, et testida mootorit oma kõne, oma terminite ja oma koosolekute peal.",
+    body: "Esimesed 15 salvestist on tasuta ja kontot pole vaja luua. Sellest piisab, et proovida Summitit oma kõne, erialase sõnavara ja päris koosolekutega.",
     ctaLabel: "Laadi alla Mac App Store'ist",
     secondaryLabel: "Kuidas privaatsus toimib",
     secondaryHref: "/security",

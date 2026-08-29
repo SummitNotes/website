@@ -16,25 +16,25 @@ export const nl: LanguagePage = {
   hero: {
     h1: "Vergadernotities in het Nederlands — op je Mac, zonder cloud",
     subtitle:
-      "Summit neemt het gesprek op, transcribeert het Nederlands en stelt een samenvatting met actiepunten op. Opname, transcript en notities blijven op het apparaat.",
+      "Summit neemt het gesprek op, transcribeert wat er in het Nederlands wordt gezegd en maakt een samenvatting met actiepunten. Opname, transcript en notities blijven op je Mac.",
     ctaLabel: "Downloaden in de Mac App Store",
     ctaNote: "15 opnames gratis, geen account nodig",
   },
 
   engine: {
-    heading: "Nederlands wordt begrepen door de standaardengine",
+    heading: "Nederlandse transcriptie zonder extra instellingen",
     paragraphs: [
-      "De spraakherkenning draait op Parakeet TDT v3, een model dat 25 Europese talen dekt, Nederlands inbegrepen. Het staat standaard aan — voor Nederlandse vergaderingen hoef je niets om te zetten.",
+      "Summit gebruikt lokaal het spraakherkenningsmodel Parakeet TDT v3. Het ondersteunt 25 Europese talen, waaronder Nederlands, en is standaard al geselecteerd. Je hoeft niets extra's te installeren of in te stellen.",
       "De taal van de opname wordt automatisch herkend. Gaat dat mis — bijvoorbeeld omdat de vergadering met een Engelse begroeting begint — dan zet je de taal handmatig voor die ene opname.",
     ],
     features: [
       {
         title: "Werkt zonder internet",
-        body: "Het model staat op de schijf en rekent op de processor van je Mac. In de trein, op het vliegtuig of in een vergaderzaal met gasten-wifi verandert het resultaat niet.",
+        body: "Het model draait rechtstreeks op je Mac. Je kunt vergaderingen transcriberen in de trein, in het vliegtuig of met instabiele wifi — de kwaliteit is niet afhankelijk van je internetverbinding.",
       },
       {
         title: "Interpunctie en tijdstempels",
-        body: "Het model zet zelf leestekens en hoofdletters en levert tijdstempels per woord: klik op een regel in het transcript en precies dat stuk van de opname speelt af.",
+        body: "Het model voegt leestekens, hoofdletters en tijdstempels per woord toe. Klik op een passage in het transcript om direct dat moment van de opname af te spelen.",
       },
       {
         title: "Sprekersherkenning",
@@ -42,7 +42,7 @@ export const nl: LanguagePage = {
       },
       {
         title: "Zoeken door alle vergaderingen",
-        body: "Volledige tekst- en vectorzoekopdracht door transcripten en samenvattingen. De embeddings zijn meertalig, dus een Nederlandse zoekopdracht vindt ook wat in het Engels besproken is.",
+        body: "Zoeken op volledige tekst en betekenis in transcripten en samenvattingen. De semantische zoekfunctie werkt over talen heen, dus een Nederlandse zoekopdracht vindt ook wat in het Engels besproken is.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const nl: LanguagePage = {
   mixed: {
     heading: "Als een gesprek van taal wisselt",
     paragraphs: [
-      "Een bekend scenario: de vergadering begint met drie mensen in het Nederlands, na tien minuten sluiten internationale collega's aan en het gesprek gaat verder in het Engels. Daar breekt niets: elk fragment wordt herkend in de taal waarin het gesproken is, zonder te vertalen. Nederlandse stukken blijven Nederlands in het transcript, Engelse stukken blijven Engels.",
+      "Een herkenbare situatie: drie mensen beginnen de vergadering in het Nederlands, later sluiten internationale collega's aan en het gesprek gaat verder in het Engels. Summit herkent elk fragment in de gesproken taal en vertaalt het niet. Nederlandse passages blijven Nederlands en Engelse passages Engels.",
       "De taal van het document zelf wordt bepaald door het begin van de vergadering. Summit schrijft de samenvatting, de actiepunten en de titel in die taal: begint het gesprek in het Nederlands, dan is het resultaat Nederlands, ook al verliep de tweede helft in het Engels.",
       "Voor een ander resultaat — bijvoorbeeld omdat de samenvatting naar Engelstalige collega's gaat — stel je de taal van de opname handmatig in voordat die wordt verwerkt.",
     ],
@@ -73,7 +73,7 @@ export const nl: LanguagePage = {
   privacy: {
     heading: "Opnames verlaten je apparaat niet",
     paragraphs: [
-      "Er komt geen bot in het gesprek. Summit legt systeemgeluid en microfoon vast via macOS, dus er verschijnt geen extra deelnemer — of het nu in Zoom, Teams, Meet of een gesprek zonder videobellen is.",
+      "Er neemt geen bot deel aan het gesprek. Summit neemt systeemgeluid en microfoon op via macOS, dus er verschijnt geen extra deelnemer — niet in Zoom, Teams of Meet en ook niet bij een gesprek in dezelfde ruimte.",
       "Audio, transcript, samenvatting en zoekindex blijven op je Mac. Standaard gaat er niets naar buiten: geen bestanden, geen tekst, geen metadata over de vergadering.",
       "Een cloudmodel wordt pas actief als je zelf een sleutel van je provider invoert bij de instellingen. Tot die tijd blijft alle verwerking lokaal — relevant voor de AVG, want dan wordt er simpelweg geen persoonsgegeven verzonden.",
       "iCloud-synchronisatie is een aparte functie die standaard uitstaat. Zet je hem aan, dan worden transcripten en samenvattingen end-to-end versleuteld gesynchroniseerd tussen je eigen apparaten; een deel van de bijbehorende metadata — duur, aantal woorden, herkende taal — wordt daarbij onversleuteld gesynchroniseerd.",
@@ -83,19 +83,19 @@ export const nl: LanguagePage = {
   },
 
   useCases: {
-    heading: "Wie Summit het meest gebruikt",
+    heading: "Voor wie Summit bijzonder nuttig is",
     intro:
-      "De scenario's waarvoor Summit meestal wordt aangeschaft. De gelinkte pagina's zijn voorlopig in het Engels.",
+      "Enkele situaties waarin Summit bijzonder nuttig is. De uitgebreide pagina's zijn voorlopig alleen in het Engels beschikbaar.",
     items: [
       {
         title: "Consultancy",
-        body: "Notities uit klantgesprekken die direct in een rapport landen — zonder gesprekken onder NDA naar een vreemde cloud te sturen.",
+        body: "Notities uit klantgesprekken vormen direct de basis voor een rapport, zonder vertrouwelijke gesprekken naar een externe cloud te sturen.",
         href: "/use-cases/consulting",
         linkLabel: "Naar Consultancy",
       },
       {
         title: "Advocatuur",
-        body: "Gesprekken met cliënten en interne dossierbesprekingen blijven op het apparaat, zodat de geheimhoudingsplicht niet afhangt van een vreemde server.",
+        body: "Gesprekken met cliënten en interne dossierbesprekingen blijven op het apparaat en worden niet naar externe servers gestuurd.",
         href: "/use-cases/legal",
         linkLabel: "Naar Advocatuur",
       },
@@ -135,7 +135,7 @@ export const nl: LanguagePage = {
       {
         question: "Welke talen kan Summit naast het Nederlands?",
         answer:
-          "De standaardengine dekt 25 Europese talen, waaronder Nederlands, Duits, Frans, Pools, Oekraïens en Russisch. Voor overige talen zit Whisper ingebouwd — in totaal dekt Summit zo zo'n honderd talen, al gaat dat met Whisper trager.",
+          "Het standaardmodel ondersteunt 25 Europese talen, waaronder Nederlands, Duits, Frans, Pools, Oekraïens en Russisch. Voor andere talen bevat Summit ook Whisper. In totaal worden ongeveer honderd talen ondersteund, al werkt Whisper langzamer.",
       },
       {
         question: "Moet er een bot bij het gesprek?",
@@ -147,12 +147,12 @@ export const nl: LanguagePage = {
 
   otherLanguages: {
     heading: "Andere talen",
-    intro: "Dezelfde engine herkent nog 24 andere talen.",
+    intro: "Hetzelfde model herkent nog 24 andere talen.",
   },
 
   finalCta: {
     heading: "Probeer het bij je volgende vergadering",
-    body: "De eerste 15 opnames zijn gratis, zonder account aan te maken. Genoeg om de engine te testen op jouw stem, jouw vaktermen en jouw vergaderingen.",
+    body: "De eerste 15 opnames zijn gratis en je hebt geen account nodig. Genoeg om Summit te testen met je eigen stem, vaktermen en echte vergaderingen.",
     ctaLabel: "Downloaden in de Mac App Store",
     secondaryLabel: "Hoe privacy werkt",
     secondaryHref: "/security",

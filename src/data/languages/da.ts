@@ -22,15 +22,15 @@ export const da: LanguagePage = {
   },
 
   engine: {
-    heading: "Dansk forstås af standardmotoren",
+    heading: "Dansk virker uden ekstra opsætning",
     paragraphs: [
-      "Talegenkendelsen klares af Parakeet TDT v3, en model der dækker 25 europæiske sprog, dansk inklusive. Den er slået til som standard, så der er intet at stille om til danske møder.",
+      "Summit bruger den lokale talegenkendelsesmodel Parakeet TDT v3. Den understøtter 25 europæiske sprog, herunder dansk, og er valgt som standard. Du behøver hverken installere eller ændre noget.",
       "Sproget i optagelsen genkendes automatisk. Går det galt — for eksempel fordi mødet starter med en engelsk hilsen — kan sproget sættes manuelt for netop den optagelse.",
     ],
     features: [
       {
         title: "Virker uden internet",
-        body: "Modellen ligger på disken og beregner på din Macs processor. I toget, i flyet eller i et mødelokale med gæste-wifi er resultatet det samme.",
+        body: "Modellen kører direkte på din Mac. Du kan transskribere møder i toget, i flyet eller på ustabilt gæste-wifi — kvaliteten afhænger ikke af internetforbindelsen.",
       },
       {
         title: "Tegnsætning og tidsstempler",
@@ -38,11 +38,11 @@ export const da: LanguagePage = {
       },
       {
         title: "Genkendelse af talere",
-        body: "Diarisering kører også lokalt: replikker fordeles pr. taler, navne tildeles én gang og genkendes derefter automatisk.",
+        body: "Også adskillelsen af talere foregår lokalt. Replikker fordeles mellem talerne, og når du har tildelt navnene én gang, genkender Summit dem fremover.",
       },
       {
         title: "Søgning på tværs af alle møder",
-        body: "Fuldtekst- og vektorsøgning i transskriptioner og opsummeringer. Embeddings er flersprogede, så en dansk søgning finder også det, der blev drøftet på engelsk.",
+        body: "Fuldtekst- og semantisk søgning i transskriptioner og opsummeringer. Den semantiske søgning fungerer på tværs af sprog, så en dansk søgning også finder det, der blev drøftet på engelsk.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const da: LanguagePage = {
   mixed: {
     heading: "Når et opkald blander sprog",
     paragraphs: [
-      "Et velkendt scenarie: mødet starter mellem tre personer på dansk, efter ti minutter kommer internationale kolleger med, og samtalen fortsætter på engelsk. Intet går i stykker her — hvert afsnit genkendes på det sprog, det blev sagt på, uden oversættelse. Danske dele forbliver danske i transskriptionen, engelske forbliver engelske.",
+      "Et velkendt scenarie: Tre personer starter mødet på dansk, efter ti minutter kommer internationale kolleger til, og samtalen fortsætter på engelsk. Summit genkender hvert afsnit på det sprog, det blev sagt på, uden at oversætte. Danske dele forbliver på dansk, og engelske på engelsk.",
       "Selve dokumentets sprog fastsættes ud fra mødets begyndelse. Summit skriver opsummeringen, opgaverne og titlen på det sprog: starter opkaldet på dansk, bliver resultatet dansk, selv hvis anden halvdel foregik på engelsk.",
       "Skal resultatet være anderledes — for eksempel fordi opsummeringen går til engelsktalende kolleger — kan optagelsens sprog sættes manuelt før behandling.",
     ],
@@ -73,7 +73,7 @@ export const da: LanguagePage = {
   privacy: {
     heading: "Optagelser forlader ikke enheden",
     paragraphs: [
-      "Ingen bot går med i opkaldet. Summit fanger systemlyd og mikrofon via macOS, så der ikke dukker en ekstra deltager op — hverken i Zoom, Teams, Meet eller til et møde uden videoopkald.",
+      "Der deltager ingen bot i opkaldet. Summit optager systemlyd og mikrofon via macOS, så der ikke dukker en ekstra deltager op — hverken i Zoom, Teams, Meet eller til et fysisk møde.",
       "Lyd, transskription, opsummering og søgeindeks bliver på din Mac. Som standard forlader intet enheden: hverken filer, tekst eller metadata om mødet.",
       "En skymodel aktiveres først, når du selv indtaster en nøgle fra din udbyder i indstillingerne. Indtil da foregår al behandling lokalt — relevant for GDPR, fordi der så ikke overføres nogen personoplysninger.",
       "iCloud-synkronisering er en separat funktion, som er slået fra som standard. Slår du den til, synkroniseres transskriptioner og opsummeringer end-to-end-krypteret mellem dine egne enheder; noget af metadataene omkring dem — varighed, antal ord, registreret sprog — synkroniseres ukrypteret.",
@@ -83,19 +83,19 @@ export const da: LanguagePage = {
   },
 
   useCases: {
-    heading: "Hvem bruger Summit mest",
+    heading: "Hvem Summit er særligt nyttig for",
     intro:
-      "De scenarier, Summit typisk bliver anskaffet til. De linkede sider er indtil videre på engelsk.",
+      "Nogle af de situationer, hvor Summit gør størst gavn. De uddybende sider er indtil videre kun på engelsk.",
     items: [
       {
         title: "Konsulentvirksomhed",
-        body: "Noter fra kundemøder, der direkte føder en rapport — uden at uploade NDA-beskyttede samtaler til en fremmed sky.",
+        body: "Noter fra kundemøder bliver hurtigt til en rapport, uden at fortrolige samtaler uploades til en ekstern skytjeneste.",
         href: "/use-cases/consulting",
         linkLabel: "Konsulentvirksomhed",
       },
       {
         title: "Advokater",
-        body: "Klientsamtaler og interne sagsdrøftelser bliver på enheden, så tavshedspligten ikke afhænger af en fremmed server.",
+        body: "Klientsamtaler og interne sagsdrøftelser bliver på enheden og sendes ikke til eksterne servere.",
         href: "/use-cases/legal",
         linkLabel: "Advokater",
       },
@@ -135,7 +135,7 @@ export const da: LanguagePage = {
       {
         question: "Hvilke sprog kan Summit ud over dansk?",
         answer:
-          "Standardmotoren dækker 25 europæiske sprog, heriblandt dansk, tysk, fransk, polsk, ukrainsk og russisk. Til øvrige sprog er Whisper indbygget — samlet dækker Summit omkring 99 sprog, dog langsommere med Whisper.",
+          "Standardmodellen understøtter 25 europæiske sprog, heriblandt dansk, tysk, fransk, polsk, ukrainsk og russisk. Til andre sprog er Whisper indbygget. Samlet understøtter Summit omkring hundrede sprog, men Whisper arbejder langsommere.",
       },
       {
         question: "Skal der inviteres en bot ind i opkaldet?",
@@ -147,14 +147,14 @@ export const da: LanguagePage = {
 
   otherLanguages: {
     heading: "Andre sprog",
-    intro: "Samme motor genkender yderligere 24 sprog.",
+    intro: "Samme model genkender yderligere 24 sprog.",
   },
 
   finalCta: {
     heading: "Prøv det til dit næste møde",
-    body: "De første 15 optagelser er gratis, uden at oprette en konto. Nok til at teste motoren på din egen tale, dine egne termer og dine egne møder.",
+    body: "De første 15 optagelser er gratis, og du behøver ingen konto. Det er nok til at prøve Summit med din egen stemme, dine fagudtryk og rigtige møder.",
     ctaLabel: "Hent i Mac App Store",
-    secondaryLabel: "Sådan fungerer privatlivet",
+    secondaryLabel: "Sådan beskytter Summit dine data",
     secondaryHref: "/security",
   },
 };

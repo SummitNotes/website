@@ -22,27 +22,27 @@ export const pt: LanguagePage = {
   },
 
   engine: {
-    heading: "O português é entendido pelo motor predefinido",
+    heading: "Transcrição em português sem configuração adicional",
     paragraphs: [
-      "O reconhecimento de voz é feito pelo Parakeet TDT v3, um modelo que cobre 25 línguas europeias, incluindo o português. Está ativo por predefinição, por isso não há nada a configurar para reuniões em português.",
+      "O Summit utiliza localmente o modelo de reconhecimento de voz Parakeet TDT v3. Suporta 25 línguas europeias, incluindo o português, e já vem selecionado por predefinição. Não precisa de instalar nem de alterar nada.",
       "A língua da gravação é detetada automaticamente. Se a deteção falhar — por exemplo, porque a reunião começa com uma saudação em inglês — a língua pode ser definida manualmente para essa gravação em concreto.",
     ],
     features: [
       {
         title: "Funciona sem internet",
-        body: "O modelo fica guardado no disco e é processado no processador do seu Mac. No comboio, no avião ou numa sala com Wi-Fi de convidados, o resultado é o mesmo.",
+        body: "O modelo é executado diretamente no seu Mac. Pode transcrever reuniões no comboio, no avião ou com uma ligação Wi-Fi instável — a qualidade não depende da internet.",
       },
       {
         title: "Pontuação e marcas temporais",
-        body: "O modelo coloca sozinho a pontuação e as maiúsculas, além de marcas temporais por palavra: clicar numa linha do transcript reproduz exatamente esse ponto da gravação.",
+        body: "O modelo adiciona a pontuação, as maiúsculas e uma marca temporal para cada palavra. Clique numa intervenção da transcrição para ouvir esse momento exato da gravação.",
       },
       {
         title: "Reconhecimento de oradores",
-        body: "A diarização também corre localmente: as intervenções ficam divididas por orador, os nomes atribuem-se uma vez e são depois reconhecidos.",
+        body: "O Summit também distingue os oradores localmente e atribui-lhes as respetivas intervenções. Basta indicar os nomes uma vez para que sejam reconhecidos nas reuniões seguintes.",
       },
       {
         title: "Pesquisa em todas as reuniões",
-        body: "Pesquisa de texto integral e vetorial em transcrições e resumos. Os embeddings são multilingues, pelo que uma pesquisa em português também encontra o que foi discutido em inglês.",
+        body: "Pesquisa de texto integral e pesquisa semântica em transcrições e resumos. A pesquisa semântica funciona entre línguas, pelo que uma consulta em português também encontra o que foi discutido em inglês.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const pt: LanguagePage = {
   mixed: {
     heading: "Quando uma chamada mistura línguas",
     paragraphs: [
-      "Um caso comum: a reunião começa entre três pessoas em português, ao fim de dez minutos juntam-se colegas internacionais e a conversa continua em inglês. Nada se parte aqui: cada segmento é reconhecido na língua em que foi dito, sem qualquer tradução. As partes em português mantêm-se em português no transcript, as em inglês mantêm-se em inglês.",
+      "Um caso comum: três pessoas começam a reunião em português, mais tarde juntam-se colegas internacionais e a conversa passa para inglês. O Summit reconhece cada segmento na língua em que foi dito, sem o traduzir. As intervenções em português mantêm-se em português e as intervenções em inglês, em inglês.",
       "A língua do documento em si é definida pelo início da reunião. O Summit escreve o resumo, as tarefas e o título nessa língua: se a chamada começar em português, o resultado será em português, mesmo que a segunda metade tenha decorrido em inglês.",
       "Para um resultado diferente — por exemplo, se o resumo se destina a colegas anglófonos — a língua da gravação pode ser definida manualmente antes do processamento.",
     ],
@@ -73,7 +73,7 @@ export const pt: LanguagePage = {
   privacy: {
     heading: "As gravações não saem do dispositivo",
     paragraphs: [
-      "Nenhum bot entra na chamada. O Summit capta o som do sistema e o microfone através do macOS, sem que apareça nenhum participante adicional — seja no Zoom, Teams, Meet ou numa reunião presencial.",
+      "Não é preciso convidar nenhum bot. O Summit grava o som do sistema e o microfone através do macOS, sem que apareça qualquer participante adicional — seja no Zoom, Teams, Meet ou numa reunião presencial.",
       "Áudio, transcrição, resumo e índice de pesquisa ficam no seu Mac. Por predefinição, nada sai daqui: nem ficheiros, nem texto, nem metadados da reunião.",
       "Um modelo na nuvem só entra em ação se introduzir a chave do seu fornecedor nas definições. Até lá, todo o processamento é local — relevante para o RGPD, porque assim não é transmitido nenhum dado pessoal.",
       "A sincronização iCloud é uma funcionalidade separada, desativada por predefinição. Se a ativar, as transcrições e os resumos sincronizam-se cifrados de ponta a ponta entre os seus próprios dispositivos; alguns metadados associados — duração, número de palavras, língua detetada — sincronizam-se sem cifra.",
@@ -83,19 +83,19 @@ export const pt: LanguagePage = {
   },
 
   useCases: {
-    heading: "Quem usa o Summit com mais frequência",
+    heading: "Para quem o Summit é especialmente útil",
     intro:
-      "Os cenários para os quais o Summit costuma ser adotado. As páginas ligadas estão por agora em inglês.",
+      "Algumas situações em que o Summit é especialmente útil. As páginas detalhadas estão, por enquanto, disponíveis apenas em inglês.",
     items: [
       {
         title: "Consultoria",
-        body: "Notas de reuniões com clientes que alimentam diretamente um relatório, sem enviar conversas protegidas por NDA para uma nuvem externa.",
+        body: "As notas de reuniões com clientes tornam-se logo a base de um relatório, sem enviar conversas confidenciais para uma nuvem externa.",
         href: "/use-cases/consulting",
         linkLabel: "Ver Consultoria",
       },
       {
         title: "Advogados",
-        body: "Conversas com clientes e discussões internas sobre um processo ficam no dispositivo, sem depender de um servidor externo para o sigilo profissional.",
+        body: "Conversas com clientes e discussões internas sobre um processo ficam no dispositivo e não são enviadas para servidores externos.",
         href: "/use-cases/legal",
         linkLabel: "Ver Advogados",
       },
@@ -135,7 +135,7 @@ export const pt: LanguagePage = {
       {
         question: "Que línguas o Summit entende além do português?",
         answer:
-          "O motor predefinido cobre 25 línguas europeias, incluindo português, alemão, francês, polaco, ucraniano e russo. Para outras línguas está integrado o Whisper — no total, o Summit cobre assim cerca de cem línguas, ainda que mais devagar com o Whisper.",
+          "O modelo predefinido suporta 25 línguas europeias, incluindo português, alemão, francês, polaco, ucraniano e russo. Para outras línguas, o Summit inclui o Whisper. No total, suporta cerca de cem línguas, embora o Whisper seja mais lento.",
       },
       {
         question: "É preciso convidar um bot para a chamada?",
@@ -147,12 +147,12 @@ export const pt: LanguagePage = {
 
   otherLanguages: {
     heading: "Outras línguas",
-    intro: "O mesmo motor reconhece mais 24 línguas.",
+    intro: "O mesmo modelo reconhece mais 24 línguas.",
   },
 
   finalCta: {
     heading: "Experimente na sua próxima reunião",
-    body: "As primeiras 15 gravações são grátis, sem criar conta. Suficiente para testar o motor com a sua voz, os seus termos e as suas reuniões.",
+    body: "As primeiras 15 gravações são grátis e não exigem uma conta. São suficientes para experimentar o Summit com a sua voz, o seu vocabulário profissional e reuniões reais.",
     ctaLabel: "Descarregar na Mac App Store",
     secondaryLabel: "Como funciona a privacidade",
     secondaryHref: "/security",

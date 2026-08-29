@@ -16,21 +16,21 @@ export const sl: LanguagePage = {
   hero: {
     h1: "Zapiski sestankov v slovenščini — na vašem Macu, brez oblaka",
     subtitle:
-      "Summit posname klic, prepiše slovenščino in pripravi povzetek z opravili. Posnetek, prepis in zapiski ostanejo na napravi.",
+      "Summit posname klic, prepiše govor v slovenščini in pripravi povzetek z opravili. Posnetek, prepis in zapiski ostanejo na vašem Macu.",
     ctaLabel: "Prenesite iz Mac App Store",
     ctaNote: "15 brezplačnih posnetkov, brez registracije",
   },
 
   engine: {
-    heading: "Slovenščino razume privzeti mehanizem",
+    heading: "Prepis v slovenščini brez dodatnih nastavitev",
     paragraphs: [
-      "Za prepoznavanje govora skrbi Parakeet TDT v3, model, ki pokriva 25 evropskih jezikov, med njimi tudi slovenščino. Vklopljen je privzeto, zato za sestanke v slovenščini ni treba ničesar spreminjati.",
-      "Jezik posnetka se prepozna samodejno, kljub bogati sklanjatvi. Če prepoznavanje zgreši — na primer ker se sestanek začne z angleškim pozdravom — lahko jezik za ta posnetek nastavite ročno.",
+      "Summit uporablja lokalni model za prepoznavanje govora Parakeet TDT v3. Podpira 25 evropskih jezikov, med njimi slovenščino, in je že izbran kot privzeti model. Ni vam treba ničesar dodatno namestiti ali preklopiti.",
+      "Jezik posnetka se prepozna samodejno. Če Summit zgreši — na primer ker se sestanek začne z angleškim pozdravom — lahko za ta posnetek ročno izberete slovenščino.",
     ],
     features: [
       {
         title: "Deluje brez interneta",
-        body: "Model je shranjen na disku in računa na procesorju vašega Maca. Na vlaku, letalu ali v sejni sobi z gostujočim Wi-Fi omrežjem je rezultat enak.",
+        body: "Model deluje neposredno na vašem Macu. Sestanke lahko prepisujete na vlaku, letalu ali ob nestabilnem omrežju Wi-Fi — kakovost ni odvisna od internetne povezave.",
       },
       {
         title: "Ločila in časovne oznake",
@@ -42,7 +42,7 @@ export const sl: LanguagePage = {
       },
       {
         title: "Iskanje po vseh sestankih",
-        body: "Celotno besedilno in vektorsko iskanje po prepisih in povzetkih. Vdelave so večjezične, zato slovensko poizvedovanje najde tudi tisto, o čemer je bil govor v angleščini.",
+        body: "Iskanje po celotnem besedilu in pomenu v prepisih ter povzetkih. Semantično iskanje deluje med jeziki, zato poizvedba v slovenščini najde tudi tisto, o čemer je bil govor v angleščini.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const sl: LanguagePage = {
   mixed: {
     heading: "Ko se v klicu mešajo jeziki",
     paragraphs: [
-      "Pogost scenarij: sestanek se začne s tremi ljudmi v slovenščini, po desetih minutah se pridružijo mednarodni sodelavci in pogovor se nadaljuje v angleščini. Tu se nič ne pokvari — vsak odsek se prepozna v jeziku, v katerem je bil izgovorjen, brez prevajanja. Slovenski deli ostanejo v prepisu slovenski, angleški ostanejo angleški.",
+      "Pogosta situacija: trije ljudje začnejo sestanek v slovenščini, pozneje se pridružijo sodelavci iz tujine in pogovor se nadaljuje v angleščini. Summit vsak odsek prepozna v jeziku, v katerem je bil izgovorjen, in ga ne prevaja. Slovenski deli ostanejo v slovenščini, angleški pa v angleščini.",
       "Jezik samega dokumenta se določi glede na začetek sestanka. Summit napiše povzetek, opravila in naslov v tem jeziku: če se klic začne v slovenščini, bo rezultat slovenski, tudi če je druga polovica potekala v angleščini.",
       "Za drugačen izid — na primer, če povzetek gre angleško govorečim sodelavcem — lahko jezik posnetka ročno nastavite pred obdelavo.",
     ],
@@ -73,7 +73,7 @@ export const sl: LanguagePage = {
   privacy: {
     heading: "Posnetki ne zapustijo naprave",
     paragraphs: [
-      "V klic ne vstopi noben bot. Summit zajame sistemski zvok in mikrofon z orodji macOS, zato se ne pojavi noben dodaten udeleženec — pa naj gre za Zoom, Teams, Meet ali sestanek v živo.",
+      "Klicu se ne pridruži noben bot. Summit prek macOS posname sistemski zvok in mikrofon, zato se ne pojavi noben dodaten udeleženec — pa naj gre za Zoom, Teams, Meet ali sestanek v živo.",
       "Zvok, prepis, povzetek in iskalni indeks ostanejo na vašem Macu. Privzeto od tod ne odide nič: ne datoteke, ne besedilo, ne metapodatki o sestanku.",
       "Model v oblaku se vključi šele, ko sami vnesete ključ svojega ponudnika v nastavitvah. Do takrat celotna obdelava poteka lokalno — pomembno za GDPR, saj se tako ne prenaša noben osebni podatek.",
       "Sinhronizacija prek iCloud je ločena funkcija, privzeto izklopljena. Če jo vklopite, se prepisi in povzetki med vašimi napravami sinhronizirajo s šifriranjem od konca do konca; del pripadajočih metapodatkov — trajanje, število besed, zaznani jezik — se sinhronizira nešifrirano.",
@@ -83,19 +83,19 @@ export const sl: LanguagePage = {
   },
 
   useCases: {
-    heading: "Kdo najpogosteje uporablja Summit",
+    heading: "Komu je Summit še posebej koristen",
     intro:
-      "Scenariji, zaradi katerih se Summit običajno kupi. Povezane strani so zaenkrat v angleščini.",
+      "Nekaj primerov, v katerih je Summit še posebej koristen. Podrobne strani so za zdaj na voljo samo v angleščini.",
     items: [
       {
         title: "Svetovanje",
-        body: "Zapiski s sestankov s strankami, ki neposredno napajajo poročilo — brez nalaganja pogovorov, zaščitenih z NDA, v tuj oblak.",
+        body: "Zapiski s sestankov s strankami takoj postanejo osnova za poročilo, ne da bi zaupne pogovore nalagali v zunanji oblak.",
         href: "/use-cases/consulting",
         linkLabel: "Svetovanje",
       },
       {
         title: "Odvetniki",
-        body: "Pogovori s strankami in notranje razprave o zadevi ostanejo na napravi, zato poklicna molčečnost ni odvisna od tujega strežnika.",
+        body: "Pogovori s strankami in notranje razprave o zadevi ostanejo na napravi in se ne pošiljajo na zunanje strežnike.",
         href: "/use-cases/legal",
         linkLabel: "Odvetniki",
       },
@@ -135,7 +135,7 @@ export const sl: LanguagePage = {
       {
         question: "Katere jezike Summit razume poleg slovenščine?",
         answer:
-          "Privzeti mehanizem pokriva 25 evropskih jezikov, med drugim slovenščino, nemščino, francoščino, poljščino, ukrajinščino in ruščino. Za ostale jezike je vgrajen Whisper — skupaj tako Summit pokriva kakih sto jezikov, a z Whisperjem počasneje.",
+          "Privzeti model podpira 25 evropskih jezikov, med drugim slovenščino, nemščino, francoščino, poljščino, ukrajinščino in ruščino. Za druge jezike ima Summit vgrajen Whisper. Skupaj podpira približno sto jezikov, vendar Whisper deluje počasneje.",
       },
       {
         question: "Ali mora bot vstopiti v klic?",
@@ -147,12 +147,12 @@ export const sl: LanguagePage = {
 
   otherLanguages: {
     heading: "Drugi jeziki",
-    intro: "Isti mehanizem prepozna še 24 drugih jezikov.",
+    intro: "Isti model prepozna še 24 drugih jezikov.",
   },
 
   finalCta: {
     heading: "Preizkusite na naslednjem sestanku",
-    body: "Prvih 15 posnetkov je brezplačnih, brez ustvarjanja računa. Dovolj, da preizkusite mehanizem na svojem govoru, svojih izrazih in svojih sestankih.",
+    body: "Prvih 15 posnetkov je brezplačnih in račun ni potreben. To zadostuje, da Summit preizkusite s svojim govorom, strokovnim besediščem in resničnimi sestanki.",
     ctaLabel: "Prenesite iz Mac App Store",
     secondaryLabel: "Kako deluje zasebnost",
     secondaryHref: "/security",

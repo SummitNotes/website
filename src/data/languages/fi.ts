@@ -22,15 +22,15 @@ export const fi: LanguagePage = {
   },
 
   engine: {
-    heading: "Suomen ymmärtää oletuksena käytössä oleva moottori",
+    heading: "Suomenkielinen litterointi toimii ilman lisäasetuksia",
     paragraphs: [
-      "Puheentunnistuksesta vastaa Parakeet TDT v3, malli joka kattaa 25 eurooppalaista kieltä, myös suomen. Se on päällä oletuksena, joten suomenkielisiin kokouksiin ei tarvitse muuttaa mitään.",
-      "Tallenteen kieli tunnistetaan automaattisesti myös suomen taivutusmuotojen läpi. Jos tunnistus menee pieleen — esimerkiksi kokous alkaa englanninkielisellä tervehdyksellä — kielen voi asettaa käsin juuri sille tallenteelle.",
+      "Summit käyttää paikallista Parakeet TDT v3 -puheentunnistusmallia. Se tukee 25:tä eurooppalaista kieltä, myös suomea, ja on valittu oletukseksi valmiiksi. Mitään ei tarvitse asentaa tai vaihtaa.",
+      "Tallenteen kieli tunnistetaan automaattisesti. Jos Summit erehtyy — esimerkiksi siksi, että kokous alkaa englanninkielisellä tervehdyksellä — voit valita kyseiselle tallenteelle suomen käsin.",
     ],
     features: [
       {
         title: "Toimii ilman internetiä",
-        body: "Malli on levyllä ja laskee Macisi suorittimella. Junassa, lentokoneessa tai vierailija-wifin neuvotteluhuoneessa tulos on sama.",
+        body: "Malli toimii suoraan Macillasi. Voit litteroida kokouksia junassa, lentokoneessa tai epävakaassa vierailijaverkossa — laatu ei riipu internetyhteydestä.",
       },
       {
         title: "Välimerkit ja aikaleimat",
@@ -42,7 +42,7 @@ export const fi: LanguagePage = {
       },
       {
         title: "Haku kaikista kokouksista",
-        body: "Kokoteksti- ja vektorihaku litterointeihin ja yhteenvetoihin. Upotukset ovat monikielisiä, joten suomenkielinen haku löytää myös sen, mistä puhuttiin englanniksi.",
+        body: "Kokoteksti- ja semanttinen haku litteroinneista ja yhteenvedoista. Semanttinen haku toimii kielten välillä, joten suomenkielinen kysely löytää myös englanniksi käsitellyt asiat.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const fi: LanguagePage = {
   mixed: {
     heading: "Kun puhelussa vaihdetaan kieltä",
     paragraphs: [
-      "Tavallinen tilanne: kokous alkaa kolmen hengen kesken suomeksi, kymmenen minuutin päästä liittyy kansainvälisiä kollegoita ja keskustelu jatkuu englanniksi. Mikään ei tässä hajoa — jokainen jakso tunnistetaan sillä kielellä, jolla se puhuttiin, kääntämättä mitään. Suomenkieliset osuudet pysyvät litteroinnissa suomeksi, englanninkieliset englanniksi.",
+      "Tavallinen tilanne: kolme ihmistä aloittaa kokouksen suomeksi, myöhemmin mukaan liittyy kansainvälisiä kollegoita ja keskustelu jatkuu englanniksi. Summit tunnistaa jokaisen jakson puhutulla kielellä eikä käännä sitä. Suomenkieliset osuudet pysyvät suomeksi ja englanninkieliset englanniksi.",
       "Itse dokumentin kieli määräytyy kokouksen alun mukaan. Summit kirjoittaa yhteenvedon, tehtävät ja otsikon tällä kielellä: jos puhelu alkoi suomeksi, tulos on suomenkielinen, vaikka toinen puolisko käytäisiin englanniksi.",
       "Jos tarvitaan toisenlainen tulos — esimerkiksi yhteenveto menee englanninkielisille kollegoille — tallenteen kielen voi asettaa käsin ennen käsittelyä.",
     ],
@@ -61,7 +61,7 @@ export const fi: LanguagePage = {
       },
       {
         title: "Yhteenveto",
-        body: "Kirjoitetaan dokumentin kielellä, jonka määrää kokouksen ensimmäiset minuutit.",
+        body: "Kirjoitetaan dokumentin kielellä, jonka kokouksen ensimmäiset minuutit määrittävät.",
       },
       {
         title: "Jos tunnistus menee väärin",
@@ -83,9 +83,9 @@ export const fi: LanguagePage = {
   },
 
   useCases: {
-    heading: "Ketkä käyttävät Summitia useimmin",
+    heading: "Kenelle Summit sopii erityisen hyvin",
     intro:
-      "Tilanteet, joita varten Summit yleensä hankitaan. Linkitetyt sivut ovat toistaiseksi englanniksi.",
+      "Muutamia tilanteita, joissa Summitista on erityisen paljon hyötyä. Tarkemmat sivut ovat toistaiseksi saatavilla vain englanniksi.",
     items: [
       {
         title: "Konsultointi",
@@ -95,7 +95,7 @@ export const fi: LanguagePage = {
       },
       {
         title: "Lakiala",
-        body: "Asiakaskeskustelut ja sisäiset tapauskeskustelut pysyvät laitteella, joten salassapitovelvollisuus ei nojaa vieraaseen palvelimeen.",
+        body: "Asiakaskeskustelut ja sisäiset tapauskeskustelut pysyvät laitteella eikä niitä lähetetä ulkoisille palvelimille.",
         href: "/use-cases/legal",
         linkLabel: "Lakiala",
       },
@@ -135,7 +135,7 @@ export const fi: LanguagePage = {
       {
         question: "Mitä kieliä Summit osaa suomen lisäksi?",
         answer:
-          "Oletusmoottori kattaa 25 eurooppalaista kieltä, muun muassa suomen, saksan, ranskan, puolan, ukrainan ja venäjän. Muille kielille on sisäänrakennettu Whisper — yhteensä Summit kattaa näin noin 99 kieltä, joskin Whisperillä hitaammin.",
+          "Oletusmalli tukee 25:tä eurooppalaista kieltä, muun muassa suomea, saksaa, ranskaa, puolaa, ukrainaa ja venäjää. Muita kieliä varten Summitiin on sisäänrakennettu Whisper. Yhteensä Summit tukee noin sataa kieltä, mutta Whisper toimii hitaammin.",
       },
       {
         question: "Täytyykö puheluun kutsua botti?",
@@ -147,12 +147,12 @@ export const fi: LanguagePage = {
 
   otherLanguages: {
     heading: "Muut kielet",
-    intro: "Sama moottori tunnistaa vielä 24 muuta kieltä.",
+    intro: "Sama malli tunnistaa vielä 24 muuta kieltä.",
   },
 
   finalCta: {
     heading: "Kokeile seuraavassa kokouksessasi",
-    body: "Ensimmäiset 15 tallennetta ovat ilmaisia ilman tilin luomista. Sen verran riittää moottorin testaamiseen omalla puheellasi, omilla termeilläsi ja omissa kokouksissasi.",
+    body: "Ensimmäiset 15 tallennetta ovat ilmaisia, eikä tiliä tarvita. Se riittää Summitin kokeilemiseen omalla puheellasi, ammattisanastollasi ja oikeissa kokouksissa.",
     ctaLabel: "Lataa Mac App Storesta",
     secondaryLabel: "Miten tietosuoja toimii",
     secondaryHref: "/security",

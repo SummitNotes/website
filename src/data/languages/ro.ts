@@ -16,21 +16,21 @@ export const ro: LanguagePage = {
   hero: {
     h1: "Notițe de întâlnire în română — pe Mac-ul tău, fără cloud",
     subtitle:
-      "Summit înregistrează apelul, transcrie limba română și pregătește un rezumat cu sarcinile de făcut. Înregistrarea, transcrierea și notițele rămân pe dispozitiv.",
+      "Summit înregistrează apelul, transcrie ce se spune în română și pregătește un rezumat cu lista de sarcini. Înregistrarea, transcrierea și notițele rămân pe Mac-ul tău.",
     ctaLabel: "Descarcă din Mac App Store",
     ctaNote: "15 înregistrări gratuite, fără cont",
   },
 
   engine: {
-    heading: "Româna este înțeleasă de motorul implicit",
+    heading: "Transcriere în română fără configurări suplimentare",
     paragraphs: [
-      "Recunoașterea vocală este făcută de Parakeet TDT v3, un model care acoperă 25 de limbi europene, inclusiv româna. Este activ implicit, așa că pentru întâlniri în română nu trebuie schimbat nimic.",
+      "Summit folosește local modelul de recunoaștere vocală Parakeet TDT v3. Acesta acceptă 25 de limbi europene, inclusiv româna, și este deja selectat implicit. Nu trebuie să instalezi sau să schimbi nimic.",
       "Limba înregistrării este detectată automat. Dacă detectarea greșește — de exemplu pentru că întâlnirea începe cu un salut în engleză —, limba poate fi setată manual pentru acea înregistrare.",
     ],
     features: [
       {
         title: "Funcționează fără internet",
-        body: "Modelul stă pe disc și calculează pe procesorul Mac-ului tău. În tren, în avion sau într-o sală de ședințe cu wifi pentru vizitatori, rezultatul e același.",
+        body: "Modelul rulează direct pe Mac-ul tău. Poți transcrie întâlniri în tren, în avion sau cu o conexiune Wi-Fi instabilă — calitatea nu depinde de internet.",
       },
       {
         title: "Punctuație și marcaje de timp",
@@ -38,11 +38,11 @@ export const ro: LanguagePage = {
       },
       {
         title: "Separarea vorbitorilor",
-        body: "Diarizarea rulează tot local: replicile sunt împărțite pe vorbitori, numele se atribuie o dată și sunt recunoscute automat după aceea.",
+        body: "Summit separă vorbitorii tot local și le atribuie intervențiile. Trebuie să introduci numele o singură dată, apoi sunt recunoscute automat.",
       },
       {
         title: "Căutare în toate întâlnirile",
-        body: "Căutare full-text și vectorială în transcrieri și rezumate. Embeddings-urile sunt multilingve, așa că o căutare în română găsește și ce s-a discutat în engleză.",
+        body: "Căutare în text și căutare semantică în transcrieri și rezumate. Căutarea semantică funcționează între limbi, așa că o întrebare în română găsește și ce s-a discutat în engleză.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const ro: LanguagePage = {
   mixed: {
     heading: "Când apelul amestecă limbile",
     paragraphs: [
-      "Un scenariu obișnuit: întâlnirea începe cu trei persoane în română, după zece minute se alătură colegi internaționali și discuția continuă în engleză. Nimic nu se strică aici — fiecare segment este recunoscut în limba în care a fost rostit, fără nicio traducere. Părțile în română rămân în română în transcriere, cele în engleză rămân în engleză.",
+      "O situație obișnuită: trei persoane încep întâlnirea în română, apoi se alătură colegi internaționali și discuția trece în engleză. Summit recunoaște fiecare segment în limba în care a fost rostit și nu îl traduce. Intervențiile în română rămân în română, iar cele în engleză în engleză.",
       "Limba documentului în sine este stabilită de începutul întâlnirii. Summit scrie rezumatul, sarcinile și titlul în această limbă: dacă apelul începe în română, rezultatul va fi în română, chiar dacă a doua jumătate s-a desfășurat în engleză.",
       "Pentru un rezultat diferit — de exemplu, dacă rezumatul merge la colegi vorbitori de engleză — limba înregistrării poate fi setată manual înainte de procesare.",
     ],
@@ -73,7 +73,7 @@ export const ro: LanguagePage = {
   privacy: {
     heading: "Înregistrările nu părăsesc dispozitivul",
     paragraphs: [
-      "Niciun bot nu intră în apel. Summit captează sunetul sistemului și microfonul prin macOS, deci nu apare niciun participant în plus — fie în Zoom, Teams, Meet, fie la o întâlnire față în față.",
+      "Niciun bot nu se alătură apelului. Summit înregistrează sunetul sistemului și microfonul prin macOS, deci nu apare niciun participant în plus — fie în Zoom, Teams sau Meet, fie la o întâlnire față în față.",
       "Sunetul, transcrierea, rezumatul și indexul de căutare rămân pe Mac-ul tău. Implicit, nimic nu iese de aici: nici fișiere, nici text, nici metadate despre întâlnire.",
       "Un model din cloud intră în funcțiune doar dacă introduci tu însuți o cheie de la furnizorul tău în setări. Până atunci, toată prelucrarea este locală — relevant pentru GDPR, pentru că astfel nu se transmite nicio dată cu caracter personal.",
       "Sincronizarea iCloud este o funcție separată, dezactivată implicit. Dacă o activezi, transcrierile și rezumatele se sincronizează criptat integral între propriile tale dispozitive; o parte din metadatele asociate — durata, numărul de cuvinte, limba detectată — se sincronizează necriptat.",
@@ -83,19 +83,19 @@ export const ro: LanguagePage = {
   },
 
   useCases: {
-    heading: "Cine folosește Summit cel mai des",
+    heading: "Pentru cine este Summit deosebit de util",
     intro:
-      "Scenariile pentru care se achiziționează de obicei Summit. Paginile legate sunt momentan în engleză.",
+      "Câteva situații în care Summit este deosebit de util. Paginile detaliate sunt disponibile momentan doar în engleză.",
     items: [
       {
         title: "Consultanță",
-        body: "Notițe din întâlnirile cu clienții care alimentează direct un raport — fără a încărca discuții protejate de NDA într-un cloud străin.",
+        body: "Notițele din întâlnirile cu clienții devin imediat baza unui raport, fără a încărca discuțiile confidențiale într-un cloud extern.",
         href: "/use-cases/consulting",
         linkLabel: "Consultanță",
       },
       {
         title: "Avocați",
-        body: "Discuțiile cu clienții și dezbaterile interne despre un caz rămân pe dispozitiv, așa că secretul profesional nu depinde de un server străin.",
+        body: "Discuțiile cu clienții și conversațiile interne despre un caz rămân pe dispozitiv și nu sunt trimise către servere externe.",
         href: "/use-cases/legal",
         linkLabel: "Avocați",
       },
@@ -135,7 +135,7 @@ export const ro: LanguagePage = {
       {
         question: "Ce limbi mai știe Summit în afară de română?",
         answer:
-          "Motorul implicit acoperă 25 de limbi europene, printre care română, germană, franceză, poloneză, ucraineană și rusă. Pentru restul limbilor este integrat Whisper — în total, Summit acoperă astfel circa o sută de limbi, deși mai lent cu Whisper.",
+          "Modelul implicit acceptă 25 de limbi europene, printre care română, germană, franceză, poloneză, ucraineană și rusă. Pentru alte limbi, Summit include Whisper. În total, sunt acceptate aproximativ o sută de limbi, însă Whisper funcționează mai lent.",
       },
       {
         question: "Trebuie invitat un bot în apel?",
@@ -147,12 +147,12 @@ export const ro: LanguagePage = {
 
   otherLanguages: {
     heading: "Alte limbi",
-    intro: "Același motor recunoaște încă 24 de limbi.",
+    intro: "Același model recunoaște încă 24 de limbi.",
   },
 
   finalCta: {
     heading: "Încearcă la următoarea ta întâlnire",
-    body: "Primele 15 înregistrări sunt gratuite, fără a crea un cont. Suficient cât să testezi motorul pe vocea ta, pe termenii tăi și pe întâlnirile tale.",
+    body: "Primele 15 înregistrări sunt gratuite și nu ai nevoie de cont. Sunt suficiente ca să testezi Summit cu vocea ta, vocabularul profesional și întâlniri reale.",
     ctaLabel: "Descarcă din Mac App Store",
     secondaryLabel: "Cum funcționează confidențialitatea",
     secondaryHref: "/security",

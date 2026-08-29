@@ -10,7 +10,7 @@ export const cs: LanguagePage = {
   meta: {
     title: "Přepis schůzek v češtině — lokálně na vašem Macu | Summit AI Notes",
     description:
-      "Summit rozpozná češtinu přímo na vašem Macu: žádný bot v hovoru, žádný nahraný záznam do cloudu. Přepis, shrnutí s úkoly a vyhledávání napříč všemi schůzkami.",
+      "Summit rozpoznává češtinu přímo na vašem Macu: bez bota v hovoru a bez nahrávání záznamů do cloudu. Získáte přepis, shrnutí s úkoly a vyhledávání napříč všemi schůzkami.",
   },
 
   hero: {
@@ -22,15 +22,15 @@ export const cs: LanguagePage = {
   },
 
   engine: {
-    heading: "Češtinu zvládá výchozí engine",
+    heading: "Čeština funguje bez dalšího nastavování",
     paragraphs: [
-      "Rozpoznávání řeči zajišťuje Parakeet TDT v3, model pokrývající 25 evropských jazyků, včetně češtiny. Je zapnutý ve výchozím nastavení, takže pro české schůzky není třeba nic přepínat.",
-      "Jazyk nahrávky se rozpozná automaticky, i přes bohatou skloňovací soustavu. Pokud se rozpoznání spletlo — třeba proto, že schůzka začala anglickým pozdravem — jde jazyk pro konkrétní nahrávku nastavit ručně.",
+      "Summit používá lokální model rozpoznávání řeči Parakeet TDT v3. Podporuje 25 evropských jazyků včetně češtiny a je nastavený jako výchozí. Nemusíte tedy nic dalšího instalovat ani přepínat.",
+      "Jazyk nahrávky se rozpozná automaticky. Pokud se Summit splete — třeba proto, že schůzka začala anglickým pozdravem — můžete pro danou nahrávku zvolit češtinu ručně.",
     ],
     features: [
       {
         title: "Funguje bez internetu",
-        body: "Model leží na disku a počítá na procesoru vašeho Macu. Ve vlaku, letadle nebo v zasedačce s hostovským Wi-Fi je výsledek stejný.",
+        body: "Model běží přímo na vašem Macu. Schůzky můžete přepisovat ve vlaku, v letadle i v zasedačce s nespolehlivou Wi-Fi — kvalita nezávisí na připojení k internetu.",
       },
       {
         title: "Interpunkce a časové značky",
@@ -38,11 +38,11 @@ export const cs: LanguagePage = {
       },
       {
         title: "Rozlišení mluvčích",
-        body: "Diarizace běží také lokálně: promluvy jsou rozdělené podle mluvčích, jména se přiřadí jednou a pak se rozpoznávají automaticky.",
+        body: "Také rozlišení mluvčích probíhá lokálně. Promluvy se rozdělí podle mluvčích, jména přiřadíte jednou a Summit je pak rozpozná automaticky.",
       },
       {
         title: "Vyhledávání napříč schůzkami",
-        body: "Fulltextové i vektorové vyhledávání v přepisech a shrnutích. Embeddingy jsou vícejazyčné, takže český dotaz najde i to, co se probíralo anglicky.",
+        body: "Fulltextové i sémantické vyhledávání v přepisech a shrnutích. Sémantické hledání funguje napříč jazyky, takže český dotaz najde i to, co se probíralo anglicky.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const cs: LanguagePage = {
   mixed: {
     heading: "Když se v hovoru míchají jazyky",
     paragraphs: [
-      "Běžný scénář: schůzka začíná ve třech lidech česky, po deseti minutách se připojí zahraniční kolegové a dál pokračuje anglicky. Nic se tu neláme — každý úsek se rozpozná v jazyce, ve kterém byl řečen, bez jakéhokoli překladu. České pasáže zůstávají v přepisu české, anglické zůstávají anglické.",
+      "Běžný scénář: tři lidé začnou schůzku česky, po deseti minutách se připojí zahraniční kolegové a rozhovor pokračuje anglicky. Summit každý úsek rozpozná v jazyce, ve kterém zazněl, a nic nepřekládá. České pasáže zůstanou česky, anglické anglicky.",
       "Jazyk samotného dokumentu se určuje podle začátku schůzky. Summit napíše shrnutí, úkoly i název v tomto jazyce: pokud hovor začal česky, výsledek bude český, i když druhá polovina proběhla anglicky.",
       "Pro jiný výsledek — třeba když shrnutí míří k anglicky mluvícím kolegům — lze jazyk nahrávky nastavit ručně před zpracováním.",
     ],
@@ -73,7 +73,7 @@ export const cs: LanguagePage = {
   privacy: {
     heading: "Nahrávky neopouštějí zařízení",
     paragraphs: [
-      "Do hovoru nevstupuje žádný bot. Summit zachytává systémový zvuk a mikrofon nástroji macOS, takže se neobjeví žádný další účastník — ať už v Zoomu, Teams, Meetu nebo na schůzce naživo.",
+      "K hovoru se nepřipojuje žádný bot. Summit zaznamenává systémový zvuk a mikrofon prostřednictvím macOS, takže se v seznamu účastníků nikdo navíc neobjeví — ať už používáte Zoom, Teams či Meet, nebo se scházíte osobně.",
       "Zvuk, přepis, shrnutí i vyhledávací index zůstávají na vašem Macu. Ve výchozím nastavení odsud nic neodchází: žádné soubory, žádný text, žádná metadata o schůzce.",
       "Cloudový model se zapojí, jen pokud sami zadáte klíč svého poskytovatele v nastavení. Do té doby probíhá celé zpracování lokálně — což je podstatné pro GDPR, protože se tak nepřenáší žádný osobní údaj.",
       "Synchronizace přes iCloud je samostatná funkce, ve výchozím nastavení vypnutá. Když ji zapnete, přepisy a shrnutí se mezi vašimi zařízeními synchronizují šifrovaně od konce ke konci; část metadat k nim — délka, počet slov, rozpoznaný jazyk — se přitom synchronizuje nešifrovaně.",
@@ -83,19 +83,19 @@ export const cs: LanguagePage = {
   },
 
   useCases: {
-    heading: "Kdo Summit využívá nejčastěji",
+    heading: "Pro koho se Summit hodí",
     intro:
-      "Scénáře, kvůli kterým se Summit obvykle pořizuje. Odkazované stránky jsou zatím v angličtině.",
+      "Několik situací, ve kterých je Summit obzvlášť užitečný. Podrobné stránky jsou zatím jen v angličtině.",
     items: [
       {
         title: "Konzultace",
-        body: "Poznámky z klientských schůzek, ze kterých rovnou vzniká zpráva — bez nahrávání rozhovorů chráněných NDA do cizího cloudu.",
+        body: "Poznámky z klientských schůzek se rovnou promění ve zprávu, aniž by se důvěrné rozhovory nahrávaly do externího cloudu.",
         href: "/use-cases/consulting",
         linkLabel: "Konzultace",
       },
       {
         title: "Právníci",
-        body: "Rozhovory s klienty a interní diskuse o případu zůstávají v zařízení, takže mlčenlivost nezávisí na cizím serveru.",
+        body: "Rozhovory s klienty a interní diskuse o případu zůstávají v zařízení a neodesílají se na externí servery.",
         href: "/use-cases/legal",
         linkLabel: "Právníci",
       },
@@ -135,7 +135,7 @@ export const cs: LanguagePage = {
       {
         question: "Jaké jazyky Summit zvládá kromě češtiny?",
         answer:
-          "Výchozí engine pokrývá 25 evropských jazyků, mimo jiné češtinu, němčinu, francouzštinu, polštinu, ukrajinštinu a ruštinu. Pro ostatní jazyky je zabudovaný Whisper — dohromady tak Summit zvládá zhruba 99 jazyků, byť s Whisperem pomaleji.",
+          "Výchozí model podporuje 25 evropských jazyků, mimo jiné češtinu, němčinu, francouzštinu, polštinu, ukrajinštinu a ruštinu. Pro další jazyky je zabudovaný Whisper. Celkem tak Summit podporuje zhruba sto jazyků, s Whisperem však pracuje pomaleji.",
       },
       {
         question: "Musí do hovoru vstoupit bot?",
@@ -147,12 +147,12 @@ export const cs: LanguagePage = {
 
   otherLanguages: {
     heading: "Další jazyky",
-    intro: "Stejný engine rozpozná dalších 24 jazyků.",
+    intro: "Stejný model rozpozná dalších 24 jazyků.",
   },
 
   finalCta: {
     heading: "Vyzkoušejte na příští schůzce",
-    body: "Prvních 15 nahrávek je zdarma, bez zakládání účtu. Stačí to na otestování enginu na vlastní řeči, vlastní terminologii i vlastních schůzkách.",
+    body: "Prvních 15 nahrávek je zdarma a bez účtu. To stačí, abyste Summit vyzkoušeli na vlastním projevu, odborných výrazech i skutečných schůzkách.",
     ctaLabel: "Stáhnout z Mac App Store",
     secondaryLabel: "Jak funguje soukromí",
     secondaryHref: "/security",

@@ -22,15 +22,15 @@ export const sk: LanguagePage = {
   },
 
   engine: {
-    heading: "Slovenčinu zvláda predvolený engine",
+    heading: "Prepis v slovenčine bez ďalšieho nastavovania",
     paragraphs: [
-      "Rozpoznávanie reči zabezpečuje Parakeet TDT v3, model pokrývajúci 25 európskych jazykov vrátane slovenčiny. Je zapnutý predvolene, takže pre slovenské stretnutia netreba nič prepínať.",
+      "Summit používa lokálny model rozpoznávania reči Parakeet TDT v3. Podporuje 25 európskych jazykov vrátane slovenčiny a je už nastavený ako predvolený. Nemusíte nič navyše inštalovať ani prepínať.",
       "Jazyk nahrávky sa rozpozná automaticky. Ak sa rozpoznanie pomýli — napríklad preto, že stretnutie začalo anglickým pozdravom — dá sa jazyk pre konkrétnu nahrávku nastaviť ručne.",
     ],
     features: [
       {
         title: "Funguje bez internetu",
-        body: "Model je uložený na disku a počíta na procesore vášho Macu. Vo vlaku, v lietadle či v zasadačke s hosťovským Wi-Fi je výsledok rovnaký.",
+        body: "Model beží priamo na vašom Macu. Stretnutia môžete prepisovať vo vlaku, v lietadle aj pri nestabilnom Wi-Fi — kvalita nezávisí od internetového pripojenia.",
       },
       {
         title: "Interpunkcia a časové značky",
@@ -38,11 +38,11 @@ export const sk: LanguagePage = {
       },
       {
         title: "Rozlíšenie hovoriacich",
-        body: "Diarizácia beží tiež lokálne: repliky sú rozdelené podľa hovoriacich, mená sa priradia raz a potom sa rozpoznávajú automaticky.",
+        body: "Summit rozlišuje hovoriacich tiež lokálne a priraďuje im jednotlivé repliky. Mená stačí zadať raz, potom sa rozpoznávajú automaticky.",
       },
       {
         title: "Vyhľadávanie naprieč stretnutiami",
-        body: "Fulltextové aj vektorové vyhľadávanie v prepisoch a zhrnutiach. Embeddingy sú viacjazyčné, takže slovenský dopyt nájde aj to, čo sa preberalo po anglicky.",
+        body: "Fulltextové aj sémantické vyhľadávanie v prepisoch a zhrnutiach. Sémantické hľadanie funguje naprieč jazykmi, takže slovenský dopyt nájde aj to, čo sa preberalo po anglicky.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const sk: LanguagePage = {
   mixed: {
     heading: "Keď sa v hovore miešajú jazyky",
     paragraphs: [
-      "Bežný scenár: stretnutie začína traja ľudia po slovensky, po desiatich minútach sa pripoja zahraniční kolegovia a rozhovor pokračuje po anglicky. Nič sa tu nekazí — každý úsek sa rozpozná v jazyku, v ktorom bol povedaný, bez akéhokoľvek prekladu. Slovenské pasáže zostávajú v prepise slovenské, anglické zostávajú anglické.",
+      "Bežná situácia: traja ľudia začnú stretnutie po slovensky, neskôr sa pripoja zahraniční kolegovia a rozhovor pokračuje po anglicky. Summit rozpozná každý úsek v jazyku, v ktorom zaznel, a neprekladá ho. Slovenské pasáže zostanú po slovensky, anglické po anglicky.",
       "Jazyk samotného dokumentu sa určuje podľa začiatku stretnutia. Summit napíše zhrnutie, úlohy aj názov v tomto jazyku: ak hovor začal po slovensky, výsledok bude slovenský, aj keď druhá polovica prebehla po anglicky.",
       "Pre iný výsledok — napríklad keď zhrnutie smeruje k anglicky hovoriacim kolegom — sa dá jazyk nahrávky nastaviť ručne pred spracovaním.",
     ],
@@ -73,7 +73,7 @@ export const sk: LanguagePage = {
   privacy: {
     heading: "Nahrávky neopúšťajú zariadenie",
     paragraphs: [
-      "Do hovoru nevstupuje žiadny bot. Summit zachytáva systémový zvuk a mikrofón nástrojmi macOS, takže sa neobjaví žiadny ďalší účastník — či už v Zoome, Teams, Meete alebo na stretnutí naživo.",
+      "K hovoru sa nepripája žiadny bot. Summit zaznamenáva systémový zvuk a mikrofón prostredníctvom macOS, takže sa neobjaví žiadny ďalší účastník — či už v Zoome, Teams, Meete alebo na stretnutí naživo.",
       "Zvuk, prepis, zhrnutie aj vyhľadávací index zostávajú na vašom Macu. Predvolene odtiaľto nič neodchádza: žiadne súbory, žiadny text, žiadne metadáta o stretnutí.",
       "Cloudový model sa zapojí, len ak sami zadáte kľúč svojho poskytovateľa v nastaveniach. Dovtedy prebieha celé spracovanie lokálne — čo je podstatné pre GDPR, pretože sa tak neprenáša žiadny osobný údaj.",
       "Synchronizácia cez iCloud je samostatná funkcia, predvolene vypnutá. Ak ju zapnete, prepisy a zhrnutia sa medzi vašimi zariadeniami synchronizujú end-to-end šifrovane; časť sprievodných metadát — dĺžka, počet slov, rozpoznaný jazyk — sa synchronizuje nešifrovane.",
@@ -83,19 +83,19 @@ export const sk: LanguagePage = {
   },
 
   useCases: {
-    heading: "Kto Summit využíva najčastejšie",
+    heading: "Pre koho je Summit obzvlášť užitočný",
     intro:
-      "Scenáre, kvôli ktorým sa Summit zvyčajne obstaráva. Odkazované stránky sú zatiaľ v angličtine.",
+      "Niekoľko situácií, v ktorých je Summit obzvlášť užitočný. Podrobné stránky sú zatiaľ dostupné len v angličtine.",
     items: [
       {
         title: "Konzultácie",
-        body: "Poznámky z klientskych stretnutí, z ktorých rovno vzniká správa — bez nahrávania rozhovorov chránených NDA do cudzieho cloudu.",
+        body: "Poznámky z klientskych stretnutí sa rovno zmenia na podklad pre správu bez nahrávania dôverných rozhovorov do externého cloudu.",
         href: "/use-cases/consulting",
         linkLabel: "Konzultácie",
       },
       {
         title: "Právnici",
-        body: "Rozhovory s klientmi a interné diskusie o prípade zostávajú v zariadení, takže mlčanlivosť nezávisí od cudzieho servera.",
+        body: "Rozhovory s klientmi a interné diskusie o prípade zostávajú v zariadení a neodosielajú sa na externé servery.",
         href: "/use-cases/legal",
         linkLabel: "Právnici",
       },
@@ -135,7 +135,7 @@ export const sk: LanguagePage = {
       {
         question: "Aké jazyky zvláda Summit okrem slovenčiny?",
         answer:
-          "Predvolený engine pokrýva 25 európskych jazykov, okrem iného slovenčinu, nemčinu, francúzštinu, poľštinu, ukrajinčinu a ruštinu. Pre ostatné jazyky je zabudovaný Whisper — spolu tak Summit pokrýva zhruba sto jazykov, hoci s Whisperom pomalšie.",
+          "Predvolený model podporuje 25 európskych jazykov vrátane slovenčiny, nemčiny, francúzštiny, poľštiny, ukrajinčiny a ruštiny. Pre ďalšie jazyky je zabudovaný Whisper. Summit tak spolu podporuje približne sto jazykov, no Whisper pracuje pomalšie.",
       },
       {
         question: "Musí do hovoru vstúpiť bot?",
@@ -147,12 +147,12 @@ export const sk: LanguagePage = {
 
   otherLanguages: {
     heading: "Ďalšie jazyky",
-    intro: "Ten istý engine rozpozná ďalších 24 jazykov.",
+    intro: "Ten istý model rozpozná ďalších 24 jazykov.",
   },
 
   finalCta: {
     heading: "Vyskúšajte na najbližšom stretnutí",
-    body: "Prvých 15 nahrávok je zadarmo, bez zakladania účtu. Stačí to na otestovanie enginu na vlastnej reči, vlastnej terminológii aj vlastných stretnutiach.",
+    body: "Prvých 15 nahrávok je zadarmo a bez účtu. To stačí na vyskúšanie Summitu s vaším hlasom, odbornou terminológiou aj skutočnými stretnutiami.",
     ctaLabel: "Stiahnuť z Mac App Store",
     secondaryLabel: "Ako funguje súkromie",
     secondaryHref: "/security",

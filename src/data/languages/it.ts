@@ -16,21 +16,21 @@ export const it: LanguagePage = {
   hero: {
     h1: "Note di riunione in italiano — sul tuo Mac, senza cloud",
     subtitle:
-      "Summit registra la chiamata, trascrive l'italiano e prepara un riassunto con le attività da fare. Registrazione, trascrizione e note restano sul dispositivo.",
+      "Summit registra la chiamata, trascrive ciò che viene detto in italiano e prepara un riepilogo con le attività da svolgere. Registrazione, trascrizione e note restano sul tuo Mac.",
     ctaLabel: "Scarica dal Mac App Store",
     ctaNote: "15 registrazioni gratuite, senza registrazione account",
   },
 
   engine: {
-    heading: "L'italiano lo capisce il motore predefinito",
+    heading: "Trascrizione in italiano senza configurazioni aggiuntive",
     paragraphs: [
-      "Il riconoscimento vocale è affidato a Parakeet TDT v3, un modello che copre 25 lingue europee, italiano incluso. È attivo di default, quindi per le riunioni in italiano non c'è nulla da configurare.",
+      "Summit usa in locale il modello di riconoscimento vocale Parakeet TDT v3. Supporta 25 lingue europee, compreso l'italiano, ed è già selezionato come modello predefinito. Non devi installare o modificare nulla.",
       "La lingua della registrazione viene rilevata automaticamente. Se il rilevamento sbaglia — ad esempio perché la riunione inizia con un saluto in inglese — si può impostare manualmente per quella singola registrazione.",
     ],
     features: [
       {
         title: "Funziona senza internet",
-        body: "Il modello è salvato sul disco e gira sul processore del tuo Mac. In treno, in aereo o in sala riunioni con un Wi-Fi ospiti, il risultato non cambia.",
+        body: "Il modello viene eseguito direttamente sul tuo Mac. Puoi trascrivere una riunione in treno, in aereo o con una connessione Wi-Fi instabile: la qualità non dipende da internet.",
       },
       {
         title: "Punteggiatura e timestamp",
@@ -38,11 +38,11 @@ export const it: LanguagePage = {
       },
       {
         title: "Riconoscimento dei parlanti",
-        body: "Anche la diarizzazione gira in locale: gli interventi sono suddivisi per parlante, i nomi si assegnano una volta e vengono poi riconosciuti automaticamente.",
+        body: "Summit distingue i parlanti in locale e assegna a ciascuno i relativi interventi. Basta indicare i nomi una volta perché vengano riconosciuti nelle riunioni successive.",
       },
       {
         title: "Ricerca su tutte le riunioni",
-        body: "Ricerca full-text e vettoriale su trascrizioni e riassunti. Gli embedding sono multilingue, quindi una ricerca in italiano trova anche ciò di cui si è discusso in inglese.",
+        body: "Ricerca full-text e semantica su trascrizioni e riassunti. La ricerca semantica funziona tra lingue diverse, quindi una domanda in italiano trova anche ciò di cui si è discusso in inglese.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const it: LanguagePage = {
   mixed: {
     heading: "Quando in chiamata si mescolano le lingue",
     paragraphs: [
-      "Un caso frequente: la riunione parte in tre persone in italiano, dopo dieci minuti si aggiungono colleghi internazionali e si continua in inglese. Non c'è nulla che si rompa: ogni segmento viene riconosciuto nella lingua in cui è stato pronunciato, senza alcuna traduzione. Le parti in italiano restano in italiano nella trascrizione, quelle in inglese restano in inglese.",
+      "Un caso frequente: tre persone iniziano la riunione in italiano, poi si aggiungono colleghi internazionali e la conversazione passa all'inglese. Summit riconosce ogni segmento nella lingua in cui è stato pronunciato, senza tradurlo. Le parti in italiano restano in italiano e quelle in inglese in inglese.",
       "La lingua del documento, invece, si fissa in base all'inizio della riunione. Summit scrive riassunto, attività e titolo in quella lingua: se la chiamata comincia in italiano, il risultato sarà in italiano, anche se la seconda metà si è svolta in inglese.",
       "Per un esito diverso — ad esempio se il riassunto è destinato a colleghi anglofoni — la lingua della registrazione si può impostare manualmente prima dell'elaborazione.",
     ],
@@ -73,7 +73,7 @@ export const it: LanguagePage = {
   privacy: {
     heading: "Le registrazioni non lasciano il dispositivo",
     paragraphs: [
-      "Nessun bot entra in chiamata. Summit cattura audio di sistema e microfono tramite macOS, quindi non compare nessun partecipante in più, sia su Zoom, Teams, Meet, sia in un incontro di persona.",
+      "Non serve invitare alcun bot. Summit registra l'audio di sistema e il microfono tramite macOS, quindi non compare nessun partecipante in più, né su Zoom, Teams o Meet né durante un incontro di persona.",
       "Audio, trascrizione, riassunto e indice di ricerca restano sul tuo Mac. Di default non esce nulla: né file, né testo, né metadati della riunione.",
       "Un modello cloud entra in gioco solo se inserisci tu stesso la chiave del tuo provider nelle impostazioni. Fino a quel momento tutta l'elaborazione resta locale — un punto rilevante per il GDPR, perché così non viene trasmesso alcun dato personale.",
       "La sincronizzazione iCloud è una funzione separata, disattivata di default. Se la attivi, trascrizioni e riassunti si sincronizzano cifrati end-to-end tra i tuoi dispositivi; alcuni metadati che li accompagnano — durata, numero di parole, lingua rilevata — si sincronizzano invece in chiaro.",
@@ -83,33 +83,33 @@ export const it: LanguagePage = {
   },
 
   useCases: {
-    heading: "Chi usa Summit più spesso",
+    heading: "Per chi è particolarmente utile Summit",
     intro:
-      "Gli scenari per cui Summit viene solitamente adottato. Le pagine collegate sono per ora in inglese.",
+      "Alcune situazioni in cui Summit è particolarmente utile. Le pagine di approfondimento sono per ora disponibili solo in inglese.",
     items: [
       {
         title: "Consulenza",
-        body: "Note di riunioni con i clienti che alimentano direttamente un report, senza caricare conversazioni coperte da NDA su un cloud esterno.",
+        body: "Le note delle riunioni con i clienti diventano subito la base per un report, senza caricare conversazioni riservate su un cloud esterno.",
         href: "/use-cases/consulting",
-        linkLabel: "Vai a Consulenza",
+        linkLabel: "Per la consulenza",
       },
       {
         title: "Avvocati",
-        body: "Colloqui con i clienti e discussioni interne su un caso restano sul dispositivo, così il segreto professionale non dipende da un server esterno.",
+        body: "Colloqui con i clienti e discussioni interne su un caso restano sul dispositivo e non vengono inviati a server esterni.",
         href: "/use-cases/legal",
-        linkLabel: "Vai a Avvocati",
+        linkLabel: "Per gli avvocati",
       },
       {
         title: "Finanza",
         body: "Riunioni con investitori e trattative con formulazioni e cifre precise, ritrovabili poi con la ricerca.",
         href: "/use-cases/finance",
-        linkLabel: "Vai a Finanza",
+        linkLabel: "Per la finanza",
       },
       {
         title: "Sanità",
         body: "Consulti e revisioni di casi senza passare i dati del paziente a terzi.",
         href: "/use-cases/healthcare",
-        linkLabel: "Vai a Sanità",
+        linkLabel: "Per la sanità",
       },
     ],
   },
@@ -135,7 +135,7 @@ export const it: LanguagePage = {
       {
         question: "Quali lingue capisce Summit oltre all'italiano?",
         answer:
-          "Il motore predefinito copre 25 lingue europee, tra cui italiano, tedesco, francese, spagnolo, polacco, ucraino e russo. Per le altre lingue è integrato Whisper: nel complesso Summit copre così un centinaio di lingue, anche se più lentamente con Whisper.",
+          "Il modello predefinito supporta 25 lingue europee, tra cui italiano, tedesco, francese, spagnolo, polacco, ucraino e russo. Per le altre lingue Summit integra Whisper. In totale sono supportate circa cento lingue, anche se Whisper è più lento.",
       },
       {
         question: "Bisogna far entrare un bot in chiamata?",
@@ -147,12 +147,12 @@ export const it: LanguagePage = {
 
   otherLanguages: {
     heading: "Altre lingue",
-    intro: "Lo stesso motore riconosce altre 24 lingue.",
+    intro: "Lo stesso modello riconosce altre 24 lingue.",
   },
 
   finalCta: {
     heading: "Provalo alla prossima riunione",
-    body: "Le prime 15 registrazioni sono gratuite, senza creare un account. Abbastanza per testare il motore sulla tua voce, i tuoi termini e le tue riunioni.",
+    body: "Le prime 15 registrazioni sono gratuite e non serve creare un account. Sono sufficienti per provare Summit con la tua voce, il tuo lessico professionale e riunioni reali.",
     ctaLabel: "Scarica dal Mac App Store",
     secondaryLabel: "Come funziona la privacy",
     secondaryHref: "/security",

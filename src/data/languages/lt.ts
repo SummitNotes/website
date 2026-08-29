@@ -8,29 +8,29 @@ export const lt: LanguagePage = {
   storeLocale: "lt",
 
   meta: {
-    title: "Susitikimų transkripcija lietuvių kalba — vietoje jūsų Mac | Summit AI Notes",
+    title: "Susitikimų transkripcija lietuvių kalba — jūsų Mac kompiuteryje | Summit AI Notes",
     description:
       "Summit atpažįsta lietuvių kalbą tiesiai jūsų Mac kompiuteryje: jokio boto skambutyje, jokių įrašų, siunčiamų į debesį. Transkripcija, santrauka su užduotimis ir paieška visuose susitikimuose.",
   },
 
   hero: {
-    h1: "Susitikimų užrašai lietuvių kalba — jūsų Mac, be debesies",
+    h1: "Susitikimų užrašai lietuvių kalba — jūsų Mac kompiuteryje, be debesies",
     subtitle:
-      "Summit įrašo skambutį, transkribuoja lietuvių kalbą ir parengia santrauką su užduotimis. Įrašas, transkripcija ir užrašai lieka įrenginyje.",
+      "Summit įrašo pokalbį, transkribuoja lietuviškai sakomą kalbą ir parengia santrauką su užduotimis. Įrašas, transkripcija ir užrašai lieka jūsų Mac kompiuteryje.",
     ctaLabel: "Atsisiųsti iš Mac App Store",
     ctaNote: "15 įrašų nemokamai, be registracijos",
   },
 
   engine: {
-    heading: "Lietuvių kalbą supranta numatytasis variklis",
+    heading: "Transkripcija lietuvių kalba be papildomų nustatymų",
     paragraphs: [
-      "Kalbos atpažinimą atlieka Parakeet TDT v3 — modelis, apimantis 25 Europos kalbas, tarp jų ir lietuvių. Jis įjungtas pagal numatytuosius nustatymus, todėl lietuviškiems susitikimams nieko keisti nereikia.",
-      "Įrašo kalba atpažįstama automatiškai, nepaisant turtingos linksniavimo sistemos. Jei atpažinimas suklysta — pavyzdžiui, susitikimas prasideda angliška pasveikinimo fraze —, kalbą galima nustatyti rankiniu būdu tam konkrečiam įrašui.",
+      "Summit naudoja vietinį kalbos atpažinimo modelį Parakeet TDT v3. Jis palaiko 25 Europos kalbas, įskaitant lietuvių, ir jau yra pasirinktas pagal numatytuosius nustatymus. Nieko papildomai diegti ar keisti nereikia.",
+      "Įrašo kalba atpažįstama automatiškai. Jei Summit suklysta — pavyzdžiui, nes susitikimas prasideda anglišku pasisveikinimu — tam įrašui galite rankiniu būdu pasirinkti lietuvių kalbą.",
     ],
     features: [
       {
         title: "Veikia be interneto",
-        body: "Modelis saugomas diske ir skaičiuoja jūsų Mac procesoriuje. Traukinyje, lėktuve ar posėdžių kambaryje su svečių Wi-Fi rezultatas nesikeičia.",
+        body: "Modelis veikia tiesiogiai jūsų Mac kompiuteryje. Susitikimus galite transkribuoti traukinyje, lėktuve ar esant nestabiliam Wi-Fi — kokybė nepriklauso nuo interneto ryšio.",
       },
       {
         title: "Skyrybos ženklai ir laiko žymos",
@@ -38,11 +38,11 @@ export const lt: LanguagePage = {
       },
       {
         title: "Kalbėtojų atpažinimas",
-        body: "Diarizacija taip pat vyksta vietoje: pasisakymai paskirstyti pagal kalbėtojus, vardai priskiriami vieną kartą ir vėliau atpažįstami automatiškai.",
+        body: "Summit taip pat atskiria kalbėtojus vietoje ir priskiria jiems pasisakymus. Vardus pakanka nurodyti vieną kartą — vėliau jie atpažįstami automatiškai.",
       },
       {
         title: "Paieška visuose susitikimuose",
-        body: "Viso teksto ir vektorinė paieška transkripcijose ir santraukose. Įterpiniai yra daugiakalbiai, todėl lietuviška paieška randa ir tai, kas buvo aptarta angliškai.",
+        body: "Viso teksto ir semantinė paieška transkripcijose bei santraukose. Semantinė paieška veikia keliomis kalbomis, todėl lietuviška užklausa randa ir tai, kas buvo aptarta angliškai.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const lt: LanguagePage = {
   mixed: {
     heading: "Kai skambutyje maišosi kalbos",
     paragraphs: [
-      "Įprastas scenarijus: susitikimas prasideda trise lietuviškai, po dešimties minučių prisijungia tarptautiniai kolegos, ir pokalbis toliau vyksta angliškai. Čia niekas nesugenda — kiekviena atkarpa atpažįstama ta kalba, kuria ji buvo pasakyta, be jokio vertimo. Lietuviškos dalys transkripcijoje lieka lietuviškos, angliškos lieka angliškos.",
+      "Įprastas scenarijus: trys žmonės pradeda susitikimą lietuviškai, vėliau prisijungia užsienio kolegos ir pokalbis tęsiasi angliškai. Summit atpažįsta kiekvieną atkarpą ta kalba, kuria ji buvo pasakyta, ir jos neverčia. Lietuviškos dalys lieka lietuviškos, o angliškos — angliškos.",
       "Paties dokumento kalba nustatoma pagal susitikimo pradžią. Summit parašys santrauką, užduotis ir pavadinimą ta kalba: jei skambutis prasidėjo lietuviškai, rezultatas bus lietuviškas, net jei antra pusė vyko angliškai.",
       "Norint kitokio rezultato — pavyzdžiui, kai santrauka keliauja angliškai kalbantiems kolegoms — įrašo kalbą galima nustatyti rankiniu būdu prieš apdorojimą.",
     ],
@@ -83,19 +83,19 @@ export const lt: LanguagePage = {
   },
 
   useCases: {
-    heading: "Kas dažniausiai naudoja Summit",
+    heading: "Kam Summit ypač naudingas",
     intro:
-      "Scenarijai, dėl kurių Summit paprastai ir įsigyjamas. Susietuose puslapiuose kol kas tik anglų kalba.",
+      "Kelios situacijos, kuriose Summit ypač naudingas. Išsamūs puslapiai kol kas pateikiami tik anglų kalba.",
     items: [
       {
         title: "Konsultacijos",
-        body: "Užrašai iš susitikimų su klientais, iš kurių iš karto susidaro ataskaita — neįkeliant NDA saugomų pokalbių į svetimą debesį.",
+        body: "Susitikimų su klientais užrašai iš karto tampa ataskaitos pagrindu, o konfidencialūs pokalbiai nekeliami į išorinį debesį.",
         href: "/use-cases/consulting",
         linkLabel: "Konsultacijos",
       },
       {
         title: "Teisininkai",
-        body: "Pokalbiai su klientais ir vidinės diskusijos apie bylą lieka įrenginyje, todėl profesinė paslaptis nepriklauso nuo svetimo serverio.",
+        body: "Pokalbiai su klientais ir vidinės diskusijos apie bylą lieka įrenginyje ir nėra siunčiami į išorinius serverius.",
         href: "/use-cases/legal",
         linkLabel: "Teisininkai",
       },
@@ -135,7 +135,7 @@ export const lt: LanguagePage = {
       {
         question: "Kokias kalbas Summit moka be lietuvių?",
         answer:
-          "Numatytasis variklis apima 25 Europos kalbas, tarp jų lietuvių, vokiečių, prancūzų, lenkų, ukrainiečių ir rusų. Kitoms kalboms integruotas Whisper — iš viso Summit taip apima maždaug šimtą kalbų, tačiau su Whisper lėčiau.",
+          "Numatytasis modelis palaiko 25 Europos kalbas, tarp jų lietuvių, vokiečių, prancūzų, lenkų, ukrainiečių ir rusų. Kitoms kalboms Summit turi integruotą Whisper. Iš viso palaikoma apie šimtą kalbų, tačiau Whisper veikia lėčiau.",
       },
       {
         question: "Ar reikia kviesti botą į skambutį?",
@@ -147,12 +147,12 @@ export const lt: LanguagePage = {
 
   otherLanguages: {
     heading: "Kitos kalbos",
-    intro: "Tas pats variklis atpažįsta dar 24 kalbas.",
+    intro: "Tas pats modelis atpažįsta dar 24 kalbas.",
   },
 
   finalCta: {
     heading: "Išbandykite kitame susitikime",
-    body: "Pirmi 15 įrašų nemokami, be paskyros kūrimo. Pakanka, kad išbandytumėte variklį su savo kalba, savais terminais ir savais susitikimais.",
+    body: "Pirmieji 15 įrašų nemokami, paskyros kurti nereikia. To pakanka, kad išbandytumėte Summit su savo kalba, profesiniais terminais ir tikrais susitikimais.",
     ctaLabel: "Atsisiųsti iš Mac App Store",
     secondaryLabel: "Kaip veikia privatumas",
     secondaryHref: "/security",

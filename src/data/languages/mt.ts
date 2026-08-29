@@ -22,15 +22,15 @@ export const mt: LanguagePage = {
   },
 
   engine: {
-    heading: "Il-Malti mifhum mill-magna default",
+    heading: "Traskrizzjoni bil-Malti mingħajr ebda setup addizzjonali",
     paragraphs: [
-      "L-għarfien tad-diskors isir minn Parakeet TDT v3, mudell li jkopri 25 lingwa Ewropea, fosthom il-Malti. Din tkun mixgħula b'mod default, għalhekk għal laqgħat bil-Malti m'hemm xejn x'tibdel.",
+      "Summit juża lokalment il-mudell ta' għarfien tad-diskors Parakeet TDT v3. Dan jappoġġja 25 lingwa Ewropea, fosthom il-Malti, u diġà jintgħażel b'mod awtomatiku. M'għandek għalfejn tinstalla jew tibdel xejn.",
       "Il-lingwa tar-reġistrazzjoni tiġi identifikata awtomatikament. Jekk l-identifikazzjoni tiżbalja — pereżempju għax il-laqgħa tibda b'tislima bl-Ingliż — il-lingwa tista' tiġi stabbilita manwalment għal dik ir-reġistrazzjoni.",
     ],
     features: [
       {
         title: "Jaħdem mingħajr internet",
-        body: "Il-mudell jinsab fuq id-disk u jaħdem fuq il-proċessur tal-Mac tiegħek. Fil-ferrovija, fuq l-ajruplan jew f'kamra tal-laqgħat b'Wi-Fi tal-mistiedna, ir-riżultat huwa l-istess.",
+        body: "Il-mudell jaħdem direttament fuq il-Mac tiegħek. Tista' tittraskrivi laqgħat fil-ferrovija, fuq l-ajruplan jew b'Wi-Fi instabbli — il-kwalità ma tiddependix mill-internet.",
       },
       {
         title: "Punteġġjatura u timestamps",
@@ -42,7 +42,7 @@ export const mt: LanguagePage = {
       },
       {
         title: "Tfittxija fil-laqgħat kollha",
-        body: "Tfittxija tat-test sħiħ u vettorjali fit-traskrizzjonijiet u s-sommarji. L-embeddings huma multilingwi, għalhekk tfittxija bil-Malti ssib ukoll dak li ġie diskuss bl-Ingliż.",
+        body: "Tfittxija fit-test sħiħ u tfittxija semantika fit-traskrizzjonijiet u s-sommarji. It-tfittxija semantika taħdem bejn il-lingwi, għalhekk mistoqsija bil-Malti ssib ukoll dak li ġie diskuss bl-Ingliż.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const mt: LanguagePage = {
   mixed: {
     heading: "Meta f'sejħa jitħalltu l-lingwi",
     paragraphs: [
-      "Xenarju komuni: il-laqgħa tibda bejn tliet persuni bil-Malti, wara għaxar minuti jingħaqdu kollegi internazzjonali u l-konversazzjoni tkompli bl-Ingliż. Xejn ma jinkiser hawn — kull silta tiġi identifikata bil-lingwa li ntqalet biha, mingħajr ebda traduzzjoni. Il-partijiet bil-Malti jibqgħu bil-Malti fit-traskrizzjoni, dawk bl-Ingliż jibqgħu bl-Ingliż.",
+      "Xenarju komuni: tliet persuni jibdew il-laqgħa bil-Malti, imbagħad jingħaqdu kollegi internazzjonali u l-konversazzjoni tkompli bl-Ingliż. Summit jagħraf kull silta bil-lingwa li ntqalet biha, mingħajr ma jittraduċiha. Dak li ntqal bil-Malti jibqa' bil-Malti, u dak li ntqal bl-Ingliż jibqa' bl-Ingliż.",
       "Il-lingwa tad-dokument innifsu tiġi stabbilita skont il-bidu tal-laqgħa. Summit jikteb is-sommarju, il-kompiti u t-titlu b'dik il-lingwa: jekk is-sejħa tibda bil-Malti, ir-riżultat ikun bil-Malti, anke jekk it-tieni nofs sar bl-Ingliż.",
       "Għal riżultat differenti — pereżempju jekk is-sommarju jmur għand kollegi li jitkellmu bl-Ingliż — il-lingwa tar-reġistrazzjoni tista' tiġi stabbilita manwalment qabel l-ipproċessar.",
     ],
@@ -73,7 +73,7 @@ export const mt: LanguagePage = {
   privacy: {
     heading: "Ir-reġistrazzjonijiet ma jitilqux mill-apparat",
     paragraphs: [
-      "L-ebda bot ma jidħol fis-sejħa. Summit jaqbad il-ħoss tas-sistema u l-mikrofonu permezz ta' għodod ta' macOS, għalhekk ma jidhirx ebda parteċipant addizzjonali — kemm f'Zoom, Teams, Meet, kif ukoll f'laqgħa personali.",
+      "L-ebda bot ma jingħaqad mas-sejħa. Summit jirreġistra l-ħoss tas-sistema u l-mikrofonu permezz ta' macOS, għalhekk ma jidher ebda parteċipant addizzjonali — kemm f'Zoom, Teams u Meet, kif ukoll f'laqgħa wiċċ imb wiċċ.",
       "L-awdjo, it-traskrizzjoni, is-sommarju u l-indiċi tat-tfittxija jibqgħu fuq il-Mac tiegħek. B'mod default xejn ma joħroġ minn hawn: la fajls, la test, la metadata dwar il-laqgħa.",
       "Mudell tal-cloud jidħol fis-seħħ biss jekk int stess iddaħħal ċavetta tal-fornitur tiegħek fl-issettjar. Sa dak iż-żmien, l-ipproċessar kollu jsir lokalment.",
       "Is-sinkronizzazzjoni tal-iCloud hija karatteristika separata, mitfija b'mod default. Jekk tixgħelha, it-traskrizzjonijiet u s-sommarji jiġu sinkronizzati kriptati minn tarf sa tarf bejn l-apparati tiegħek stess; parti mill-metadata magħhom — tul, għadd ta' kliem, lingwa identifikata — tiġi sinkronizzata mhux kriptata.",
@@ -83,19 +83,19 @@ export const mt: LanguagePage = {
   },
 
   useCases: {
-    heading: "Min juża Summit l-aktar spiss",
+    heading: "Għal min Summit huwa partikolarment utli",
     intro:
-      "Ix-xenarji li għalihom normalment jinxtara Summit. Il-paġni marbuta bħalissa huma bl-Ingliż.",
+      "Xi sitwazzjonijiet fejn Summit huwa partikolarment utli. Il-paġni dettaljati bħalissa huma disponibbli biss bl-Ingliż.",
     items: [
       {
         title: "Konsulenza",
-        body: "Noti minn laqgħat mal-klijenti li direttament jgħinu fi rrappurtar — mingħajr ma jittellgħu konversazzjonijiet protetti bi NDA f'cloud barrani.",
+        body: "In-noti mil-laqgħat mal-klijenti jinbidlu minnufih f'bażi għal rapport, mingħajr ma konversazzjonijiet kunfidenzjali jittellgħu f'cloud estern.",
         href: "/use-cases/consulting",
         linkLabel: "Konsulenza",
       },
       {
         title: "Avukati",
-        body: "Konversazzjonijiet mal-klijenti u diskussjonijiet interni dwar każ jibqgħu fuq l-apparat, għalhekk is-segretezza professjonali ma tiddependix minn server barrani.",
+        body: "Konversazzjonijiet mal-klijenti u diskussjonijiet interni dwar każ jibqgħu fuq l-apparat u ma jintbagħtux lil servers esterni.",
         href: "/use-cases/legal",
         linkLabel: "Avukati",
       },
@@ -135,7 +135,7 @@ export const mt: LanguagePage = {
       {
         question: "Liema lingwi jifhem Summit minbarra l-Malti?",
         answer:
-          "Il-magna default tkopri 25 lingwa Ewropea, fosthom il-Malti, il-Ġermaniż, il-Franċiż, il-Pollakk, l-Ukrain u r-Russu. Għal-lingwi l-oħra hemm Whisper integrat — b'kollox Summit ikopri hekk madwar mija ta' lingwi, avolja bil-Whisper aktar bil-mod.",
+          "Il-mudell awtomatiku jappoġġja 25 lingwa Ewropea, fosthom il-Malti, il-Ġermaniż, il-Franċiż, il-Pollakk, l-Ukren u r-Russu. Għal lingwi oħra, Summit għandu Whisper integrat. B'kollox huma appoġġjati madwar mitt lingwa, iżda Whisper jaħdem aktar bil-mod.",
       },
       {
         question: "Irid jissejjaħ bot fis-sejħa?",
@@ -147,12 +147,12 @@ export const mt: LanguagePage = {
 
   otherLanguages: {
     heading: "Lingwi oħra",
-    intro: "L-istess magna tagħraf 24 lingwa oħra.",
+    intro: "L-istess mudell jagħraf 24 lingwa oħra.",
   },
 
   finalCta: {
     heading: "Ipprova fil-laqgħa li jmiss tiegħek",
-    body: "L-ewwel 15-il reġistrazzjoni huma b'xejn, mingħajr ma toħloq kont. Biżżejjed biex tipprova l-magna fuq id-diskors tiegħek, it-termini tiegħek u l-laqgħat tiegħek.",
+    body: "L-ewwel 15-il reġistrazzjoni huma b'xejn u m'għandekx bżonn kont. Dan biżżejjed biex tipprova Summit bid-diskors tiegħek, bit-terminoloġija professjonali u b'laqgħat reali.",
     ctaLabel: "Niżżel mill-Mac App Store",
     secondaryLabel: "Kif taħdem il-privatezza",
     secondaryHref: "/security",

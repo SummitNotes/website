@@ -22,15 +22,15 @@ export const lv: LanguagePage = {
   },
 
   engine: {
-    heading: "Latviešu valodu saprot noklusējuma dzinējs",
+    heading: "Transkripcija latviešu valodā bez papildu iestatīšanas",
     paragraphs: [
-      "Runas atpazīšanu veic Parakeet TDT v3 — modelis, kas aptver 25 Eiropas valodas, tostarp latviešu. Tas ir ieslēgts pēc noklusējuma, tāpēc latviešu valodas sanāksmēm nekas nav jāpārslēdz.",
-      "Ieraksta valoda tiek noteikta automātiski, neraugoties uz bagāto locījumu sistēmu. Ja noteikšana kļūdās — piemēram, tāpēc, ka sanāksme sākas ar angļu valodas sveicienu —, valodu var iestatīt manuāli konkrētajam ierakstam.",
+      "Summit izmanto lokālo runas atpazīšanas modeli Parakeet TDT v3. Tas atbalsta 25 Eiropas valodas, tostarp latviešu, un jau ir izvēlēts pēc noklusējuma. Nekas papildus nav jāinstalē vai jāpārslēdz.",
+      "Ieraksta valoda tiek noteikta automātiski. Ja Summit kļūdās — piemēram, tāpēc, ka sanāksme sākas ar sveicienu angļu valodā —, konkrētajam ierakstam varat manuāli izvēlēties latviešu valodu.",
     ],
     features: [
       {
         title: "Darbojas bez interneta",
-        body: "Modelis atrodas diskā un aprēķina uz jūsu Mac procesora. Vilcienā, lidmašīnā vai sanāksmju telpā ar viesu Wi-Fi rezultāts ir tāds pats.",
+        body: "Modelis darbojas tieši jūsu Mac datorā. Sanāksmes var transkribēt vilcienā, lidmašīnā vai ar nestabilu Wi-Fi — kvalitāte nav atkarīga no interneta savienojuma.",
       },
       {
         title: "Pieturzīmes un laika zīmogi",
@@ -42,7 +42,7 @@ export const lv: LanguagePage = {
       },
       {
         title: "Meklēšana visās sanāksmēs",
-        body: "Pilna teksta un vektoru meklēšana transkripcijās un kopsavilkumos. Iegulumi ir daudzvalodīgi, tāpēc latviešu valodas vaicājums atrod arī to, kas apspriests angļu valodā.",
+        body: "Pilna teksta un semantiskā meklēšana transkripcijās un kopsavilkumos. Semantiskā meklēšana darbojas vairākās valodās, tāpēc vaicājums latviešu valodā atrod arī angliski apspriesto.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const lv: LanguagePage = {
   mixed: {
     heading: "Kad zvanā sajaucas valodas",
     paragraphs: [
-      "Ierasts scenārijs: sanāksme sākas trīsatā latviešu valodā, pēc desmit minūtēm pievienojas starptautiski kolēģi, un saruna turpinās angļu valodā. Šeit nekas nesalūzt — katrs fragments tiek atpazīts valodā, kurā tas izteikts, bez jebkāda tulkojuma. Latviešu daļas transkripcijā paliek latviešu, angļu paliek angļu.",
+      "Ierasta situācija: trīs cilvēki sāk sanāksmi latviešu valodā, vēlāk pievienojas ārvalstu kolēģi un saruna turpinās angliski. Summit atpazīst katru fragmentu valodā, kurā tas izteikts, un netulko to. Latviešu valodā teiktais paliek latviski, bet angļu valodā teiktais — angliski.",
       "Paša dokumenta valoda tiek noteikta pēc sanāksmes sākuma. Summit uzraksta kopsavilkumu, uzdevumus un nosaukumu šajā valodā: ja zvans sākās latviešu valodā, rezultāts būs latviešu valodā, pat ja otra puse notika angļu valodā.",
       "Citam iznākumam — piemēram, ja kopsavilkums nonāk pie angliski runājošiem kolēģiem — ieraksta valodu var iestatīt manuāli pirms apstrādes.",
     ],
@@ -78,24 +78,24 @@ export const lv: LanguagePage = {
       "Mākoņa modelis iesaistās tikai tad, ja jūs pats ievadāt sava pakalpojumu sniedzēja atslēgu iestatījumos. Līdz tam visa apstrāde notiek lokāli — tas ir būtiski GDPR ziņā, jo tādā gadījumā netiek pārsūtīti nekādi personas dati.",
       "iCloud sinhronizācija ir atsevišķa funkcija, pēc noklusējuma izslēgta. To ieslēdzot, transkripcijas un kopsavilkumi tiek sinhronizēti ar pilnīgu šifrēšanu starp jūsu pašu ierīcēm; daļa ar tiem saistīto metadatu — ilgums, vārdu skaits, noteiktā valoda — tiek sinhronizēti nešifrēti.",
     ],
-    linkLabel: "Arhitektūras un visas izejošās trafika detaļas (angļu valodā)",
+    linkLabel: "Detalizēti par arhitektūru un visu izejošo datplūsmu (angļu valodā)",
     linkHref: "/security/architecture",
   },
 
   useCases: {
-    heading: "Kas visbiežāk izmanto Summit",
+    heading: "Kam Summit ir īpaši noderīgs",
     intro:
-      "Scenāriji, kuru dēļ Summit parasti tiek iegādāts. Saistītās lapas pagaidām ir angļu valodā.",
+      "Dažas situācijas, kurās Summit ir īpaši noderīgs. Detalizētās lapas pagaidām ir pieejamas tikai angļu valodā.",
     items: [
       {
         title: "Konsultācijas",
-        body: "Piezīmes no klientu sanāksmēm, kas tieši veido pārskatu — neaugšupielādējot ar NDA aizsargātas sarunas svešā mākonī.",
+        body: "Klientu sanāksmju piezīmes uzreiz kļūst par pārskata pamatu, bet konfidenciālās sarunas netiek augšupielādētas ārējā mākonī.",
         href: "/use-cases/consulting",
         linkLabel: "Konsultācijas",
       },
       {
         title: "Juristi",
-        body: "Sarunas ar klientiem un iekšējas diskusijas par lietu paliek ierīcē, tāpēc profesionālais noslēpums nav atkarīgs no sveša servera.",
+        body: "Sarunas ar klientiem un iekšējās diskusijas par lietu paliek ierīcē un netiek nosūtītas uz ārējiem serveriem.",
         href: "/use-cases/legal",
         linkLabel: "Juristi",
       },
@@ -135,7 +135,7 @@ export const lv: LanguagePage = {
       {
         question: "Kādas valodas Summit prot papildus latviešu valodai?",
         answer:
-          "Noklusējuma dzinējs aptver 25 Eiropas valodas, tostarp latviešu, vācu, franču, poļu, ukraiņu un krievu. Pārējām valodām ir iebūvēts Whisper — kopā Summit tā aptver aptuveni simts valodu, tomēr ar Whisper lēnāk.",
+          "Noklusējuma modelis atbalsta 25 Eiropas valodas, tostarp latviešu, vācu, franču, poļu, ukraiņu un krievu. Citām valodām Summit ir iebūvēts Whisper. Kopumā tiek atbalstītas aptuveni simts valodas, taču Whisper darbojas lēnāk.",
       },
       {
         question: "Vai zvanā jāuzaicina bots?",
@@ -147,12 +147,12 @@ export const lv: LanguagePage = {
 
   otherLanguages: {
     heading: "Citas valodas",
-    intro: "Tas pats dzinējs atpazīst vēl 24 valodas.",
+    intro: "Tas pats modelis atpazīst vēl 24 valodas.",
   },
 
   finalCta: {
     heading: "Izmēģiniet savā nākamajā sanāksmē",
-    body: "Pirmie 15 ieraksti ir bez maksas, bez konta izveides. Pietiek, lai pārbaudītu dzinēju uz savu balsi, saviem terminiem un savām sanāksmēm.",
+    body: "Pirmie 15 ieraksti ir bez maksas, un konts nav jāveido. Ar to pietiek, lai izmēģinātu Summit ar savu balsi, profesionālo terminoloģiju un īstām sanāksmēm.",
     ctaLabel: "Lejupielādēt no Mac App Store",
     secondaryLabel: "Kā darbojas privātums",
     secondaryHref: "/security",

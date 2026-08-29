@@ -22,27 +22,27 @@ export const es: LanguagePage = {
   },
 
   engine: {
-    heading: "El español lo entiende el motor por defecto",
+    heading: "Transcripción en español sin configurar nada",
     paragraphs: [
-      "El reconocimiento de voz lo hace Parakeet TDT v3, un modelo que cubre 25 idiomas europeos, entre ellos el español. Viene activado por defecto, así que no hay que configurar nada para reuniones en español.",
+      "Summit utiliza el modelo local de reconocimiento de voz Parakeet TDT v3. Es compatible con 25 idiomas europeos, incluido el español, y ya viene seleccionado por defecto. No tienes que instalar ni cambiar nada.",
       "El idioma de la grabación se detecta automáticamente. Si la detección falla — por ejemplo, porque la reunión empieza con un saludo en inglés —, se puede fijar el idioma a mano para esa grabación en concreto.",
     ],
     features: [
       {
         title: "Funciona sin conexión",
-        body: "El modelo está guardado en el disco y se ejecuta en el procesador de tu Mac. En el tren, en el avión o en una sala con wifi de invitados, el resultado es el mismo.",
+        body: "El modelo se ejecuta directamente en tu Mac. Puedes transcribir reuniones en el tren, en el avión o con una wifi inestable: la calidad no depende de la conexión a internet.",
       },
       {
         title: "Puntuación y marcas de tiempo",
-        body: "El modelo pone solo los signos de puntuación y las mayúsculas, y añade marcas de tiempo por palabra: al hacer clic en una línea del transcript se reproduce exactamente ese momento de la grabación.",
+        body: "El modelo añade la puntuación, las mayúsculas y una marca de tiempo para cada palabra. Haz clic en una intervención de la transcripción para escuchar ese momento exacto de la grabación.",
       },
       {
         title: "Separación por interlocutor",
-        body: "La diarización también se ejecuta en local: las intervenciones quedan repartidas por interlocutor, y los nombres se asignan una vez y se recuerdan después.",
+        body: "Summit también distingue a los interlocutores en local y reparte las intervenciones entre ellos. Solo tienes que asignar los nombres una vez para que los recuerde en próximas reuniones.",
       },
       {
         title: "Búsqueda en todas las reuniones",
-        body: "Búsqueda de texto completo y vectorial en transcripciones y resúmenes. Los embeddings son multilingües, así que una búsqueda en español también encuentra lo que se habló en inglés.",
+        body: "Búsqueda de texto completo y semántica en transcripciones y resúmenes. La búsqueda semántica funciona entre idiomas, así que una consulta en español también encuentra lo que se habló en inglés.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const es: LanguagePage = {
   mixed: {
     heading: "Cuando una llamada mezcla idiomas",
     paragraphs: [
-      "Un caso habitual: la reunión empieza entre tres personas en español, a los diez minutos se suman compañeros internacionales y la conversación sigue en inglés. Aquí no pasa nada raro: cada fragmento se reconoce en el idioma en que se dijo, sin traducir nada. Las partes en español del transcript siguen en español, las que son en inglés siguen en inglés.",
+      "Un caso habitual: tres personas empiezan la reunión en español, más tarde se suman compañeros internacionales y la conversación continúa en inglés. Summit reconoce cada fragmento en el idioma en que se dijo, sin traducirlo. Las intervenciones en español siguen en español y las de inglés, en inglés.",
       "El idioma del documento en sí se fija según el comienzo de la reunión. Summit escribe el resumen, las tareas y el título en ese idioma: si la llamada empieza en español, el resultado será en español, aunque la segunda mitad haya sido en inglés.",
       "Si hace falta otro resultado — por ejemplo, porque el resumen va a compañeros de habla inglesa —, el idioma de la grabación se puede fijar a mano antes de procesarla.",
     ],
@@ -73,7 +73,7 @@ export const es: LanguagePage = {
   privacy: {
     heading: "Las grabaciones no salen de tu dispositivo",
     paragraphs: [
-      "Ningún bot entra en la llamada. Summit captura el sonido del sistema y el micrófono con las herramientas de macOS, así que no aparece ningún participante adicional, ya sea en Zoom, Teams, Meet o en una reunión presencial.",
+      "No hace falta invitar a ningún bot. Summit graba el audio del sistema y el micrófono a través de macOS, así que no aparece ningún participante adicional, ya sea en Zoom, Teams, Meet o en una reunión presencial.",
       "El audio, la transcripción, el resumen y el índice de búsqueda están en tu Mac. Por defecto no sale nada de ahí: ni archivos, ni texto, ni metadatos de la reunión.",
       "Un modelo en la nube solo entra en juego si tú mismo introduces la clave de tu proveedor en los ajustes. Hasta entonces, todo el procesamiento es local, algo relevante para el RGPD porque no se transmite ningún dato personal.",
       "La sincronización con iCloud es una función aparte, desactivada por defecto. Si la activas, las transcripciones y los resúmenes se sincronizan cifrados de extremo a extremo entre tus propios dispositivos; parte de los metadatos que los acompañan —duración, número de palabras, idioma detectado— se sincronizan sin cifrar.",
@@ -83,21 +83,21 @@ export const es: LanguagePage = {
   },
 
   useCases: {
-    heading: "Quién usa Summit con más frecuencia",
+    heading: "Para quién resulta especialmente útil Summit",
     intro:
-      "Los escenarios para los que se suele contratar Summit. Las páginas enlazadas están de momento en inglés.",
+      "Algunas situaciones en las que Summit resulta especialmente útil. Las páginas con más información solo están disponibles en inglés por ahora.",
     items: [
       {
         title: "Consultoría",
-        body: "Notas de reuniones con clientes que alimentan directamente un informe, sin subir conversaciones protegidas por un NDA a una nube ajena.",
+        body: "Las notas de las reuniones con clientes se convierten directamente en un informe, sin subir conversaciones confidenciales a una nube externa.",
         href: "/use-cases/consulting",
-        linkLabel: "Ver Consultoría",
+        linkLabel: "Para consultoría",
       },
       {
         title: "Abogados",
-        body: "Las conversaciones con clientes y las discusiones internas sobre un caso se quedan en el dispositivo, así que el secreto profesional no depende de un servidor ajeno.",
+        body: "Las conversaciones con clientes y las discusiones internas sobre un caso se quedan en el dispositivo y no se envían a servidores externos.",
         href: "/use-cases/legal",
-        linkLabel: "Ver Abogados",
+        linkLabel: "Para despachos",
       },
       {
         title: "Finanzas",
@@ -135,7 +135,7 @@ export const es: LanguagePage = {
       {
         question: "¿Qué idiomas entiende Summit además del español?",
         answer:
-          "El motor por defecto cubre 25 idiomas europeos, incluidos español, alemán, francés, polaco, ucraniano y ruso. Para el resto de idiomas hay integrado Whisper: en conjunto, Summit cubre unos 99 idiomas, aunque con Whisper más despacio.",
+          "El modelo predeterminado es compatible con 25 idiomas europeos, entre ellos español, alemán, francés, polaco, ucraniano y ruso. Para otros idiomas, Summit incluye Whisper. En total admite cerca de cien idiomas, aunque Whisper funciona más despacio.",
       },
       {
         question: "¿Hay que meter un bot en la llamada?",
@@ -147,12 +147,12 @@ export const es: LanguagePage = {
 
   otherLanguages: {
     heading: "Otros idiomas",
-    intro: "El mismo motor reconoce otros 24 idiomas.",
+    intro: "El mismo modelo reconoce otros 24 idiomas.",
   },
 
   finalCta: {
     heading: "Pruébalo en tu próxima reunión",
-    body: "Las primeras 15 grabaciones son gratis, sin crear cuenta. Suficiente para probar el motor con tu voz, tu vocabulario y tus reuniones.",
+    body: "Las primeras 15 grabaciones son gratis y no requieren una cuenta. Son suficientes para probar Summit con tu forma de hablar, tu vocabulario profesional y reuniones reales.",
     ctaLabel: "Descargar en el Mac App Store",
     secondaryLabel: "Cómo funciona la privacidad",
     secondaryHref: "/security",

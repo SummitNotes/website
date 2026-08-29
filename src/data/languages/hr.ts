@@ -22,15 +22,15 @@ export const hr: LanguagePage = {
   },
 
   engine: {
-    heading: "Hrvatski razumije zadani mehanizam",
+    heading: "Prijepis na hrvatskom bez dodatnog podešavanja",
     paragraphs: [
-      "Prepoznavanje govora obavlja Parakeet TDT v3, model koji pokriva 25 europskih jezika, uključujući hrvatski. Aktivan je po zadanim postavkama, pa za sastanke na hrvatskom ništa nije potrebno mijenjati.",
+      "Summit koristi lokalni model za prepoznavanje govora Parakeet TDT v3. Podržava 25 europskih jezika, uključujući hrvatski, i već je postavljen kao zadani model. Ne morate ništa dodatno instalirati ni mijenjati.",
       "Jezik snimke prepoznaje se automatski. Ako prepoznavanje pogriješi — na primjer jer sastanak počinje engleskim pozdravom — jezik se za tu snimku može ručno postaviti.",
     ],
     features: [
       {
         title: "Radi bez interneta",
-        body: "Model se nalazi na disku i računa na procesoru vašeg Maca. U vlaku, avionu ili sobi za sastanke s gostinjskim Wi-Fi-jem rezultat je isti.",
+        body: "Model radi izravno na vašem Macu. Sastanke možete prepisivati u vlaku, avionu ili uz nepouzdan Wi-Fi — kvaliteta ne ovisi o internetskoj vezi.",
       },
       {
         title: "Interpunkcija i vremenske oznake",
@@ -42,7 +42,7 @@ export const hr: LanguagePage = {
       },
       {
         title: "Pretraga svih sastanaka",
-        body: "Pretraga cijelog teksta i vektorska pretraga po prijepisima i sažecima. Embeddinzi su višejezični, pa hrvatski upit pronalazi i ono što je izgovoreno na engleskom.",
+        body: "Pretraga cijelog teksta i semantička pretraga po prijepisima i sažecima. Semantička pretraga radi na više jezika, pa upit na hrvatskom pronalazi i ono što je izgovoreno na engleskom.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const hr: LanguagePage = {
   mixed: {
     heading: "Kad se u pozivu miješaju jezici",
     paragraphs: [
-      "Uobičajen scenarij: sastanak počinje s troje ljudi na hrvatskom, nakon deset minuta priključe se međunarodni kolege i razgovor se nastavlja na engleskom. Ovdje se ništa ne kvari — svaki se dio prepoznaje na jeziku na kojem je izgovoren, bez prijevoda. Hrvatski dijelovi ostaju hrvatski u prijepisu, engleski ostaju engleski.",
+      "Uobičajen scenarij: troje ljudi započne sastanak na hrvatskom, zatim se pridruže međunarodni kolege i razgovor se nastavi na engleskom. Summit svaki dio prepoznaje na jeziku na kojem je izgovoren i ne prevodi ga. Hrvatski dijelovi ostaju na hrvatskom, a engleski na engleskom.",
       "Jezik samog dokumenta određuje se prema početku sastanka. Summit piše sažetak, zadatke i naslov na tom jeziku: ako poziv počne na hrvatskom, rezultat će biti hrvatski, čak i ako je druga polovica bila na engleskom.",
       "Za drukčiji ishod — na primjer ako sažetak ide kolegama koji govore engleski — jezik snimke može se ručno postaviti prije obrade.",
     ],
@@ -73,7 +73,7 @@ export const hr: LanguagePage = {
   privacy: {
     heading: "Snimke ne napuštaju uređaj",
     paragraphs: [
-      "U poziv ne ulazi nikakav bot. Summit hvata sistemski zvuk i mikrofon putem macOS-a, pa se ne pojavljuje dodatni sudionik — bilo u Zoomu, Teamsu, Meetu ili na sastanku uživo.",
+      "Pozivu se ne pridružuje nikakav bot. Summit snima zvuk sustava i mikrofon putem macOS-a, pa se ne pojavljuje dodatni sudionik — bilo u Zoomu, Teamsu, Meetu ili na sastanku uživo.",
       "Zvuk, prijepis, sažetak i indeks pretrage ostaju na vašem Macu. Prema zadanim postavkama ništa odavde ne izlazi: ni datoteke, ni tekst, ni metapodaci o sastanku.",
       "Model u oblaku uključuje se tek kad sami unesete ključ svog pružatelja usluge u postavkama. Do tada se cijela obrada odvija lokalno — bitno za GDPR, jer se time ne prenosi nikakav osobni podatak.",
       "Sinkronizacija putem iCloud-a zasebna je značajka, prema zadanim postavkama isključena. Ako je uključite, prijepisi i sažeci sinkroniziraju se end-to-end šifrirano između vaših uređaja; dio pripadajućih metapodataka — trajanje, broj riječi, prepoznati jezik — sinkronizira se nešifrirano.",
@@ -83,19 +83,19 @@ export const hr: LanguagePage = {
   },
 
   useCases: {
-    heading: "Tko najčešće koristi Summit",
+    heading: "Kome je Summit posebno koristan",
     intro:
-      "Scenariji zbog kojih se Summit obično nabavlja. Povezane stranice zasad su na engleskom.",
+      "Nekoliko situacija u kojima je Summit posebno koristan. Detaljne stranice zasad su dostupne samo na engleskom.",
     items: [
       {
         title: "Savjetovanje",
-        body: "Bilješke sa sastanaka s klijentima koje izravno napajaju izvještaj — bez slanja razgovora zaštićenih NDA-om u tuđi oblak.",
+        body: "Bilješke sa sastanaka s klijentima odmah postaju osnova za izvještaj, bez slanja povjerljivih razgovora u vanjski oblak.",
         href: "/use-cases/consulting",
         linkLabel: "Savjetovanje",
       },
       {
         title: "Odvjetnici",
-        body: "Razgovori s klijentima i interne rasprave o predmetu ostaju na uređaju, pa profesionalna tajna ne ovisi o tuđem poslužitelju.",
+        body: "Razgovori s klijentima i interne rasprave o predmetu ostaju na uređaju i ne šalju se na vanjske poslužitelje.",
         href: "/use-cases/legal",
         linkLabel: "Odvjetnici",
       },
@@ -135,7 +135,7 @@ export const hr: LanguagePage = {
       {
         question: "Koje jezike Summit razumije osim hrvatskog?",
         answer:
-          "Zadani mehanizam pokriva 25 europskih jezika, među njima hrvatski, njemački, francuski, poljski, ukrajinski i ruski. Za ostale jezike ugrađen je Whisper — ukupno Summit tako pokriva stotinjak jezika, no sporije uz Whisper.",
+          "Zadani model podržava 25 europskih jezika, među njima hrvatski, njemački, francuski, poljski, ukrajinski i ruski. Za druge jezike ugrađen je Whisper. Summit ukupno podržava stotinjak jezika, no Whisper radi sporije.",
       },
       {
         question: "Treba li pozvati bota u poziv?",
@@ -147,12 +147,12 @@ export const hr: LanguagePage = {
 
   otherLanguages: {
     heading: "Ostali jezici",
-    intro: "Isti mehanizam prepoznaje još 24 jezika.",
+    intro: "Isti model prepoznaje još 24 jezika.",
   },
 
   finalCta: {
     heading: "Isprobajte na sljedećem sastanku",
-    body: "Prvih 15 snimki besplatno je, bez otvaranja računa. Dovoljno da isprobate mehanizam na vlastitom govoru, vlastitim pojmovima i vlastitim sastancima.",
+    body: "Prvih 15 snimki besplatno je i ne morate otvarati račun. To je dovoljno da isprobate Summit sa svojim načinom govora, stručnim nazivima i stvarnim sastancima.",
     ctaLabel: "Preuzmite s Mac App Storea",
     secondaryLabel: "Kako funkcionira privatnost",
     secondaryHref: "/security",

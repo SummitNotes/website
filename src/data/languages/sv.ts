@@ -10,27 +10,27 @@ export const sv: LanguagePage = {
   meta: {
     title: "Mötestranskribering på svenska — lokalt på din Mac | Summit AI Notes",
     description:
-      "Summit tolkar svenska direkt på din Mac: ingen bot i samtalet, inga inspelningar som skickas till molnet. Transkript, sammanfattning med uppgifter och sökning i alla möten.",
+      "Summit transkriberar svenska direkt på din Mac: ingen bot i samtalet och inga inspelningar som skickas till molnet. Du får transkript, en sammanfattning med uppgifter och sökning i alla möten.",
   },
 
   hero: {
     h1: "Mötesanteckningar på svenska — på din Mac, utan moln",
     subtitle:
-      "Summit spelar in samtalet, transkriberar svenskan och sätter ihop en sammanfattning med uppgifter. Inspelning, transkript och anteckningar stannar på enheten.",
+      "Summit spelar in samtalet, transkriberar det som sägs på svenska och skapar en sammanfattning med uppgifter. Inspelning, transkript och anteckningar stannar på din Mac.",
     ctaLabel: "Hämta i Mac App Store",
     ctaNote: "15 inspelningar gratis, inget konto krävs",
   },
 
   engine: {
-    heading: "Svenska hanteras av standardmotorn",
+    heading: "Svensk transkribering utan extra inställningar",
     paragraphs: [
-      "Taligenkänningen sköts av Parakeet TDT v3, en modell som täcker 25 europeiska språk, svenska inräknat. Den är påslagen som standard, så inget behöver ställas om för svenska möten.",
+      "Summit använder den lokala taligenkänningsmodellen Parakeet TDT v3. Den stöder 25 europeiska språk, däribland svenska, och är redan vald som standard. Du behöver inte installera eller ändra något.",
       "Språket i inspelningen identifieras automatiskt. Om det blir fel — till exempel för att mötet börjar med en engelsk hälsning — går det att ställa in språket manuellt för just den inspelningen.",
     ],
     features: [
       {
         title: "Fungerar utan internet",
-        body: "Modellen ligger på disken och körs på din Macs processor. På tåget, på flyget eller i ett mötesrum med gäst-wifi blir resultatet detsamma.",
+        body: "Modellen körs direkt på din Mac. Du kan transkribera möten på tåget, på flyget eller med instabilt wifi — kvaliteten är inte beroende av internetanslutningen.",
       },
       {
         title: "Skiljetecken och tidsstämplar",
@@ -38,11 +38,11 @@ export const sv: LanguagePage = {
       },
       {
         title: "Talaridentifiering",
-        body: "Diariseringen sker också lokalt: repliker delas upp per talare, namn sätts en gång och känns sedan igen.",
+        body: "Summit skiljer också talarna åt lokalt och kopplar varje replik till rätt person. Du behöver bara ange namnen en gång, sedan känns de igen automatiskt.",
       },
       {
         title: "Sökning i alla möten",
-        body: "Fritext- och vektorsökning i transkript och sammanfattningar. Embeddingarna är flerspråkiga, så en svensk sökning hittar även det som diskuterades på engelska.",
+        body: "Fritext- och semantisk sökning i transkript och sammanfattningar. Den semantiska sökningen fungerar mellan språk, så en svensk fråga hittar även det som diskuterades på engelska.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const sv: LanguagePage = {
   mixed: {
     heading: "När ett samtal blandar språk",
     paragraphs: [
-      "Ett vanligt scenario: mötet börjar mellan tre personer på svenska, efter tio minuter ansluter internationella kollegor och samtalet fortsätter på engelska. Inget går sönder här — varje avsnitt tolkas på det språk det talades på, utan att något översätts. Svenska partier i transkriptet förblir svenska, engelska förblir engelska.",
+      "En vanlig situation: tre personer börjar mötet på svenska, senare ansluter internationella kollegor och samtalet övergår till engelska. Summit känner igen varje avsnitt på det språk som talas och översätter det inte. Svenska avsnitt förblir svenska och engelska förblir engelska.",
       "Själva dokumentets språk bestäms av mötets början. Summit skriver sammanfattningen, uppgifterna och titeln på det språket: börjar samtalet på svenska blir resultatet svenskt, även om andra halvan hölls på engelska.",
       "Behövs ett annat utfall — till exempel om sammanfattningen ska till engelskspråkiga kollegor — går det att ställa in inspelningens språk manuellt innan den bearbetas.",
     ],
@@ -73,29 +73,29 @@ export const sv: LanguagePage = {
   privacy: {
     heading: "Inspelningar lämnar inte enheten",
     paragraphs: [
-      "Ingen bot går med i samtalet. Summit fångar systemljud och mikrofon via macOS, så ingen extra deltagare syns — vare sig i Zoom, Teams, Meet eller ett möte utan videosamtal.",
+      "Ingen bot deltar i samtalet. Summit spelar in systemljud och mikrofon via macOS, så ingen extra deltagare syns — vare sig i Zoom, Teams eller Meet eller under ett möte på plats.",
       "Ljud, transkript, sammanfattning och sökindex ligger på din Mac. Som standard lämnar inget enheten: inga filer, ingen text, inga metadata om mötet.",
       "En molnmodell aktiveras bara om du själv anger en nyckel från din leverantör i inställningarna. Fram till dess sker all bearbetning lokalt — relevant för GDPR, eftersom inga personuppgifter då överförs.",
-      "iCloud-synkronisering är en separat funktion som är avstängd som standard. Slår du på den synkroniseras transkript och sammanfattningar totalsträckskrypterat mellan dina egna enheter; en del av metadatan kring dem — längd, antal ord, identifierat språk — synkroniseras okrypterat.",
+      "iCloud-synkronisering är en separat funktion som är avstängd som standard. Slår du på den synkroniseras transkript och sammanfattningar end-to-end-krypterat mellan dina egna enheter; en del av tillhörande metadata — längd, antal ord och identifierat språk — synkroniseras okrypterat.",
     ],
     linkLabel: "Arkitekturen och all utgående trafik i detalj (på engelska)",
     linkHref: "/security/architecture",
   },
 
   useCases: {
-    heading: "Vem som använder Summit mest",
+    heading: "Vem Summit är särskilt användbart för",
     intro:
-      "Scenarierna Summit oftast skaffas för. De länkade sidorna är tills vidare på engelska.",
+      "Några situationer där Summit är särskilt användbart. De utförliga sidorna finns tills vidare bara på engelska.",
     items: [
       {
         title: "Konsultverksamhet",
-        body: "Anteckningar från kundmöten som direkt matar en rapport — utan att ladda upp NDA-skyddade samtal till ett främmande moln.",
+        body: "Anteckningar från kundmöten blir direkt underlag för en rapport, utan att konfidentiella samtal laddas upp till en extern molntjänst.",
         href: "/use-cases/consulting",
         linkLabel: "Till Konsultverksamhet",
       },
       {
         title: "Advokater",
-        body: "Klientsamtal och interna diskussioner om ett ärende stannar på enheten, så tystnadsplikten inte vilar på en främmande server.",
+        body: "Klientsamtal och interna diskussioner om ett ärende stannar på enheten och skickas inte till externa servrar.",
         href: "/use-cases/legal",
         linkLabel: "Till Advokater",
       },
@@ -135,7 +135,7 @@ export const sv: LanguagePage = {
       {
         question: "Vilka språk klarar Summit förutom svenska?",
         answer:
-          "Standardmotorn täcker 25 europeiska språk, bland annat svenska, tyska, franska, polska, ukrainska och ryska. För övriga språk finns Whisper inbyggt — sammanlagt täcker Summit på så vis ett hundratal språk, dock långsammare med Whisper.",
+          "Standardmodellen stöder 25 europeiska språk, bland annat svenska, tyska, franska, polska, ukrainska och ryska. För andra språk finns Whisper inbyggt. Totalt stöder Summit omkring hundra språk, men Whisper arbetar långsammare.",
       },
       {
         question: "Måste en bot bjudas in till samtalet?",
@@ -147,12 +147,12 @@ export const sv: LanguagePage = {
 
   otherLanguages: {
     heading: "Andra språk",
-    intro: "Samma motor tolkar ytterligare 24 språk.",
+    intro: "Samma modell känner igen ytterligare 24 språk.",
   },
 
   finalCta: {
     heading: "Testa på ditt nästa möte",
-    body: "De första 15 inspelningarna är gratis, utan att skapa konto. Tillräckligt för att testa motorn på din röst, din terminologi och dina möten.",
+    body: "De första 15 inspelningarna är gratis och kräver inget konto. Det räcker för att testa Summit med din röst, dina facktermer och riktiga möten.",
     ctaLabel: "Hämta i Mac App Store",
     secondaryLabel: "Så fungerar integriteten",
     secondaryHref: "/security",

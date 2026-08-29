@@ -16,21 +16,21 @@ export const pl: LanguagePage = {
   hero: {
     h1: "Notatki ze spotkań po polsku — na Twoim Macu, bez chmury",
     subtitle:
-      "Summit nagrywa rozmowę, transkrybuje polski i przygotowuje podsumowanie z zadaniami do zrobienia. Nagranie, transkrypcja i notatki zostają na urządzeniu.",
+      "Summit nagrywa rozmowę, transkrybuje wypowiedzi po polsku i przygotowuje podsumowanie z listą zadań. Nagranie, transkrypcja i notatki zostają na Twoim Macu.",
     ctaLabel: "Pobierz z Mac App Store",
     ctaNote: "15 nagrań za darmo, bez rejestracji",
   },
 
   engine: {
-    heading: "Polski rozumie domyślny silnik",
+    heading: "Transkrypcja po polsku bez dodatkowej konfiguracji",
     paragraphs: [
-      "Rozpoznawanie mowy odpowiada modelowi Parakeet TDT v3, który obsługuje 25 języków europejskich, w tym polski. Jest włączony domyślnie, więc do spotkań po polsku nie trzeba nic przestawiać.",
-      "Język nagrania wykrywany jest automatycznie, mimo bogatej fleksji i odmiany przez przypadki. Jeśli wykrywanie się pomyli — na przykład bo spotkanie zaczyna się od angielskiego powitania — język można ustawić ręcznie dla konkretnego nagrania.",
+      "Summit korzysta z lokalnego modelu rozpoznawania mowy Parakeet TDT v3. Obsługuje on 25 języków europejskich, w tym polski, i jest już wybrany domyślnie. Nie musisz niczego dodatkowo instalować ani przełączać.",
+      "Język nagrania jest wykrywany automatycznie. Jeśli Summit się pomyli — na przykład dlatego, że spotkanie zaczyna się od angielskiego powitania — możesz ręcznie wybrać polski dla tego nagrania.",
     ],
     features: [
       {
         title: "Działa bez internetu",
-        body: "Model leży na dysku i liczy na procesorze Twojego Maca. W pociągu, w samolocie czy w sali z gościnnym Wi-Fi wynik jest taki sam.",
+        body: "Model działa bezpośrednio na Twoim Macu. Możesz transkrybować spotkania w pociągu, w samolocie lub przy niestabilnym Wi-Fi — jakość nie zależy od połączenia z internetem.",
       },
       {
         title: "Interpunkcja i znaczniki czasu",
@@ -42,7 +42,7 @@ export const pl: LanguagePage = {
       },
       {
         title: "Wyszukiwanie po wszystkich spotkaniach",
-        body: "Wyszukiwanie pełnotekstowe i wektorowe w transkrypcjach i podsumowaniach. Embeddingi są wielojęzyczne, więc polskie zapytanie znajdzie też to, co omawiano po angielsku.",
+        body: "Wyszukiwanie pełnotekstowe i semantyczne w transkrypcjach oraz podsumowaniach. Wyszukiwanie semantyczne działa między językami, więc polskie zapytanie znajdzie też to, co omawiano po angielsku.",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const pl: LanguagePage = {
   mixed: {
     heading: "Kiedy na rozmowie miesza się języki",
     paragraphs: [
-      "Typowy scenariusz: spotkanie zaczyna się we trójkę po polsku, po dziesięciu minutach dołączają zagraniczni koledzy i rozmowa toczy się dalej po angielsku. Nic tu nie pęka — każdy fragment jest rozpoznawany w języku, w którym został wypowiedziany, bez żadnego tłumaczenia. Polskie fragmenty w transkrypcji zostają polskie, angielskie zostają angielskie.",
+      "Typowa sytuacja: trzy osoby zaczynają spotkanie po polsku, później dołączają zagraniczni współpracownicy i rozmowa przechodzi na angielski. Summit rozpoznaje każdy fragment w języku, w którym został wypowiedziany, i go nie tłumaczy. Polskie wypowiedzi zostają po polsku, a angielskie po angielsku.",
       "Język samego dokumentu ustala się na podstawie początku spotkania. Summit napisze podsumowanie, zadania i tytuł w tym języku: jeśli rozmowa zaczęła się po polsku, wynik będzie po polsku, nawet jeśli druga połowa rozmowy toczyła się po angielsku.",
       "Jeśli potrzebny jest inny wynik — na przykład podsumowanie trafia do anglojęzycznych kolegów — język nagrania można ustawić ręcznie przed przetworzeniem.",
     ],
@@ -83,19 +83,19 @@ export const pl: LanguagePage = {
   },
 
   useCases: {
-    heading: "Kto korzysta z Summit najczęściej",
+    heading: "Dla kogo Summit jest szczególnie przydatny",
     intro:
-      "Scenariusze, dla których zwykle wybiera się Summit. Strony w linkach są na razie po angielsku.",
+      "Kilka sytuacji, w których Summit jest szczególnie przydatny. Szczegółowe strony są na razie dostępne tylko po angielsku.",
     items: [
       {
         title: "Konsulting",
-        body: "Notatki ze spotkań z klientami, z których od razu powstaje raport — bez wgrywania rozmów objętych NDA do obcej chmury.",
+        body: "Notatki ze spotkań z klientami od razu stają się podstawą raportu, bez przesyłania poufnych rozmów do zewnętrznej chmury.",
         href: "/use-cases/consulting",
         linkLabel: "Zobacz Konsulting",
       },
       {
         title: "Prawnicy",
-        body: "Rozmowy z klientami i wewnętrzne dyskusje o sprawie zostają na urządzeniu, więc tajemnica zawodowa nie zależy od obcego serwera.",
+        body: "Rozmowy z klientami i wewnętrzne dyskusje o sprawie zostają na urządzeniu i nie trafiają na zewnętrzne serwery.",
         href: "/use-cases/legal",
         linkLabel: "Zobacz Prawnicy",
       },
@@ -135,7 +135,7 @@ export const pl: LanguagePage = {
       {
         question: "Jakie języki obsługuje Summit poza polskim?",
         answer:
-          "Domyślny silnik obsługuje 25 języków europejskich, w tym polski, niemiecki, francuski, hiszpański, ukraiński i rosyjski. Dla pozostałych języków wbudowany jest Whisper — razem Summit obsługuje tak około stu języków, choć z Whisperem wolniej.",
+          "Domyślny model obsługuje 25 języków europejskich, w tym polski, niemiecki, francuski, hiszpański, ukraiński i rosyjski. Dla innych języków Summit ma wbudowany Whisper. Łącznie obsługuje około stu języków, ale Whisper działa wolniej.",
       },
       {
         question: "Czy trzeba zapraszać bota na rozmowę?",
@@ -147,12 +147,12 @@ export const pl: LanguagePage = {
 
   otherLanguages: {
     heading: "Inne języki",
-    intro: "Ten sam silnik rozpoznaje jeszcze 24 języki.",
+    intro: "Ten sam model rozpoznaje jeszcze 24 języki.",
   },
 
   finalCta: {
     heading: "Wypróbuj na najbliższym spotkaniu",
-    body: "Pierwsze 15 nagrań jest za darmo, bez zakładania konta. Wystarczy, żeby sprawdzić silnik na własnym głosie, własnej terminologii i własnych spotkaniach.",
+    body: "Pierwsze 15 nagrań jest bezpłatnych i nie wymaga konta. To wystarczy, żeby wypróbować Summit z własnym głosem, branżową terminologią i prawdziwymi spotkaniami.",
     ctaLabel: "Pobierz z Mac App Store",
     secondaryLabel: "Jak działa prywatność",
     secondaryHref: "/security",

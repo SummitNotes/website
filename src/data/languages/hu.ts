@@ -22,15 +22,15 @@ export const hu: LanguagePage = {
   },
 
   engine: {
-    heading: "A magyart az alapértelmezett motor érti",
+    heading: "Magyar nyelvű átirat külön beállítás nélkül",
     paragraphs: [
-      "A beszédfelismerést a Parakeet TDT v3 végzi, egy modell, amely 25 európai nyelvet fed le, köztük a magyart. Alapból be van kapcsolva, így magyar megbeszélésekhez nincs mit átállítani.",
-      "A felvétel nyelvét a modell magától felismeri, a magyar toldalékolás ellenére is. Ha a felismerés téved — mondjuk mert a megbeszélés angol köszönéssel kezdődik —, a nyelv az adott felvételhez kézzel is beállítható.",
+      "A Summit a helyben futó Parakeet TDT v3 beszédfelismerő modellt használja. A modell 25 európai nyelvet támogat, köztük a magyart, és eleve ez az alapértelmezett beállítás. Semmit sem kell külön telepítened vagy átállítanod.",
+      "A felvétel nyelvét a Summit automatikusan felismeri. Ha téved — például mert a megbeszélés angol köszönéssel kezdődik —, az adott felvételnél kézzel is kiválaszthatod a magyart.",
     ],
     features: [
       {
         title: "Internet nélkül is működik",
-        body: "A modell a lemezen van, és a Mac processzorán számol. Vonaton, repülőn vagy vendég-wifis tárgyalóban ugyanaz az eredmény.",
+        body: "A modell közvetlenül a Maceden fut. Vonaton, repülőn vagy akadozó vendég-wifi mellett is készíthetsz átiratot — a minőség nem függ az internetkapcsolattól.",
       },
       {
         title: "Írásjelek és időbélyegek",
@@ -38,11 +38,11 @@ export const hu: LanguagePage = {
       },
       {
         title: "Beszélők szétválasztása",
-        body: "A diarizáció is helyben fut: a megszólalások beszélők szerint vannak szétosztva, a neveket egyszer kell hozzárendelni, utána a rendszer felismeri őket.",
+        body: "A Summit helyben különíti el a beszélőket, és hozzájuk rendeli a megszólalásokat. A neveket csak egyszer kell megadnod, ezután a rendszer automatikusan felismeri őket.",
       },
       {
         title: "Keresés az összes megbeszélésben",
-        body: "Teljes szöveges és vektoros keresés az átiratokban és összefoglalókban. Az embeddingek többnyelvűek, így egy magyar keresés az angolul elhangzottakat is megtalálja.",
+        body: "Teljes szöveges és szemantikus keresés az átiratokban és összefoglalókban. A szemantikus keresés nyelveken átívelően működik, így egy magyar lekérdezés az angolul elhangzottakat is megtalálja.",
       },
     ],
   },
@@ -50,14 +50,14 @@ export const hu: LanguagePage = {
   mixed: {
     heading: "Amikor a hívásban keverednek a nyelvek",
     paragraphs: [
-      "Gyakori helyzet: a megbeszélés hárman kezdődik magyarul, tíz perc múlva nemzetközi kollégák csatlakoznak, és onnantól angolul folytatódik. Itt semmi nem törik el: minden szakasz azon a nyelven ismerődik fel, amelyen elhangzott, fordítás nélkül. A magyar részek magyarok maradnak az átiratban, az angolok angolok.",
+      "Gyakori helyzet: hárman kezditek a megbeszélést magyarul, később külföldi kollégák csatlakoznak, és a beszélgetés angolul folytatódik. A Summit minden szakaszt azon a nyelven ismer fel, amelyen elhangzott, és nem fordítja le. A magyar részek magyarul, az angol részek angolul maradnak.",
       "Magának a dokumentumnak a nyelvét a megbeszélés eleje határozza meg. A Summit az összefoglalót, a teendőket és a címet ezen a nyelven írja: ha a hívás magyarul indult, az eredmény magyar lesz, még ha a második fele angolul is zajlott.",
       "Ha más eredmény kell — például ha az összefoglaló angol nyelvű kollégákhoz megy —, a felvétel nyelve feldolgozás előtt kézzel is beállítható.",
     ],
     features: [
       {
         title: "Átirat",
-        body: "Minden megszólalás a saját nyelvén. Nincs fordítás egy közös nyelvre — pontosan azt olvassa, ami elhangzott.",
+        body: "Minden megszólalás a saját nyelvén marad. Nincs fordítás egy közös nyelvre — pontosan azt olvasod, ami elhangzott.",
       },
       {
         title: "Összefoglaló",
@@ -75,27 +75,27 @@ export const hu: LanguagePage = {
     paragraphs: [
       "A hívásba nem lép be bot. A Summit a rendszerhangot és a mikrofont macOS eszközökkel rögzíti, így nem jelenik meg plusz résztvevő — akár Zoomban, Teamsben, Meetben, akár személyes megbeszélésen.",
       "A hang, az átirat, az összefoglaló és a keresési index a Macen marad. Alapértelmezés szerint semmi nem hagyja el: se fájl, se szöveg, se a megbeszélésre vonatkozó metaadat.",
-      "Felhőmodell csak akkor lép be, ha ön maga adja meg a szolgáltatója kulcsát a beállításokban. Addig minden feldolgozás helyben történik — ez a GDPR szempontjából lényeges, mert így nem továbbítódik személyes adat.",
-      "Az iCloud-szinkronizálás önálló funkció, amely alapértelmezés szerint ki van kapcsolva. Ha bekapcsolja, az átiratok és összefoglalók végpontok közötti titkosítással szinkronizálódnak az ön saját eszközei között; a hozzájuk tartozó néhány metaadat — időtartam, szószám, felismert nyelv — titkosítatlanul szinkronizálódik.",
+      "Felhőmodell csak akkor kapcsolódik be, ha te magad adod meg a szolgáltatód kulcsát a beállításokban. Addig minden feldolgozás helyben történik — ez a GDPR szempontjából is fontos, mert személyes adat nem kerül továbbításra.",
+      "Az iCloud-szinkronizálás külön funkció, amely alapértelmezés szerint ki van kapcsolva. Ha bekapcsolod, az átiratok és összefoglalók végpontok közötti titkosítással szinkronizálódnak a saját eszközeid között; néhány kapcsolódó metaadat — az időtartam, a szavak száma és a felismert nyelv — titkosítatlanul szinkronizálódik.",
     ],
     linkLabel: "Az architektúra és a teljes kimenő forgalom részletesen (angolul)",
     linkHref: "/security/architecture",
   },
 
   useCases: {
-    heading: "Kik használják leggyakrabban a Summitot",
+    heading: "Kiknek különösen hasznos a Summit",
     intro:
-      "A forgatókönyvek, amelyekre a Summitot általában beszerzik. A hivatkozott oldalak egyelőre angolul vannak.",
+      "Néhány helyzet, amelyben a Summit különösen hasznos. A részletes oldalak egyelőre csak angolul érhetők el.",
     items: [
       {
         title: "Tanácsadás",
-        body: "Ügyfélmegbeszélésekből származó jegyzetek, amelyekből azonnal jelentés készül — anélkül, hogy titoktartási megállapodás alá eső beszélgetéseket kellene idegen felhőbe feltölteni.",
+        body: "Az ügyfélmegbeszélések jegyzeteiből azonnal jelentés készül, miközben a bizalmas beszélgetések nem kerülnek külső felhőbe.",
         href: "/use-cases/consulting",
         linkLabel: "Tanácsadás",
       },
       {
         title: "Ügyvédek",
-        body: "Az ügyfélbeszélgetések és a belső ügymegbeszélések a gépen maradnak, így az ügyvédi titoktartás nem múlik idegen szerveren.",
+        body: "Az ügyfélbeszélgetések és a belső ügymegbeszélések a gépen maradnak, és nem kerülnek külső szerverekre.",
         href: "/use-cases/legal",
         linkLabel: "Ügyvédek",
       },
@@ -120,39 +120,39 @@ export const hu: LanguagePage = {
       {
         question: "Kell internet a magyar nyelvű megbeszélés átírásához?",
         answer:
-          "Nem. A felismerő modellt egyszer kell letölteni, utána offline fut a Macen. Internet csak a modellek és a frissítések letöltéséhez kell — vagy ha ön maga kapcsolt be felhőszolgáltatót az összefoglalóhoz.",
+          "Nem. A felismerő modellt csak egyszer kell letöltened, utána offline fut a Maceden. Internet csak a modellek és frissítések letöltéséhez kell, vagy ha te magad kapcsoltál be felhőszolgáltatót az összefoglalóhoz.",
       },
       {
         question: "Mi történik, ha a megbeszélésen magyar és angol keveredik?",
         answer:
-          "Minden szakasz a saját nyelvén ismerődik fel, közös nyelvre fordítás nélkül. Az összefoglaló a dokumentum nyelvén készül, amelyet a megbeszélés eleje határoz meg. Más eredményhez a felvétel nyelve feldolgozás előtt kézzel beállítható.",
+          "A Summit minden szakaszt az eredeti nyelvén ismer fel, és nem fordítja le. Az összefoglaló a dokumentum nyelvén készül, amelyet a megbeszélés eleje határoz meg. Ha más nyelvű eredményt szeretnél, a felvétel nyelvét feldolgozás előtt kézzel is beállíthatod.",
       },
       {
         question: "Felhőbe kerülnek a felvételek és átiratok?",
         answer:
-          "Alapértelmezés szerint nem: a hang, az átirat, az összefoglaló és a keresési index kizárólag a Macen marad. Csak két esetben megy ki bármi, mindkettő az ön döntése: ha felhőmodellt köt be saját kulccsal, vagy ha bekapcsolja az iCloud-szinkronizálást — ekkor a tartalom titkosítva szinkronizálódik az eszközei között, néhány metaadat (időtartam, nyelv) viszont titkosítatlanul.",
+          "Alapértelmezés szerint nem: a hang, az átirat, az összefoglaló és a keresési index kizárólag a Maceden marad. Adat csak a te döntésed alapján kerül ki: ha saját kulccsal felhőmodellt kapcsolsz be, vagy ha engedélyezed az iCloud-szinkronizálást. Ilyenkor a tartalom titkosítva szinkronizálódik az eszközeid között, néhány metaadat, például az időtartam és a nyelv, viszont titkosítatlanul.",
       },
       {
         question: "Milyen nyelveket tud a Summit a magyaron kívül?",
         answer:
-          "Az alapértelmezett motor 25 európai nyelvet fed le, köztük a magyart, a németet, a franciát, a lengyelt, az ukránt és az oroszt. A többi nyelvhez a Whisper van beépítve — összesen így nagyjából száz nyelvet fed le a Summit, bár Whisperrel lassabban.",
+          "Az alapértelmezett modell 25 európai nyelvet támogat, köztük a magyart, a németet, a franciát, a lengyelt, az ukránt és az oroszt. Más nyelvekhez a Summit a beépített Whispert használja. Összesen körülbelül száz nyelv támogatott, de a Whisper lassabban dolgozik.",
       },
       {
         question: "Be kell hívni egy botot a hívásba?",
         answer:
-          "Nem. A Summit a rendszerhangot és a mikrofont az ön oldalán rögzíti, így nem jelenik meg plusz résztvevő a listán. A videohívás nélküli, személyes megbeszélések ugyanígy rögzíthetők.",
+          "Nem. A Summit a rendszerhangot és a mikrofont a te oldaladon rögzíti, így nem jelenik meg plusz résztvevő a listán. A videohívás nélküli, személyes megbeszéléseket ugyanígy rögzítheted.",
       },
     ],
   },
 
   otherLanguages: {
     heading: "További nyelvek",
-    intro: "Ugyanez a motor még 24 nyelvet ismer fel.",
+    intro: "Ugyanez a modell még 24 nyelvet ismer fel.",
   },
 
   finalCta: {
-    heading: "Próbálja ki a következő megbeszélésen",
-    body: "Az első 15 felvétel ingyenes, fiók nélkül. Elég ahhoz, hogy a motort a saját beszédén, saját szakkifejezésein és saját megbeszélésein tesztelje.",
+    heading: "Próbáld ki a következő megbeszéléseden",
+    body: "Az első 15 felvétel ingyenes, és fiók sem kell hozzá. Ennyi elég ahhoz, hogy kipróbáld a Summitot a saját beszédeddel, szakmai kifejezéseiddel és valódi megbeszéléseken.",
     ctaLabel: "Letöltés a Mac App Store-ból",
     secondaryLabel: "Hogyan működik az adatvédelem",
     secondaryHref: "/security",
