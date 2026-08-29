@@ -4,7 +4,7 @@ import PostHog from '../components/posthog.astro';
 import AppStoreCampaign from '../components/AppStoreCampaign.astro';
 import JsonLd from '../components/JsonLd.astro';
 import CookieConsent from '../components/CookieConsent';
-import { breadcrumbSchema, organizationSchema, websiteSchema, type Crumb, type SchemaNode } from '../lib/schema';
+import { absoluteUrl, breadcrumbSchema, organizationSchema, websiteSchema, type Crumb, type SchemaNode } from '../lib/schema';
 
 interface Props {
   title?: string;
@@ -13,6 +13,10 @@ interface Props {
   schema?: SchemaNode | SchemaNode[];
   /** Breadcrumb trail below Home, ending with the current page. Omit on the homepage. */
   breadcrumb?: Crumb[];
+  /** BCP 47 tag for <html lang>. The site is English unless a page says otherwise. */
+  lang?: string;
+  /** hreflang alternates. Only the language landing pages have any. */
+  alternates?: { hreflang: string; href: string }[];
 }
 
 const {
@@ -20,7 +24,11 @@ const {
   description = "No bots joining your calls. No data leaving your device. Summit records every meeting locally on your Mac — transcription, summaries, action items. Private by design.",
   schema,
   breadcrumb,
+  lang = "en",
+  alternates = [],
 } = Astro.props;
+
+const canonical = absoluteUrl(Astro.url.pathname);
 
 const pageSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 const graph = [
@@ -32,13 +40,23 @@ const graph = [
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
+    {alternates.length > 0 && <link rel="canonical" href={canonical} />}
+    {
+      alternates.map((alternate) => (
+        <link
+          rel="alternate"
+          hreflang={alternate.hreflang}
+          href={absoluteUrl(alternate.href)}
+        />
+      ))
+    }
 
     <!-- Geist Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

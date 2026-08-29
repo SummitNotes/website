@@ -19,6 +19,7 @@ import {
   WEBSITE_ID,
 } from "../lib/schema";
 import { latestRelease } from "../lib/releases";
+import { alternateLinks } from "../lib/languages";
 
 const offer = (name: string, price: string) => ({
   "@type": "Offer",
@@ -74,6 +75,7 @@ const appSchema = {
   title="Summit AI Notes - Private AI Meeting Notes for Consultants"
   description="Client meeting notes that never leave your Mac. Summit records calls locally, creates searchable transcripts, summaries, and action items, and keeps your calls out of vendor AI training sets."
   schema={appSchema}
+  alternates={alternateLinks()}
 >
   <div class="min-h-screen">
     <Navigation />

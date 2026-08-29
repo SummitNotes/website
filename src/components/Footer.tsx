@@ -1,5 +1,6 @@
 import React from "react";
 import { Twitter, Youtube, Linkedin, Mail } from "lucide-react";
+import { languageMetas, languagePath } from "@/lib/languageMeta";
 
 interface FooterProps {
   className?: string;
@@ -210,6 +211,25 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
             </ul>
           </div>
         </div>
+
+        {/* Language pages. Each one is written in its own language. */}
+        {languageMetas.length > 0 && (
+          <div className="pb-8 flex flex-wrap items-center gap-x-4 gap-y-2">
+            <span className="text-sm font-semibold text-foreground uppercase tracking-wider">
+              Languages
+            </span>
+            {languageMetas.map((meta) => (
+              <a
+                key={meta.code}
+                href={languagePath(meta.code)}
+                lang={meta.locale}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {meta.nativeName}
+              </a>
+            ))}
+          </div>
+        )}
 
         {/* Bottom Section */}
         <div className="pt-8 border-t border-border">

@@ -1,0 +1,160 @@
+import type { LanguagePage } from "../../lib/languages";
+
+export const mt: LanguagePage = {
+  code: "mt",
+  locale: "mt",
+  nativeName: "Malti",
+  englishName: "Maltese",
+  storeLocale: "mt",
+
+  meta: {
+    title: "Traskrizzjoni tal-laqgħat bil-Malti — lokalment fuq il-Mac tiegħek | Summit AI Notes",
+    description:
+      "Summit jagħraf il-Malti direttament fuq il-Mac tiegħek: l-ebda bot fis-sejħa, l-ebda reġistrazzjoni mibgħuta lejn il-cloud. Traskrizzjoni, sommarju bil-kompiti u tfittxija fil-laqgħat kollha.",
+  },
+
+  hero: {
+    h1: "Noti tal-laqgħat bil-Malti — fuq il-Mac tiegħek, mingħajr cloud",
+    subtitle:
+      "Summit jirreġistra s-sejħa, jitraskrivi l-Malti u jħejji sommarju bil-kompiti li jridu jsiru. Ir-reġistrazzjoni, it-traskrizzjoni u n-noti jibqgħu fuq l-apparat.",
+    ctaLabel: "Niżżel mill-Mac App Store",
+    ctaNote: "15-il reġistrazzjoni b'xejn, mingħajr reġistrazzjoni ta' kont",
+  },
+
+  engine: {
+    heading: "Traskrizzjoni bil-Malti mingħajr ebda setup addizzjonali",
+    paragraphs: [
+      "Summit juża lokalment il-mudell ta' għarfien tad-diskors Parakeet TDT v3. Dan jappoġġja 25 lingwa Ewropea, fosthom il-Malti, u diġà jintgħażel b'mod awtomatiku. M'għandek għalfejn tinstalla jew tibdel xejn.",
+      "Il-lingwa tar-reġistrazzjoni tiġi identifikata awtomatikament. Jekk l-identifikazzjoni tiżbalja — pereżempju għax il-laqgħa tibda b'tislima bl-Ingliż — il-lingwa tista' tiġi stabbilita manwalment għal dik ir-reġistrazzjoni.",
+    ],
+    features: [
+      {
+        title: "Jaħdem mingħajr internet",
+        body: "Il-mudell jaħdem direttament fuq il-Mac tiegħek. Tista' tittraskrivi laqgħat fil-ferrovija, fuq l-ajruplan jew b'Wi-Fi instabbli — il-kwalità ma tiddependix mill-internet.",
+      },
+      {
+        title: "Punteġġjatura u timestamps",
+        body: "Il-mudell iqiegħed hu stess il-punteġġjatura u l-ittri kapitali, flimkien ma' timestamps kelma b'kelma — klikk fuq linja fit-traskrizzjoni ddoqq eżattament dak il-mument mir-reġistrazzjoni.",
+      },
+      {
+        title: "Għarfien tal-kelliema",
+        body: "Ukoll id-diviżjoni bejn il-kelliema ssir lokalment: it-tweġibiet huma maqsuma skont il-kelliem, l-ismijiet jingħataw darba u wara jiġu magħrufa awtomatikament.",
+      },
+      {
+        title: "Tfittxija fil-laqgħat kollha",
+        body: "Tfittxija fit-test sħiħ u tfittxija semantika fit-traskrizzjonijiet u s-sommarji. It-tfittxija semantika taħdem bejn il-lingwi, għalhekk mistoqsija bil-Malti ssib ukoll dak li ġie diskuss bl-Ingliż.",
+      },
+    ],
+  },
+
+  mixed: {
+    heading: "Meta f'sejħa jitħalltu l-lingwi",
+    paragraphs: [
+      "Xenarju komuni: tliet persuni jibdew il-laqgħa bil-Malti, imbagħad jingħaqdu kollegi internazzjonali u l-konversazzjoni tkompli bl-Ingliż. Summit jagħraf kull silta bil-lingwa li ntqalet biha, mingħajr ma jittraduċiha. Dak li ntqal bil-Malti jibqa' bil-Malti, u dak li ntqal bl-Ingliż jibqa' bl-Ingliż.",
+      "Il-lingwa tad-dokument innifsu tiġi stabbilita skont il-bidu tal-laqgħa. Summit jikteb is-sommarju, il-kompiti u t-titlu b'dik il-lingwa: jekk is-sejħa tibda bil-Malti, ir-riżultat ikun bil-Malti, anke jekk it-tieni nofs sar bl-Ingliż.",
+      "Għal riżultat differenti — pereżempju jekk is-sommarju jmur għand kollegi li jitkellmu bl-Ingliż — il-lingwa tar-reġistrazzjoni tista' tiġi stabbilita manwalment qabel l-ipproċessar.",
+    ],
+    features: [
+      {
+        title: "Traskrizzjoni",
+        body: "Kull tweġiba bil-lingwa tagħha stess. Ma ssirx traduzzjoni għal lingwa komuni — taqra eżattament dak li ntqal.",
+      },
+      {
+        title: "Sommarju",
+        body: "Jinkiteb bil-lingwa tad-dokument, stabbilita mill-ewwel minuti tal-laqgħa.",
+      },
+      {
+        title: "Jekk l-identifikazzjoni tiżbalja",
+        body: "Il-lingwa tar-reġistrazzjoni tiġi stabbilita manwalment, u mbagħad is-sommarju jista' jiġi ġġenerat mill-ġdid.",
+      },
+    ],
+  },
+
+  privacy: {
+    heading: "Ir-reġistrazzjonijiet ma jitilqux mill-apparat",
+    paragraphs: [
+      "L-ebda bot ma jingħaqad mas-sejħa. Summit jirreġistra l-ħoss tas-sistema u l-mikrofonu permezz ta' macOS, għalhekk ma jidher ebda parteċipant addizzjonali — kemm f'Zoom, Teams u Meet, kif ukoll f'laqgħa wiċċ imb wiċċ.",
+      "L-awdjo, it-traskrizzjoni, is-sommarju u l-indiċi tat-tfittxija jibqgħu fuq il-Mac tiegħek. B'mod default xejn ma joħroġ minn hawn: la fajls, la test, la metadata dwar il-laqgħa.",
+      "Mudell tal-cloud jidħol fis-seħħ biss jekk int stess iddaħħal ċavetta tal-fornitur tiegħek fl-issettjar. Sa dak iż-żmien, l-ipproċessar kollu jsir lokalment.",
+      "Is-sinkronizzazzjoni tal-iCloud hija karatteristika separata, mitfija b'mod default. Jekk tixgħelha, it-traskrizzjonijiet u s-sommarji jiġu sinkronizzati kriptati minn tarf sa tarf bejn l-apparati tiegħek stess; parti mill-metadata magħhom — tul, għadd ta' kliem, lingwa identifikata — tiġi sinkronizzata mhux kriptata.",
+    ],
+    linkLabel: "Dettalji tal-arkitettura u t-traffiku ħiereġ kollu (bl-Ingliż)",
+    linkHref: "/security/architecture",
+  },
+
+  useCases: {
+    heading: "Għal min Summit huwa partikolarment utli",
+    intro:
+      "Xi sitwazzjonijiet fejn Summit huwa partikolarment utli. Il-paġni dettaljati bħalissa huma disponibbli biss bl-Ingliż.",
+    items: [
+      {
+        title: "Konsulenza",
+        body: "In-noti mil-laqgħat mal-klijenti jinbidlu minnufih f'bażi għal rapport, mingħajr ma konversazzjonijiet kunfidenzjali jittellgħu f'cloud estern.",
+        href: "/use-cases/consulting",
+        linkLabel: "Konsulenza",
+      },
+      {
+        title: "Avukati",
+        body: "Konversazzjonijiet mal-klijenti u diskussjonijiet interni dwar każ jibqgħu fuq l-apparat u ma jintbagħtux lil servers esterni.",
+        href: "/use-cases/legal",
+        linkLabel: "Avukati",
+      },
+      {
+        title: "Finanzi",
+        body: "Laqgħat mal-investituri u negozjati bi kliem u ċifri preċiżi, li aktar tard jinstabu bit-tfittxija.",
+        href: "/use-cases/finance",
+        linkLabel: "Finanzi",
+      },
+      {
+        title: "Kura tas-saħħa",
+        body: "Konsultazzjonijiet u analiżi ta' każijiet mingħajr ma jingħaddew data tal-pazjent lil terzi partijiet.",
+        href: "/use-cases/healthcare",
+        linkLabel: "Kura tas-saħħa",
+      },
+    ],
+  },
+
+  faq: {
+    heading: "Mistoqsijiet frekwenti",
+    items: [
+      {
+        question: "Neħtieġ internet biex nittraskrivi laqgħa bil-Malti?",
+        answer:
+          "Le. Il-mudell tal-għarfien jitniżżel darba, imbagħad jaħdem offline fuq il-Mac tiegħek. L-internet meħtieġ biss biex jitniżżlu mudelli u aġġornamenti — jew jekk int stess ikkonnettjajt fornitur tal-cloud għas-sommarji.",
+      },
+      {
+        question: "X'jiġri jekk fil-laqgħa jitħallat il-Malti mal-Ingliż?",
+        answer:
+          "Kull silta tiġi identifikata bil-lingwa tagħha stess, mingħajr traduzzjoni għal lingwa komuni. Is-sommarju jinkiteb bil-lingwa tad-dokument, stabbilita mill-bidu tal-laqgħa. Għal riżultat differenti, il-lingwa tar-reġistrazzjoni tista' tiġi stabbilita manwalment qabel l-ipproċessar.",
+      },
+      {
+        question: "Ir-reġistrazzjonijiet u t-traskrizzjonijiet imorru fuq il-cloud?",
+        answer:
+          "B'mod default le: l-awdjo, it-traskrizzjoni, is-sommarju u l-indiċi tat-tfittxija jibqgħu biss fuq il-Mac tiegħek. Xi ħaġa toħroġ biss f'żewġ każijiet, it-tnejn bl-għażla tiegħek: jekk tikkonnettja mudell tal-cloud b'ċavetta tiegħek stess, jew jekk tixgħel is-sinkronizzazzjoni tal-iCloud — dak il-ħin il-kontenut jiġi sinkronizzat kriptat bejn l-apparati tiegħek, filwaqt li parti mill-metadata (tul, lingwa) tiġi sinkronizzata mhux kriptata.",
+      },
+      {
+        question: "Liema lingwi jifhem Summit minbarra l-Malti?",
+        answer:
+          "Il-mudell awtomatiku jappoġġja 25 lingwa Ewropea, fosthom il-Malti, il-Ġermaniż, il-Franċiż, il-Pollakk, l-Ukren u r-Russu. Għal lingwi oħra, Summit għandu Whisper integrat. B'kollox huma appoġġjati madwar mitt lingwa, iżda Whisper jaħdem aktar bil-mod.",
+      },
+      {
+        question: "Irid jissejjaħ bot fis-sejħa?",
+        answer:
+          "Le. Summit jirreġistra l-ħoss tas-sistema u l-mikrofonu min-naħa tiegħek, għalhekk ma jidher ebda parteċipant addizzjonali fil-lista. Laqgħat personali jiġu rreġistrati bl-istess mod, mingħajr ebda sejħa.",
+      },
+    ],
+  },
+
+  otherLanguages: {
+    heading: "Lingwi oħra",
+    intro: "L-istess mudell jagħraf 24 lingwa oħra.",
+  },
+
+  finalCta: {
+    heading: "Ipprova fil-laqgħa li jmiss tiegħek",
+    body: "L-ewwel 15-il reġistrazzjoni huma b'xejn u m'għandekx bżonn kont. Dan biżżejjed biex tipprova Summit bid-diskors tiegħek, bit-terminoloġija professjonali u b'laqgħat reali.",
+    ctaLabel: "Niżżel mill-Mac App Store",
+    secondaryLabel: "Kif taħdem il-privatezza",
+    secondaryHref: "/security",
+  },
+};
