@@ -76,6 +76,7 @@ export const hr: LanguagePage = {
       "U poziv ne ulazi nikakav bot. Summit hvata sistemski zvuk i mikrofon putem macOS-a, pa se ne pojavljuje dodatni sudionik — bilo u Zoomu, Teamsu, Meetu ili na sastanku uživo.",
       "Zvuk, prijepis, sažetak i indeks pretrage ostaju na vašem Macu. Prema zadanim postavkama ništa odavde ne izlazi: ni datoteke, ni tekst, ni metapodaci o sastanku.",
       "Model u oblaku uključuje se tek kad sami unesete ključ svog pružatelja usluge u postavkama. Do tada se cijela obrada odvija lokalno — bitno za GDPR, jer se time ne prenosi nikakav osobni podatak.",
+      "Sinkronizacija putem iCloud-a zasebna je značajka, prema zadanim postavkama isključena. Ako je uključite, prijepisi i sažeci sinkroniziraju se end-to-end šifrirano između vaših uređaja; dio pripadajućih metapodataka — trajanje, broj riječi, prepoznati jezik — sinkronizira se nešifrirano.",
     ],
     linkLabel: "Detalji arhitekture i cijelog izlaznog prometa (na engleskom)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const hr: LanguagePage = {
       {
         question: "Idu li snimke i prijepisi u oblak?",
         answer:
-          "Ne. Prema zadanim postavkama zvuk, prijepis, sažetak i indeks pretrage ostaju samo na vašem Macu. Nešto izlazi tek nakon što sami povežete model u oblaku vlastitim ključem.",
+          "Prema zadanim postavkama ne: zvuk, prijepis, sažetak i indeks pretrage ostaju samo na vašem Macu. Nešto izlazi samo u dva slučaja, oba prema vašem izboru: ako povežete model u oblaku vlastitim ključem, ili ako uključite sinkronizaciju putem iCloud-a — tada se sadržaj sinkronizira šifrirano između vaših uređaja, dok se dio metapodataka (trajanje, jezik) sinkronizira nešifrirano.",
       },
       {
         question: "Koje jezike Summit razumije osim hrvatskog?",
         answer:
-          "Zadani mehanizam pokriva 25 europskih jezika, među njima hrvatski, njemački, francuski, poljski, ukrajinski i ruski. Za ostale jezike ugrađen je Whisper — još stotinjak jezika, ali sporije.",
+          "Zadani mehanizam pokriva 25 europskih jezika, među njima hrvatski, njemački, francuski, poljski, ukrajinski i ruski. Za ostale jezike ugrađen je Whisper — ukupno Summit tako pokriva stotinjak jezika, no sporije uz Whisper.",
       },
       {
         question: "Treba li pozvati bota u poziv?",

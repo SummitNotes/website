@@ -76,6 +76,7 @@ export const sl: LanguagePage = {
       "V klic ne vstopi noben bot. Summit zajame sistemski zvok in mikrofon z orodji macOS, zato se ne pojavi noben dodaten udeleženec — pa naj gre za Zoom, Teams, Meet ali sestanek v živo.",
       "Zvok, prepis, povzetek in iskalni indeks ostanejo na vašem Macu. Privzeto od tod ne odide nič: ne datoteke, ne besedilo, ne metapodatki o sestanku.",
       "Model v oblaku se vključi šele, ko sami vnesete ključ svojega ponudnika v nastavitvah. Do takrat celotna obdelava poteka lokalno — pomembno za GDPR, saj se tako ne prenaša noben osebni podatek.",
+      "Sinhronizacija prek iCloud je ločena funkcija, privzeto izklopljena. Če jo vklopite, se prepisi in povzetki med vašimi napravami sinhronizirajo s šifriranjem od konca do konca; del pripadajočih metapodatkov — trajanje, število besed, zaznani jezik — se sinhronizira nešifrirano.",
     ],
     linkLabel: "Podrobnosti arhitekture in vsega odhodnega prometa (v angleščini)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const sl: LanguagePage = {
       {
         question: "Ali posnetki in prepisi odidejo v oblak?",
         answer:
-          "Ne. Privzeto zvok, prepis, povzetek in iskalni indeks ostanejo le na vašem Macu. Nekaj odide od tod šele, ko sami povežete model v oblaku z lastnim ključem.",
+          "Privzeto ne: zvok, prepis, povzetek in iskalni indeks ostanejo le na vašem Macu. Nekaj odide od tod le v dveh primerih, oba po vaši izbiri: če povežete model v oblaku z lastnim ključem, ali če vklopite sinhronizacijo prek iCloud — takrat se vsebina sinhronizira šifrirano med vašimi napravami, del metapodatkov (trajanje, jezik) pa nešifrirano.",
       },
       {
         question: "Katere jezike Summit razume poleg slovenščine?",
         answer:
-          "Privzeti mehanizem pokriva 25 evropskih jezikov, med drugim slovenščino, nemščino, francoščino, poljščino, ukrajinščino in ruščino. Za ostale jezike je vgrajen Whisper — še kakih sto jezikov, a počasneje.",
+          "Privzeti mehanizem pokriva 25 evropskih jezikov, med drugim slovenščino, nemščino, francoščino, poljščino, ukrajinščino in ruščino. Za ostale jezike je vgrajen Whisper — skupaj tako Summit pokriva kakih sto jezikov, a z Whisperjem počasneje.",
       },
       {
         question: "Ali mora bot vstopiti v klic?",

@@ -76,6 +76,7 @@ export const mt: LanguagePage = {
       "L-ebda bot ma jidħol fis-sejħa. Summit jaqbad il-ħoss tas-sistema u l-mikrofonu permezz ta' għodod ta' macOS, għalhekk ma jidhirx ebda parteċipant addizzjonali — kemm f'Zoom, Teams, Meet, kif ukoll f'laqgħa personali.",
       "L-awdjo, it-traskrizzjoni, is-sommarju u l-indiċi tat-tfittxija jibqgħu fuq il-Mac tiegħek. B'mod default xejn ma joħroġ minn hawn: la fajls, la test, la metadata dwar il-laqgħa.",
       "Mudell tal-cloud jidħol fis-seħħ biss jekk int stess iddaħħal ċavetta tal-fornitur tiegħek fl-issettjar. Sa dak iż-żmien, l-ipproċessar kollu jsir lokalment.",
+      "Is-sinkronizzazzjoni tal-iCloud hija karatteristika separata, mitfija b'mod default. Jekk tixgħelha, it-traskrizzjonijiet u s-sommarji jiġu sinkronizzati kriptati minn tarf sa tarf bejn l-apparati tiegħek stess; parti mill-metadata magħhom — tul, għadd ta' kliem, lingwa identifikata — tiġi sinkronizzata mhux kriptata.",
     ],
     linkLabel: "Dettalji tal-arkitettura u t-traffiku ħiereġ kollu (bl-Ingliż)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const mt: LanguagePage = {
       {
         question: "Ir-reġistrazzjonijiet u t-traskrizzjonijiet imorru fuq il-cloud?",
         answer:
-          "Le. B'mod default, l-awdjo, it-traskrizzjoni, is-sommarju u l-indiċi tat-tfittxija jibqgħu biss fuq il-Mac tiegħek. Xi ħaġa toħroġ biss wara li int stess tikkonnettja mudell tal-cloud b'ċavetta tiegħek stess.",
+          "B'mod default le: l-awdjo, it-traskrizzjoni, is-sommarju u l-indiċi tat-tfittxija jibqgħu biss fuq il-Mac tiegħek. Xi ħaġa toħroġ biss f'żewġ każijiet, it-tnejn bl-għażla tiegħek: jekk tikkonnettja mudell tal-cloud b'ċavetta tiegħek stess, jew jekk tixgħel is-sinkronizzazzjoni tal-iCloud — dak il-ħin il-kontenut jiġi sinkronizzat kriptat bejn l-apparati tiegħek, filwaqt li parti mill-metadata (tul, lingwa) tiġi sinkronizzata mhux kriptata.",
       },
       {
         question: "Liema lingwi jifhem Summit minbarra l-Malti?",
         answer:
-          "Il-magna default tkopri 25 lingwa Ewropea, fosthom il-Malti, il-Ġermaniż, il-Franċiż, il-Pollakk, l-Ukrain u r-Russu. Għal-lingwi l-oħra hemm Whisper integrat — madwar mija oħra ta' lingwi, iżda aktar bil-mod.",
+          "Il-magna default tkopri 25 lingwa Ewropea, fosthom il-Malti, il-Ġermaniż, il-Franċiż, il-Pollakk, l-Ukrain u r-Russu. Għal-lingwi l-oħra hemm Whisper integrat — b'kollox Summit ikopri hekk madwar mija ta' lingwi, avolja bil-Whisper aktar bil-mod.",
       },
       {
         question: "Irid jissejjaħ bot fis-sejħa?",

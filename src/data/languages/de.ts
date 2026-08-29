@@ -76,6 +76,7 @@ export const de: LanguagePage = {
       "Kein Bot betritt den Call. Summit nimmt Systemton und Mikrofon über macOS auf, sichtbar wird also kein zusätzlicher Teilnehmer — egal ob in Zoom, Teams, Meet oder bei einem Gespräch ohne Videocall.",
       "Audio, Transkript, Zusammenfassung und Suchindex liegen auf deinem Mac. Standardmäßig verlässt nichts das Gerät — keine Dateien, kein Text, keine Metadaten zum Meeting.",
       "Ein Cloud-Modell wird nur aktiv, wenn du selbst einen Schlüssel deines Anbieters in den Einstellungen einträgst. Bis dahin läuft die gesamte Verarbeitung lokal — relevant für DSGVO-Anforderungen, weil dann schlicht keine personenbezogenen Daten übertragen werden.",
+      "iCloud-Synchronisierung ist eine separate, standardmäßig deaktivierte Funktion. Schaltest du sie ein, werden Transkripte und Zusammenfassungen Ende-zu-Ende-verschlüsselt zwischen deinen eigenen Geräten synchronisiert; einige Metadaten dazu — Dauer, Wortzahl, erkannte Sprache — werden dabei unverschlüsselt synchronisiert.",
     ],
     linkLabel: "Architektur und gesamter Netzwerkverkehr im Detail (auf Englisch)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const de: LanguagePage = {
       {
         question: "Gehen Aufnahmen und Transkripte in die Cloud?",
         answer:
-          "Nein. Standardmäßig liegen Audio, Transkript, Zusammenfassung und Suchindex ausschließlich auf deinem Mac. Etwas verlässt das Gerät erst, wenn du selbst ein Cloud-Modell mit eigenem Schlüssel einrichtest.",
+          "Standardmäßig nein: Audio, Transkript, Zusammenfassung und Suchindex liegen ausschließlich auf deinem Mac. Etwas verlässt das Gerät nur, wenn du selbst ein Cloud-Modell mit eigenem Schlüssel einrichtest, oder wenn du iCloud-Synchronisierung einschaltest — dabei werden Inhalte verschlüsselt zwischen deinen Geräten synchronisiert, einige Metadaten wie Dauer und Sprache aber unverschlüsselt.",
       },
       {
         question: "Welche Sprachen kann Summit außer Deutsch?",
         answer:
-          "Die Standard-Engine beherrscht 25 europäische Sprachen, darunter Deutsch, Französisch, Spanisch, Polnisch, Ukrainisch und Russisch. Für weitere Sprachen ist Whisper integriert — rund hundert Sprachen zusätzlich, dafür langsamer.",
+          "Die Standard-Engine beherrscht 25 europäische Sprachen, darunter Deutsch, Französisch, Spanisch, Polnisch, Ukrainisch und Russisch. Für weitere Sprachen ist Whisper integriert — insgesamt kommt Summit so auf rund 99 Sprachen, wobei Whisper langsamer arbeitet.",
       },
       {
         question: "Muss ein Bot dem Call beitreten?",

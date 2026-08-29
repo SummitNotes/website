@@ -76,6 +76,7 @@ export const lv: LanguagePage = {
       "Zvanā neieiet neviens bots. Summit uztver sistēmas skaņu un mikrofonu, izmantojot macOS rīkus, tāpēc neparādās neviens papildu dalībnieks — vai tas būtu Zoom, Teams, Meet, vai klātienes tikšanās.",
       "Skaņa, transkripcija, kopsavilkums un meklēšanas indekss paliek jūsu Mac datorā. Pēc noklusējuma no šejienes nekas neaiziet: ne faili, ne teksts, ne sanāksmes metadati.",
       "Mākoņa modelis iesaistās tikai tad, ja jūs pats ievadāt sava pakalpojumu sniedzēja atslēgu iestatījumos. Līdz tam visa apstrāde notiek lokāli — tas ir būtiski GDPR ziņā, jo tādā gadījumā netiek pārsūtīti nekādi personas dati.",
+      "iCloud sinhronizācija ir atsevišķa funkcija, pēc noklusējuma izslēgta. To ieslēdzot, transkripcijas un kopsavilkumi tiek sinhronizēti ar pilnīgu šifrēšanu starp jūsu pašu ierīcēm; daļa ar tiem saistīto metadatu — ilgums, vārdu skaits, noteiktā valoda — tiek sinhronizēti nešifrēti.",
     ],
     linkLabel: "Arhitektūras un visas izejošās trafika detaļas (angļu valodā)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const lv: LanguagePage = {
       {
         question: "Vai ieraksti un transkripcijas nonāk mākonī?",
         answer:
-          "Nē. Pēc noklusējuma skaņa, transkripcija, kopsavilkums un meklēšanas indekss paliek tikai jūsu Mac datorā. Kaut kas iziet ārā tikai pēc tam, kad jūs pats pievienojat mākoņa modeli ar savu atslēgu.",
+          "Pēc noklusējuma nē: skaņa, transkripcija, kopsavilkums un meklēšanas indekss paliek tikai jūsu Mac datorā. Kaut kas iziet ārā tikai divos gadījumos, abi pēc jūsu izvēles: ja pievienojat mākoņa modeli ar savu atslēgu, vai ja ieslēdzat iCloud sinhronizāciju — tad saturs tiek sinhronizēts šifrēts starp jūsu ierīcēm, bet daļa metadatu (ilgums, valoda) — nešifrēti.",
       },
       {
         question: "Kādas valodas Summit prot papildus latviešu valodai?",
         answer:
-          "Noklusējuma dzinējs aptver 25 Eiropas valodas, tostarp latviešu, vācu, franču, poļu, ukraiņu un krievu. Pārējām valodām ir iebūvēts Whisper — vēl aptuveni simts valodu, tomēr lēnāk.",
+          "Noklusējuma dzinējs aptver 25 Eiropas valodas, tostarp latviešu, vācu, franču, poļu, ukraiņu un krievu. Pārējām valodām ir iebūvēts Whisper — kopā Summit tā aptver aptuveni simts valodu, tomēr ar Whisper lēnāk.",
       },
       {
         question: "Vai zvanā jāuzaicina bots?",

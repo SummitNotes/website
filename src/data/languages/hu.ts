@@ -76,6 +76,7 @@ export const hu: LanguagePage = {
       "A hívásba nem lép be bot. A Summit a rendszerhangot és a mikrofont macOS eszközökkel rögzíti, így nem jelenik meg plusz résztvevő — akár Zoomban, Teamsben, Meetben, akár személyes megbeszélésen.",
       "A hang, az átirat, az összefoglaló és a keresési index a Macen marad. Alapértelmezés szerint semmi nem hagyja el: se fájl, se szöveg, se a megbeszélésre vonatkozó metaadat.",
       "Felhőmodell csak akkor lép be, ha ön maga adja meg a szolgáltatója kulcsát a beállításokban. Addig minden feldolgozás helyben történik — ez a GDPR szempontjából lényeges, mert így nem továbbítódik személyes adat.",
+      "Az iCloud-szinkronizálás önálló funkció, amely alapértelmezés szerint ki van kapcsolva. Ha bekapcsolja, az átiratok és összefoglalók végpontok közötti titkosítással szinkronizálódnak az ön saját eszközei között; a hozzájuk tartozó néhány metaadat — időtartam, szószám, felismert nyelv — titkosítatlanul szinkronizálódik.",
     ],
     linkLabel: "Az architektúra és a teljes kimenő forgalom részletesen (angolul)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const hu: LanguagePage = {
       {
         question: "Felhőbe kerülnek a felvételek és átiratok?",
         answer:
-          "Nem. Alapértelmezés szerint a hang, az átirat, az összefoglaló és a keresési index kizárólag a Macen marad. Csak akkor megy ki bármi, ha ön maga köt be egy felhőmodellt saját kulccsal.",
+          "Alapértelmezés szerint nem: a hang, az átirat, az összefoglaló és a keresési index kizárólag a Macen marad. Csak két esetben megy ki bármi, mindkettő az ön döntése: ha felhőmodellt köt be saját kulccsal, vagy ha bekapcsolja az iCloud-szinkronizálást — ekkor a tartalom titkosítva szinkronizálódik az eszközei között, néhány metaadat (időtartam, nyelv) viszont titkosítatlanul.",
       },
       {
         question: "Milyen nyelveket tud a Summit a magyaron kívül?",
         answer:
-          "Az alapértelmezett motor 25 európai nyelvet fed le, köztük a magyart, a németet, a franciát, a lengyelt, az ukránt és az oroszt. A többi nyelvhez a Whisper van beépítve — még körülbelül száz nyelv, lassabban.",
+          "Az alapértelmezett motor 25 európai nyelvet fed le, köztük a magyart, a németet, a franciát, a lengyelt, az ukránt és az oroszt. A többi nyelvhez a Whisper van beépítve — összesen így nagyjából száz nyelvet fed le a Summit, bár Whisperrel lassabban.",
       },
       {
         question: "Be kell hívni egy botot a hívásba?",

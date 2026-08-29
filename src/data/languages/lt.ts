@@ -76,6 +76,7 @@ export const lt: LanguagePage = {
       "Į skambutį neprisijungia joks botas. Summit fiksuoja sistemos garsą ir mikrofoną macOS priemonėmis, todėl neatsiranda jokio papildomo dalyvio — nesvarbu, ar tai Zoom, Teams, Meet, ar gyvas susitikimas.",
       "Garsas, transkripcija, santrauka ir paieškos indeksas lieka jūsų Mac. Pagal numatytuosius nustatymus iš čia niekas neišeina: nei failai, nei tekstas, nei susitikimo metaduomenys.",
       "Debesijos modelis įsijungia tik tada, kai patys nustatymuose įvedate savo tiekėjo raktą. Iki tol visas apdorojimas vyksta vietoje — tai svarbu BDAR atžvilgiu, nes tuomet neperduodami jokie asmens duomenys.",
+      "„iCloud Sync“ yra atskira funkcija, pagal numatytuosius nustatymus išjungta. Ją įjungus, transkripcijos ir santraukos sinchronizuojamos ištisiniu šifravimu tarp jūsų pačių įrenginių; dalis su jomis susijusių metaduomenų — trukmė, žodžių skaičius, atpažinta kalba — sinchronizuojama nešifruota.",
     ],
     linkLabel: "Architektūros ir viso siunčiamo srauto detalės (anglų kalba)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const lt: LanguagePage = {
       {
         question: "Ar įrašai ir transkripcijos keliauja į debesį?",
         answer:
-          "Ne. Pagal numatytuosius nustatymus garsas, transkripcija, santrauka ir paieškos indeksas lieka tik jūsų Mac. Kažkas išeina tik po to, kai patys prijungiate debesijos modelį su savo raktu.",
+          "Pagal numatytuosius nustatymus ne: garsas, transkripcija, santrauka ir paieškos indeksas lieka tik jūsų Mac. Kažkas išeina tik dviem atvejais, abu — jūsų pasirinkimu: kai prijungiate debesijos modelį su savo raktu, arba kai įjungiate „iCloud Sync“ — tuomet turinys sinchronizuojamas šifruotas tarp jūsų įrenginių, o dalis metaduomenų (trukmė, kalba) — nešifruota.",
       },
       {
         question: "Kokias kalbas Summit moka be lietuvių?",
         answer:
-          "Numatytasis variklis apima 25 Europos kalbas, tarp jų lietuvių, vokiečių, prancūzų, lenkų, ukrainiečių ir rusų. Kitoms kalboms integruotas Whisper — dar apie šimtą kalbų, tačiau lėčiau.",
+          "Numatytasis variklis apima 25 Europos kalbas, tarp jų lietuvių, vokiečių, prancūzų, lenkų, ukrainiečių ir rusų. Kitoms kalboms integruotas Whisper — iš viso Summit taip apima maždaug šimtą kalbų, tačiau su Whisper lėčiau.",
       },
       {
         question: "Ar reikia kviesti botą į skambutį?",

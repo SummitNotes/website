@@ -76,6 +76,7 @@ export const cs: LanguagePage = {
       "Do hovoru nevstupuje žádný bot. Summit zachytává systémový zvuk a mikrofon nástroji macOS, takže se neobjeví žádný další účastník — ať už v Zoomu, Teams, Meetu nebo na schůzce naživo.",
       "Zvuk, přepis, shrnutí i vyhledávací index zůstávají na vašem Macu. Ve výchozím nastavení odsud nic neodchází: žádné soubory, žádný text, žádná metadata o schůzce.",
       "Cloudový model se zapojí, jen pokud sami zadáte klíč svého poskytovatele v nastavení. Do té doby probíhá celé zpracování lokálně — což je podstatné pro GDPR, protože se tak nepřenáší žádný osobní údaj.",
+      "Synchronizace přes iCloud je samostatná funkce, ve výchozím nastavení vypnutá. Když ji zapnete, přepisy a shrnutí se mezi vašimi zařízeními synchronizují šifrovaně od konce ke konci; část metadat k nim — délka, počet slov, rozpoznaný jazyk — se přitom synchronizuje nešifrovaně.",
     ],
     linkLabel: "Rozbor architektury a veškerého odchozího provozu (v angličtině)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const cs: LanguagePage = {
       {
         question: "Odcházejí nahrávky a přepisy do cloudu?",
         answer:
-          "Ne. Ve výchozím nastavení zůstávají zvuk, přepis, shrnutí i vyhledávací index pouze na vašem Macu. Něco odejde teprve poté, co sami připojíte cloudový model vlastním klíčem.",
+          "Ve výchozím nastavení ne: zvuk, přepis, shrnutí i vyhledávací index zůstávají pouze na vašem Macu. Něco odejde jen ve dvou případech, oba na vaše rozhodnutí: když připojíte cloudový model vlastním klíčem, nebo když zapnete synchronizaci přes iCloud — obsah se pak synchronizuje šifrovaně, část metadat (délka, jazyk) ale nešifrovaně.",
       },
       {
         question: "Jaké jazyky Summit zvládá kromě češtiny?",
         answer:
-          "Výchozí engine pokrývá 25 evropských jazyků, mimo jiné češtinu, němčinu, francouzštinu, polštinu, ukrajinštinu a ruštinu. Pro ostatní jazyky je zabudovaný Whisper — dalších zhruba sto jazyků, ovšem pomaleji.",
+          "Výchozí engine pokrývá 25 evropských jazyků, mimo jiné češtinu, němčinu, francouzštinu, polštinu, ukrajinštinu a ruštinu. Pro ostatní jazyky je zabudovaný Whisper — dohromady tak Summit zvládá zhruba 99 jazyků, byť s Whisperem pomaleji.",
       },
       {
         question: "Musí do hovoru vstoupit bot?",

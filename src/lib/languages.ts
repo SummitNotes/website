@@ -11,6 +11,8 @@
  * hreflang set and the language grid all follow from one array.
  */
 
+import { languageMetas, languagePath } from "./languageMeta";
+
 /** Every language the default engine transcribes, English included. */
 export const PARAKEET_LANGUAGES = [
   "bg", "cs", "da", "de", "el", "en", "es", "et", "fi", "fr", "hr", "hu",
@@ -146,19 +148,23 @@ export const languagePages: LanguagePage[] = [
   ru, sk, sl, sv, uk,
 ];
 
-export function languagePath(code: string): string {
-  return `/${code}/`;
-}
+export { languagePath };
 
 /**
- * hreflang set for a language page: every shipped language, plus the English
- * site as `en` and as `x-default` for everyone else.
+ * hreflang set shared by the homepage and every language page: all 24
+ * language pages, plus the English site as `en` and as `x-default`. Every
+ * page — English included — must list this same set for the alternates to be
+ * reciprocal; Google ignores an hreflang relationship that only one side
+ * declares.
+ *
+ * Built from languageMeta.ts rather than languagePages so that using it
+ * doesn't require pulling in the full translated copy of every language.
  */
 export function alternateLinks(): { hreflang: string; href: string }[] {
   return [
-    ...languagePages.map((page) => ({
-      hreflang: page.locale,
-      href: languagePath(page.code),
+    ...languageMetas.map((meta) => ({
+      hreflang: meta.locale,
+      href: languagePath(meta.code),
     })),
     { hreflang: "en", href: "/" },
     { hreflang: "x-default", href: "/" },

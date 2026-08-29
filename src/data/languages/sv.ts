@@ -76,6 +76,7 @@ export const sv: LanguagePage = {
       "Ingen bot går med i samtalet. Summit fångar systemljud och mikrofon via macOS, så ingen extra deltagare syns — vare sig i Zoom, Teams, Meet eller ett möte utan videosamtal.",
       "Ljud, transkript, sammanfattning och sökindex ligger på din Mac. Som standard lämnar inget enheten: inga filer, ingen text, inga metadata om mötet.",
       "En molnmodell aktiveras bara om du själv anger en nyckel från din leverantör i inställningarna. Fram till dess sker all bearbetning lokalt — relevant för GDPR, eftersom inga personuppgifter då överförs.",
+      "iCloud-synkronisering är en separat funktion som är avstängd som standard. Slår du på den synkroniseras transkript och sammanfattningar totalsträckskrypterat mellan dina egna enheter; en del av metadatan kring dem — längd, antal ord, identifierat språk — synkroniseras okrypterat.",
     ],
     linkLabel: "Arkitekturen och all utgående trafik i detalj (på engelska)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const sv: LanguagePage = {
       {
         question: "Går inspelningar och transkript till molnet?",
         answer:
-          "Nej. Som standard ligger ljud, transkript, sammanfattning och sökindex bara på din Mac. Inget lämnar enheten förrän du själv kopplar en molnmodell med egen nyckel.",
+          "Som standard nej: ljud, transkript, sammanfattning och sökindex ligger bara på din Mac. Något lämnar enheten bara i två fall, båda ditt eget val: om du kopplar en molnmodell med egen nyckel, eller om du slår på iCloud-synkronisering — då synkroniseras innehållet krypterat mellan dina enheter, medan viss metadata (längd, språk) synkroniseras okrypterat.",
       },
       {
         question: "Vilka språk klarar Summit förutom svenska?",
         answer:
-          "Standardmotorn täcker 25 europeiska språk, bland annat svenska, tyska, franska, polska, ukrainska och ryska. För övriga språk finns Whisper inbyggt — ytterligare ett hundratal språk, men långsammare.",
+          "Standardmotorn täcker 25 europeiska språk, bland annat svenska, tyska, franska, polska, ukrainska och ryska. För övriga språk finns Whisper inbyggt — sammanlagt täcker Summit på så vis ett hundratal språk, dock långsammare med Whisper.",
       },
       {
         question: "Måste en bot bjudas in till samtalet?",

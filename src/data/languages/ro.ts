@@ -76,6 +76,7 @@ export const ro: LanguagePage = {
       "Niciun bot nu intră în apel. Summit captează sunetul sistemului și microfonul prin macOS, deci nu apare niciun participant în plus — fie în Zoom, Teams, Meet, fie la o întâlnire față în față.",
       "Sunetul, transcrierea, rezumatul și indexul de căutare rămân pe Mac-ul tău. Implicit, nimic nu iese de aici: nici fișiere, nici text, nici metadate despre întâlnire.",
       "Un model din cloud intră în funcțiune doar dacă introduci tu însuți o cheie de la furnizorul tău în setări. Până atunci, toată prelucrarea este locală — relevant pentru GDPR, pentru că astfel nu se transmite nicio dată cu caracter personal.",
+      "Sincronizarea iCloud este o funcție separată, dezactivată implicit. Dacă o activezi, transcrierile și rezumatele se sincronizează criptat integral între propriile tale dispozitive; o parte din metadatele asociate — durata, numărul de cuvinte, limba detectată — se sincronizează necriptat.",
     ],
     linkLabel: "Detalii despre arhitectură și tot traficul de ieșire (în engleză)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const ro: LanguagePage = {
       {
         question: "Înregistrările și transcrierile ajung în cloud?",
         answer:
-          "Nu. Implicit, sunetul, transcrierea, rezumatul și indexul de căutare rămân doar pe Mac-ul tău. Nimic nu iese de aici decât după ce conectezi tu însuți un model din cloud cu propria cheie.",
+          "Implicit, nu: sunetul, transcrierea, rezumatul și indexul de căutare rămân doar pe Mac-ul tău. Ceva iese de aici doar în două cazuri, ambele la alegerea ta: dacă conectezi un model din cloud cu propria cheie, sau dacă activezi sincronizarea iCloud — atunci conținutul se sincronizează criptat între dispozitivele tale, dar unele metadate (durată, limbă) se sincronizează necriptat.",
       },
       {
         question: "Ce limbi mai știe Summit în afară de română?",
         answer:
-          "Motorul implicit acoperă 25 de limbi europene, printre care română, germană, franceză, poloneză, ucraineană și rusă. Pentru restul limbilor este integrat Whisper — încă vreo sută de limbi, dar mai lent.",
+          "Motorul implicit acoperă 25 de limbi europene, printre care română, germană, franceză, poloneză, ucraineană și rusă. Pentru restul limbilor este integrat Whisper — în total, Summit acoperă astfel circa o sută de limbi, deși mai lent cu Whisper.",
       },
       {
         question: "Trebuie invitat un bot în apel?",

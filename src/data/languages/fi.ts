@@ -76,6 +76,7 @@ export const fi: LanguagePage = {
       "Puheluun ei liity bottia. Summit kaappaa järjestelmän äänen ja mikrofonin macOS-työkaluilla, joten ylimääräistä osallistujaa ei näy — olipa kyse Zoomista, Teamsista, Meetistä tai kasvokkaisesta tapaamisesta.",
       "Ääni, litterointi, yhteenveto ja hakuindeksi pysyvät Macillasi. Oletuksena mitään ei lähde ulos: ei tiedostoja, ei tekstiä, ei kokouksen metatietoja.",
       "Pilvimalli aktivoituu vasta, kun syötät itse palveluntarjoajasi avaimen asetuksiin. Siihen asti koko käsittely tapahtuu paikallisesti — tämä on olennaista GDPR:n kannalta, koska silloin mitään henkilötietoa ei siirretä.",
+      "iCloud-synkronointi on erillinen, oletuksena pois päältä oleva ominaisuus. Jos otat sen käyttöön, litteroinnit ja yhteenvedot synkronoidaan päästä päähän salattuina omien laitteidesi välillä; osa niihin liittyvistä metatiedoista — kesto, sanamäärä, tunnistettu kieli — synkronoidaan salaamattomana.",
     ],
     linkLabel: "Arkkitehtuurin ja koko lähtevän liikenteen erittely (englanniksi)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const fi: LanguagePage = {
       {
         question: "Menevätkö tallenteet ja litteroinnit pilveen?",
         answer:
-          "Ei. Oletuksena ääni, litterointi, yhteenveto ja hakuindeksi pysyvät vain Macillasi. Mitään ei lähde ulos ennen kuin yhdistät itse pilvimallin omalla avaimellasi.",
+          "Oletuksena ei: ääni, litterointi, yhteenveto ja hakuindeksi pysyvät vain Macillasi. Jotain lähtee ulos vain kahdessa tapauksessa, molemmat omalla valinnallasi: kun yhdistät pilvimallin omalla avaimellasi, tai kun otat käyttöön iCloud-synkronoinnin — silloin sisältö synkronoidaan salattuna laitteidesi välillä, osa metatiedoista (kesto, kieli) kuitenkin salaamattomana.",
       },
       {
         question: "Mitä kieliä Summit osaa suomen lisäksi?",
         answer:
-          "Oletusmoottori kattaa 25 eurooppalaista kieltä, muun muassa suomen, saksan, ranskan, puolan, ukrainan ja venäjän. Muille kielille on sisäänrakennettu Whisper — vielä noin sata kieltä lisää, hitaammin.",
+          "Oletusmoottori kattaa 25 eurooppalaista kieltä, muun muassa suomen, saksan, ranskan, puolan, ukrainan ja venäjän. Muille kielille on sisäänrakennettu Whisper — yhteensä Summit kattaa näin noin 99 kieltä, joskin Whisperillä hitaammin.",
       },
       {
         question: "Täytyykö puheluun kutsua botti?",

@@ -76,6 +76,7 @@ export const et: LanguagePage = {
       "Kõnesse ei liitu ükski bott. Summit jäädvustab süsteemiheli ja mikrofoni macOS-i vahenditega, nii et lisaosalejat ei ilmu — olgu tegu Zoomi, Teamsi, Meeti või näost näkku koosolekuga.",
       "Heli, transkript, kokkuvõte ja otsinguindeks jäävad sinu Maci. Vaikimisi ei lahku siit midagi: ei faile, teksti ega koosoleku metaandmeid.",
       "Pilvemudel lülitub sisse alles siis, kui sisestad ise oma teenusepakkuja võtme seadetesse. Kuni selleni toimub kogu töötlus lokaalselt — see on GDPR-i seisukohalt oluline, sest siis ei edastata ühtegi isikuandmet.",
+      "iCloudi sünkroonimine on omaette funktsioon, mis on vaikimisi väljas. Kui lülitad selle sisse, sünkroonitakse transkriptid ja kokkuvõtted otsast lõpuni krüpteeritult sinu enda seadmete vahel; osa nendega seotud metaandmeid — kestus, sõnade arv, tuvastatud keel — sünkroonitakse krüpteerimata.",
     ],
     linkLabel: "Arhitektuuri ja kogu väljamineva liikluse ülevaade (inglise keeles)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const et: LanguagePage = {
       {
         question: "Kas salvestised ja transkriptid lähevad pilve?",
         answer:
-          "Ei. Vaikimisi jäävad heli, transkript, kokkuvõte ja otsinguindeks ainult sinu Maci. Midagi väljub alles pärast seda, kui ühendad ise pilvemudeli oma võtmega.",
+          "Vaikimisi mitte: heli, transkript, kokkuvõte ja otsinguindeks jäävad ainult sinu Maci. Midagi väljub ainult kahel juhul, mõlemal juhul sinu enda valikul: kui ühendad pilvemudeli oma võtmega, või kui lülitad sisse iCloudi sünkroonimise — siis sünkroonitakse sisu krüpteeritult sinu seadmete vahel, osa metaandmeid (kestus, keel) aga krüpteerimata.",
       },
       {
         question: "Milliseid keeli Summit peale eesti keele veel oskab?",
         answer:
-          "Vaikimisi mootor katab 25 Euroopa keelt, sealhulgas eesti, saksa, prantsuse, poola, ukraina ja vene keele. Teiste keelte jaoks on sisse ehitatud Whisper — veel umbes sada keelt, kuid aeglasemalt.",
+          "Vaikimisi mootor katab 25 Euroopa keelt, sealhulgas eesti, saksa, prantsuse, poola, ukraina ja vene keele. Teiste keelte jaoks on sisse ehitatud Whisper — kokku katab Summit nii umbes 99 keelt, ehkki Whisperiga aeglasemalt.",
       },
       {
         question: "Kas kõnesse tuleb kutsuda bott?",

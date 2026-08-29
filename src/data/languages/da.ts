@@ -76,6 +76,7 @@ export const da: LanguagePage = {
       "Ingen bot går med i opkaldet. Summit fanger systemlyd og mikrofon via macOS, så der ikke dukker en ekstra deltager op — hverken i Zoom, Teams, Meet eller til et møde uden videoopkald.",
       "Lyd, transskription, opsummering og søgeindeks bliver på din Mac. Som standard forlader intet enheden: hverken filer, tekst eller metadata om mødet.",
       "En skymodel aktiveres først, når du selv indtaster en nøgle fra din udbyder i indstillingerne. Indtil da foregår al behandling lokalt — relevant for GDPR, fordi der så ikke overføres nogen personoplysninger.",
+      "iCloud-synkronisering er en separat funktion, som er slået fra som standard. Slår du den til, synkroniseres transskriptioner og opsummeringer end-to-end-krypteret mellem dine egne enheder; noget af metadataene omkring dem — varighed, antal ord, registreret sprog — synkroniseres ukrypteret.",
     ],
     linkLabel: "Arkitektur og al udgående trafik i detaljer (på engelsk)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const da: LanguagePage = {
       {
         question: "Går optagelser og transskriptioner til skyen?",
         answer:
-          "Nej. Som standard bliver lyd, transskription, opsummering og søgeindeks kun på din Mac. Der går først noget ud, når du selv tilslutter en skymodel med egen nøgle.",
+          "Som standard nej: lyd, transskription, opsummering og søgeindeks bliver kun på din Mac. Der går kun noget ud i to tilfælde, begge dit eget valg: hvis du tilslutter en skymodel med egen nøgle, eller hvis du slår iCloud-synkronisering til — så synkroniseres indhold krypteret mellem dine enheder, mens noget metadata (varighed, sprog) synkroniseres ukrypteret.",
       },
       {
         question: "Hvilke sprog kan Summit ud over dansk?",
         answer:
-          "Standardmotoren dækker 25 europæiske sprog, heriblandt dansk, tysk, fransk, polsk, ukrainsk og russisk. Til øvrige sprog er Whisper indbygget — endnu omkring hundrede sprog, men langsommere.",
+          "Standardmotoren dækker 25 europæiske sprog, heriblandt dansk, tysk, fransk, polsk, ukrainsk og russisk. Til øvrige sprog er Whisper indbygget — samlet dækker Summit omkring 99 sprog, dog langsommere med Whisper.",
       },
       {
         question: "Skal der inviteres en bot ind i opkaldet?",

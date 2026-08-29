@@ -76,6 +76,7 @@ export const pl: LanguagePage = {
       "Do rozmowy nie dołącza żaden bot. Summit przechwytuje dźwięk systemowy i mikrofon narzędziami macOS, więc na liście uczestników nie pojawia się nikt dodatkowy — czy to w Zoomie, Teams, Meet, czy na spotkaniu na żywo.",
       "Audio, transkrypcja, podsumowanie i indeks wyszukiwania zostają na Twoim Macu. Domyślnie nic stąd nie wychodzi: ani pliki, ani tekst, ani metadane spotkania.",
       "Model chmurowy włącza się dopiero, gdy sam wpiszesz klucz swojego dostawcy w ustawieniach. Do tego momentu całe przetwarzanie jest lokalne — to istotne przy RODO, bo wtedy żadne dane osobowe nie są przesyłane.",
+      "Synchronizacja iCloud to osobna funkcja, domyślnie wyłączona. Po jej włączeniu transkrypcje i podsumowania synchronizują się w pełni zaszyfrowane między Twoimi urządzeniami; część towarzyszących im metadanych — czas trwania, liczba słów, wykryty język — synchronizuje się bez szyfrowania.",
     ],
     linkLabel: "Szczegóły architektury i całego ruchu wychodzącego (po angielsku)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const pl: LanguagePage = {
       {
         question: "Czy nagrania i transkrypcje trafiają do chmury?",
         answer:
-          "Nie. Domyślnie audio, transkrypcja, podsumowanie i indeks wyszukiwania zostają wyłącznie na Twoim Macu. Coś wychodzi dopiero, gdy sam podłączysz model chmurowy własnym kluczem.",
+          "Domyślnie nie: audio, transkrypcja, podsumowanie i indeks wyszukiwania zostają wyłącznie na Twoim Macu. Coś wychodzi tylko w dwóch przypadkach, oba z Twojego wyboru: gdy podłączysz model chmurowy własnym kluczem, albo gdy włączysz synchronizację iCloud — wtedy treść synchronizuje się zaszyfrowana między Twoimi urządzeniami, a część metadanych (czas trwania, język) bez szyfrowania.",
       },
       {
         question: "Jakie języki obsługuje Summit poza polskim?",
         answer:
-          "Domyślny silnik obsługuje 25 języków europejskich, w tym polski, niemiecki, francuski, hiszpański, ukraiński i rosyjski. Dla pozostałych języków wbudowany jest Whisper — jeszcze około stu języków, choć wolniej.",
+          "Domyślny silnik obsługuje 25 języków europejskich, w tym polski, niemiecki, francuski, hiszpański, ukraiński i rosyjski. Dla pozostałych języków wbudowany jest Whisper — razem Summit obsługuje tak około stu języków, choć z Whisperem wolniej.",
       },
       {
         question: "Czy trzeba zapraszać bota na rozmowę?",

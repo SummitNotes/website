@@ -76,6 +76,7 @@ export const fr: LanguagePage = {
       "Aucun bot n'entre dans l'appel. Summit capture le son système et le micro via macOS, sans faire apparaître de participant supplémentaire — que ce soit sur Zoom, Teams, Meet ou lors d'un échange en présentiel.",
       "Audio, transcription, résumé et index de recherche restent sur votre Mac. Par défaut, rien n'en sort : ni fichiers, ni texte, ni métadonnées de réunion.",
       "Un modèle cloud n'intervient que si vous renseignez vous-même une clé de votre fournisseur dans les réglages. Tant que ce n'est pas fait, tout le traitement reste local — un point pertinent pour le RGPD, puisqu'aucune donnée personnelle n'est alors transmise.",
+      "La synchronisation iCloud est une fonctionnalité à part, désactivée par défaut. Si vous l'activez, les transcriptions et les résumés se synchronisent chiffrés de bout en bout entre vos propres appareils ; certaines métadonnées qui les accompagnent — durée, nombre de mots, langue détectée — se synchronisent, elles, en clair.",
     ],
     linkLabel: "Détail de l'architecture et de tout le trafic sortant (en anglais)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const fr: LanguagePage = {
       {
         question: "Les enregistrements et transcriptions partent-ils dans le cloud ?",
         answer:
-          "Non. Par défaut, l'audio, la transcription, le résumé et l'index de recherche restent uniquement sur votre Mac. Rien n'en sort tant que vous n'avez pas vous-même connecté un modèle cloud avec votre propre clé.",
+          "Par défaut, non : l'audio, la transcription, le résumé et l'index de recherche restent uniquement sur votre Mac. Quelque chose n'en sort que dans deux cas, tous deux à votre initiative : si vous connectez un modèle cloud avec votre propre clé, ou si vous activez la synchronisation iCloud — le contenu se synchronise alors chiffré entre vos appareils, mais certaines métadonnées (durée, langue) se synchronisent en clair.",
       },
       {
         question: "Quelles langues Summit gère-t-il en plus du français ?",
         answer:
-          "Le moteur par défaut couvre 25 langues européennes, dont le français, l'allemand, l'espagnol, le polonais, l'ukrainien et le russe. Pour les autres langues, Whisper est intégré — une centaine de langues supplémentaires, mais plus lent.",
+          "Le moteur par défaut couvre 25 langues européennes, dont le français, l'allemand, l'espagnol, le polonais, l'ukrainien et le russe. Pour les autres langues, Whisper est intégré — au total, Summit couvre ainsi une centaine de langues, mais plus lentement avec Whisper.",
       },
       {
         question: "Faut-il inviter un bot dans l'appel ?",

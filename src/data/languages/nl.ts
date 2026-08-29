@@ -76,6 +76,7 @@ export const nl: LanguagePage = {
       "Er komt geen bot in het gesprek. Summit legt systeemgeluid en microfoon vast via macOS, dus er verschijnt geen extra deelnemer — of het nu in Zoom, Teams, Meet of een gesprek zonder videobellen is.",
       "Audio, transcript, samenvatting en zoekindex blijven op je Mac. Standaard gaat er niets naar buiten: geen bestanden, geen tekst, geen metadata over de vergadering.",
       "Een cloudmodel wordt pas actief als je zelf een sleutel van je provider invoert bij de instellingen. Tot die tijd blijft alle verwerking lokaal — relevant voor de AVG, want dan wordt er simpelweg geen persoonsgegeven verzonden.",
+      "iCloud-synchronisatie is een aparte functie die standaard uitstaat. Zet je hem aan, dan worden transcripten en samenvattingen end-to-end versleuteld gesynchroniseerd tussen je eigen apparaten; een deel van de bijbehorende metadata — duur, aantal woorden, herkende taal — wordt daarbij onversleuteld gesynchroniseerd.",
     ],
     linkLabel: "Architectuur en al het uitgaande verkeer in detail (in het Engels)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const nl: LanguagePage = {
       {
         question: "Gaan opnames en transcripten naar de cloud?",
         answer:
-          "Nee. Standaard blijven audio, transcript, samenvatting en zoekindex uitsluitend op je Mac. Er gaat pas iets naar buiten zodra je zelf een cloudmodel met een eigen sleutel koppelt.",
+          "Standaard niet: audio, transcript, samenvatting en zoekindex blijven alleen op je Mac. Er gaat alleen iets naar buiten in twee gevallen, allebei jouw eigen keuze: als je een cloudmodel met een eigen sleutel koppelt, of als je iCloud-synchronisatie aanzet — dan wordt de inhoud versleuteld gesynchroniseerd tussen je apparaten, maar wordt sommige metadata (duur, taal) onversleuteld gesynchroniseerd.",
       },
       {
         question: "Welke talen kan Summit naast het Nederlands?",
         answer:
-          "De standaardengine dekt 25 Europese talen, waaronder Nederlands, Duits, Frans, Pools, Oekraïens en Russisch. Voor overige talen zit Whisper ingebouwd — nog eens zo'n honderd talen, wel trager.",
+          "De standaardengine dekt 25 Europese talen, waaronder Nederlands, Duits, Frans, Pools, Oekraïens en Russisch. Voor overige talen zit Whisper ingebouwd — in totaal dekt Summit zo zo'n honderd talen, al gaat dat met Whisper trager.",
       },
       {
         question: "Moet er een bot bij het gesprek?",

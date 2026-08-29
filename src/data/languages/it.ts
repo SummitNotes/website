@@ -76,6 +76,7 @@ export const it: LanguagePage = {
       "Nessun bot entra in chiamata. Summit cattura audio di sistema e microfono tramite macOS, quindi non compare nessun partecipante in più, sia su Zoom, Teams, Meet, sia in un incontro di persona.",
       "Audio, trascrizione, riassunto e indice di ricerca restano sul tuo Mac. Di default non esce nulla: né file, né testo, né metadati della riunione.",
       "Un modello cloud entra in gioco solo se inserisci tu stesso la chiave del tuo provider nelle impostazioni. Fino a quel momento tutta l'elaborazione resta locale — un punto rilevante per il GDPR, perché così non viene trasmesso alcun dato personale.",
+      "La sincronizzazione iCloud è una funzione separata, disattivata di default. Se la attivi, trascrizioni e riassunti si sincronizzano cifrati end-to-end tra i tuoi dispositivi; alcuni metadati che li accompagnano — durata, numero di parole, lingua rilevata — si sincronizzano invece in chiaro.",
     ],
     linkLabel: "Dettaglio dell'architettura e di tutto il traffico in uscita (in inglese)",
     linkHref: "/security/architecture",
@@ -129,12 +130,12 @@ export const it: LanguagePage = {
       {
         question: "Registrazioni e trascrizioni finiscono nel cloud?",
         answer:
-          "No. Di default audio, trascrizione, riassunto e indice di ricerca restano solo sul tuo Mac. Esce qualcosa solo dopo che tu stesso colleghi un modello cloud con una tua chiave.",
+          "Di default no: audio, trascrizione, riassunto e indice di ricerca restano solo sul tuo Mac. Esce qualcosa solo in due casi, entrambi a tua scelta: se colleghi un modello cloud con una tua chiave, o se attivi la sincronizzazione iCloud — il contenuto si sincronizza cifrato tra i tuoi dispositivi, ma alcuni metadati (durata, lingua) si sincronizzano in chiaro.",
       },
       {
         question: "Quali lingue capisce Summit oltre all'italiano?",
         answer:
-          "Il motore predefinito copre 25 lingue europee, tra cui italiano, tedesco, francese, spagnolo, polacco, ucraino e russo. Per le altre lingue è integrato Whisper, un centinaio di lingue in più ma più lento.",
+          "Il motore predefinito copre 25 lingue europee, tra cui italiano, tedesco, francese, spagnolo, polacco, ucraino e russo. Per le altre lingue è integrato Whisper: nel complesso Summit copre così un centinaio di lingue, anche se più lentamente con Whisper.",
       },
       {
         question: "Bisogna far entrare un bot in chiamata?",
