@@ -111,13 +111,40 @@ export interface LanguagePage {
   };
 }
 
+import { bg } from "../data/languages/bg";
+import { cs } from "../data/languages/cs";
+import { da } from "../data/languages/da";
+import { de } from "../data/languages/de";
+import { el } from "../data/languages/el";
+import { es } from "../data/languages/es";
+import { et } from "../data/languages/et";
+import { fi } from "../data/languages/fi";
+import { fr } from "../data/languages/fr";
+import { hr } from "../data/languages/hr";
+import { hu } from "../data/languages/hu";
+import { it } from "../data/languages/it";
+import { lt } from "../data/languages/lt";
+import { lv } from "../data/languages/lv";
+import { mt } from "../data/languages/mt";
+import { nl } from "../data/languages/nl";
+import { pl } from "../data/languages/pl";
+import { pt } from "../data/languages/pt";
+import { ro } from "../data/languages/ro";
 import { ru } from "../data/languages/ru";
+import { sk } from "../data/languages/sk";
+import { sl } from "../data/languages/sl";
+import { sv } from "../data/languages/sv";
+import { uk } from "../data/languages/uk";
 
 /**
  * The pages that ship. Adding a language here adds its route, its sitemap
  * entry, its hreflang alternate and its tile in every other page's grid.
+ * Ordered to match PARAKEET_LANGUAGES (minus English, the site's own language).
  */
-export const languagePages: LanguagePage[] = [ru];
+export const languagePages: LanguagePage[] = [
+  bg, cs, da, de, el, es, et, fi, fr, hr, hu, it, lt, lv, mt, nl, pl, pt, ro,
+  ru, sk, sl, sv, uk,
+];
 
 export function languagePath(code: string): string {
   return `/${code}/`;
