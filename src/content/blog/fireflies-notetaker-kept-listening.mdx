@@ -1,0 +1,170 @@
+---
+title: "The Employee Left. The Fireflies Notetaker Kept Listening."
+description: "A new termination lawsuit shows how an AI notetaker can outlive the meeting context—and turn post-call comments into evidence."
+author: "Dima"
+publishedDate: 2026-09-13
+image: "/blog-fireflies-notetaker-kept-listening.jpg"
+imageAlt: "A video meeting continues recording beside an empty participant seat while a transcript is shared"
+tags: ["meeting-notes", "privacy", "employment", "fireflies", "legal"]
+---
+
+The employee left the termination call. The managers stayed. So did the AI notetaker.
+
+According to a complaint filed on August 12, 2026, the Fireflies assistant continued transcribing while management discussed the kind of person it wanted as a replacement. It then sent the former employee a link to a transcript that included the post-termination discussion.
+
+She sued her former employer for gender discrimination.
+
+The case, *Waninger v. Marathon Engineering & Environmental Services Inc.*, is at the allegation stage. The quoted comments, the operation of the notetaker, and the legal claims have not been finally adjudicated. But the alleged sequence is already a useful warning: an AI meeting assistant follows the technical meeting, not the human meaning of the meeting.
+
+When one participant leaves, the bot does not know that the sensitive part is over—or that an even more sensitive part has begun.
+
+This article provides general workplace and privacy information, not legal advice.
+
+## What the complaint alleges
+
+[Parker Poe's account of the complaint](https://www.parkerpoe.com/news/2026/09/your-ai-notetaker-is-still-listening-lessons-for) describes a remote termination meeting between environmental scientist Lindsay Waninger and three members of management.
+
+The company used Fireflies to record and take notes. After Waninger was told that the employment relationship was not working out, she left the call. Management remained and discussed the replacement role. The transcript allegedly captured a manager saying the ideal replacement would be “a relatively strapping young man.”
+
+The notetaker then allegedly emailed Waninger a link containing both the termination discussion and the conversation after she left. Her lawsuit asserts gender-discrimination claims under the New Jersey Law Against Discrimination.
+
+Those facts matter in two different ways:
+
+1. The alleged comment may be evidence relevant to the employment claim.
+2. The automated capture and distribution workflow placed that evidence directly in the former employee's hands.
+
+The second point should not distract from the first. A company should not treat tighter software controls as a way to conceal discriminatory decision-making. The governance lesson is broader: managers should speak and act lawfully, and the organisation should understand exactly what its meeting systems capture and distribute.
+
+## The meeting had three different endings
+
+Humans often treat a meeting as over when its purpose has been completed. Software usually relies on a different signal.
+
+In the alleged Waninger sequence, there were at least three possible endings:
+
+- **The employment conversation ended** when management delivered the decision.
+- **The employee's participation ended** when she left the call.
+- **The technical session ended** when the remaining participants disconnected or stopped the notetaker.
+
+An AI assistant may continue until the third ending. That can be entirely consistent with its configuration and still be wrong for the business context.
+
+This is a lifecycle problem. “Was everyone notified when recording began?” is necessary, but it is not enough. The organisation also needs an answer to “Who stops capture when the audience, purpose, or sensitivity changes?”
+
+## Auto-join plus auto-share creates a dangerous chain
+
+Fireflies gives users controls over both capture and distribution. Its documentation says that, for a new account, the default is to [join all calendar meetings containing a web-conference link and send recaps to everyone on the invitation](https://guide.fireflies.ai/articles/9016807101-how-to-create-a-fireflies-account). Those settings can be changed.
+
+Fireflies also documents ways to [pause or remove its notetaker](https://guide.fireflies.ai/articles/7003995379-Recording%2BConsent%2Band%2BMeeting%2BCompliance%2Bin%2BFireflies:%2BOpt-In,%2BOpt-Out,%2Band%2BControls). Depending on the platform and configuration, participants may receive opt-in controls or opt-out notices.
+
+Each feature is understandable in isolation:
+
+- auto-join prevents users from forgetting their notes;
+- continued capture preserves the rest of a meeting;
+- sending a recap to invitees makes follow-up easy.
+
+Combined, they can produce an unexpected result:
+
+**calendar invite → automatic attendance → continued capture → automatic distribution**
+
+A person can stop being present without being removed from the distribution list. A meeting can move to a different subject without creating a new calendar event. A manager can assume a bot left with the employee even though the bot remains visible in the participant list.
+
+The safe unit of control is therefore not just the calendar event. It is each phase of the conversation.
+
+## Notice at the start does not govern every later phase
+
+Recording notice is important. It may be legally required, and it helps participants make informed choices. But a notice given for one purpose does not automatically resolve every later use or disclosure.
+
+Consider a call that moves through four phases:
+
+1. introductions;
+2. delivery of a termination decision;
+3. questions from the employee; and
+4. a management-only debrief.
+
+The participant group and purpose change at phase four. That should trigger a deliberate recording decision. Management can stop the tool, pause it, remove it, or end the call and start a separate unrecorded discussion.
+
+The same principle applies outside HR. A sales call may turn into a legal-strategy discussion. A project meeting may move into a medical accommodation issue. A board meeting may enter executive session. A customer interview may be followed by an internal pricing discussion.
+
+“The bot was announced at the beginning” does not make purpose changes invisible.
+
+## The transcript is not automatically the truth—but it can still matter
+
+AI transcripts can misidentify speakers, omit qualifications, or render words incorrectly. A summary can further compress or distort the underlying conversation. Organisations should not assume an AI-generated transcript is complete or accurate merely because it looks polished.
+
+That does not make the artifact harmless. It may still:
+
+- lead a former employee or regulator to investigate;
+- refresh a witness's recollection;
+- identify people or records to seek in discovery;
+- be compared with testimony and other documents; or
+- become evidence if the applicable procedural and evidentiary requirements are met.
+
+The correct response is not to edit away an inconvenient sentence or delete material after a dispute is foreseeable. Preserve potentially relevant information under counsel's direction and evaluate provenance, accuracy, speaker attribution, metadata, and the surrounding context.
+
+## An HR workflow that does not depend on memory
+
+Sensitive meetings need controls that are explicit enough to work on a difficult day.
+
+### 1. Exclude high-risk meetings from auto-join
+
+Use calendar-title rules, restricted calendars, or an approved-meeting list to keep termination, discipline, investigation, accommodation, legal, and grievance meetings outside the default automation.
+
+Do not rely on every manager remembering to remove a bot that was added automatically.
+
+### 2. Assign a recording owner
+
+Name one person—not “the group”—who must decide whether capture is appropriate, give required notice, verify the participant list, and stop the recording.
+
+For an HR meeting, that owner is often an HR representative or counsel rather than the manager delivering the decision.
+
+### 3. Define the stop event before the meeting
+
+“Stop when the employee leaves” is more operational than “record the termination meeting.” Put the stop point in the runbook and, where practical, in the agenda.
+
+If management needs a debrief, end the first call and create a separate session. A clean boundary is easier to understand than a subtle transition inside one recording.
+
+### 4. Restrict recipients before capture starts
+
+Check who will receive the audio, transcript, summary, and action items. Calendar invitees, actual attendees, workspace members, and email recipients are different groups.
+
+Use least-privilege sharing. Do not assume that removing someone from a live call removes them from a recap rule.
+
+### 5. Separate retention by artifact
+
+Audio, transcript, summary, chat, and exported tasks do not need identical retention. Decide what the authoritative HR record is and remove redundant artifacts under the applicable records schedule—unless a complaint, legal hold, or other preservation duty requires them.
+
+### 6. Train managers about substance, not only software
+
+A pause button is not an anti-discrimination control. Managers need training on lawful decision-making, job-related criteria, professional communication, and escalation to HR or counsel.
+
+Assume that workplace statements may later be reviewed, with or without an AI notetaker.
+
+## What local processing changes
+
+A bot-free, local workflow can remove two links from the alleged chain: an external participant does not remain in the call, and a cloud workspace does not automatically email a transcript to everyone on the invitation.
+
+With Summit and Local Models selected, capture, transcription, speaker separation, summarisation, storage, and search can stay on the Mac. That gives the recording owner more direct control over the file and reduces automatic third-party distribution.
+
+But local does not mean self-stopping.
+
+If Summit is recording system audio and the conversation moves into a management-only debrief, the user still needs to stop capture. A local transcript can still contain discriminatory statements, personal data, privileged material, or evidence subject to preservation. The Mac still needs access controls, FileVault, retention rules, secure backups, and a clear owner.
+
+Summit's optional hosted-model and iCloud features also create additional data paths when enabled. The relevant configuration boundaries are described in the [security architecture](/security/architecture).
+
+The defensible claim is narrow: local processing can reduce automatic recipients and give the organisation more control. It cannot make an inappropriate recording or workplace decision lawful.
+
+## The practical lesson
+
+AI notetakers do not understand when a human meeting has changed meaning. They understand whether the technical session is still running.
+
+For sensitive conversations, govern the transition points: who is present, what the current purpose is, whether capture should continue, and who will receive the result. Exclude high-risk meetings from auto-join, assign a recording owner, define the stop event, and create a clean break before any internal debrief.
+
+And remember the most important fact in the Waninger allegations: the software may have delivered the transcript, but the alleged words came from a manager.
+
+### Sources
+
+- [Parker Poe: Your AI Notetaker Is Still Listening](https://www.parkerpoe.com/news/2026/09/your-ai-notetaker-is-still-listening-lessons-for)
+- [Clifford Chance: When AI Joins the Meeting](https://www.cliffordchance.com/insights/resources/blogs/talking-tech/en/articles/2026/09/When-AI-Joins-the-Meeting.html)
+- [Fireflies: How to Create an Account and Review Default Meeting Settings](https://guide.fireflies.ai/articles/9016807101-how-to-create-a-fireflies-account)
+- [Fireflies: Recording Consent and Meeting Compliance Controls](https://guide.fireflies.ai/articles/7003995379-Recording%2BConsent%2Band%2BMeeting%2BCompliance%2Bin%2BFireflies:%2BOpt-In,%2BOpt-Out,%2Band%2BControls)
+
+[Try Summit on macOS](https://summitnotes.app) for bot-free meeting notes with a fully local processing path.
