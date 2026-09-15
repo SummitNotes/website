@@ -169,14 +169,26 @@
     }
   });
 
-  // Track all App Store download clicks
+  // Track download clicks: every App Store link, and the direct .dmg link on
+  // /download. `channel` separates the two.
   document.addEventListener('click', function(e) {
-    var el = e.target.closest && e.target.closest('a[href*="apps.apple.com"]');
+    var el =
+      e.target.closest &&
+      e.target.closest('a[href*="apps.apple.com"], a[data-download-channel]');
     if (el) {
       var properties = {
         // Which button was pressed, not which page — the page is already in
-        // `url`. Every App Store link on the site carries a `data-source`.
-        source: el.getAttribute('data-source') || 'unattributed',
+        // `url`. Every download link on the site carries a `data-source`.
+        // Buttons elsewhere lead to /download?from=<their source>; there the
+        // clicked card reports that original button as `source`, so breakdowns
+        // by button keep meaning what they did before the page existed, and
+        // names itself in `choice_source`.
+        source:
+          el.getAttribute('data-entry-source') ||
+          el.getAttribute('data-source') ||
+          'unattributed',
+        choice_source: el.getAttribute('data-source'),
+        channel: el.getAttribute('data-download-channel') || 'app_store',
         url: window.location.href,
         // Where the link actually points once AppStoreCampaign.astro has
         // stamped it — this runs in the bubble phase, that rewrite in capture.
