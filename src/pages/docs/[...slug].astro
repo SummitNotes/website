@@ -69,18 +69,18 @@ const docSchema = techArticleSchema({
         <!-- Breadcrumb -->
         <div class="flex items-center gap-2 text-sm text-muted-foreground mb-6">
           <a href="/" class="hover:text-foreground transition-colors flex items-center gap-1">
-            <Home class="w-4 h-4" />
+            <Home className="w-4 h-4" />
             Home
           </a>
-          <ChevronRight class="w-4 h-4" />
+          <ChevronRight className="w-4 h-4" />
           <a href="/docs" class="hover:text-foreground transition-colors">Documentation</a>
           {doc.data.category && (
             <>
-              <ChevronRight class="w-4 h-4" />
+              <ChevronRight className="w-4 h-4" />
               <span class="capitalize">{categoryLabels[doc.data.category] || doc.data.category}</span>
             </>
           )}
-          <ChevronRight class="w-4 h-4" />
+          <ChevronRight className="w-4 h-4" />
           <span class="text-foreground font-medium">{doc.data.title}</span>
         </div>
 
@@ -89,7 +89,7 @@ const docSchema = techArticleSchema({
           <aside class="lg:sticky lg:top-8 lg:self-start">
             <Card className="p-6">
               <div class="flex items-center gap-2 mb-6">
-                <Book class="w-5 h-5 text-blue-600" />
+                <Book className="w-5 h-5 text-blue-600" />
                 <h2 class="text-lg font-semibold text-foreground">Documentation</h2>
               </div>
 
