@@ -17,7 +17,7 @@ export const nl: LanguagePage = {
     h1: "Vergadernotities in het Nederlands — op je Mac, zonder cloud",
     subtitle:
       "Summit neemt het gesprek op, transcribeert wat er in het Nederlands wordt gezegd en maakt een samenvatting met actiepunten. Opname, transcript en notities blijven op je Mac.",
-    ctaLabel: "Downloaden in de Mac App Store",
+    ctaLabel: "Downloaden voor Mac",
     ctaNote: "15 opnames gratis, geen account nodig",
   },
 
@@ -153,7 +153,7 @@ export const nl: LanguagePage = {
   finalCta: {
     heading: "Probeer het bij je volgende vergadering",
     body: "De eerste 15 opnames zijn gratis en je hebt geen account nodig. Genoeg om Summit te testen met je eigen stem, vaktermen en echte vergaderingen.",
-    ctaLabel: "Downloaden in de Mac App Store",
+    ctaLabel: "Downloaden voor Mac",
     secondaryLabel: "Hoe privacy werkt",
     secondaryHref: "/security",
   },

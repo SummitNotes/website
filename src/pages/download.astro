@@ -167,11 +167,24 @@ const appStorePoints = [
   (function () {
     // Carry the button that led here onto both choices, so the click that
     // leaves the page is attributed to it (read by posthog.astro).
-    var from = new URLSearchParams(window.location.search).get("from");
+    var query = new URLSearchParams(window.location.search);
+    var from = query.get("from");
     if (from) {
       document.querySelectorAll("a[data-download-channel]").forEach(function (link) {
         link.setAttribute("data-entry-source", from.slice(0, 60));
       });
+    }
+
+    // Visitors from a language landing page get the App Store page in their
+    // language. Runs before AppStoreCampaign stamps pt/ct, which keeps `l`.
+    var store = query.get("store");
+    if (store && /^[a-z]{2}(-[a-z]{2})?$/i.test(store)) {
+      var appStore = document.querySelector('a[data-download-channel="app_store"]');
+      if (appStore) {
+        var storeUrl = new URL(appStore.href);
+        storeUrl.searchParams.set("l", store);
+        appStore.setAttribute("href", storeUrl.toString());
+      }
     }
 
     // Best-effort platform hint. Browsers don't expose the CPU directly; the

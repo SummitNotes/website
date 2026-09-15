@@ -8,8 +8,8 @@
  * parameter is the only thing that survives the hop for visitors without
  * analytics consent.
  *
- * The language landing pages keep linking to their localized App Store
- * storefront: the download page is English-only.
+ * The language landing pages link here too, passing their App Store
+ * language as `store` so the App Store option opens in that language.
  */
 
 export const APP_STORE_URL =
@@ -29,7 +29,12 @@ export const DIRECT_DOWNLOAD_URL = `${RELEASES_API}/latest/download?${DIRECT_QUE
 /** Metadata of the newest direct build: version, date, size, checksum. */
 export const LATEST_RELEASE_API = `${RELEASES_API}/latest?${DIRECT_QUERY}`;
 
-/** Link to the download page, tagged with the button that led there. */
-export function downloadPagePath(source: string): string {
-  return `/download?from=${encodeURIComponent(source)}`;
+/**
+ * Link to the download page, tagged with the button that led there and,
+ * optionally, the App Store language (`l`) its App Store link should use.
+ */
+export function downloadPagePath(source: string, storeLocale?: string): string {
+  const query = new URLSearchParams({ from: source });
+  if (storeLocale) query.set("store", storeLocale);
+  return `/download?${query}`;
 }

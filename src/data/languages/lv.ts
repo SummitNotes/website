@@ -17,7 +17,7 @@ export const lv: LanguagePage = {
     h1: "Sanāksmju piezīmes latviešu valodā — jūsu Mac datorā, bez mākoņa",
     subtitle:
       "Summit ieraksta zvanu, transkribē latviešu valodu un sagatavo kopsavilkumu ar veicamajiem uzdevumiem. Ieraksts, transkripcija un piezīmes paliek ierīcē.",
-    ctaLabel: "Lejupielādēt no Mac App Store",
+    ctaLabel: "Lejupielādēt Mac datoram",
     ctaNote: "15 ieraksti bez maksas, bez konta izveides",
   },
 
@@ -153,7 +153,7 @@ export const lv: LanguagePage = {
   finalCta: {
     heading: "Izmēģiniet savā nākamajā sanāksmē",
     body: "Pirmie 15 ieraksti ir bez maksas, un konts nav jāveido. Ar to pietiek, lai izmēģinātu Summit ar savu balsi, profesionālo terminoloģiju un īstām sanāksmēm.",
-    ctaLabel: "Lejupielādēt no Mac App Store",
+    ctaLabel: "Lejupielādēt Mac datoram",
     secondaryLabel: "Kā darbojas privātums",
     secondaryHref: "/security",
   },

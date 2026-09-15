@@ -17,7 +17,7 @@ export const da: LanguagePage = {
     h1: "Mødenotater på dansk — på din Mac, uden sky",
     subtitle:
       "Summit optager opkaldet, transskriberer dansk og laver en opsummering med opgaver. Optagelse, transskription og notater bliver på enheden.",
-    ctaLabel: "Hent i Mac App Store",
+    ctaLabel: "Hent til Mac",
     ctaNote: "15 optagelser gratis, ingen oprettelse",
   },
 
@@ -153,7 +153,7 @@ export const da: LanguagePage = {
   finalCta: {
     heading: "Prøv det til dit næste møde",
     body: "De første 15 optagelser er gratis, og du behøver ingen konto. Det er nok til at prøve Summit med din egen stemme, dine fagudtryk og rigtige møder.",
-    ctaLabel: "Hent i Mac App Store",
+    ctaLabel: "Hent til Mac",
     secondaryLabel: "Sådan beskytter Summit dine data",
     secondaryHref: "/security",
   },

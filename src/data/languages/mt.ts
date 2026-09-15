@@ -17,7 +17,7 @@ export const mt: LanguagePage = {
     h1: "Noti tal-laqgħat bil-Malti — fuq il-Mac tiegħek, mingħajr cloud",
     subtitle:
       "Summit jirreġistra s-sejħa, jitraskrivi l-Malti u jħejji sommarju bil-kompiti li jridu jsiru. Ir-reġistrazzjoni, it-traskrizzjoni u n-noti jibqgħu fuq l-apparat.",
-    ctaLabel: "Niżżel mill-Mac App Store",
+    ctaLabel: "Niżżel għall-Mac",
     ctaNote: "15-il reġistrazzjoni b'xejn, mingħajr reġistrazzjoni ta' kont",
   },
 
@@ -153,7 +153,7 @@ export const mt: LanguagePage = {
   finalCta: {
     heading: "Ipprova fil-laqgħa li jmiss tiegħek",
     body: "L-ewwel 15-il reġistrazzjoni huma b'xejn u m'għandekx bżonn kont. Dan biżżejjed biex tipprova Summit bid-diskors tiegħek, bit-terminoloġija professjonali u b'laqgħat reali.",
-    ctaLabel: "Niżżel mill-Mac App Store",
+    ctaLabel: "Niżżel għall-Mac",
     secondaryLabel: "Kif taħdem il-privatezza",
     secondaryHref: "/security",
   },

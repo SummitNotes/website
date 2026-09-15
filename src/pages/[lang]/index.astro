@@ -10,12 +10,12 @@ import { Card } from "../../components/ui/card";
 import Footer from "../../components/Footer";
 import {
   alternateLinks,
-  appStoreUrl,
   languagePages,
   languagePath,
   type LanguagePage,
 } from "../../lib/languages";
 import { faqSchema } from "../../lib/schema";
+import { downloadPagePath } from "../../lib/download";
 import {
   ArrowRight,
   Languages,
@@ -37,7 +37,8 @@ interface Props {
 
 const { page } = Astro.props;
 const path = languagePath(page.code);
-const storeUrl = appStoreUrl(page.storeLocale);
+const downloadHref = (placement: string) =>
+  downloadPagePath(`lang-${page.code}-${placement}`, page.storeLocale);
 const otherLanguages = languagePages.filter((other) => other.code !== page.code);
 ---
 
@@ -69,10 +70,8 @@ const otherLanguages = languagePages.filter((other) => other.code !== page.code)
           </p>
           <div class="flex flex-col items-center gap-3">
             <a
-              href={storeUrl}
+              href={downloadHref("hero")}
               data-source={`lang-${page.code}-hero`}
-              target="_blank"
-              rel="noopener noreferrer"
               class="download-button inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-sky-600 to-blue-600 text-white font-semibold rounded-lg hover:from-sky-700 hover:to-blue-700 transition-colors"
             >
               {page.hero.ctaLabel}
@@ -268,10 +267,8 @@ const otherLanguages = languagePages.filter((other) => other.code !== page.code)
           <p class="text-muted-foreground mb-6">{page.finalCta.body}</p>
           <div class="flex flex-col items-center gap-3">
             <a
-              href={storeUrl}
+              href={downloadHref("cta")}
               data-source={`lang-${page.code}-cta`}
-              target="_blank"
-              rel="noopener noreferrer"
               class="download-button inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-sky-600 to-blue-600 text-white font-semibold rounded-lg hover:from-sky-700 hover:to-blue-700 transition-colors"
             >
               {page.finalCta.ctaLabel}
@@ -287,6 +284,6 @@ const otherLanguages = languagePages.filter((other) => other.code !== page.code)
       </div>
     </div>
 
-    <Footer downloadHref={storeUrl} />
+    <Footer downloadHref={downloadHref("footer")} />
   </div>
 </Layout>

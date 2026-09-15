@@ -17,7 +17,7 @@ export const sv: LanguagePage = {
     h1: "Mötesanteckningar på svenska — på din Mac, utan moln",
     subtitle:
       "Summit spelar in samtalet, transkriberar det som sägs på svenska och skapar en sammanfattning med uppgifter. Inspelning, transkript och anteckningar stannar på din Mac.",
-    ctaLabel: "Hämta i Mac App Store",
+    ctaLabel: "Hämta för Mac",
     ctaNote: "15 inspelningar gratis, inget konto krävs",
   },
 
@@ -153,7 +153,7 @@ export const sv: LanguagePage = {
   finalCta: {
     heading: "Testa på ditt nästa möte",
     body: "De första 15 inspelningarna är gratis och kräver inget konto. Det räcker för att testa Summit med din röst, dina facktermer och riktiga möten.",
-    ctaLabel: "Hämta i Mac App Store",
+    ctaLabel: "Hämta för Mac",
     secondaryLabel: "Så fungerar integriteten",
     secondaryHref: "/security",
   },

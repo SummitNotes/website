@@ -17,7 +17,7 @@ export const et: LanguagePage = {
     h1: "Koosolekumärkmed eesti keeles — sinu Macis, pilveta",
     subtitle:
       "Summit salvestab kõne, transkribeerib eestikeelse jutu ja koostab kokkuvõtte koos tegevustega. Salvestis, transkript ja märkmed jäävad sinu Maci.",
-    ctaLabel: "Laadi alla Mac App Store'ist",
+    ctaLabel: "Laadi alla Macile",
     ctaNote: "15 salvestist tasuta, konto pole vaja luua",
   },
 
@@ -153,7 +153,7 @@ export const et: LanguagePage = {
   finalCta: {
     heading: "Proovi järgmisel koosolekul",
     body: "Esimesed 15 salvestist on tasuta ja kontot pole vaja luua. Sellest piisab, et proovida Summitit oma kõne, erialase sõnavara ja päris koosolekutega.",
-    ctaLabel: "Laadi alla Mac App Store'ist",
+    ctaLabel: "Laadi alla Macile",
     secondaryLabel: "Kuidas privaatsus toimib",
     secondaryHref: "/security",
   },

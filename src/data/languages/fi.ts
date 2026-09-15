@@ -17,7 +17,7 @@ export const fi: LanguagePage = {
     h1: "Kokousmuistiinpanot suomeksi — Macillasi, ilman pilveä",
     subtitle:
       "Summit tallentaa puhelun, litteroi suomen kielen ja kokoaa yhteenvedon tehtävineen. Tallenne, litterointi ja muistiinpanot pysyvät laitteella.",
-    ctaLabel: "Lataa Mac App Storesta",
+    ctaLabel: "Lataa Macille",
     ctaNote: "15 tallennetta ilmaiseksi, ei rekisteröitymistä",
   },
 
@@ -153,7 +153,7 @@ export const fi: LanguagePage = {
   finalCta: {
     heading: "Kokeile seuraavassa kokouksessasi",
     body: "Ensimmäiset 15 tallennetta ovat ilmaisia, eikä tiliä tarvita. Se riittää Summitin kokeilemiseen omalla puheellasi, ammattisanastollasi ja oikeissa kokouksissa.",
-    ctaLabel: "Lataa Mac App Storesta",
+    ctaLabel: "Lataa Macille",
     secondaryLabel: "Miten tietosuoja toimii",
     secondaryHref: "/security",
   },
