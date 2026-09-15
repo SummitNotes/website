@@ -1,12 +1,21 @@
 import React from "react";
 import { Twitter, Youtube, Linkedin, Mail } from "lucide-react";
 import { languageMetas, languagePath } from "@/lib/languageMeta";
+import { downloadPagePath } from "@/lib/download";
 
 interface FooterProps {
   className?: string;
+  /**
+   * Where Download points. Defaults to the English /download page; the
+   * language landing pages pass their localized App Store link.
+   */
+  downloadHref?: string;
 }
 
-const Footer: React.FC<FooterProps> = ({ className = "" }) => {
+const Footer: React.FC<FooterProps> = ({
+  className = "",
+  downloadHref = downloadPagePath("footer"),
+}) => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -29,7 +38,7 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
               </li>
               <li>
                 <a
-                  href="/download?from=footer"
+                  href={downloadHref}
                   data-source="footer"
                   className="download-button text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >

@@ -22,11 +22,15 @@
     attributionProperties,
     isFreshAttribution,
     preferredAttribution,
+    withAttributionParams,
     withCampaign,
     type Attribution,
   } from "../lib/campaign";
 
   const LINK_SELECTOR = 'a[href*="apps.apple.com"]';
+
+  /** Internal Download buttons, which lead to the store links on /download. */
+  const DOWNLOAD_PAGE_SELECTOR = 'a[href^="/download"]';
 
   /**
    * Storage is unavailable in more cases than it looks: private windows, blocked
@@ -89,7 +93,7 @@
    * the other one. Running on every page load is what moves an existing record
    * across when consent is granted or withdrawn.
    */
-  function persist(attribution: Attribution): void {
+  function persist(attribution: Attribution): boolean {
     const granted = consentGranted();
     const target = granted ? localStore : sessionStore;
     const stale = granted ? sessionStore : localStore;
@@ -111,15 +115,22 @@
     // write would lose the click on the next navigation, which is exactly the
     // case the catch above exists to survive.
     if (!granted || written) stale?.removeItem(ATTRIBUTION_STORAGE_KEY);
+    return written;
   }
 
   const attribution = preferredAttribution(
     readStored(),
     attributionFromSearch(window.location.search),
   );
-  if (attribution) persist(attribution);
+  const persisted = attribution ? persist(attribution) : false;
 
   const token = attribution?.ct ?? null;
+
+  // Download buttons lead to /download before the store link. When the click
+  // could not be stored — private windows, blocked storage — it would be lost
+  // on that hop, so it rides along on the /download link's query instead, where
+  // attributionFromSearch picks it up again.
+  const carried = attribution && !persisted ? attribution : null;
 
   // Read by the inline PostHog snippet, so a download event can be joined to
   // the campaign that App Analytics will credit.
@@ -129,17 +140,24 @@
     properties: attributionProperties(attribution),
   };
 
+  const selector = `${LINK_SELECTOR}, ${DOWNLOAD_PAGE_SELECTOR}`;
+
   function applyToLink(link: HTMLAnchorElement): void {
-    if (!token) return;
-    const next = withCampaign(link.href, token);
-    if (next !== link.href) link.setAttribute("href", next);
+    const href = link.getAttribute("href") ?? "";
+    let next = href;
+    if (link.matches(LINK_SELECTOR)) {
+      if (token) next = withCampaign(link.href, token);
+    } else if (carried) {
+      next = withAttributionParams(href, carried);
+    }
+    if (next !== href) link.setAttribute("href", next);
   }
 
   function applyToAll(): void {
-    document.querySelectorAll<HTMLAnchorElement>(LINK_SELECTOR).forEach(applyToLink);
+    document.querySelectorAll<HTMLAnchorElement>(selector).forEach(applyToLink);
   }
 
-  if (token) {
+  if (token || carried) {
     applyToAll();
 
     // Most Download buttons live in React islands that hydrate after this runs,
@@ -166,7 +184,7 @@
         (event) => {
           const target = event.target;
           if (!(target instanceof Element)) return;
-          const link = target.closest<HTMLAnchorElement>(LINK_SELECTOR);
+          const link = target.closest<HTMLAnchorElement>(selector);
           if (link) applyToLink(link);
         },
         true,
