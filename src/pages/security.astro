@@ -213,7 +213,13 @@ import {
               <ul class="list-disc list-inside text-muted-foreground space-y-2">
                 <li>
                   Purchase verification, handled on-device by StoreKit — it
-                  contacts Apple, not a Summit server
+                  contacts Apple, not a Summit server (Mac App Store version)
+                </li>
+                <li>
+                  License activation, periodic license checks, and update
+                  checks against Summit's license server (direct download
+                  version). These send your license key, a device identifier,
+                  and your IP address — never meeting content
                 </li>
                 <li>
                   A daily App Store version check (sends only our bundle ID).
@@ -237,7 +243,9 @@ import {
                   href="/security/architecture"
                   class="text-blue-600 hover:underline"
                   >architecture review</a
-                > walks through each one with source citations.
+                > walks through each one with source citations; it was written
+                for the Mac App Store version and does not yet cover the direct
+                download's license-server calls.
               </p>
             </Card>
           </div>

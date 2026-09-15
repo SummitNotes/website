@@ -25,7 +25,7 @@ import { Shield, Lock, Database, Eye } from "lucide-react";
           <h1 class="text-5xl font-bold text-foreground mb-4">
             Privacy Policy
           </h1>
-          <p class="text-muted-foreground">Last updated: November 2025</p>
+          <p class="text-muted-foreground">Last updated: September 2026</p>
         </div>
 
         <!-- Privacy Commitment -->
@@ -88,20 +88,60 @@ import { Shield, Lock, Database, Eye } from "lucide-react";
               1. Information We Collect
             </h2>
             <p class="text-muted-foreground mb-4">
-              <strong>We do not collect any personal information.</strong> Summit AI Notes
-              is distributed through the Mac App Store, and Apple handles all purchase
-              transactions. Apple does not share your personal information, email address,
-              or payment details with us.
+              Summit AI Notes is available in two ways, and what we receive
+              depends on which one you use.
             </p>
 
             <h3 class="text-xl font-semibold text-foreground mb-3">
-              Information We DO NOT Collect
+              Mac App Store version
+            </h3>
+            <p class="text-muted-foreground mb-4">
+              <strong>We do not collect any personal information.</strong> Apple
+              handles all purchase transactions and does not share your personal
+              information, email address, or payment details with us.
+            </p>
+
+            <h3 class="text-xl font-semibold text-foreground mb-3">
+              Direct download version
+            </h3>
+            <p class="text-muted-foreground mb-4">
+              If you download Summit from our website and buy a license from us,
+              we receive the minimum needed to sell and check that license:
+            </p>
+            <ul
+              class="list-disc list-inside text-muted-foreground space-y-2 mb-4"
+            >
+              <li>
+                <strong>Email address</strong> — used as your login to the license
+                server and to send you your license and account messages
+              </li>
+              <li>
+                <strong>License details</strong> — your license key, plan, and
+                license status
+              </li>
+              <li>
+                <strong>Device activation data</strong> — a device identifier
+                and label for each Mac you activate, the IP address it activated
+                from, and when the license was last checked
+              </li>
+              <li>
+                <strong>Update checks</strong> — the app asks our server for new
+                versions; like any web request, this reveals your IP address
+              </li>
+            </ul>
+            <p class="text-muted-foreground mb-4">
+              Payments are processed by <strong>Stripe</strong>. Your card
+              details go to Stripe, not to us; we receive the purchase record
+              and the email address you used.
+            </p>
+
+            <h3 class="text-xl font-semibold text-foreground mb-3">
+              Information We DO NOT Collect (either version)
             </h3>
             <ul
               class="list-disc list-inside text-muted-foreground space-y-2 mb-4"
             >
-              <li>Email addresses or contact information</li>
-              <li>Payment or billing information</li>
+              <li>Card numbers or other payment credentials</li>
               <li>Meeting audio recordings</li>
               <li>Meeting transcriptions</li>
               <li>Meeting summaries or notes</li>
@@ -115,9 +155,20 @@ import { Shield, Lock, Database, Eye } from "lucide-react";
               2. How We Use Your Information
             </h2>
             <p class="text-muted-foreground mb-4">
-              Since we do not collect personal information, there is no user data for us to use.
-              License validation is handled entirely by Apple through the App Store. If you
-              contact us for support, we will only use your information to respond to your inquiry.
+              <strong>Mac App Store version:</strong> we do not collect personal
+              information, so there is no user data for us to use. License
+              validation is handled entirely by Apple through the App Store.
+            </p>
+            <p class="text-muted-foreground mb-4">
+              <strong>Direct download version:</strong> we use your email,
+              license, and activation data only to sell you a license, let you
+              sign in to manage it, check that it is valid on your devices,
+              deliver updates, and prevent license abuse. We do not use it for
+              advertising or share it for marketing.
+            </p>
+            <p class="text-muted-foreground mb-4">
+              If you contact us for support, we will only use your information
+              to respond to your inquiry.
             </p>
           </section>
 
@@ -181,8 +232,13 @@ import { Shield, Lock, Database, Eye } from "lucide-react";
               <li>Export your locally stored data at any time</li>
               <li>Delete all local data by removing the application</li>
               <li>
-                Request information about what data we store (we do not store any
-                personal data)
+                Request a copy of the license and account data we hold about you
+                (direct download version only — for the App Store version we
+                hold none)
+              </li>
+              <li>
+                Ask us to correct or delete that data. Deleting it ends the
+                license it belongs to.
               </li>
             </ul>
           </section>
