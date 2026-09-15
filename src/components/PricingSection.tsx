@@ -3,6 +3,7 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 import { Check, ArrowRight } from "lucide-react";
+import { downloadPagePath } from "@/lib/download";
 
 const features = [
   "Unlimited recordings",
@@ -13,9 +14,6 @@ const features = [
   "100+ languages supported",
   "All updates to the current Summit product included",
 ];
-
-const APP_STORE_URL =
-  "https://apps.apple.com/app/summit-ai-notes/id6754717420?l=en-GB&mt=12";
 
 interface Plan {
   id: string;
@@ -164,10 +162,8 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = "" }) => {
                 </ul>
 
                 <a
-                  href={APP_STORE_URL}
+                  href={downloadPagePath(`pricing-${plan.id}`)}
                   data-source={`pricing-${plan.id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="download-button block mt-auto"
                 >
                   {plan.featured ? (

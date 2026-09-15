@@ -17,6 +17,12 @@ interface Props {
   lang?: string;
   /** hreflang alternates. Only the language landing pages have any. */
   alternates?: { hreflang: string; href: string }[];
+  /**
+   * Emit a canonical link without the query string. On by default for pages
+   * with alternates; pages reached through tagged links (/download?from=…)
+   * turn it on so the variants aren't indexed separately.
+   */
+  canonical?: boolean;
 }
 
 const {
@@ -26,6 +32,7 @@ const {
   breadcrumb,
   lang = "en",
   alternates = [],
+  canonical: emitCanonical = alternates.length > 0,
 } = Astro.props;
 
 const canonical = absoluteUrl(Astro.url.pathname);
@@ -47,7 +54,7 @@ const graph = [
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
-    {alternates.length > 0 && <link rel="canonical" href={canonical} />}
+    {emitCanonical && <link rel="canonical" href={canonical} />}
     {
       alternates.map((alternate) => (
         <link

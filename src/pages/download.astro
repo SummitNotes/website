@@ -1,0 +1,254 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer";
+import { Card } from "../components/ui/card";
+import { Building2, Check, Download, Info, ShieldCheck } from "lucide-react";
+import { APP_STORE_URL, DIRECT_DOWNLOAD_URL, LATEST_RELEASE_API } from "../lib/download";
+import { releases } from "../lib/releases";
+
+// Release-note pages exist per minor version (1.11) or patch (1.8.4). The
+// script resolves the live version against this list to link "What's new".
+const releaseNoteSlugs = releases.map((r) => r.slug);
+
+const directPoints = [
+  "Same plans and prices, paid securely through Stripe",
+  "Updates install from inside the app, as soon as they ship",
+  "A license bought directly from us, not through Apple",
+];
+
+const appStorePoints = [
+  "Pay with your Apple ID, manage it in App Store settings",
+  "Updates arrive through the Mac App Store",
+  "Already bought Summit there? Keep using this version",
+];
+---
+
+<Layout
+  title="Download Summit AI Notes for Mac"
+  description="Download Summit AI Notes for Mac — directly from us or from the Mac App Store. Private, on-device meeting notes. Requires an Apple Silicon Mac."
+  breadcrumb={[{ name: "Download" }]}
+  canonical
+>
+  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <img src="/logo.svg" alt="" class="w-16 h-16 rounded-2xl mx-auto mb-6" />
+          <h1 class="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+            Download Summit
+          </h1>
+          <p class="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Try 15 recordings free, no signup. Get the app directly from us or
+            from the Mac App Store.
+          </p>
+        </div>
+
+        <div
+          id="platform-warning"
+          hidden
+          class="mb-8 flex items-start gap-3 rounded-xl border border-amber-300 bg-amber-50 p-4 text-amber-900"
+          role="status"
+        >
+          <Info className="w-5 h-5 shrink-0 mt-0.5" />
+          <p class="text-sm" id="platform-warning-text"></p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 items-stretch">
+          <!-- Direct download -->
+          <Card className="p-8 bg-white border-sky-200 ring-1 ring-sky-200 shadow-lg shadow-sky-100/60">
+            <div>
+              <h2 class="text-2xl font-semibold text-foreground mb-1">Direct download</h2>
+              <p class="text-sm text-muted-foreground" id="direct-meta">
+                Signed and notarized by Apple · .dmg
+              </p>
+            </div>
+
+            <ul class="space-y-3 flex-1">
+              {directPoints.map((point) => (
+                <li class="flex items-start gap-3 text-sm text-muted-foreground">
+                  <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+
+            <div class="flex items-start gap-3 rounded-lg bg-sky-50 p-4 text-sm text-sky-950">
+              <Building2 className="w-5 h-5 shrink-0 mt-0.5 text-sky-700" />
+              <p>
+                <span class="font-medium">Buying for your organization?</span>
+                Get as many licenses as your team needs directly from us, and
+                manage them in one place — no Apple IDs attached.
+                <a href="mailto:hello@summitnotes.app?subject=Summit%20licenses%20for%20my%20team" class="text-sky-700 hover:underline">Talk to us</a>.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <a
+                href={DIRECT_DOWNLOAD_URL}
+                data-download-channel="direct"
+                data-source="download-page-direct"
+                class="flex w-full items-center justify-center gap-2 rounded-lg bg-[#0b1220] hover:bg-[#111827] px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-sky-900/20 transition-colors"
+              >
+                <Download className="w-5 h-5" />
+                Download for Mac
+              </a>
+              <p class="text-xs text-muted-foreground text-center">
+                New to Summit? This is the license to start with. It is separate
+                from App Store purchases and can't be transferred between them.
+              </p>
+            </div>
+          </Card>
+
+          <!-- Mac App Store -->
+          <Card className="p-8 bg-white border-border">
+            <div>
+              <h2 class="text-2xl font-semibold text-foreground mb-1">Mac App Store</h2>
+              <p class="text-sm text-muted-foreground">Installed and updated by Apple</p>
+            </div>
+
+            <ul class="space-y-3 flex-1">
+              {appStorePoints.map((point) => (
+                <li class="flex items-start gap-3 text-sm text-muted-foreground">
+                  <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+
+            <div class="space-y-3">
+              <a
+                href={APP_STORE_URL}
+                data-download-channel="app_store"
+                data-source="download-page-app-store"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex w-full items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 hover:border-slate-400 px-6 py-3.5 text-base font-semibold text-[#0b1220] transition-colors"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                View on the App Store
+              </a>
+              <p class="text-xs text-muted-foreground text-center">
+                Purchases stay with your Apple ID.
+              </p>
+            </div>
+          </Card>
+        </div>
+
+        <div class="mt-10 grid sm:grid-cols-2 gap-6 text-sm text-muted-foreground">
+          <div class="flex items-start gap-3">
+            <Info className="w-5 h-5 shrink-0 mt-0.5 text-sky-600" />
+            <p>
+              <span class="font-medium text-foreground">Requirements:</span>
+              a Mac with Apple Silicon (M1 or newer) running macOS 15 Sequoia or
+              later. Intel Macs are not supported.
+            </p>
+          </div>
+          <div class="flex items-start gap-3">
+            <ShieldCheck className="w-5 h-5 shrink-0 mt-0.5 text-sky-600" />
+            <p id="direct-details">
+              <span class="font-medium text-foreground">Both builds are private by design.</span>
+              Recording, transcription and summaries run on your Mac.
+              <a href="/security" class="text-sky-700 hover:underline">How Summit handles your data</a>.
+            </p>
+          </div>
+        </div>
+
+        <details id="checksum" hidden class="mt-6 text-sm text-muted-foreground">
+          <summary class="cursor-pointer select-none">Verify the direct download (SHA-256)</summary>
+          <code id="checksum-value" class="mt-2 block break-all rounded-lg bg-muted/50 p-3 font-mono text-xs text-foreground"></code>
+        </details>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</Layout>
+
+<script is:inline define:vars={{ latestApi: LATEST_RELEASE_API, releaseNoteSlugs }}>
+  (function () {
+    // Carry the button that led here onto both choices, so the click that
+    // leaves the page is attributed to it (read by posthog.astro).
+    var from = new URLSearchParams(window.location.search).get("from");
+    if (from) {
+      document.querySelectorAll("a[data-download-channel]").forEach(function (link) {
+        link.setAttribute("data-entry-source", from.slice(0, 60));
+      });
+    }
+
+    // Best-effort platform hint. Browsers don't expose the CPU directly; the
+    // GPU renderer names Intel on most Intel Macs, and some browsers hide it.
+    var warning = document.getElementById("platform-warning");
+    var warningText = document.getElementById("platform-warning-text");
+    var ua = navigator.userAgent;
+    var isMac = /Macintosh|Mac OS X/.test(ua) && !/iPhone|iPad/.test(ua) && navigator.maxTouchPoints < 2;
+    if (!isMac) {
+      warningText.textContent =
+        "Summit is a Mac app. Open this page on an Apple Silicon Mac to download it.";
+      warning.hidden = false;
+    } else {
+      try {
+        var gl = document.createElement("canvas").getContext("webgl");
+        var ext = gl && gl.getExtension("WEBGL_debug_renderer_info");
+        var renderer = ext ? String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)) : "";
+        if (/Intel/i.test(renderer) && !/Apple/i.test(renderer)) {
+          warningText.textContent =
+            "This looks like an Intel Mac. Summit needs Apple Silicon (M1 or newer), so it won't run here — sorry.";
+          warning.hidden = false;
+        }
+      } catch (e) {
+        // No WebGL; say nothing rather than guess.
+      }
+    }
+
+    function formatSize(bytes) {
+      return Math.round(bytes / 1e6) + " MB";
+    }
+
+    function releaseNotesFor(version) {
+      var parts = version.split(".");
+      var candidates = [parts.join("."), parts.slice(0, 3).join("."), parts.slice(0, 2).join(".")];
+      for (var i = 0; i < candidates.length; i++) {
+        if (releaseNoteSlugs.indexOf(candidates[i]) !== -1) return "/releases/" + candidates[i];
+      }
+      return null;
+    }
+
+    fetch(latestApi)
+      .then(function (res) {
+        return res.ok ? res.json() : null;
+      })
+      .then(function (latest) {
+        if (!latest || !latest.version) return;
+        var meta = document.getElementById("direct-meta");
+        var bits = ["Version " + latest.version];
+        if (latest.published_at) {
+          bits.push(
+            new Date(latest.published_at).toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+            }),
+          );
+        }
+        if (latest.size) bits.push(formatSize(latest.size));
+        meta.textContent = bits.join(" · ");
+
+        var notes = releaseNotesFor(latest.version);
+        if (notes) {
+          meta.appendChild(document.createTextNode(" · "));
+          var link = document.createElement("a");
+          link.href = notes;
+          link.className = "text-sky-700 hover:underline";
+          link.textContent = "What's new";
+          meta.appendChild(link);
+        }
+
+        if (latest.sha256) {
+          document.getElementById("checksum-value").textContent = latest.sha256;
+          document.getElementById("checksum").hidden = false;
+        }
+      })
+      .catch(function () {
+        // The download link works without this; the page just shows less.
+      });
+  })();
+</script>

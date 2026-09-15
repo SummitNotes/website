@@ -146,6 +146,23 @@ export function withCampaign(href: string, token: string): string {
 }
 
 /**
+ * Copies a remembered click's parameters onto an internal link, for the
+ * visitor whose browser cannot store it. Keeps the link relative and leaves
+ * its own parameters (such as `from`) in place.
+ */
+export function withAttributionParams(href: string, attribution: Attribution): string {
+  try {
+    const url = new URL(href, "https://summitnotes.app");
+    for (const [name, value] of Object.entries(attribution.params)) {
+      if (value) url.searchParams.set(name, value);
+    }
+    return `${url.pathname}${url.search}${url.hash}`;
+  } catch {
+    return href;
+  }
+}
+
+/**
  * Reads the tracked parameters off a landing URL's query string.
  *
  * Returns null when the visit carries no attribution at all, which is the

@@ -167,10 +167,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             {/* CTA Button */}
             <div className="flex flex-col items-center gap-3 hidden">
               <a
-                href="https://apps.apple.com/app/summit-ai-notes/id6754717420?l=en-GB&mt=12"
+                href="/download?from=hero"
                 data-source="hero"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="download-button"
               >
                 <Button
