@@ -17,7 +17,7 @@ export const hu: LanguagePage = {
     h1: "Megbeszélés-jegyzetek magyarul — a Macen, felhő nélkül",
     subtitle:
       "A Summit rögzíti a hívást, átírja a magyar beszédet, és összefoglalót készít a teendőkkel. A felvétel, az átirat és a jegyzetek a gépen maradnak.",
-    ctaLabel: "Letöltés a Mac App Store-ból",
+    ctaLabel: "Letöltés Macre",
     ctaNote: "15 felvétel ingyen, regisztráció nélkül",
   },
 
@@ -153,7 +153,7 @@ export const hu: LanguagePage = {
   finalCta: {
     heading: "Próbáld ki a következő megbeszéléseden",
     body: "Az első 15 felvétel ingyenes, és fiók sem kell hozzá. Ennyi elég ahhoz, hogy kipróbáld a Summitot a saját beszédeddel, szakmai kifejezéseiddel és valódi megbeszéléseken.",
-    ctaLabel: "Letöltés a Mac App Store-ból",
+    ctaLabel: "Letöltés Macre",
     secondaryLabel: "Hogyan működik az adatvédelem",
     secondaryHref: "/security",
   },

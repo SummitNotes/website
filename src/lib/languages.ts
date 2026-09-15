@@ -170,7 +170,3 @@ export function alternateLinks(): { hreflang: string; href: string }[] {
     { hreflang: "x-default", href: "/" },
   ];
 }
-
-export function appStoreUrl(storeLocale: string): string {
-  return `https://apps.apple.com/app/summit-ai-notes/id6754717420?l=${storeLocale}&mt=12`;
-}

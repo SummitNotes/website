@@ -17,7 +17,7 @@ export const de: LanguagePage = {
     h1: "Meeting-Notizen auf Deutsch — auf deinem Mac, ohne Cloud",
     subtitle:
       "Summit zeichnet den Call auf, transkribiert das Gesprochene und erstellt eine Zusammenfassung mit Aufgaben. Aufnahme, Transkript und Notizen bleiben auf deinem Mac.",
-    ctaLabel: "Im Mac App Store laden",
+    ctaLabel: "Für Mac herunterladen",
     ctaNote: "15 Aufnahmen gratis, keine Anmeldung nötig",
   },
 
@@ -153,7 +153,7 @@ export const de: LanguagePage = {
   finalCta: {
     heading: "Beim nächsten Meeting ausprobieren",
     body: "Die ersten 15 Aufnahmen sind kostenlos und ohne Konto nutzbar. Das reicht, um Summit mit deiner Stimme, deinen Fachbegriffen und echten Meetings zu testen.",
-    ctaLabel: "Im Mac App Store laden",
+    ctaLabel: "Für Mac herunterladen",
     secondaryLabel: "Wie der Datenschutz funktioniert",
     secondaryHref: "/security",
   },

@@ -17,7 +17,7 @@ export const pl: LanguagePage = {
     h1: "Notatki ze spotkań po polsku — na Twoim Macu, bez chmury",
     subtitle:
       "Summit nagrywa rozmowę, transkrybuje wypowiedzi po polsku i przygotowuje podsumowanie z listą zadań. Nagranie, transkrypcja i notatki zostają na Twoim Macu.",
-    ctaLabel: "Pobierz z Mac App Store",
+    ctaLabel: "Pobierz na Maca",
     ctaNote: "15 nagrań za darmo, bez rejestracji",
   },
 
@@ -153,7 +153,7 @@ export const pl: LanguagePage = {
   finalCta: {
     heading: "Wypróbuj na najbliższym spotkaniu",
     body: "Pierwsze 15 nagrań jest bezpłatnych i nie wymaga konta. To wystarczy, żeby wypróbować Summit z własnym głosem, branżową terminologią i prawdziwymi spotkaniami.",
-    ctaLabel: "Pobierz z Mac App Store",
+    ctaLabel: "Pobierz na Maca",
     secondaryLabel: "Jak działa prywatność",
     secondaryHref: "/security",
   },

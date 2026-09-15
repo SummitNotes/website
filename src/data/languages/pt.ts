@@ -17,7 +17,7 @@ export const pt: LanguagePage = {
     h1: "Notas de reunião em português — no seu Mac, sem nuvem",
     subtitle:
       "O Summit grava a chamada, transcreve o português e produz um resumo com as tarefas a fazer. Gravação, transcrição e notas ficam no dispositivo.",
-    ctaLabel: "Descarregar na Mac App Store",
+    ctaLabel: "Descarregar para Mac",
     ctaNote: "15 gravações grátis, sem registo",
   },
 
@@ -153,7 +153,7 @@ export const pt: LanguagePage = {
   finalCta: {
     heading: "Experimente na sua próxima reunião",
     body: "As primeiras 15 gravações são grátis e não exigem uma conta. São suficientes para experimentar o Summit com a sua voz, o seu vocabulário profissional e reuniões reais.",
-    ctaLabel: "Descarregar na Mac App Store",
+    ctaLabel: "Descarregar para Mac",
     secondaryLabel: "Como funciona a privacidade",
     secondaryHref: "/security",
   },

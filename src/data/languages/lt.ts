@@ -17,7 +17,7 @@ export const lt: LanguagePage = {
     h1: "Susitikimų užrašai lietuvių kalba — jūsų Mac kompiuteryje, be debesies",
     subtitle:
       "Summit įrašo pokalbį, transkribuoja lietuviškai sakomą kalbą ir parengia santrauką su užduotimis. Įrašas, transkripcija ir užrašai lieka jūsų Mac kompiuteryje.",
-    ctaLabel: "Atsisiųsti iš Mac App Store",
+    ctaLabel: "Atsisiųsti Mac kompiuteriui",
     ctaNote: "15 įrašų nemokamai, be registracijos",
   },
 
@@ -153,7 +153,7 @@ export const lt: LanguagePage = {
   finalCta: {
     heading: "Išbandykite kitame susitikime",
     body: "Pirmieji 15 įrašų nemokami, paskyros kurti nereikia. To pakanka, kad išbandytumėte Summit su savo kalba, profesiniais terminais ir tikrais susitikimais.",
-    ctaLabel: "Atsisiųsti iš Mac App Store",
+    ctaLabel: "Atsisiųsti Mac kompiuteriui",
     secondaryLabel: "Kaip veikia privatumas",
     secondaryHref: "/security",
   },

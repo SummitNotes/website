@@ -17,7 +17,7 @@ export const sk: LanguagePage = {
     h1: "Poznámky zo stretnutí v slovenčine — na vašom Macu, bez cloudu",
     subtitle:
       "Summit nahrá hovor, prepíše slovenčinu a pripraví zhrnutie s úlohami. Nahrávka, prepis aj poznámky zostávajú v zariadení.",
-    ctaLabel: "Stiahnuť z Mac App Store",
+    ctaLabel: "Stiahnuť pre Mac",
     ctaNote: "15 nahrávok zadarmo, bez registrácie",
   },
 
@@ -153,7 +153,7 @@ export const sk: LanguagePage = {
   finalCta: {
     heading: "Vyskúšajte na najbližšom stretnutí",
     body: "Prvých 15 nahrávok je zadarmo a bez účtu. To stačí na vyskúšanie Summitu s vaším hlasom, odbornou terminológiou aj skutočnými stretnutiami.",
-    ctaLabel: "Stiahnuť z Mac App Store",
+    ctaLabel: "Stiahnuť pre Mac",
     secondaryLabel: "Ako funguje súkromie",
     secondaryHref: "/security",
   },

@@ -17,7 +17,7 @@ export const ro: LanguagePage = {
     h1: "Notițe de întâlnire în română — pe Mac-ul tău, fără cloud",
     subtitle:
       "Summit înregistrează apelul, transcrie ce se spune în română și pregătește un rezumat cu lista de sarcini. Înregistrarea, transcrierea și notițele rămân pe Mac-ul tău.",
-    ctaLabel: "Descarcă din Mac App Store",
+    ctaLabel: "Descarcă pentru Mac",
     ctaNote: "15 înregistrări gratuite, fără cont",
   },
 
@@ -153,7 +153,7 @@ export const ro: LanguagePage = {
   finalCta: {
     heading: "Încearcă la următoarea ta întâlnire",
     body: "Primele 15 înregistrări sunt gratuite și nu ai nevoie de cont. Sunt suficiente ca să testezi Summit cu vocea ta, vocabularul profesional și întâlniri reale.",
-    ctaLabel: "Descarcă din Mac App Store",
+    ctaLabel: "Descarcă pentru Mac",
     secondaryLabel: "Cum funcționează confidențialitatea",
     secondaryHref: "/security",
   },

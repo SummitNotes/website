@@ -17,7 +17,7 @@ export const hr: LanguagePage = {
     h1: "Bilješke sa sastanaka na hrvatskom — na vašem Macu, bez oblaka",
     subtitle:
       "Summit snima poziv, prepisuje hrvatski jezik i priprema sažetak sa zadacima. Snimka, prijepis i bilješke ostaju na uređaju.",
-    ctaLabel: "Preuzmite s Mac App Storea",
+    ctaLabel: "Preuzmite za Mac",
     ctaNote: "15 besplatnih snimki, bez registracije",
   },
 
@@ -153,7 +153,7 @@ export const hr: LanguagePage = {
   finalCta: {
     heading: "Isprobajte na sljedećem sastanku",
     body: "Prvih 15 snimki besplatno je i ne morate otvarati račun. To je dovoljno da isprobate Summit sa svojim načinom govora, stručnim nazivima i stvarnim sastancima.",
-    ctaLabel: "Preuzmite s Mac App Storea",
+    ctaLabel: "Preuzmite za Mac",
     secondaryLabel: "Kako funkcionira privatnost",
     secondaryHref: "/security",
   },

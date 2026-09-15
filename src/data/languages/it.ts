@@ -17,7 +17,7 @@ export const it: LanguagePage = {
     h1: "Note di riunione in italiano — sul tuo Mac, senza cloud",
     subtitle:
       "Summit registra la chiamata, trascrive ciò che viene detto in italiano e prepara un riepilogo con le attività da svolgere. Registrazione, trascrizione e note restano sul tuo Mac.",
-    ctaLabel: "Scarica dal Mac App Store",
+    ctaLabel: "Scarica per Mac",
     ctaNote: "15 registrazioni gratuite, senza registrazione account",
   },
 
@@ -153,7 +153,7 @@ export const it: LanguagePage = {
   finalCta: {
     heading: "Provalo alla prossima riunione",
     body: "Le prime 15 registrazioni sono gratuite e non serve creare un account. Sono sufficienti per provare Summit con la tua voce, il tuo lessico professionale e riunioni reali.",
-    ctaLabel: "Scarica dal Mac App Store",
+    ctaLabel: "Scarica per Mac",
     secondaryLabel: "Come funziona la privacy",
     secondaryHref: "/security",
   },
