@@ -277,7 +277,7 @@ const schema = techArticleSchema({
           <div
             class="w-16 h-16 bg-sky-100 dark:bg-sky-950 rounded-full flex items-center justify-center mx-auto mb-6"
           >
-            <ShieldCheck class="w-8 h-8 text-sky-600 dark:text-sky-400" />
+            <ShieldCheck className="w-8 h-8 text-sky-600 dark:text-sky-400" />
           </div>
           <h1
             class="text-4xl sm:text-5xl font-bold text-foreground mb-4 tracking-tight"
@@ -294,7 +294,7 @@ const schema = techArticleSchema({
         <Card className="p-6 mb-12 border-sky-200/70 dark:border-sky-900/70">
           <div class="flex items-start gap-3 mb-4">
             <GitCommitHorizontal
-              class="w-5 h-5 text-sky-600 dark:text-sky-400 mt-0.5 flex-shrink-0"
+              className="w-5 h-5 text-sky-600 dark:text-sky-400 mt-0.5 flex-shrink-0"
             />
             <div>
               <h2 class="text-lg font-semibold text-foreground">
@@ -349,7 +349,7 @@ const schema = techArticleSchema({
         <!-- Trust boundaries -->
         <section class="mb-14">
           <div class="flex items-center gap-3 mb-6">
-            <Network class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <Network className="w-6 h-6 text-sky-600 dark:text-sky-400" />
             <h2 class="text-3xl font-bold text-foreground">Trust boundaries</h2>
           </div>
           <p class="text-muted-foreground mb-6 max-w-3xl">
@@ -361,7 +361,7 @@ const schema = techArticleSchema({
           <div class="grid gap-4 sm:grid-cols-2">
             <Card className="p-6">
               <div class="flex items-center gap-2 mb-3">
-                <Cpu class="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                <Cpu className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                 <h3 class="font-semibold text-foreground">
                   Boundary 1 — Inside the sandbox
                 </h3>
@@ -380,7 +380,7 @@ const schema = techArticleSchema({
 
             <Card className="p-6">
               <div class="flex items-center gap-2 mb-3">
-                <Cloud class="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                <Cloud className="w-5 h-5 text-amber-600 dark:text-amber-400" />
                 <h3 class="font-semibold text-foreground">
                   Boundary 2 — Hosted LLM
                 </h3>
@@ -399,7 +399,7 @@ const schema = techArticleSchema({
 
             <Card className="p-6">
               <div class="flex items-center gap-2 mb-3">
-                <KeyRound class="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                <KeyRound className="w-5 h-5 text-amber-600 dark:text-amber-400" />
                 <h3 class="font-semibold text-foreground">
                   Boundary 3 — iCloud sync
                 </h3>
@@ -418,7 +418,7 @@ const schema = techArticleSchema({
 
             <Card className="p-6">
               <div class="flex items-center gap-2 mb-3">
-                <Terminal class="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                <Terminal className="w-5 h-5 text-amber-600 dark:text-amber-400" />
                 <h3 class="font-semibold text-foreground">
                   Boundary 4 — Local MCP server
                 </h3>
@@ -440,7 +440,7 @@ const schema = techArticleSchema({
         <!-- Egress inventory -->
         <section class="mb-14">
           <div class="flex items-center gap-3 mb-6">
-            <Network class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <Network className="w-6 h-6 text-sky-600 dark:text-sky-400" />
             <h2 class="text-3xl font-bold text-foreground">
               Every outbound connection
             </h2>
@@ -521,7 +521,7 @@ const schema = techArticleSchema({
         <!-- Data inventory -->
         <section class="mb-14">
           <div class="flex items-center gap-3 mb-6">
-            <Database class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <Database className="w-6 h-6 text-sky-600 dark:text-sky-400" />
             <h2 class="text-3xl font-bold text-foreground">
               Where the data actually sits
             </h2>
@@ -559,7 +559,7 @@ const schema = techArticleSchema({
         <!-- Recording pipeline -->
         <section class="mb-14">
           <div class="flex items-center gap-3 mb-6">
-            <Cpu class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <Cpu className="w-6 h-6 text-sky-600 dark:text-sky-400" />
             <h2 class="text-3xl font-bold text-foreground">
               The local path, step by step
             </h2>
@@ -636,7 +636,7 @@ const schema = techArticleSchema({
         <!-- Key management -->
         <section class="mb-14">
           <div class="flex items-center gap-3 mb-6">
-            <KeyRound class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <KeyRound className="w-6 h-6 text-sky-600 dark:text-sky-400" />
             <h2 class="text-3xl font-bold text-foreground">
               Keys and secrets
             </h2>
@@ -697,7 +697,7 @@ const schema = techArticleSchema({
         <!-- Platform controls -->
         <section class="mb-14">
           <div class="flex items-center gap-3 mb-6">
-            <ShieldCheck class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <ShieldCheck className="w-6 h-6 text-sky-600 dark:text-sky-400" />
             <h2 class="text-3xl font-bold text-foreground">
               Sandbox posture
             </h2>
@@ -753,7 +753,7 @@ const schema = techArticleSchema({
         <!-- Defaults -->
         <section class="mb-14">
           <div class="flex items-center gap-3 mb-6">
-            <FileSearch class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <FileSearch className="w-6 h-6 text-sky-600 dark:text-sky-400" />
             <h2 class="text-3xl font-bold text-foreground">
               Defaults as shipped
             </h2>
@@ -793,7 +793,7 @@ const schema = techArticleSchema({
         <!-- Findings -->
         <section class="mb-14">
           <div class="flex items-center gap-3 mb-6">
-            <AlertTriangle class="w-6 h-6 text-amber-600 dark:text-amber-400" />
+            <AlertTriangle className="w-6 h-6 text-amber-600 dark:text-amber-400" />
             <h2 class="text-3xl font-bold text-foreground">
               Limitations and open findings
             </h2>
@@ -830,7 +830,7 @@ const schema = techArticleSchema({
         <!-- Verify it yourself -->
         <section class="mb-14">
           <div class="flex items-center gap-3 mb-6">
-            <Terminal class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <Terminal className="w-6 h-6 text-sky-600 dark:text-sky-400" />
             <h2 class="text-3xl font-bold text-foreground">
               Check our work
             </h2>
@@ -932,7 +932,7 @@ const schema = techArticleSchema({
           <div
             class="w-12 h-12 bg-sky-100 dark:bg-sky-950 rounded-full flex items-center justify-center mx-auto mb-4"
           >
-            <Mail class="w-6 h-6 text-sky-600 dark:text-sky-400" />
+            <Mail className="w-6 h-6 text-sky-600 dark:text-sky-400" />
           </div>
           <h2 class="text-2xl font-bold text-foreground mb-3">
             Found something we missed?

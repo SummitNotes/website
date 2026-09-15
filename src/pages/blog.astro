@@ -27,7 +27,7 @@ const sortedPosts = posts.sort(
           <div
             class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6"
           >
-            <BookOpen class="w-8 h-8 text-purple-600" />
+            <BookOpen className="w-8 h-8 text-purple-600" />
           </div>
           <h1 class="text-5xl font-bold text-foreground mb-4">
             Summit AI Notes Blog
@@ -60,14 +60,14 @@ const sortedPosts = posts.sort(
                       <div class="p-8 flex flex-col justify-center">
                         <div class="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                           <span class="flex items-center gap-1">
-                            <Calendar class="w-4 h-4" />
+                            <Calendar className="w-4 h-4" />
                             {sortedPosts[0].data.publishedDate.toLocaleDateString(
                               "en-US",
                               { year: "numeric", month: "long", day: "numeric" }
                             )}
                           </span>
                           <span class="flex items-center gap-1">
-                            <User class="w-4 h-4" />
+                            <User className="w-4 h-4" />
                             {sortedPosts[0].data.author}
                           </span>
                         </div>
@@ -88,7 +88,7 @@ const sortedPosts = posts.sort(
                         )}
                         <span class="inline-flex items-center text-purple-600 font-semibold group-hover:gap-2 transition-all">
                           Read article
-                          <ArrowRight class="ml-1 w-4 h-4" />
+                          <ArrowRight className="ml-1 w-4 h-4" />
                         </span>
                       </div>
                     </div>
@@ -113,7 +113,7 @@ const sortedPosts = posts.sort(
                         )}
                         <div class="p-6">
                           <div class="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                            <Calendar class="w-4 h-4" />
+                            <Calendar className="w-4 h-4" />
                             {post.data.publishedDate.toLocaleDateString(
                               "en-US",
                               { year: "numeric", month: "short", day: "numeric" }
@@ -127,7 +127,7 @@ const sortedPosts = posts.sort(
                           </p>
                           <span class="inline-flex items-center text-purple-600 font-medium text-sm">
                             Read more
-                            <ArrowRight class="ml-1 w-4 h-4" />
+                            <ArrowRight className="ml-1 w-4 h-4" />
                           </span>
                         </div>
                       </Card>
