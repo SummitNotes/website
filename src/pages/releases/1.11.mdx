@@ -1,0 +1,29 @@
+import ReleaseLayout from '../../layouts/ReleaseLayout.astro';
+
+export const version = "1.11";
+export const date = "2026-09-13";
+export const title = "Summit AI Notes 1.11";
+
+<ReleaseLayout version="1.11" date="2026-09-13">
+
+**New Features**
+- Fix a wrong speaker identification: remove a misidentified person from a meeting without losing their lines in the transcript, and undo it if needed.
+- Change the encryption key for iCloud sync from Settings. Recordings already waiting on your iPhone are still delivered after the change.
+
+**Improvements**
+- Summit now keeps a recording activity log you can open from Help → Show Recording Log, making it easier to diagnose problems when reporting them.
+- Documents now show the creation date, not just the time, in the document header and in search results, with "Today" and "Yesterday" where relevant. Hover the date to see when it was created and last modified.
+- AI chat and connected AI assistants now always know who said what, so statements are no longer attributed to the wrong participant.
+- Connected AI assistants receive the full transcript and are told when a list of results is only partial.
+- Removed the relevance percentage from search results — it never reflected actual relevance. Results are still sorted by best match.
+
+**Bug Fixes**
+- Plugging in or unplugging headphones during a recording no longer stops or breaks it — including recordings with screen video and ones started automatically for a call. If your microphone disconnects, Summit switches to another one and returns to it when it comes back.
+- Cancel now stops summarization for the whole document at once, instead of having to press it for every step.
+- Starting transcription or summarization by hand now removes the "delayed until…" banner on meetings held back after back-to-back calls.
+- Fixed a crash when opening the Transcript tab.
+- Deleting recordings now frees space in every storage location, including archived and moved recordings.
+- Connected AI assistants can connect and reconnect at any time, not only the first one after Summit launches.
+- If this Mac holds a different encryption key than the one your iCloud data uses, Summit now stops syncing and lets you choose how to resolve it, instead of mixing data under two keys.
+
+</ReleaseLayout>
