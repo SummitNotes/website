@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer";
 import { Card } from "../components/ui/card";
-import { Check, Download, Info, ShieldCheck } from "lucide-react";
+import { Building2, Check, Download, Info, ShieldCheck } from "lucide-react";
 import { APP_STORE_URL, DIRECT_DOWNLOAD_URL, LATEST_RELEASE_API } from "../lib/download";
 import { releases } from "../lib/releases";
 
@@ -48,7 +48,7 @@ const appStorePoints = [
           class="mb-8 flex items-start gap-3 rounded-xl border border-amber-300 bg-amber-50 p-4 text-amber-900"
           role="status"
         >
-          <Info class="w-5 h-5 shrink-0 mt-0.5" />
+          <Info className="w-5 h-5 shrink-0 mt-0.5" />
           <p class="text-sm" id="platform-warning-text"></p>
         </div>
 
@@ -65,11 +65,21 @@ const appStorePoints = [
             <ul class="space-y-3 flex-1">
               {directPoints.map((point) => (
                 <li class="flex items-start gap-3 text-sm text-muted-foreground">
-                  <Check class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                   {point}
                 </li>
               ))}
             </ul>
+
+            <div class="flex items-start gap-3 rounded-lg bg-sky-50 p-4 text-sm text-sky-950">
+              <Building2 className="w-5 h-5 shrink-0 mt-0.5 text-sky-700" />
+              <p>
+                <span class="font-medium">Buying for your organization?</span>
+                Get as many licenses as your team needs directly from us, and
+                manage them in one place — no Apple IDs attached.
+                <a href="mailto:hello@summitnotes.app?subject=Summit%20licenses%20for%20my%20team" class="text-sky-700 hover:underline">Talk to us</a>.
+              </p>
+            </div>
 
             <div class="space-y-3">
               <a
@@ -78,7 +88,7 @@ const appStorePoints = [
                 data-source="download-page-direct"
                 class="flex w-full items-center justify-center gap-2 rounded-lg bg-[#0b1220] hover:bg-[#111827] px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-sky-900/20 transition-colors"
               >
-                <Download class="w-5 h-5" />
+                <Download className="w-5 h-5" />
                 Download for Mac
               </a>
               <p class="text-xs text-muted-foreground text-center">
@@ -98,7 +108,7 @@ const appStorePoints = [
             <ul class="space-y-3 flex-1">
               {appStorePoints.map((point) => (
                 <li class="flex items-start gap-3 text-sm text-muted-foreground">
-                  <Check class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                   {point}
                 </li>
               ))}
@@ -125,7 +135,7 @@ const appStorePoints = [
 
         <div class="mt-10 grid sm:grid-cols-2 gap-6 text-sm text-muted-foreground">
           <div class="flex items-start gap-3">
-            <Info class="w-5 h-5 shrink-0 mt-0.5 text-sky-600" />
+            <Info className="w-5 h-5 shrink-0 mt-0.5 text-sky-600" />
             <p>
               <span class="font-medium text-foreground">Requirements:</span>
               a Mac with Apple Silicon (M1 or newer) running macOS 15 Sequoia or
@@ -133,7 +143,7 @@ const appStorePoints = [
             </p>
           </div>
           <div class="flex items-start gap-3">
-            <ShieldCheck class="w-5 h-5 shrink-0 mt-0.5 text-sky-600" />
+            <ShieldCheck className="w-5 h-5 shrink-0 mt-0.5 text-sky-600" />
             <p id="direct-details">
               <span class="font-medium text-foreground">Both builds are private by design.</span>
               Recording, transcription and summaries run on your Mac.
