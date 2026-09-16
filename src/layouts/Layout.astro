@@ -18,9 +18,9 @@ interface Props {
   /** hreflang alternates. Only the language landing pages have any. */
   alternates?: { hreflang: string; href: string }[];
   /**
-   * Emit a canonical link without the query string. On by default for pages
-   * with alternates; pages reached through tagged links (/download?from=…)
-   * turn it on so the variants aren't indexed separately.
+   * Emit an absolute https canonical link without the query string. On for
+   * every page so Google folds http://, query-tagged and other variants into
+   * the https URL instead of picking a canonical itself.
    */
   canonical?: boolean;
 }
@@ -32,7 +32,7 @@ const {
   breadcrumb,
   lang = "en",
   alternates = [],
-  canonical: emitCanonical = alternates.length > 0,
+  canonical: emitCanonical = true,
 } = Astro.props;
 
 const canonical = absoluteUrl(Astro.url.pathname);
