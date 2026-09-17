@@ -133,7 +133,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="relative z-10 container mx-auto px-4 pt-8 pb-20">
         <div className="max-w-7xl mx-auto">
           {/* Logo and Product Name */}
-          <div className="flex items-center gap-4 mb-16">
+          <div className="flex flex-wrap items-center gap-4 mb-16">
             <div className="relative group">
               <div className="w-14 h-14 rounded-2xl shadow-lg overflow-hidden bg-gradient-to-b from-white via-white to-sky-100 transition-transform group-hover:scale-105 ring-1 ring-white/70">
                 <img
@@ -150,6 +150,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               </span>
               <span className="text-sm text-slate-600">for macOS</span>
             </div>
+            <a
+              href="/teams"
+              className="ml-auto shrink-0 rounded-full border border-sky-900/15 bg-white/70 px-4 py-2 text-sm font-semibold text-sky-900 hover:bg-white transition-colors"
+            >
+              For Teams
+            </a>
           </div>
 
           {/* Main content - Centered with screenshot below */}
