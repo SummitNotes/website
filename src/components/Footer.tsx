@@ -38,6 +38,14 @@ const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a
+                  href="/teams"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  For Teams
+                </a>
+              </li>
+              <li>
+                <a
                   href={downloadHref}
                   data-source="footer"
                   className="download-button text-sm text-muted-foreground hover:text-foreground transition-colors"
