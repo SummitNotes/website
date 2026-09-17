@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 import { Check, ArrowRight } from "lucide-react";
 import { downloadPagePath } from "@/lib/download";
+import TeamsCallout from "./TeamsCallout";
 
 const features = [
   "Unlimited recordings",
@@ -85,6 +86,8 @@ const PricingSection: React.FC<PricingSectionProps> = ({ className = "" }) => {
               transcription, and AI summaries.
             </p>
           </div>
+
+          <TeamsCallout source="pricing-teams" className="mb-12" />
 
           {/* Pricing Cards */}
           <div className="grid lg:grid-cols-3 gap-6 items-stretch">
