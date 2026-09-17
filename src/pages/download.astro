@@ -1,8 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer";
+import TeamsCallout from "../components/TeamsCallout";
 import { Card } from "../components/ui/card";
-import { Building2, Check, Download, Info, ShieldCheck } from "lucide-react";
+import { Check, Download, Info, ShieldCheck } from "lucide-react";
 import { APP_STORE_URL, DIRECT_DOWNLOAD_URL, LATEST_RELEASE_API } from "../lib/download";
 import { releases } from "../lib/releases";
 
@@ -52,6 +53,8 @@ const appStorePoints = [
           <p class="text-sm" id="platform-warning-text"></p>
         </div>
 
+        <TeamsCallout source="download-teams" className="mb-8" />
+
         <div class="grid md:grid-cols-2 gap-6 items-stretch">
           <!-- Direct download -->
           <Card className="p-8 bg-white border-sky-200 ring-1 ring-sky-200 shadow-lg shadow-sky-100/60">
@@ -70,16 +73,6 @@ const appStorePoints = [
                 </li>
               ))}
             </ul>
-
-            <div class="flex items-start gap-3 rounded-lg bg-sky-50 p-4 text-sm text-sky-950">
-              <Building2 className="w-5 h-5 shrink-0 mt-0.5 text-sky-700" />
-              <p>
-                <span class="font-medium">Buying for your organization?</span>
-                Get as many licenses as your team needs directly from us, and
-                manage them in one place — no Apple IDs attached.
-                <a href="/teams" class="text-sky-700 hover:underline">Explore Summit for teams</a>.
-              </p>
-            </div>
 
             <div class="space-y-3">
               <a
