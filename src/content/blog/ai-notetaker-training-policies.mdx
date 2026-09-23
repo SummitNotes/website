@@ -1,0 +1,177 @@
+---
+title: "Who Trains AI on Your Meeting Content? A Policy Comparison"
+description: "A current comparison of Google Meet, Zoom, Otter, Granola, Fathom, Fireflies, Read AI, and tl;dv policies on model training and meeting data."
+author: "Dima"
+publishedDate: 2026-09-23
+image: "/blog-ai-notetaker-training-policies.jpg"
+imageAlt: "Meeting speech flowing through a branching AI training pipeline with privacy gates and a local closed loop"
+tags: ["ai-training", "meeting-notes", "privacy", "security", "vendor-comparison"]
+---
+
+“We don't train on your data” sounds definitive. It often is not.
+
+A meeting assistant may distinguish between its own models and third-party models, raw content and de-identified data, consumer and enterprise plans, product delivery and product improvement, or an account owner's opt-out and a participant's lack of any account at all.
+
+The result is a policy landscape where two vendors can make similar marketing claims while reserving very different rights.
+
+This comparison reads the vendors' current public terms, privacy policies, and help pages as of **September 23, 2026**. Policies can change, enterprise contracts can override public terms, and a reserved right is not proof that a particular meeting was used for training. Treat this as a procurement starting point, not legal advice.
+
+## The comparison at a glance
+
+| Product | What the current public policy says | Customer control | Third-party model training |
+|---|---|---|---|
+| Google Workspace with Gemini | Google says it will not train or fine-tune generative AI models supporting Workspace on Customer Data without prior permission or instruction | Contract and admin controls | Restricted by Workspace terms |
+| Zoom | Zoom says it does not use customer audio, video, chat, screen sharing, attachments, or similar communications content to train Zoom or third-party AI models | Account and feature controls | Prohibited for listed communications content |
+| Fireflies | Says meeting content and personal data are not used to train internal or external AI models | Meeting visibility, deletion, and account controls | Vendors contractually prohibited; zero-retention commitment for meeting content |
+| tl;dv | Says meeting recordings and transcripts are not used to train AI | Product and workspace controls | Says providers do not train on the data |
+| Otter | Says it may train proprietary models on de-identified audio and transcriptions | Contract and account rights vary; inspect enterprise terms | Says customer data is not used to train third-party AI providers |
+| Fathom | Says de-identified customer data may improve proprietary AI models | Individual and organisation opt-out documented | AI subprocessors are contractually barred from training |
+| Granola | Basic and Business terms allow own-model training unless the customer opts out; Enterprise requires opt-in | Plan-dependent opt-out or opt-in | Terms say customer content is not used to train third-party models |
+| Read AI | Privacy policy describes model training as opt-in and off by default; a help article separately describes a Customer Experience Improvement Program with opt-out language | Requires direct confirmation of the applicable setting and contract | Public materials say subprocessors do not train on customer data |
+
+This table intentionally does not reduce vendors to a single yes/no label. “Own model: yes; outside model: no” is a materially different arrangement from “no training at all.”
+
+## Google Workspace: contractual restriction unless the customer instructs otherwise
+
+Google's [Workspace Service Specific Terms](https://workspace.google.com/terms/service-terms/) state that Google will not use Customer Data to train or fine-tune generative AI models supporting Workspace Generative AI Services without the customer's prior permission or instruction.
+
+Google's [Generative AI Privacy Hub](https://knowledge.workspace.google.com/admin/generative-ai/generative-ai-in-google-workspace-privacy-hub) repeats that position for prompts and Workspace customer data.
+
+The useful procurement detail is scope. The protection is tied to **Customer Data**, the Workspace agreement, and models supporting the defined Workspace Generative AI Services. Organisations should still review optional feedback programs, connected services, diagnostic data, retention, and any non-Workspace product used alongside Meet.
+
+## Zoom: no training on listed communications content
+
+Zoom's [Terms of Service](https://www.zoom.com/en/trust/terms/) say Zoom will not use audio, video, chat, screen sharing, attachments, or other communications-like customer content to train Zoom's or third-party AI models.
+
+That is a strong content-specific commitment. It does not mean Zoom receives no meeting data or that every feature has identical retention and access rules. Training is one purpose among many. Procurement should separately review storage, support access, legal disclosure, AI Companion settings, and the product's data-processing documentation.
+
+## Fireflies: no internal or external model training
+
+Fireflies' [March 2026 privacy policy](https://fireflies.ai/privacy-policy) says it does not use personal information for AI model training and contractually prohibits vendors from using it for their own model training. It also describes a zero-data-retention policy for meeting content processed by third-party vendors.
+
+The company's [policy update summary](https://guide.fireflies.ai/articles/6892479029-fireflies-ai-updates-to-our-privacy-policy-terms-of-service-data-processing-addendum) is even more explicit: meeting content and personal data are not used to train internal or external models.
+
+This is a useful example of why dates matter. Older comparisons may describe a different policy. Always evaluate the current version and save the version accepted by your organisation.
+
+## tl;dv: a public no-training commitment
+
+tl;dv's [security and privacy materials](https://tldv.io/) state that meeting data is not used to train AI. As with every vendor, the next questions are which entity gives that promise, whether it is incorporated into your contract, which subprocessors receive content, and what happens when a user connects an external integration.
+
+A homepage statement is helpful. A signed DPA, subprocessor list, deletion schedule, and audit evidence make it operational.
+
+## Otter: de-identified content may train proprietary models
+
+Otter's [privacy policy](https://otter.ai/privacy-policy) says it may use de-identified audio recordings and transcriptions to train and improve proprietary AI models. The policy also describes data-labelling providers that help create training and evaluation data.
+
+Otter separately says on its [privacy and security page](https://otter.ai/privacy-security) that customer data is not used to train third-party AI providers.
+
+Both statements can be true:
+
+- meeting content can contribute to the vendor's own model improvement after de-identification; and
+- outside foundation-model providers can be contractually prevented from training on it.
+
+“No third-party training” should not be shortened to “no training.” De-identification also deserves scrutiny. Conversational data can contain names, employers, rare events, project details, and distinctive voices. Ask what is removed, when, by whom, and whether the transformation is reversible or linkable.
+
+## Fathom: proprietary training with an opt-out
+
+Fathom's [security help page](https://help.fathom.video/en/articles/296512) says its AI subprocessors cannot train on user data, while Fathom may use de-identified customer data to improve the accuracy of its proprietary models.
+
+The same page documents an individual opt-out and an organisation-level control for Team Edition.
+
+This is a meaningful control for the customer account. It leaves a governance question for every recorded guest: who tells a non-customer participant that de-identified content may be used for proprietary improvement, and who can exercise the opt-out on that person's behalf?
+
+## Granola: plan-dependent rules
+
+Granola's [Platform Terms](https://www.granola.ai/static/Granola-Platform-Terms-2025-12-19.pdf) draw a clear plan distinction:
+
+- on Basic and Business plans, Granola may use customer content to train its own models unless the customer opts out;
+- on Enterprise, own-model training requires the customer's opt-in; and
+- customer content is not used to train third-party models.
+
+The terms also grant rights to use aggregated or de-identified data for product improvement and training. Granola's [transparency page](https://www.granola.ai/transparency) says it does not retain audio and that LLM providers do not train on customer data.
+
+The plan boundary is the lesson. A security answer obtained during an Enterprise procurement may not describe what a user gets by signing up individually with a work email.
+
+## Read AI: public documents need clarification
+
+Read AI's [privacy policy](https://www.read.ai/privacy) describes AI model training as opt-in and off by default. A separate [help-centre article](https://support.read.ai/hc/en-us/articles/52055801266579-What-Does-Read-AI-Do-With-My-Data-Read-AI) says customer data is not used for training without explicit opt-in, but also describes a Customer Experience Improvement Program using opt-out language.
+
+Those statements may address different data, programs, or product versions. From the outside, the safe procurement response is not to guess. Ask Read AI to identify:
+
+1. the exact categories of content used by each program;
+2. the default for your plan and workspace;
+3. whether the control applies retroactively;
+4. whether meeting guests can exercise it; and
+5. which contractual document governs if help text and the agreement differ.
+
+An ambiguity is itself useful audit evidence: it tells you where a written vendor answer is required.
+
+## Five questions that expose the real policy
+
+### 1. Whose model?
+
+Ask separately about the meeting vendor's models, transcription models, foundation-model providers, analytics vendors, and human labelling contractors. “OpenAI does not train on it” says nothing about the meeting vendor's own classifier.
+
+### 2. Which data?
+
+Separate audio, video, transcript, summary, chat, calendar metadata, speaker labels, feedback, prompts, outputs, and telemetry. A vendor may exclude “Customer Content” while using product interactions or feedback under another definition.
+
+### 3. What transformation happens first?
+
+“De-identified,” “anonymized,” and “aggregated” are not interchangeable. Request the technical standard, the fields removed, the minimum aggregation group, re-identification controls, and whether raw content is retained long enough for humans to label it.
+
+### 4. Who controls the choice?
+
+An account owner may have an opt-out. A coworker, candidate, patient, customer, or vendor recorded in that account may not. Determine who provides notice, whose instructions govern, and how non-users can request access or deletion.
+
+### 5. Does the promise survive integrations?
+
+Sending notes to a CRM, chat app, automation service, or general-purpose AI tool creates a new processing chain. The original vendor's no-training commitment does not automatically bind the integration provider.
+
+## A procurement evidence pack
+
+For each meeting tool, keep:
+
+- the signed order form, DPA, and security addendum;
+- the privacy policy and terms version accepted at purchase;
+- the current subprocessor list;
+- screenshots or exports of training, feedback, sharing, and retention settings;
+- the vendor's written answer to any ambiguity;
+- a data-flow diagram for audio, transcript, summary, and integrations; and
+- a review date and an owner.
+
+Do not rely on a sales deck after the policy changes. A time-stamped evidence pack makes the organisation's decision explainable.
+
+## What local processing changes
+
+Local processing removes the vendor-training question for content that never leaves the device. With Summit and Local Models selected, capture, transcription, diarization, summarisation, storage, and search can stay on the Mac. There is no cloud meeting repository from which Summit can build a cross-customer training set.
+
+That claim has boundaries. Optional hosted summarisation sends transcript excerpts to the selected service, and optional iCloud sync creates a cloud data path. The Mac and its backups still need access controls and retention. Local processing also does not remove recording-consent, employment, or confidentiality duties.
+
+The detailed boundaries are in Summit's [security architecture](/security/architecture).
+
+## The practical takeaway
+
+There is no durable “safe vendor” column. There are current contractual promises, technical paths, plan-specific defaults, and controls that need verification.
+
+Classify each product using four labels:
+
+1. own-model training;
+2. third-party-model training;
+3. de-identified or aggregated improvement; and
+4. customer and participant control.
+
+That vocabulary turns “Do you train on our meetings?” from a marketing question into an auditable data-governance decision.
+
+### Sources
+
+- [Google Workspace Service Specific Terms](https://workspace.google.com/terms/service-terms/)
+- [Zoom Terms of Service](https://www.zoom.com/en/trust/terms/)
+- [Otter Privacy Policy](https://otter.ai/privacy-policy)
+- [Fathom Security FAQ](https://help.fathom.video/en/articles/296512)
+- [Granola Platform Terms](https://www.granola.ai/static/Granola-Platform-Terms-2025-12-19.pdf)
+- [Fireflies Privacy Policy](https://fireflies.ai/privacy-policy)
+- [Read AI Privacy Policy](https://www.read.ai/privacy)
+- [tl;dv security and privacy overview](https://tldv.io/)
+
+[Try Summit on macOS](https://summitnotes.app) for bot-free meeting notes with a fully local processing path.
