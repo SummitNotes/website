@@ -1,0 +1,204 @@
+---
+title: "EU Data Residency Is Not the Same as Local AI"
+description: "An EU hosting region can help, but it does not prove meeting data stays in Europe. Learn how residency, international transfers, and on-device AI differ."
+author: "Dima"
+publishedDate: 2026-09-28
+image: "/blog-eu-data-residency-local-ai.jpg"
+imageAlt: "A meeting transcript choosing between a regional cloud data centre and a closed processing loop on a laptop"
+tags: ["local-ai", "data-residency", "gdpr", "privacy", "compliance"]
+---
+
+“EU data residency” sounds reassuring. It suggests that meeting recordings, transcripts, and summaries remain inside a defined European region.
+
+That can be a useful contractual and technical commitment. It is not the same as local processing, and it does not answer every GDPR transfer question.
+
+A meeting service can store its primary database in Frankfurt while allowing a support team in another country to access it. It can keep recordings in Paris while sending transcript excerpts to a model provider elsewhere. It can contract through one legal entity and use subprocessors established in several others. Backups, logs, account data, abuse monitoring, and generated summaries may follow different paths from the original audio.
+
+Local AI has a narrower meaning: a processing step happens on a device or infrastructure controlled by the customer, without sending the content to an external AI service for that step.
+
+Neither label is a compliance certificate. The useful question is not “Does the vendor offer an EU region?” It is:
+
+> Which data goes to which legal entity, for which operation, from which location, and under whose control?
+
+This article provides general data-protection information, not legal advice. EU and UK transfer regimes are related but distinct, and an organisation should assess the rules that apply to its own establishments and processing.
+
+## Four terms that procurement teams should keep separate
+
+Vendors often use the following terms as if they were interchangeable. They are not.
+
+| Term | What it normally describes | What it does not prove |
+| --- | --- | --- |
+| **Data residency** | A promised location for storing specified data | That every processing operation, backup, log, support session, or subprocessor stays there |
+| **Regional processing** | A service operation performed within a selected region | That no separate overseas entity can access the data or receive a derived artifact |
+| **Local or on-device AI** | A defined operation runs on the user's device | That all optional models, sync, exports, backups, or integrations are also local |
+| **Self-hosted AI** | The customer deploys software in infrastructure it selects | That the deployment is correctly isolated, secured, or free from external telemetry and support access |
+
+These descriptions can overlap. A self-hosted service may be deployed in an EU cloud region. A local app may optionally call a hosted model. A cloud vendor may offer excellent EU residency controls while still making a restricted or international transfer under the applicable legal test.
+
+Marketing labels are the beginning of the data-flow review, not its conclusion.
+
+## Server location is not the whole transfer test
+
+Under the European Data Protection Board's [Guidelines 05/2021](https://www.edpb.europa.eu/documents/guideline/guidelines-052021-on-the-interplay-between-the-application-of-article-3-and-the_en), a Chapter V transfer involves a controller or processor subject to the GDPR disclosing or otherwise making personal data available to another controller or processor in a third country or international organisation.
+
+The identity and location of the recipient matter. So does access.
+
+The UK Information Commissioner's Office makes the distinction especially concrete. Its [restricted-transfer guidance](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/international-transfers/a-guide-to-international-transfers/are-we-making-a-restricted-transfer/) says the UK test follows the legal entities and where the receiving organisation is established—not merely the physical location of a server. Making UK-held information accessible to a separate overseas organisation, including through remote access, can be a restricted transfer.
+
+The ICO gives examples that can surprise buyers:
+
+- a UK customer using a provider established outside the UK may make a restricted transfer even if the server is physically in the UK;
+- contracting with a UK provider does not itself create a customer-to-provider restricted transfer merely because that provider uses overseas storage, although the provider may make an onward transfer to a foreign subprocessor; and
+- overseas support access can matter even when the database never moves.
+
+The exact EU analysis is not identical to the UK test, but the procurement lesson is the same: a map pin on a data centre cannot replace a map of the organisations, access paths, and processing operations.
+
+## A meeting generates more than one data set
+
+“Where is our meeting data stored?” is too broad to produce a reliable answer.
+
+An AI meeting workflow can create:
+
+- microphone and system-audio recordings;
+- video frames or screenshots;
+- participant names, email addresses, and calendar metadata;
+- a transcript and speaker labels;
+- embeddings and search indexes;
+- prompts sent to a language model;
+- summaries, decisions, topics, and action items;
+- sharing links and access logs;
+- diagnostics, security events, and support tickets;
+- cached copies, version histories, and backups; and
+- exports to email, CRM, document, calendar, or task systems.
+
+A vendor's residency promise may cover all of those, some of them, or only “customer content” as defined in its contract. The definition may exclude account metadata, telemetry, support information, or data handled by optional features.
+
+Ask about each artifact separately. Deleting audio after transcription does not establish where the transcript was processed. Keeping a transcript in the EU does not establish where a summary was generated. Removing the primary record does not necessarily remove an emailed recap or backup.
+
+## Four architectures that look similar on a sales page
+
+Consider four meeting-note configurations.
+
+### 1. EU storage with overseas support access
+
+The primary audio and transcript are stored in an EU region. A separate support entity outside the EEA can access customer content when troubleshooting.
+
+The storage commitment is still meaningful. It does not mean that the data is never made available outside the EEA. The organisation needs to understand the support-access controls, recipient, transfer mechanism, logging, approval process, and whether customer content can be excluded from support.
+
+### 2. An EU provider with a global model subprocessor
+
+The customer contracts with an EU company and the transcript database stays in the EU. The provider sends transcript passages to an AI model supplied by another organisation in a third country.
+
+The customer may not initiate that onward transfer directly, but it still needs enough information to assess its processor, authorise subprocessors as required, inform people accurately, and understand how Chapter V safeguards flow down the chain.
+
+### 3. On-device transcription and summarisation
+
+Audio, transcription, speaker separation, summarisation, and search run on an employee's managed laptop. No external provider receives the content for those operations.
+
+This can remove a vendor recipient and international-transfer path from the core workflow. GDPR still applies to the employer's collection and use of personal data. Recording authority, transparency, lawful basis, minimisation, accuracy, retention, access rights, and endpoint security remain.
+
+### 4. Local capture with a hosted language model
+
+The recording and transcript remain on the laptop, but the user selects a hosted model for the summary. Relevant transcript text is sent to that endpoint.
+
+The product is locally capable, but that particular workflow is not fully local. The hosted provider's entity, region, retention, training terms, subprocessors, and transfer safeguards become relevant for the material sent to it.
+
+Architecture is a series of decisions, not a permanent badge attached to a product name.
+
+## SCCs solve a legal problem—not a geography problem
+
+For transfers from the EEA, the GDPR provides routes including adequacy decisions, appropriate safeguards, and limited derogations. The European Commission's [international-transfer overview](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/rules-international-data-transfers_en) and [standard contractual clauses](https://commission.europa.eu/publications/publications-standard-contractual-clauses-sccs_en) explain two of the main mechanisms.
+
+Standard contractual clauses can provide appropriate safeguards for an otherwise restricted transfer. They do not mean the data stays in the EU. They govern a transfer that is taking place.
+
+Depending on the route and circumstances, organisations may also need to assess the law and practices affecting the importer, document a transfer impact or risk assessment, and adopt supplementary measures. The UK uses its own adequacy regulations, International Data Transfer Agreement, and UK Addendum framework.
+
+This is why the statements below answer different questions:
+
+- “Stored in the EU” describes a location commitment.
+- “Covered by SCCs” describes a transfer safeguard.
+- “Processed on the employee's Mac” describes an architecture.
+- “GDPR compliant” is a conclusion that cannot responsibly be drawn from any one of them alone.
+
+## The procurement questions an EU-region checkbox misses
+
+Before approving an AI meeting service, ask the vendor to identify:
+
+### Contracting and recipient entities
+
+- Which legal entity signs the agreement?
+- Which entity operates each service component?
+- Which affiliates can access customer content, metadata, or support records?
+- Are those entities controllers, processors, or subprocessors for each purpose?
+
+### Data categories and operations
+
+- Where are audio, transcript, summary, embeddings, screenshots, metadata, and backups stored?
+- Where does transcription occur?
+- Where does language-model inference occur?
+- Does speaker identification or another derived feature use a separate service?
+- Which data is excluded from the residency commitment?
+
+### Access and support
+
+- Can personnel outside the selected region access content?
+- Is access technically blocked, or controlled only by policy?
+- Does the customer approve each support session?
+- Are support access and exports logged and reviewable?
+
+### Subprocessors and transfers
+
+- Which subprocessor receives which data for which feature?
+- Where is each recipient established?
+- What transfer mechanism covers each relevant path?
+- How are customers notified of subprocessor changes?
+- Can optional subprocessors or features be disabled?
+
+### Deletion and survival
+
+- Can audio, transcript, summary, and metadata have different retention periods?
+- What survives account deletion?
+- How long do backups age out?
+- Do integrations retain independent copies?
+- Can the vendor demonstrate deletion rather than merely hide the record from the interface?
+
+A useful answer names the artifact, processing operation, recipient, establishment, location, safeguard, retention period, and user control. “EU hosted” is not enough detail.
+
+## What local processing changes for meeting notes
+
+With Summit and Local Models selected, recording, transcription, speaker separation, summarisation, storage, and search can remain on the Mac. The core workflow does not require a Summit-hosted transcript account or a cloud transcription service.
+
+That can remove several questions from the ordinary vendor review: no external recipient needs the meeting content for core transcription or summarisation, and no vendor data centre needs to be selected for those operations.
+
+The boundary is configurable rather than absolute.
+
+Summit supports optional hosted and self-hosted OpenAI-compatible model providers. When a hosted model is configured, relevant prompt and transcript text is sent to that endpoint. Optional iCloud sync creates another deliberate data path; Summit's current architecture says the synced content fields are encrypted, while specified structural metadata remains visible to CloudKit. Markdown exports, Calendar or Reminders actions, and the opt-in local MCP server can create additional destinations chosen by the user.
+
+Local files also need protection. Summit's local audio and SQLite database rely on the macOS app sandbox, file permissions, and FileVault when enabled rather than separate application-level encryption. The full boundaries and current limitations are documented in Summit's [data-flow and security architecture](/security/architecture).
+
+The defensible local-first claim is not “data protection law no longer applies.” It is:
+
+> The organisation can avoid creating an external AI recipient for the core meeting workflow and can decide deliberately when to open another data path.
+
+That is materially different from selecting an EU storage region inside an architecture that still requires cloud processing.
+
+## A better decision rule
+
+Choose data residency when the organisation needs a contractual location commitment for a cloud service. Choose appropriate transfer safeguards when data will be made available to a relevant overseas recipient. Choose local processing when the goal is to avoid creating that external recipient for a particular operation.
+
+Often, an organisation will need more than one of these controls.
+
+For AI meeting notes, draw the complete data flow before comparing labels. Include every artifact, legal entity, support path, model endpoint, subprocessor, export, and deletion schedule. Then decide which operations genuinely need the cloud and which can remain on the device.
+
+EU data residency is valuable when it says something precise. Local AI is valuable because it changes the architecture. Neither should be sold as automatic compliance.
+
+### Primary sources
+
+- [European Data Protection Board: Guidelines 05/2021 on Article 3 and Chapter V transfers](https://www.edpb.europa.eu/documents/guideline/guidelines-052021-on-the-interplay-between-the-application-of-article-3-and-the_en)
+- [European Commission: Rules on international data transfers](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/rules-international-data-transfers_en)
+- [European Commission: Standard Contractual Clauses](https://commission.europa.eu/publications/publications-standard-contractual-clauses-sccs_en)
+- [UK ICO: Are we making a restricted transfer?](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/international-transfers/a-guide-to-international-transfers/are-we-making-a-restricted-transfer/)
+
+*This article provides general data-protection information, not legal advice. International-transfer analysis depends on the applicable regime, entities, access, purposes, safeguards, and current law.*
+
+[Try Summit on macOS](https://summitnotes.app) to keep the core meeting-note workflow on-device with Local Models.
