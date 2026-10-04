@@ -1,0 +1,100 @@
+---
+title: "What a SOC 2 Report Tells You About an AI Notetaker—and What Else to Check"
+description: "Evaluate an AI notetaker's SOC 2 report alongside recording consent, model training, retention, integrations, and local-device security."
+author: "Dima"
+publishedDate: 2026-10-04
+image: "/blog-ai-notetaker-soc2.jpg"
+imageAlt: "An audit report under a magnifying glass beside panels showing meeting content, data flows, and retention"
+tags: ["meeting-notes", "security", "privacy", "compliance", "local-ai"]
+---
+
+A vendor says its AI notetaker is SOC 2 compliant. Your team wants to record customer calls, summarise internal discussions, and search the resulting archive. What has that assurance statement answered?
+
+It gives you a reason to request evidence about the service's controls. It does not, by itself, establish that every meeting is appropriate to record or that the proposed configuration matches your organisation's requirements.
+
+The useful procurement task is to connect the assurance evidence to the workflow you intend to approve: the people, information, features, destinations, and settings involved.
+
+This guide explains that review as of October 4, 2026. It does not assess a particular vendor's private audit report or provide legal advice.
+
+## Start with the report, not the badge
+
+The [AICPA describes SOC services](https://www.aicpa-cima.com/resources/landing/system-and-organization-controls-soc-suite-of-services) as assurance reporting that helps customers assess risks associated with outsourced services. A SOC 2 report concerns a described system and controls evaluated against applicable criteria. It is more specific than a general statement that a company is secure.
+
+Ask for the current report through the vendor's approved trust or procurement process. These reports are commonly access-controlled; a request to accept confidentiality terms is not itself evidence of a problem.
+
+Record the service and legal entity covered, the report date, the examination period where applicable, and the auditor. Match those details to the product you plan to buy. If your proposed feature launched after the examination period, ask how it changes the described system and what evidence supports its current controls.
+
+For example, a meeting service might add an email assistant or a connector that can retrieve older transcripts. Your review should establish whether those functions are included in the relevant system description. Do not assume either inclusion or exclusion from the product's shared brand name.
+
+## Understand the type and the criteria in scope
+
+Type 1 and Type 2 are different kinds of evidence. Broadly, Type 1 addresses the system description and suitability of control design at a specified date. Type 2 adds evidence about operating effectiveness over a specified period. Microsoft's [SOC 2 compliance documentation](https://learn.microsoft.com/en-us/compliance/regulatory/offering-soc-2) explains the distinction in the context of its own services.
+
+Neither report predicts that no future incident will occur. A Type 2 period is also not a promise that every later product change has already been examined.
+
+The [AICPA Trust Services Criteria](https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022) cover security, availability, processing integrity, confidentiality, and privacy. Read which categories the particular engagement includes; do not infer that every category was examined because the cover says SOC 2.
+
+For your meeting workflow, prepare questions such as:
+
+| Your requirement | Evidence to request |
+| --- | --- |
+| Restricted access to sensitive transcripts | Relevant access-control scope and responsibilities |
+| Dependable availability of business records | Applicable availability commitments and supporting controls |
+| Controlled handling of private meeting content | Relevant confidentiality and privacy coverage |
+| Correct execution of processing commitments | Applicable processing-integrity scope, without assuming it guarantees accurate AI summaries |
+
+The table is a review aid, not a substitute for interpreting the report. A human should still check consequential summaries against their sources.
+
+## Follow the system boundary through its providers
+
+An AI meeting workflow may involve separate hosting, transcription, language-model, support, and integration services. Ask the vendor to show where each one sits in the system description and how its controls are addressed.
+
+SOC reporting distinguishes responsibilities at the service organisation, its subservice organisations, and the customer. The AICPA's [reporting guidance and illustrative language](https://us.aicpa.org/content/dam/aicpa/interestareas/frc/assuranceadvisoryservices/downloadabledocuments/othermapping/soc-2-faq-on-transition-guidance.pdf) discuss those boundaries and complementary controls. A provider's inclusion in a data flow is not proof that all of its controls were directly examined in the report you received.
+
+Use a representative meeting to make the discussion concrete. Ask the vendor to trace the audio, transcript, summary, search index, support logs, and exported recap. For each destination, identify the relevant provider, access conditions, retention commitment, and assurance evidence.
+
+Read the auditor's opinion, test results, exceptions, and management responses with the person responsible for supplier risk. An exception deserves assessment in context; it is not automatically a breach or an unacceptable service. Conversely, an attractive summary page does not remove the need to understand an exception affecting your intended use.
+
+## Recording, training, and retention still need direct answers
+
+Competitor marketing illustrates why buyers need this second layer. Fireflies' [published safety guide](https://fireflies.ai/blog/are-ai-notetakers-safe) discusses SOC 2 alongside training restrictions and participant consent. These are distinct questions, even when they appear in the same buying checklist. This article does not claim to have examined Fireflies' audit report.
+
+Before approving a deployment, ask:
+
+- **Recording:** Which meetings may staff capture, what notice is required, and how do participants raise an objection?
+- **Model use:** Which provider receives content for each enabled feature, and what contractual restrictions apply to training and other reuse?
+- **Retention:** What happens separately to audio, transcripts, summaries, metadata, backups, and exports?
+- **Access:** Can administrators, support personnel, guests, or anyone with a link see a meeting?
+- **Integrations:** What can connected accounts retrieve, and where do their outputs persist?
+
+A report about the service's controls is not permission from a meeting participant. Nor should a security statement replace the actual contractual terms for model training or deletion. Read the relevant policy, agreement, and configuration together.
+
+Our [training-policy comparison](/blog/ai-notetaker-training-policies/) separates vendor policy language from evidence of actual processing. The [data-residency guide](/blog/eu-data-residency-local-ai/) explains another common distinction: where data is stored and who can receive or access it are separate questions.
+
+## Translate customer responsibilities into assigned work
+
+A procurement approval becomes useful when someone owns the settings and ongoing checks. Ask the reviewer to identify the responsibilities the report assumes your organisation will carry out, then map them to actual staff and procedures.
+
+For a meeting assistant, your implementation review might assign:
+
+- an administrator to manage membership and access reviews;
+- a business owner to define permitted meeting types and sharing audiences;
+- a privacy or legal owner to approve notices and applicable recording rules;
+- a records owner to manage retention and preservation instructions; and
+- an integration owner to review permissions and downstream copies.
+
+Those are suggested roles, not a claim that every report requires that exact arrangement. Keep the obligations taken from the report distinguishable from your additional business requirements.
+
+Test the workflow with fictional meeting content. Try an external share, an access change, an export, and the approved deletion process. Record what happened and resolve discrepancies with the vendor before introducing sensitive conversations.
+
+## Compare local processing on its own evidence
+
+An on-device product changes which service providers receive meeting content. It does not remove the need for evidence about the device, application, and enabled outbound paths.
+
+[Summit's security architecture](/security/architecture/) documents local recording and transcription, with summarisation able to run through Local Models. Selecting a hosted model sends relevant prompt content to that provider. Optional sync, exports, and the local MCP interface need their own review.
+
+The same architecture discloses that local audio and the database are not separately encrypted by the app on disk. Operating-system protections and FileVault when enabled form part of the endpoint boundary. A buyer should assess that openly, alongside the [Mac hardening checklist](/blog/local-ai-meeting-notes-mac-security/).
+
+This is an architectural comparison, not a claim that Summit holds SOC 2 assurance or that local processing automatically satisfies procurement requirements. A controlled cloud deployment and a managed local workflow need different evidence, and both need responsible operation.
+
+Finish the review with a short approval record: the exact product configuration, evidence examined, unresolved conditions, responsible owners, and changes that would trigger another review. The useful result is an approved workflow whose boundaries your team can explain.

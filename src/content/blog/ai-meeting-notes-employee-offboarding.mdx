@@ -1,0 +1,112 @@
+---
+title: "An Employee Leaves. What Happens to Their AI Meeting Archive?"
+description: "An AI meeting notes offboarding checklist covering Otter and Fireflies deactivation, shared links, session revocation, retention, and local archive handover."
+author: "Dima"
+publishedDate: 2026-10-04
+image: "/blog-meeting-notes-offboarding.jpg"
+imageAlt: "A departing employee handing a meeting archive into an organisation's managed custody"
+tags: ["meeting-notes", "privacy", "security", "compliance", "local-ai"]
+---
+
+An employee's last day arrives. IT disables their company account, their manager takes over the customer relationship, and somebody removes a paid seat from the meeting assistant.
+
+But the meeting archive may still contain customer commitments, private HR conversations, public sharing links, exported transcripts, and scheduled automations. Some information needs to stay available. Some should lose its audience. Some may be ready for deletion.
+
+**Access revocation, record preservation, and deletion are separate offboarding decisions.** A reliable handover handles all three and verifies the outcome.
+
+This guide compares documented Otter and Fireflies choices as of October 4, 2026, then sets out a workflow for cloud and local archives. It is operational guidance, not a universal retention schedule or legal advice.
+
+## Inventory the archive before choosing a delete button
+
+Start with the employee's actual workflow. The account in your identity directory may not be the only place their meeting notes live.
+
+Record:
+
+- company and personal meeting-service accounts used for work;
+- original recordings, transcripts, summaries, and attachments;
+- shared folders, channels, direct shares, and public links;
+- exports in email, documents, CRM records, and local folders;
+- calendar connections, API credentials, and AI-assistant connectors;
+- laptops, phones, sync accounts, and backups holding local copies.
+
+For each location, identify a responsible person and the intended outcome. A departing salesperson's customer handover should not automatically give their successor access to every HR or legal conversation the salesperson attended.
+
+Separate access needed for business continuity from access needed for a preservation obligation. Restricted records may need a designated custodian instead of a place in the team's ordinary searchable archive. Avoid indiscriminate copies of a mixed personal and work library; use an authorised, documented collection process.
+
+Our guide to [who owns AI meeting notes](/blog/who-owns-ai-meeting-notes) explains why a contractual ownership clause alone cannot answer these access and retention questions.
+
+## Otter and Fireflies give deactivation different consequences
+
+The labels in an administration screen are not interchangeable. Read the confirmation dialog and current documentation for the account you manage.
+
+### Otter: preserve the archive, then review sharing
+
+[Otter's deactivation guide](https://help.otter.ai/hc/en-us/articles/38148257690007-Deactivate-a-member-in-a-workspace) says workspace administrators can deactivate a member while preserving their data. Sign-in is disabled, the member stays listed in the workspace, and they no longer count as a licensed user.
+
+Existing conversation permissions remain in place, including direct shares, channel access, export settings, and public-link settings. Deactivation therefore does not clean up the archive's audience. Otter directs administrators to support for changes to conversation ownership or permissions after deactivation.
+
+### Fireflies: select preservation or deletion explicitly
+
+[Fireflies' teammate-management guide](https://guide.fireflies.ai/articles/2067266224-how-to-deactivate-and-reactivate-teammates-on-fireflies) describes two choices for internal teammates. **Deactivate and keep data** suspends access while preserving searchable meetings and notes. **Deactivate and delete data** revokes access and schedules permanent deletion of the teammate's meeting data after 30 days.
+
+The guide separately describes removing external users from a workspace. It also says a user returning after the delete-data choice can reactivate into a separate workspace on a Free plan. Do not confuse that with restoration of the former employer's archive.
+
+Treat these as documented product behaviors, not guarantees about every contract, backup, integration, or exported copy. Verify available controls on your plan and resolve preservation requirements before selecting deletion.
+
+## Disable the identity and the application account
+
+Closing a company login is necessary, but it may not terminate every application session immediately.
+
+[Microsoft's access-revocation guidance](https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access) distinguishes identity-provider tokens from session tokens issued by applications. An application controls its own session, and Microsoft Entra cannot directly revoke that application's session token. The effective cutoff depends on the application's behavior, token lifetime, and deprovisioning configuration.
+
+Build the meeting service into the offboarding process itself:
+
+1. Disable the organisation's identity and revoke sessions using the approved identity procedure.
+2. Deactivate the person in the meeting service, or verify that automated deprovisioning has done so.
+3. Review alternate sign-in routes and any separately issued API or integration credentials.
+4. Confirm the person cannot regain workspace access through a remaining account or invitation.
+5. Check that calendar connections and future automatic capture no longer operate under the departed person's account.
+
+These are verification steps, not a claim that a particular vendor bypasses SSO revocation. Test the organisation's actual configuration. Record who performed the checks and when, especially if deprovisioning is asynchronous.
+
+## Review shared links and downstream copies separately
+
+A record can remain accessible to someone who never signed into the departing employee's account. Otter's documented preservation of sharing settings is a concrete reason to include an audience review.
+
+Inspect sensitive meetings individually where necessary. Confirm the intended viewers, collaborators, export rights, and public-link settings. Do not assume moving a record into a new folder also changes all of its permissions.
+
+Then trace copies already sent elsewhere. A summary pasted into a CRM, a transcript attached to an email, and an AI chat generated from a meeting archive each need an owner and a retention decision. Disabling a connector can prevent future retrieval without removing material already retrieved.
+
+The [meeting-archive MCP checklist](/blog/meeting-archive-mcp-privacy-checklist) provides a useful map for AI integrations: identify the client, its account, what it could retrieve, and where its outputs were stored. Offboarding should include those destinations when they were part of the employee's approved workflow.
+
+Keep the review proportionate. Inventory and investigate through authorised administration and records processes; do not distribute an entire archive merely to make the handover easier.
+
+## Preserve required records before routine deletion
+
+There is no single retention period suitable for every employee's meeting notes. A routine project discussion, a disputed customer promise, and a meeting subject to a preservation instruction can require different treatment.
+
+Ask the records or legal owner to identify any applicable hold or other preservation requirement before changing deletion settings. Document which artifacts must be preserved, where they will remain, who may access them, and when the decision will be reviewed.
+
+An AI summary may omit context or contain mistakes. If an authoritative record is required, decide whether the recording, transcript, metadata, edits, and sharing history also need preservation. Do not replace source material with a convenient summary without an approved records decision.
+
+For information approved for deletion, record the requested scope and the vendor's stated completion schedule. Treat the Fireflies 30-day period as a product-specific statement about meeting data, not a rule for other services or a universal assurance about every backup and export.
+
+Complete the handover with a named custodian. “The data still exists” is insufficient if nobody authorised can locate and use it.
+
+## Local archives need an explicit device handover
+
+Local processing reduces reliance on a vendor-hosted archive, but the organisation must still recover and govern business records on the device.
+
+[Summit's architecture](/security/architecture) documents local audio files, a SQLite database, and an on-device search index. The database and recordings are not separately encrypted by the app on disk; protection depends on the operating-system container, file permissions, and FileVault when enabled. Local custody needs an endpoint-security policy.
+
+Before reprovisioning a work Mac, identify the approved recordings folder and exports, preserve required records through an authorised process, and test that the handover is readable. Review any optional hosted-model use, iCloud sync, or downstream exports as separate locations. Summit's published architecture does not establish a central employer console, remote archive transfer, or remote-wipe capability; arrange custody through your existing device and records procedures.
+
+For a clean offboarding sign-off, require evidence of five outcomes:
+
+- **Access closed:** identity and application access were checked.
+- **Records assigned:** required material has an authorised custodian.
+- **Sharing reviewed:** links and downstream destinations have appropriate audiences.
+- **Deletion tracked:** approved removal has a documented scope and follow-up date.
+- **Devices handled:** local records were addressed before reset or reassignment.
+
+The next employee should receive the records needed for their role. The departing employee's entire conversational history should have a deliberate disposition, rather than inheriting whatever a seat-removal button happens to do.

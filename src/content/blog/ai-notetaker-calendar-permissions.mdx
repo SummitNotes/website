@@ -1,0 +1,103 @@
+---
+title: "What Calendar Access Does Your AI Notetaker Actually Need?"
+description: "Review AI notetaker calendar permissions: sign-in, contacts, persistent access, Microsoft admin consent, and what revoking an integration actually removes."
+author: "Dima"
+publishedDate: 2026-10-04
+image: "/blog-ai-notetaker-calendar-permissions.jpg"
+imageAlt: "A calendar surrounded by separate keys representing sign-in, calendar, contacts, and ongoing access permissions"
+tags: ["meeting-notes", "privacy", "security", "integrations", "local-ai"]
+---
+
+You want an AI assistant to take notes at Tuesday's project meeting. During setup, it asks to read your calendar, access contacts, and maintain access when you are not using the app.
+
+Those permissions may support real features. They also deserve separate decisions. Signing into a service, discovering meetings, identifying attendees, and recording a conversation are different activities.
+
+The practical question is: **which features do you need, and what is the smallest set of permissions that supports them?**
+
+This guide uses Otter's Microsoft integration as a documented example, checked on October 4, 2026. Other products and Google integrations can request different permissions. Read the prompt for the actual account, feature, and plan you are enabling.
+
+## Separate sign-in from access to your working day
+
+A calendar is useful context even before anyone records a word. Depending on the fields a service retrieves, entries can reveal customer relationships, recruitment plans, health appointments, confidential project names, and meeting links. An event title such as “Acquisition review” can be sensitive without an attached transcript.
+
+Start by separating four purposes:
+
+| Purpose | What to ask before approving |
+| --- | --- |
+| Identify your account | Does the service need only basic identity information? |
+| Discover meetings | Which calendars and event fields can it read? |
+| Identify people | Why is a separate contacts permission needed? |
+| Keep the connection working | How long can it continue accessing authorised data, and how do you revoke that access? |
+
+[Google's account-access guidance](https://support.google.com/accounts/answer/14012355) distinguishes basic profile access from permission to view, copy, or modify other account data. Authorising Calendar access does not itself authorise access to every other Google service. Check each requested capability rather than treating “Sign in with Google” as either harmless or unlimited.
+
+Also distinguish reading from changing data. A feature that lists upcoming meetings has a different purpose from one that creates invitations or edits events. Ask the vendor to explain any requested write capability in terms of a feature you will actually use.
+
+## Read Otter's Microsoft permissions as separate capabilities
+
+[Otter's Microsoft Entra guide](https://help.otter.ai/hc/en-us/articles/26338981397783-Grant-Microsoft-Entra-Admin-Consent-for-Otter-Sign-in-Calendar-and-Integrations) lists these permissions for its standard connection:
+
+| Permission | Documented purpose |
+| --- | --- |
+| `User.Read`, `openid`, `profile` | Identify the signed-in user |
+| `Calendars.Read` | Synchronise calendar events |
+| `Contacts.Read` | Access calendar contacts |
+| `offline_access` | Maintain authentication |
+
+Otter documents narrower scope requests, including sign-in-only approval, and warns that removing required scopes can disable features. Its guide also describes additional permissions for some enterprise integrations. The standard list is therefore a starting point, not a complete description of every deployment.
+
+The permissions are not evidence that Otter misuses data. They describe authorised capabilities that an administrator should match to a business need.
+
+`offline_access` is especially easy to misread. It does **not** mean that the notetaker processes meetings locally or works without an internet connection. Microsoft's [scope documentation](https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc#the-offline_access-scope) explains its role in obtaining refresh tokens, allowing an app to obtain new access tokens for authorised resources without repeatedly asking the user to sign in. It does not independently grant access to additional data categories.
+
+Ask whether continuous calendar discovery is necessary. A person who selects meetings manually may have a different need from a team relying on automatic scheduling. Confirm which supported configuration works before removing permissions in production.
+
+## Admin consent and application-wide access are different concepts
+
+An administrator can approve an integration centrally without changing every permission into unlimited access across the organisation.
+
+Microsoft distinguishes [delegated and app-only access](https://learn.microsoft.com/en-us/graph/auth/auth-concepts). Delegated access acts on behalf of a user and depends on both the app's permissions and that user's access. App-only access uses the application's identity without a signed-in user. These are materially different models; the fact that an administrator clicked “approve” does not tell you which one applies.
+
+For each integration, record the permission **name and type**, the granting authority, and the users or resources in scope. Check the live enterprise application, not just a screenshot from a vendor guide.
+
+Otter's guide describes user or group assignment as a way to restrict which people can connect after administrator approval. That gives an IT team a useful pilot pattern: approve the necessary scopes, limit the participating group, and test the intended workflow before widening access.
+
+This technical consent is also separate from **consent to record people**. A Microsoft administrator's approval does not establish that meeting participants have received appropriate notice or that recording is permitted. Our [US recording-consent guide](/blog/us-meeting-recording-consent-laws) covers that separate review; employment and privacy obligations can add further requirements.
+
+## Disconnecting an integration does not erase its history
+
+There are at least three different actions to consider:
+
+1. Disconnect the calendar inside the meeting app.
+2. Revoke the relevant account or administrator grant at the identity provider.
+3. Address information already stored by the meeting service or exported elsewhere.
+
+Google explicitly warns that after access is removed, a developer may still hold previously copied data; deletion may require a separate request. Revocation therefore should not be treated as a retroactive deletion instruction.
+
+Microsoft likewise explains that [changing an app's requested permissions](https://learn.microsoft.com/en-us/entra/identity-platform/howto-update-permissions) does not automatically revoke permissions already granted. For a third-party service, have the administrator review the actual consent grants rather than assuming an updated vendor prompt has narrowed an existing connection.
+
+After removing access, test the result. Does the app still discover new events? Are scheduled bots or imported events still listed? Which historical meeting details remain? Ask the vendor about any mismatch between expected and observed behavior, and avoid relying on a single disconnected status label as proof of deletion.
+
+## A permission review you can use before approval
+
+Use a test account with representative, nonsensitive events and complete this review:
+
+1. **Name the feature.** Write down whether the user needs account sign-in, a meeting list, automatic joining, contact matching, or another integration.
+2. **Capture the request.** Record the app identity, account, permission names, access type, and date.
+3. **Explain each permission.** Associate it with a required feature. Ask about supported alternatives for anything unnecessary.
+4. **Define the audience.** Identify who may connect the integration and who can see imported information inside the meeting tool.
+5. **Test a narrower configuration.** Confirm that the workflow still works and that missing permissions fail clearly.
+6. **Test removal.** Revoke access, check new-event discovery, and separately inspect retained information.
+7. **Set a review trigger.** Revisit permissions when a new feature, enterprise integration, account tier, or vendor request changes the scope.
+
+For procurement, save the answers with the service's retention and access-control review. For an individual user, the same exercise can be a short checklist. Neither requires approving the broadest integration merely because it is the fastest setup option.
+
+## Where local meeting notes change the decision
+
+Local capture can separate the need to understand a conversation from the need to give a cloud meeting service continuing access to a calendar. It still requires a review of operating-system permissions and any connected accounts.
+
+[Summit's published architecture](/security/architecture) documents EventKit access for reading meetings and exporting action items, without Summit directly contacting a calendar provider. Exports to an iCloud-, Google-, or Exchange-backed destination can still sync through the operating system. A local destination has a different data path.
+
+Summit transcribes on-device and can summarise with Local Models. Choosing a hosted model sends relevant prompt content to that provider; optional sync and exports also need review. These choices matter independently of calendar permissions.
+
+For a useful comparison, draw two paths: how meeting information enters the tool, and where the resulting notes go. Approve each connection for a stated purpose, keep a working revocation procedure, and review the [broader data-ownership questions](/blog/who-owns-ai-meeting-notes) before treating an integration approval as the end of the privacy review.
