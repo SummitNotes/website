@@ -1,0 +1,105 @@
+---
+title: "California’s New Workplace-AI Laws: When Meeting Notes Become Employee Surveillance"
+description: "California's SB 947 and AB 1883 change how employers can use AI outputs and emotion inference. Learn what the 2027 rules mean for meeting notes."
+publishedDate: 2026-10-04
+author: "Dima"
+tags: ["privacy", "compliance", "california", "employers", "meeting-notes", "local-ai"]
+image: "/blog-california-workplace-ai.jpg"
+imageAlt: "A manager reviews a meeting transcript and supporting records before making an employment decision"
+---
+
+A meeting assistant records a discussion and lists the next steps. Later, a manager asks AI to turn months of those notes into a ranking of unreliable employees.
+
+The source material is the same. The use has changed substantially.
+
+California's newly signed workplace-AI laws make that distinction worth reviewing now. **SB 947** limits employers' use of automated decision systems, including in discipline and termination. **AB 1883** restricts AI workplace surveillance involving emotional-state inference and neural data. Both were approved on September 30, 2026. Neither makes every AI meeting summary unlawful. Their requirements depend on what the system does and how the employer uses it. See the chaptered [SB 947](https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB947) and [AB 1883](https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1883).
+
+For employers, the immediate task is to trace the path from recording to summary to personnel decision. This article explains that review as of October 4, 2026; it is general information, not legal advice.
+
+## Two laws, two different implementation dates
+
+The September signatures are not the dates on which all the new requirements become operative.
+
+| Law | Main relevance to meeting tools | Planning date |
+|---|---|---|
+| SB 947, Chapter 859 | Automated decision systems and human review of discipline or termination | July 1, 2027, expressly specified in section 1526.7 |
+| AB 1883, Chapter 853 | AI surveillance that infers emotional states or collects neural data | January 1, 2027, under the ordinary effective-date rule |
+
+AB 1883 contains neither an urgency clause nor a special delayed commencement. The [Secretary of State explains the January 1 rule](https://www.sos.ca.gov/administration/bill-chapters) for regular-session statutes. SB 947 expressly sets the later operative date in its added Labor Code provisions.
+
+Both laws define employers broadly, including specified public entities and labor contractors. An organisation with California employees should assess its own coverage rather than using headquarters location as its only screening question. Other recording, privacy, discrimination, and employment requirements still need separate review.
+
+## When a meeting summary becomes a decision input
+
+[SB 947 section 1520](https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB947) defines an automated decision system, or ADS, by function. It covers computational processes derived from machine learning, statistical modeling, data analytics, or AI that issue simplified outputs used to assist or replace human discretionary decisions and materially affect people. Examples include scores, classifications, and recommendations. A database or dataset alone is expressly excluded.
+
+This definition does not automatically turn every transcript into an ADS. It also does not require the software to make the final decision without a human.
+
+Consider three hypothetical workflows:
+
+- **Project recollection:** A participant uses a summary to remember an agreed deadline. That use does not by itself establish the decisionmaking and material-impact elements.
+- **Employee assessment:** A manager asks AI to classify an employee's performance from meeting transcripts. The classification and its intended use require an ADS assessment.
+- **Disciplinary recommendation:** A workflow recommends a warning because its summaries repeatedly attribute missed commitments to one employee. If the employer primarily relies on that output, the specific discipline safeguards become central.
+
+These are examples for reviewing a workflow, not categorical legal determinations. A feature name such as “recap” or “coaching” does not settle the analysis. Record what the output contains, who sees it, and which decisions it influences.
+
+Section 1522 also prohibits using an ADS to violate specified labor, safety, employment, or civil-rights laws; infer an employee's protected status; or predict and take adverse action against a worker for exercising legal rights. Those restrictions deserve attention beyond dismissal workflows.
+
+## Human corroboration must address the underlying decision
+
+Under [SB 947 sections 1522 and 1524](https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB947), an employer cannot rely solely on an ADS to discipline or terminate an employee. When it primarily relies on ADS output, it must direct a human to corroborate the decision.
+
+The statute permits that person to use **the data collected or used to produce the output**, or other relevant supporting information. It does not invariably require a second, independent source. Listed examples of supporting information include managerial evaluations, personnel files, employee work product, peer reviews, and witness interviews.
+
+For meeting notes, a sensible review might examine the transcript passage, the surrounding discussion, and whether the tool identified the speaker correctly. If the summary says an employee refused a task, did the employee actually explain that another team owned it? Was a conditional commitment shortened into a promise?
+
+If the employer cannot corroborate the output, or the human reviewer concludes that it is inaccurate, incomplete, or misleading, the employer cannot use it to make the disciplinary or termination decision.
+
+Where primary reliance triggers the notice duty, the affected employee must receive a separate, plain-language written notice when informed of the decision. It must explain the ADS reliance and human corroboration, provide a human contact and information about the employee's data-description right, and state the protection against retaliation. A generic paragraph in the employee handbook is not the prescribed postuse notice.
+
+The employee can request a meaningful, objective description of their own data used by the ADS. The employer must anonymize other people's personal information when providing the description. That creates a practical need to know which meeting materials informed an output without indiscriminately releasing everyone else's contributions.
+
+## Emotion inference is a separate question from transcription
+
+[AB 1883 sections 1580–1581](https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1883) define workplace surveillance broadly enough to include systems that collect employee communications through audio or video. The operative prohibition is narrower: using an AI workplace surveillance tool on employees to recognize, infer, or predict an individual's emotional state, or to collect neural data.
+
+The neural-data definition concerns information generated by measuring central or peripheral nervous-system activity. It expressly excludes information inferred from nonneural information. An ordinary voice recording is not automatically neural data under that definition.
+
+For meeting software, the closer question is usually the output. A factual note that an employee requested a schedule change differs from a generated assessment that the employee is anxious, disengaged, or emotionally unstable. A proposed emotion score based on vocal tone needs specific review. So does prompting a general-purpose model to infer employees' emotions from transcripts.
+
+Do not classify every sentiment feature from its name alone. Ask whether it analyzes the tone of text, reports an explicit statement, or purports to infer an individual's internal emotional state. Document the inputs and outputs, then assess the actual function against the law.
+
+Section 1581 preserves use of a workplace surveillance tool to ensure safety. It also makes clear that tools outside the prohibited specifications are not barred by that section. Neither provision is a general declaration that all other monitoring is lawful.
+
+## Check exceptions without turning them into blanket exemptions
+
+The two statutes have exceptions that should be evaluated against the specific operation.
+
+Both address specified aircraft-development and national-security, military, space, or defense operations tied to federal statutes, regulations, or binding contracts. The exceptions are limited by federal-compliance necessity and the covered operations. Merely selling to a federal customer does not establish the exception. See [SB 947 section 1526.6](https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB947) and [AB 1883 section 1583](https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1883).
+
+SB 947 additionally has a collective-bargaining exception. The agreement must expressly and unambiguously waive the provisions, address specified working terms, and provide protection from algorithmic management. Having a union contract alone is insufficient. Do not transfer that exception to AB 1883.
+
+SB 947 also expressly preserves applicable California Privacy Protection Agency automated-decisionmaking regulations for covered CCPA businesses. Meeting a requirement under one law does not resolve the entire privacy assessment.
+
+## Audit the workflow before approving the tool
+
+A useful procurement review follows the information through the organisation:
+
+1. **Identify the permitted purpose.** Specify which meetings can be captured and whether outputs may enter performance, disciplinary, or termination processes.
+2. **Inventory generated assessments.** Include built-in scores, custom prompts, downstream AI searches, and integrations that transform notes into employee profiles.
+3. **Review emotion-related functions.** Obtain examples and configuration details. Disable or restrict a function while its legality remains unresolved.
+4. **Make source review possible.** Identify how an authorised reviewer can inspect relevant inputs, corrections, and context under the organisation's access and retention rules.
+5. **Assign responsibility.** Name the reviewer, the owner of notices and data-description requests, and the person who can stop a decision when corroboration fails.
+6. **Test the process.** Use a fictional misattributed commitment to check whether staff can detect the error, reject the output, and explain the decision.
+
+These are implementation recommendations, not a claim that the statutes prescribe this exact checklist. Keep necessary evidence according to an approved retention policy; an audit is not a reason to record every conversation indefinitely. [Ownership and retention of AI meeting notes](/blog/who-owns-ai-meeting-notes/) also require explicit decisions.
+
+## Where local processing helps—and where it does not
+
+Processing meeting content on a managed device can reduce disclosure to an external AI provider. It also gives an organisation a different storage and access boundary to govern.
+
+Summit's [documented architecture](/security/architecture/) supports on-device transcription and summarization with Local Models. If a user configures a hosted LLM instead, transcript excerpts can enter provider requests. Optional sync, exports, and integrations create additional paths that must be considered. Local audio and the database rely on macOS protections and FileVault when enabled; they are not separately encrypted by the app on disk.
+
+That architecture can support a narrowly defined note-taking workflow. It does not exempt an employer from these laws, make an emotion assessment permissible, or corroborate a disciplinary recommendation. A manager can misuse locally generated notes just as they can misuse cloud notes.
+
+Keep the controls connected: obtain appropriate recording permission, limit the allowed uses, protect the device and archive, and review consequential outputs. Our [Mac security guide for local AI meeting notes](/blog/local-ai-meeting-notes-mac-security/) covers the endpoint side. For California's new workplace-AI rules, the next concrete step is to identify every place where a meeting record becomes an assessment of a person.
