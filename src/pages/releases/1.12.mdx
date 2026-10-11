@@ -1,0 +1,23 @@
+import ReleaseLayout from '../../layouts/ReleaseLayout.astro';
+
+export const version = "1.12";
+export const date = "2026-10-11";
+export const title = "Summit AI Notes 1.12";
+
+<ReleaseLayout version="1.12" date="2026-10-11">
+
+**New Features**
+- Recently Deleted: deleted notes are kept for 30 days and can be restored in full — transcript, summary, tags, speakers, calendar link and the recording itself.
+- Turn screen capture off during a call from the screenshot button menu, the menu bar or Settings. Audio keeps recording; turn it back on the same way.
+
+**Improvements**
+- System audio is now recorded directly through macOS, without screen capture. Zoom no longer hides participants' video while Summit is recording.
+- If system audio access was declined, Summit now notices and shows you how to turn it back on, instead of silently recording without the other side of the call. Screen Recording permission is now optional and only needed for screenshots, screen video and detecting meetings in the browser.
+- Recording uses much less CPU: Summit no longer captures screen frames at 60 fps in the background, and screen video is recorded at a frame rate that suits meetings.
+- Local AI model downloads now show real progress instead of sitting at 0% until they finish.
+
+**Bug Fixes**
+- Settings now shows Claude Desktop a connection config it can actually load, instead of one it reports as invalid.
+- The Stop button no longer flickers in and out of the toolbar in narrow or split-screen windows.
+
+</ReleaseLayout>
