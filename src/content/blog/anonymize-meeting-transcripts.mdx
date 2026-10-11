@@ -1,0 +1,89 @@
+---
+title: "Is a Meeting Transcript Anonymous After You Remove the Names?"
+description: "Names are only one source of identity in meeting transcripts. Explore contextual clues, pseudonymisation and the EDPB's draft anonymisation guidance."
+author: "Dima"
+publishedDate: 2026-10-11
+image: "/blog-anonymize-meeting-transcript.jpg"
+imageAlt: "A magnifying glass examines contextual details on a transcript whose name fields are covered"
+tags: ["meeting-notes", "privacy", "gdpr", "local-ai", "anonymisation"]
+---
+
+Replacing every participant's name with “Speaker 1” or “Speaker 2” feels like a substantial privacy improvement. Often it is: a casual reader loses an obvious way to connect a statement to a colleague, customer or interview participant. Whether the resulting transcript is anonymous depends on what remains, who receives it and what those people can reasonably connect it to.
+
+A conversation can carry an unusually dense collection of clues. People mention their responsibilities, the customer visit they made yesterday, the project nobody else works on, or a question they raised at an earlier meeting. Removing the names leaves those references in place. Sometimes they reveal very little; sometimes they do almost all the work of identifying the speaker.
+
+This is a useful moment to examine that distinction. The European Data Protection Board's [consultation on Guidelines 02/2026 on Anonymisation](https://www.edpb.europa.eu/public-consultations/guidelines-022026-on-anonymisation_en) is open until 30 October 2026. The version adopted on 7 July is **draft guidance issued for public consultation**, rather than a new law or a final standard that every transcript can already be certified against.
+
+## Start with the recipient and the purpose
+
+The [draft guidelines](https://www.edpb.europa.eu/system/files/2026-09/edpb_guidelines_202602_anonymisation_v1_en_0.pdf) assess anonymity from the perspective of relevant entities. Information can be personal for one entity and anonymous for another, depending on the realistic means of identification. The draft also addresses exceptions to using a recipient's own perspective: for a processor acting on a controller's behalf, it uses the controller's perspective. Outsourcing analysis therefore cannot be assumed to remove the data's personal character simply because the supplier lacks the identity key.
+
+The underlying legal starting point remains [GDPR Recital 26](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng). Identifiability takes account of means reasonably likely to be used, with objective factors including time, cost and available technology. It does not require assuming every imaginable attack, and it does not reduce to whether a name appears in the file.
+
+For a meeting transcript, begin by writing down the proposed use. “Share with the research team to identify common onboarding problems” describes a different task from “publish representative customer quotes on our website.” The research team may have calendars, recruiting records and prior interviews. Public readers have a less predictable collection of background knowledge, and publication makes later withdrawal of copies difficult.
+
+This first decision gives the editor a reason to preserve some details and remove others. Without it, redaction becomes a cosmetic exercise: the page looks less personal, while nobody has established what information its audience needs or what the audience can recognise.
+
+## A conversation can identify someone without naming them
+
+Consider this entirely fictional excerpt from a hypothetical workplace interview:
+
+> Speaker 2: I was the only engineer sent to the North Harbour installation on 14 September. The project handover happened the week I returned from parental leave, so I had to learn the new approval process on site.
+
+The name is absent. Within the imagined company, the installation roster or a colleague's memory might make the speaker obvious. Outside it, the combination might be uninformative unless another source connects that project and date to a person. Neither outcome can be determined by counting the black boxes where names used to appear.
+
+An editor preparing material about onboarding could instead write:
+
+> One participant described difficulty learning a changed approval process during a customer assignment after an extended absence.
+
+That version preserves a useful observation while dropping several specific clues. It is an editorial example, not proof of anonymity: a small audience that already knows the incident may still recognise it. If the lesson is simply that process changes are poorly communicated, a thematic finding across several interviews may serve the purpose with less personal detail than any individual account.
+
+Other clues can be quieter. A speaker who approves a regional budget, refers to a distinctive career move, or describes a well-known disagreement may be recognisable through the substance of the discussion. A colleague mentioned in passing can also become identifiable, even when the person speaking has been successfully obscured. Reviewing only speaker labels misses the people described inside the conversation.
+
+This makes a transcript different from a tidy table of names and email addresses. The identifiers are woven into ordinary sentences, and several individually unremarkable details may become revealing when read together.
+
+## Pseudonyms help, but the label needs care
+
+[GDPR Article 4(5)](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng) defines pseudonymisation around information that cannot be attributed to a specific person without additional information, with that additional information kept separately and protected. Merely assigning speaker numbers does not establish that those conditions have been met, especially when the conversation itself supplies the missing attribution.
+
+For an internal research workflow, stable participant codes can still be useful. They let an analyst connect several sessions without displaying names throughout a working document. The organisation should then consider who can access the code key, whether it is stored alongside the transcripts, and whether other material makes the key unnecessary.
+
+It would be too broad to say that pseudonymised information must always be personal data for every conceivable recipient. The recipient and context assessment still matters. Equally, a claim that the recipient “doesn't have the key” needs investigation before it supports an anonymity conclusion. This is where a privacy specialist's assessment should replace a convenient label in a filename.
+
+In everyday document handling, precise descriptions are helpful. “Names removed; restricted research use” tells a colleague what actually happened and how to handle the file. Calling it “anonymous” can encourage wider reuse, particularly when the next reader assumes that someone else has already done the analysis. A modest, accurate description helps avoid that accidental permission slip.
+
+## Review the whole release, including the surrounding files
+
+The material reaching a recipient may be larger than the transcript body. A document title can name the customer, a filename can contain an interview date, and a shared folder can reveal the project. A forwarded invitation may list everyone who attended. Removing details from one page while sending those clues beside it leaves the review unfinished.
+
+Work through the proposed release as the recipient will see it. Open the exported file, read its title and comments, inspect the accompanying message and consider the destination folder. If audio is included, a reader also becomes a listener, potentially recognising voices or hearing details omitted from the edited text. An approved text extract and its source recording should be treated as separate sharing decisions.
+
+For the content itself, a useful review has three passes:
+
+1. **Remove unnecessary direct references.** Check names, contact details, account identifiers and explicit references to other participants or third parties.
+2. **Read for recognition.** Look for distinctive roles, precise dates, small teams, unusual incidents and combinations that point to someone in the intended audience's context.
+3. **Recheck the meaning.** Confirm that the edits still support the stated finding and have not turned a specific complaint into a broader claim than the speaker made.
+
+A second reviewer familiar with the setting can often spot clues that a name detector misses. Keep that review within the authorised group; circulating the unedited transcript to more people just to test recognition would create another disclosure to manage.
+
+Where a release has significant consequences, record the audience, the edits and the reasons supporting the assessment. That gives the next reviewer something concrete to revisit when the audience or available background information changes.
+
+## A summary may be the better thing to share
+
+Teams often start with “How do we anonymise this transcript?” because the transcript already exists. It is worth taking one step back and deciding what the next person actually needs. A product manager evaluating an onboarding flow may need recurring obstacles and their frequency, while a designer needs enough detail to understand a failed task. Neither automatically needs a verbatim history of every participant's circumstances.
+
+An edited summary can preserve the operational lesson while leaving behind digressions, personal anecdotes and details that only mattered during the live conversation. It also gives the author an opportunity to separate observed facts from interpretation. That can improve the usefulness of the research as well as reduce unnecessary disclosure.
+
+Shorter text still needs review. An AI summary may promote a striking anecdote into its opening sentence precisely because the anecdote is distinctive. Combining several sessions can also bring previously separate clues together. Ask the model to focus on the research question, then inspect the output for recognisable details and unsupported generalisations before it leaves the approved working environment.
+
+Sometimes the detail is essential. An investigation or a technical incident review may depend on accurately preserving who did what and when. In that situation, the practical task may be controlled access to an identifiable record, with appropriate authority and retention, rather than forcing the document into an anonymity claim that undermines its purpose.
+
+## Local processing gives you room to review before disclosure
+
+There is an awkward ordering problem in asking an external AI service to anonymise a transcript: the service receives the original material before returning the edited version. If the purpose of the edit is to avoid disclosing identifiable information to that service, the workflow has already crossed the boundary it was meant to preserve.
+
+An approved local workflow lets a team inspect and edit the material before deciding what to send elsewhere. Summit's [security architecture](/security/architecture/) documents local transcription and on-device summarisation through Local Models; the [local model guide](/docs/general/local-models/) explains the selection. Choosing a hosted model instead sends relevant prompt content to the configured provider.
+
+That architecture does not make the transcript anonymous. Summit does not provide an automatic redaction guarantee, and its security documentation explicitly says there is no redaction pass in front of hosted-model requests. Human review and any specialist anonymisation process remain separate work. Local audio and database storage also rely on operating-system protections and FileVault when enabled, rather than separate application-level encryption, so the working copies still need protection.
+
+The useful habit is to make the release decision explicit. Keep the source within its approved environment, prepare only the material the recipient needs, and assess the actual file in the actual sharing context. Removing names can be one worthwhile step in that process. Calling the result anonymous should follow the assessment, with a clear account of whom it is intended to be anonymous for.

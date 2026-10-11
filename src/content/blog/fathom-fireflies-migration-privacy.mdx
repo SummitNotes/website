@@ -1,0 +1,79 @@
+---
+title: "Moving From Fathom to Fireflies? Review the Login Cookies and the Archive"
+description: "A Fathom-to-Fireflies migration involves login cookies, a second meeting archive, and new access rules. Review the transfer before moving your team's history."
+author: "Dima"
+publishedDate: 2026-10-11
+image: "/blog-fathom-fireflies-migration.jpg"
+imageAlt: "A folder is copied between two archive trays while an access key rests beside the transfer"
+tags: ["meeting-notes", "privacy", "security", "fathom", "fireflies"]
+---
+
+Moving a meeting archive can look like an ordinary software change until someone asks how the new service will get access to the old one. The answer matters, particularly when the archive includes customer negotiations, hiring conversations, or years of internal decisions that were recorded under different expectations.
+
+Fireflies published a [Fathom migration article on October 2, 2026](https://fireflies.ai/blog/how-to-migrate-from-fathom-to-fireflies). Its documented transfer uses login cookies from the Fathom account. That is a concrete detail for a security review, alongside the less conspicuous question of what happens to the archive after the transfer succeeds. The publication date should not be read as the launch date of the migration feature.
+
+For a buyer, the useful work is deciding who may authorize the transfer, how to handle the access material, and how to prove that the resulting archive has the right content and audience. A successful import is only one part of that decision.
+
+## Login cookies deserve a separate approval
+
+The [Fireflies migration guide](https://guide.fireflies.ai/articles/4213593114-how-to-migrate-your-meetings-from-fathom-to-fireflies) asks for three cookies: `_fathom_session`, `cf_clearance`, and `XSRF-TOKEN`. It also distinguishes an Individual migration of the user's calls from a Team migration of workspace calls. Reviewers should understand that mechanism before approving it, without putting actual cookie values into their review documents.
+
+Cookies have different functions, and those three names should not be treated as interchangeable passwords. The relevant concern is that session material can represent an authenticated user's access. [OWASP's session-management guidance](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html) explains that a session identifier temporarily connects authenticated identity to application requests, making its protection important throughout the session's life.
+
+A migration therefore needs an explicit decision about allowing the destination service to use that access mechanism. Someone who has permission to read a meeting may not have permission to authorize its transfer to another supplier. The fact that a browser makes a value visible does not settle either question.
+
+Ask the migration owner to document the account being used, the intended scope, the approved destination, and the person responsible for closing out the transfer. Ask the vendors how the access material is protected, when its use ends, and what supported action ends any remaining access. Do not assume that closing a browser, changing a password, or signing out will revoke a particular token without confirmation of the service's behavior.
+
+## Keep credentials out of the migration paperwork
+
+A project can acquire unnecessary copies of credentials through completely routine collaboration. An operator pastes a value into a ticket because a colleague asked what failed, attaches a screenshot of a form, or shares a browser window while an internal meeting assistant is recording. The transfer may be approved while these secondary disclosures are not.
+
+Use an approved handling process that keeps credential values out of chat messages, email, shared documents, recorded demonstrations, and issue trackers. The project record should describe what was authorized and what was done without containing the secret itself. Where support is needed, begin with a job reference or a sanitized error description, and establish an approved channel before disclosing sensitive material.
+
+Fireflies says in its guide that cookies are used during migration and are not stored permanently. That is useful vendor information, but a buyer with stricter requirements may still need answers about temporary storage, access by personnel, logging, and interrupted jobs. The published statement does not specify a universal expiry time or every operational detail.
+
+This is a question about whether the documented process fits an organization's rules. It is not evidence of a breach or an allegation that either company misuses credentials. If policy does not permit transferring browser session material to another service, resolve that incompatibility before the migration starts. Ask about a supported alternative and assess its actual availability instead of assuming that an export, API, or administrator workflow exists for the required scope.
+
+## Choose the archive before choosing the transfer
+
+An archive accumulated by one person can contain several kinds of responsibility. A sales manager may have organized a customer call, but the company may have made commitments about its use. A recruiting discussion may include information that should never enter a broadly searchable commercial workspace. An old project recording may already have reached its planned deletion date.
+
+Prepare a content inventory before approving a whole-workspace transfer. It should identify the business owner, the period covered, the classes of meetings, and any restrictions that would affect the destination. The inventory can use metadata and representative samples; reviewers do not need to circulate the full content merely to establish its scope.
+
+Then decide what should remain useful after the switch. For one team, that may mean current customer projects and their original transcripts. For another, it may mean retaining selected recordings in a restricted records store while moving only the working notes needed for ongoing projects. Moving everything because it is technically accessible can carry old mistakes into a new system and make them harder to unwind.
+
+The Individual and Team choices in the guide make authorization especially relevant. A person testing their own calls and an administrator arranging a workspace transfer should have different review scopes. Establish who can approve each class of records, and check whether the proposed processing is consistent with the conditions under which those records were collected and retained. Resolve uncertain cases with the appropriate internal owner before including them.
+
+## A copied archive needs its own retention and permissions
+
+Fireflies describes the migration as a read-only copy that leaves the Fathom account unchanged. That means the immediate result is an additional archive. Deleting the old account, preserving selected records, and retiring old sharing routes are separate tasks; the import does not make those decisions for you.
+
+For the transition period, assign an owner to each copy and decide which is the authoritative record. If a transcript correction or deletion request arrives during the overlap, the operator needs to know where to act and how to check the other store. A simple source-to-destination record map is more useful here than an announcement that migration is complete.
+
+Review destination permissions independently. The people who can find a meeting through workspace search may differ from those who could open its original link. Check ordinary members, administrators, external participants, and connected applications using test accounts with those roles. Do not infer permission preservation from successful content transfer.
+
+Retention also needs an explicit mapping. Ask whether an imported meeting keeps its original date for retention purposes or is treated as newly created, and whether the chosen rules apply to imported records at all. These are verification questions, not assumptions about Fireflies' implementation. A three-year-old recording should not accidentally receive another three years merely because its storage location changed.
+
+Remember copies outside both meeting services. A recap already sent to email, a downloaded recording, or a CRM entry may continue to exist after either archive is deleted. Our guide to [who owns AI meeting notes](/blog/who-owns-ai-meeting-notes/) explores the distinction between access to a record and responsibility for its use.
+
+## Validate meaning and access, as well as counts
+
+Agree on acceptance criteria before the full transfer. Start with a small authorized sample that includes the kinds of records the team actually relies on: long conversations, edited notes, several speakers, and material with restricted access. Keep the sample within the destination's approved data scope.
+
+The Fireflies blog says the import brings audio rather than video, so a team that needs visual evidence should plan separately for that requirement. More generally, write down which artifacts must survive instead of treating the word “meeting” as a complete specification. A transcript, a recording, a summary, and a link to a recording are different records.
+
+Compare the sample with the original. Can staff identify the correct meeting and date? Are speaker labels usable? Does the transcript contain the ending as well as the beginning? Can someone distinguish original notes from a newly generated summary? Are attachments or references needed to understand the discussion still accessible? An acceptable answer depends on the team's work, so preserve the criteria alongside the results.
+
+Test denied access too. A migration is not ready merely because the administrator can find everything. Have an ordinary member and an appropriately restricted account exercise the intended sharing rules, then record discrepancies without copying sensitive meeting content into the test report.
+
+Keep the original available for an agreed verification period where retention rules permit, reconcile failures, and give a named owner responsibility for accepting the result. Schedule source cleanup explicitly. Otherwise the safer-sounding decision to “leave it there for now” can become an indefinite second subscription and an unmanaged second archive.
+
+## Plan the next exit while this one is still manageable
+
+The next supplier may change its processing arrangements, features, or commercial terms. Our companion article on [reviewing an AI notetaker after the service changes](/blog/ai-notetaker-vendor-policy-changes/) explains why ongoing approval needs a practical exit option. The experience of this migration should inform the next contract and configuration.
+
+Ask what can be exported, in which formats, by whom, and at what scale. Test whether exported records remain understandable outside the application, including dates, speakers, and the relationship between notes and recordings. Estimate the effort to preserve restricted access and resolve partial failures. A nominally free import does not remove staff time, overlapping subscriptions, retraining, or the cost of reconstructing links used across the business.
+
+For teams that prefer to keep future meeting content on their Macs, Summit supports local transcription and local summarization, with Markdown export available for notes. Review the [security architecture](/security/architecture/) and [local AI setup](/docs/setup/local-ai) against your configuration; optional cloud providers, sync, and exported files need their own controls. This is an option for future capture and records management, not a claim that Summit supplies a native Fathom importer or preserves another service's workspace structure.
+
+Whichever destination you choose, finish with a record of what moved, what remains, who can access it, and when each copy should disappear. Those answers make the transfer defensible after the progress bar has gone away.
