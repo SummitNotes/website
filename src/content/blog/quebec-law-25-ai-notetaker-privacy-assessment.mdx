@@ -1,0 +1,119 @@
+---
+title: "A Worked Quebec Law 25 Privacy Assessment for an AI Notetaker"
+description: "A practical Quebec Law 25 assessment for meeting notes: necessity, local and cloud data flows, outside-Quebec processing, safeguards, and approval conditions."
+publishedDate: 2026-10-18
+author: "Dima"
+tags: ["privacy", "compliance", "canada", "quebec", "meeting-notes", "local-ai"]
+image: "/blog-quebec-law25-privacy-assessment.jpg"
+imageAlt: "A professional reviews a privacy assessment beside a laptop and branching document paths, with a Quebec silhouette in the background"
+---
+
+A consulting firm in Montreal wants better notes from client workshops. Its project leads regularly leave a meeting with different recollections of who accepted a task, while the person taking minutes struggles to participate in the discussion. An AI notetaker sounds like a reasonable purchase, particularly if it can run on the firm's own Macs. Before buying it, however, the firm needs to explain why it needs a recording, what the software will do with it, and how the resulting archive will be managed.
+
+This is where a Quebec Law 25 privacy impact assessment becomes useful. The assessment should connect a real business problem to a defined configuration and a documented decision, with enough detail for someone else to understand what was approved. A vendor's privacy page contributes evidence, but it cannot make that decision for the firm.
+
+The example below follows a fictional 18-person consulting business through that process. Its proposed settings, retention periods, and approval conditions are illustrative choices, not statutory defaults, measured test results, or an assessment of an actual customer. It concerns Quebec's private-sector privacy framework as reviewed on October 18, 2026. Public bodies, health information, professional secrecy, employment obligations, and meetings involving other jurisdictions can require additional analysis. This is practical information, not legal advice for a particular deployment.
+
+## Establish which assessment the project needs
+
+Law 25 amended Quebec's existing privacy legislation. For this example, the main reference is the [Act respecting the protection of personal information in the private sector](https://www.legisquebec.gouv.qc.ca/fr/document/lc/P-39.1%20?langcont=en), rather than a generic checklist describing every Canadian privacy law.
+
+Section 3.3 requires a privacy impact assessment for a project to acquire, develop, or overhaul an information system or electronic service delivery system involving personal information. It also requires consultation with the enterprise's person in charge of privacy from the outset. The assessment must be proportionate to the information's sensitivity, purposes, quantity, distribution, and storage medium. The French term is *évaluation des facteurs relatifs à la vie privée*, usually shortened to EFVP.
+
+For our firm, introducing a system that records identifiable clients and employees, produces transcripts, and stores searchable summaries falls within that project review. Keeping those operations on a laptop does not remove the personal information or the section 3.3 assessment.
+
+Section 17 adds a separate question when information will be communicated outside Quebec, or an outside-Quebec person or body will be entrusted to collect, use, communicate, or keep it on the firm's behalf. The project assessment can address that question in a dedicated section, but a conclusion about the software purchase does not automatically settle a proposed external data flow.
+
+The [Commission d'accès à l'information's assessment guide](https://www.cai.gouv.qc.ca/uploads/pdfs/CAI_GU_EFVP.pdf) provides a framework for documenting the project, evaluating risks, and identifying safeguards. Our firm's assessment file starts with a named project owner, its privacy officer, the app version and configuration under review, and a list of evidence still needed. It records the following boundary:
+
+> Proposed use: prepare a human-reviewed decision and action record from selected client workshops. Excluded uses: employee evaluation, recruitment, sentiment scoring, model training, and analysis combining different clients' meeting histories.
+
+That boundary matters when someone later asks to search six months of conversations for evidence that a colleague is unreliable. Such a request would require a fresh review of purpose and legality, even if the software itself had not changed.
+
+## Work through necessity before collecting a recording
+
+The firm's initial request was to record every client meeting. Its assessment narrows that request before comparing products. Under sections 4 and 5, the purposes must be determined before collection and only necessary information may be collected. The CAI's [collection guidance](https://www.cai.gouv.qc.ca/protection-renseignements-personnels/information-entreprises-privees/collecte-renseignements-personnels_entreprises) explains that necessity includes proportionality and consideration of less intrusive alternatives. Agreement from participants does not, by itself, establish necessity.
+
+The firm compares three approaches:
+
+| Approach | What it achieves | Assessment outcome in this example |
+| --- | --- | --- |
+| A shared action log completed during the meeting | Captures owners, deadlines, and decisions without a transcript | Keep this for routine status calls; recording is not justified merely because it is convenient |
+| A designated human note-taker | Produces a selective record and can ask for clarification | Evaluate for workshops before assuming that continuous capture is necessary |
+| Temporary recording and local AI notes | Allows a reviewer to check complex discussion while preparing the agreed record | Consider only for selected workshops where the firm can document why the alternatives are insufficient |
+
+The provisional conclusion is therefore narrower than the purchase request: no blanket recording programme, and no collection of real meeting content until necessity has been documented for the eligible workshop use. The firm can first compare workflows using a scripted exercise with synthetic names and project details.
+
+In the proposed workflow, the host also checks the agenda before recording. HR matters, legal advice, and unexpectedly sensitive personal discussion fall outside the example's approval boundary. If a workshop enters those areas, the host pauses capture and deals with the existing material under the firm's incident and retention procedures. An exclusion written in the assessment needs an operational response when the conversation changes.
+
+## Map the information from capture to the final record
+
+The firm's data inventory covers participants and people discussed in their absence. It includes names, voices, opinions, commitments, and contextual details that could identify someone even after a name is removed. The transcript and summary are separate records with separate audiences; a summary may also introduce an incorrect attribution that was never spoken.
+
+For the proposed local configuration, the assessment records this path:
+
+| Stage | Proposed handling | Evidence required before live use |
+| --- | --- | --- |
+| Capture | Microphone and meeting audio on an assigned company Mac | A scripted test showing exactly what is captured and how the host stops it |
+| Transcription and summary | Local models, with no hosted AI provider configured | App settings, current architecture documentation, and checks that the chosen workflow matches them |
+| Working records | Audio and transcript accessible only to the assigned reviewer through the managed endpoint | Device access controls, encryption status, and an inventory of backup destinations |
+| Approved output | A corrected decision and action record copied to the appropriate client project folder | Recipient permissions, destination location, and confirmation that the full transcript is not included |
+| Disposal | Working records removed after their approved review period | A deletion procedure covering the app, exports, and backup lifecycle |
+
+The project folder is part of the assessment even though the AI tool does not operate it. If it is hosted outside Quebec, the local recording workflow still has an outside-Quebec disclosure to evaluate. The same applies when someone pastes a passage into a cloud assistant or places an export in a synced folder.
+
+Voice features deserve a specific question in the inventory: does the app merely transcribe speech, separate speakers, or build and reuse identifiers to recognize people? The assessment should obtain an explanation of the actual processing before deciding whether Quebec's additional biometric requirements apply. The CAI's [biometrics guidance](https://www.cai.gouv.qc.ca/protection-renseignements-personnels/sujets-et-domaines-dinteret/biometrie) is the relevant starting point; a product label such as “speaker detection” is insufficient to resolve that question.
+
+## Assess outside-Quebec processing and the service contract
+
+The firm also considers a hosted configuration. In that version, a provider would receive meeting material and return a transcript or summary. Before approval, the firm asks which legal entities receive the information, what each entity does, where processing and support access occur, what is retained, and whether content can be used for the provider's own purposes.
+
+Section 17 requires consideration of the information's sensitivity, the intended purposes, the safeguards, including contractual measures, and the legal framework in the receiving State. Communication may proceed only if the assessment establishes adequate protection, particularly in light of generally recognized privacy principles, and it must be covered by a written agreement reflecting the assessment and any agreed risk mitigation.
+
+“Hosted in Canada” does not answer this question. The CAI's [guidance on communication outside Quebec](https://www.cai.gouv.qc.ca/protection-renseignements-personnels/information-entreprises-privees/utilisation-communication-renseignements-personnels) expressly includes interprovincial arrangements and entrusting processing to an outside-Quebec provider. An Ontario hosting arrangement belongs in the review, alongside any foreign subprocessors or remote access. A Quebec storage location also needs to be considered with the rest of the processing chain.
+
+Consent and service contracts require their own analysis. Section 18.3 permits certain necessary communications to a mandatary or service provider without the person's consent, subject to its conditions. For an ordinary commercial provider, the written mandate or contract must specify confidentiality protections, use only for the mandate or contract, and non-retention after it ends. The provision also addresses prompt notification of confidentiality violations or attempted violations and the ability to verify confidentiality requirements. It does not create a general permission to record, erase section 17 obligations, or authorize unrelated vendor training.
+
+In this worked example, the hypothetical hosted vendor has supplied a storage-region statement but has not answered questions about support access, subprocessors, or post-contract copies. The firm's recorded decision is **not approved pending evidence**. That is a finding about an incomplete assessment, not a claim that all cloud processing is prohibited or that the fictional vendor has broken the law.
+
+The local option has a different evidence gap. The firm must verify the endpoint and every onward destination rather than treating the absence of a transcription vendor as proof that no information leaves Quebec.
+
+## Turn the risks into safeguards someone can verify
+
+The assessment next assigns an owner and a closure condition to each material risk. These are proposed controls for this fictional firm, not features attributed to Summit or requirements that every organisation must implement identically.
+
+| Risk | Proposed safeguard and owner | What closes the issue |
+| --- | --- | --- |
+| Participants do not understand the recording | The project lead provides a clear notice before capture and a practical manual-notes alternative | Privacy officer reviews the notice and the applicable consent or exception analysis; the host demonstrates the workflow |
+| A colleague gains access to another client's transcript | IT restricts device access and project destinations; the reviewer exports only the approved record | Access checks show the intended separation; a shared login or broadly accessible archive prevents approval |
+| A model attributes a commitment to the wrong person | The reviewer checks names, dates, and decisions before circulation | Synthetic tests demonstrate the review process, with uncertain statements left unresolved rather than invented |
+| Working records accumulate indefinitely | The records owner sets separate schedules for source material and approved records | Deletion and backup handling are documented and tested, including preservation exceptions |
+| Someone enables a cloud provider or connector | IT and the privacy officer review configuration changes before use | The firm establishes enforceable controls or a workable monitored process; a written rule alone is not treated as a technical restriction |
+
+The notice should describe the purpose, capture method, recipients where applicable, and any possibility of communication outside Quebec, together with the rights information required by section 8. The firm also needs an appropriate published privacy policy for technological collection under section 8.2. Its [consent analysis](https://www.cai.gouv.qc.ca/protection-renseignements-personnels/information-entreprises-privees/consentement-personnes-entreprises) must address whether consent is clear, free, informed, and specific, and whether express consent is needed for sensitive information. A calendar invitation or a manager's instruction should not be treated as evidence that these questions have been resolved.
+
+For illustration, the firm proposes reviewing source material within seven days and deleting it within fourteen, while keeping the approved record under the relevant project schedule. Those are candidate limits to justify and test, not Law 25 deadlines. The retention analysis must account for preservation obligations and section 11: personal information used to make a decision about a person must be accurate and up to date and kept for at least one year following that decision. The project owner must identify when that provision applies rather than automatically deleting everything on day fourteen.
+
+The firm also names the person who will locate records for access or correction requests, including copies held by providers, and who will handle a confidentiality incident. A local archive on an employee's laptop needs an organisational owner who can still perform those tasks when the employee is unavailable. Section 3.3 also requires the project to allow computerized personal information collected from the person concerned to be communicated to that person in a structured, commonly used technological format. The evaluation therefore includes an export test and a review of other participants' rights before releasing material; it does not assume that providing the entire meeting transcript is always appropriate.
+
+## Record a decision with conditions and a review date
+
+The assessment now has an outcome, even though deployment has not been approved. In this fictional case, the privacy officer records the following decision on October 18:
+
+> Permit a two-week evaluation using synthetic meeting content. Do not begin a live-recording pilot until workshop necessity, participant information and consent, speaker-processing behaviour, endpoint access, retention, and all onward data flows have been reviewed and the outstanding controls verified. Keep the hosted option on hold until its processing chain and agreements can be assessed.
+
+The attached action record assigns the notice and workshop criteria to the project lead, device and destination checks to IT, and retention and rights procedures to the records owner. The privacy officer schedules a review for November 1 and records which evidence would support approval, a narrower proposal, or rejection. A signature does not cure a failed legal requirement; the relevant issue must be resolved before the affected processing begins.
+
+If a live pilot is subsequently authorized, its decision should specify the eligible meetings, people, devices, model configuration, recipients, duration, and conditions for stopping. The approval should not quietly expand from a handful of client workshops to every employee conversation.
+
+Changes that reopen this example's assessment include enabling sync, adding a hosted model or MCP client, changing backup or export destinations, introducing new speaker-identification functions, expanding to sensitive meeting categories, or using notes in decisions about people. Provider changes and revised contracts also need review when they alter the assessed handling. The assessment file should preserve the evidence and configuration behind the decision so the next reviewer can see what changed.
+
+## Where Summit fits in this assessment
+
+Summit's [published security architecture](/security/architecture/) documents recording and transcription on the Mac, with summarization available through Local Models. It also describes optional hosted-model requests, iCloud sync, exports, and a local MCP server. Those are different configurations to assess, and a locally connected AI client may have its own onward processing path.
+
+For the firm's proposed evaluation, the relevant configuration would select Local Models and leave hosted providers, sync, and connectors unused. IT would check export folders and backups separately. The architecture documentation also states that the local database and audio are not separately encrypted by the app, making macOS access protections and FileVault part of the endpoint review. The published architecture is tied to a specified source review, so the assessor should confirm it against the version actually deployed.
+
+A local configuration can substantially reduce the meeting content entrusted to external AI providers. It still leaves the firm with the necessity decision, participant information, appropriate access, human review, retention, and rights handling described above. Summit is a possible implementation to assess, not a completed assessment or a Law 25 certification.
+
+For the wider jurisdictional picture, see our [Canadian meeting-notes privacy guide](/blog/ai-meeting-notes-canada-privacy/). For the purchasing decision itself, the most useful document is the completed assessment file: the specific use being approved, the evidence supporting it, and the conditions that must remain true while people use the tool.
