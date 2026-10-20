@@ -63,9 +63,9 @@ On-device processing flips the architecture:
 
 1. **Audio captured locally** → recordings stay on your Mac
 2. **Transcription runs on your hardware** → using local ML models
-3. **Summaries run where you choose** → with Local Models selected, on your Mac too; a cloud AI provider, if you pick one, receives transcript text
+3. **Summaries run where you choose** → with Local Models selected, on your Mac too; a cloud AI provider, if you pick one, receives transcript excerpts and, for chat, your question with related topics, action items and meeting titles and dates
 
-With Local Models selected, there is no vendor cloud holding your meeting library. What's left to protect is the Mac itself: Summit does not separately encrypt its local database or recordings, so FileVault and a locked macOS account matter.
+With Local Models selected and iCloud sync off (the default), there is no cloud copy of your meeting library. If you turn sync on, meeting content is stored in your iCloud account as encrypted data, while metadata such as meeting dates and durations is not encrypted. What's left to protect is the Mac itself: Summit does not separately encrypt its local database or recordings, so FileVault and a locked macOS account matter.
 
 That removes some questions from a compliance review, such as why meeting audio is sitting in an AWS bucket in Virginia, but not all of them. Summit is a meeting notes app, not a medical scribe, and is not certified for HIPAA or any other healthcare regulation. Whether a cloud AI provider needs a BAA, which meetings may be recorded, and whether patient information may come up in them are questions for your compliance team.
 
