@@ -1,361 +1,137 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { Card } from "../../components/ui/card";
-import Footer from "../../components/Footer";
-import {
-  Heart,
-  Shield,
-  Users,
-  FileText,
-  Search,
-  AlertCircle,
-} from "lucide-react";
+import UseCaseLayout from "../../layouts/UseCaseLayout.astro";
+import Steps from "../../components/use-cases/Steps.astro";
+import Benefits from "../../components/use-cases/Benefits.astro";
+import Note from "../../components/use-cases/Note.astro";
+import { Shield, FileText, Users, Search } from "lucide-react";
 ---
 
-<Layout
+<UseCaseLayout
   title="Private AI Meeting Notes for Healthcare Teams on Mac | Summit"
   description="Notes for care team, case review and admin meetings on your Mac. Local transcription, no meeting bot, and cloud AI only if your organization approves it."
-  breadcrumb={[{ name: "For Healthcare Professionals" }]}
+  audience="Healthcare Teams"
+  current="healthcare"
+  heading="Private meeting notes for healthcare teams"
+  lead="Care team huddles, case reviews, research meetings and practice operations all produce decisions someone has to find later. Summit turns recorded meetings into transcripts and summaries on your Mac, without a bot joining the call."
+  ctaHeading="Try Summit on your next team meeting"
+  ctaText="Summit runs on macOS. Choose Local Models in AI settings to keep summaries and chat on your Mac."
 >
-  <div
-    class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
-  >
-    <div class="container mx-auto px-4 py-16">
-      <div class="max-w-4xl mx-auto">
-        <!-- Header -->
-        <div class="text-center mb-16">
-          <div
-            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
-          >
-            <Heart className="w-8 h-8 text-blue-600" />
-          </div>
-          <h1 class="text-5xl font-bold text-foreground mb-4">
-            Private meeting notes for healthcare teams
-          </h1>
-          <p class="text-xl text-muted-foreground">
-            Care team huddles, case reviews, research meetings and practice
-            operations all produce decisions someone has to find later. Summit
-            turns recorded meetings into transcripts and summaries on your Mac,
-            without a bot joining the call.
-          </p>
-        </div>
+  <Note title="A meeting notes app, not a medical scribe">
+    Summit is built for meetings. It is not a clinical documentation tool, does
+    not connect to an EHR and is not certified for any healthcare regulation.
+    Document patient encounters with the tools your organization has approved,
+    and check with your compliance team before recording anything that includes
+    patient information.
+  </Note>
 
-        <!-- Scope notice -->
-        <Card className="p-6 mb-12 bg-yellow-50 border-yellow-300">
-          <div class="flex items-start gap-4">
-            <AlertCircle className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" />
-            <div>
-              <h2 class="text-lg font-semibold text-foreground mb-2">
-                A meeting notes app, not a medical scribe
-              </h2>
-              <p class="text-muted-foreground">
-                Summit is built for meetings. It is not a clinical
-                documentation tool, does not connect to an EHR and is not
-                certified for any healthcare regulation. Document patient
-                encounters with the tools your organization has approved, and
-                check with your compliance team before recording anything that
-                includes patient information.
-              </p>
-            </div>
-          </div>
-        </Card>
+  <h2>You choose where meeting audio and text are processed</h2>
+  <p>
+    Transcription runs on your Mac, and there is no Summit account holding your
+    meeting library. Select Local Models and summaries and chat run on your Mac
+    too. If you choose a cloud AI provider, it receives transcript excerpts and,
+    for chat, your question with related topics, action items and meeting titles
+    and dates, so confirm with your organization whether that provider is
+    approved for the meetings you record. Markdown auto-export and iCloud sync
+    are off until you turn them on.
+  </p>
+  <p>
+    The app does not separately encrypt its local database or recordings; they
+    rely on macOS protections, so turn on FileVault and keep your Mac account
+    locked down.
+  </p>
+  <p>
+    Patient consent, organizational policy and privacy law still apply. The
+    <a href="/security/architecture">architecture page</a> lists exactly what is
+    stored and what can leave your Mac.
+  </p>
 
-        <!-- Where notes are processed -->
-        <Card
-          className="p-8 mb-12 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200"
-        >
-          <h2 class="text-2xl font-bold text-foreground mb-4">
-            You choose where meeting audio and text are processed
-          </h2>
-          <p class="text-muted-foreground mb-4">
-            Transcription runs on your Mac, and there is no Summit account
-            holding your meeting library. Select Local Models and summaries and
-            chat run on your Mac too. If you choose a cloud AI provider, it receives
-            transcript excerpts and, for chat, your question with related
-            topics, action items and meeting titles and dates, so confirm with
-            your organization whether that provider is approved for the
-            meetings you record. Markdown auto-export and iCloud sync are off
-            until you turn them on.
-          </p>
-          <p class="text-muted-foreground mb-4">
-            The app does not separately encrypt its local database or
-            recordings; they rely on macOS protections, so turn on FileVault
-            and keep your Mac account locked down.
-          </p>
-          <p class="text-muted-foreground">
-            Patient consent, organizational policy and privacy law still apply.
-            The
-            <a href="/security/architecture" class="text-blue-600 underline"
-              >architecture page</a
-            > lists exactly what is stored and what can leave your Mac.
-          </p>
-        </Card>
+  <h2>Keep each team's meetings organized</h2>
+  <Steps
+    steps={[
+      {
+        title: "Create a folder for each team or project",
+        body: 'Give each committee, unit or study its own folder, and optionally a folder <a href="/docs/guides/summary-templates">summary template</a> so its meetings are written up the same way.',
+      },
+      {
+        title: "Use clear meeting titles",
+        body: "Name meetings with the team and topic, so the right conversation is easy to spot in search results.",
+      },
+      {
+        title: "Check the scope before you ask",
+        body: "Filter search by folder, or select the meetings you need and chat about just those. The chat shows which meetings are included before you ask a question.",
+      },
+      {
+        title: "Open the original passage",
+        body: "Chat answers cite timestamped transcript passages. Check the source before an answer goes into minutes, a protocol or a report.",
+      },
+    ]}
+  />
+  <Note>
+    Folders help organize notes; they are not a separate account, encrypted
+    vault or access-control boundary.
+  </Note>
 
-        <!-- Team workflow -->
-        <Card
-          className="p-8 mb-12 bg-gradient-to-r from-green-50 to-blue-50 border-green-200"
-        >
-          <h2 class="text-2xl font-bold text-foreground mb-6">
-            Keep each team's meetings organized
-          </h2>
-          <div class="space-y-4">
-            <div class="flex gap-4">
-              <div
-                class="w-8 h-8 bg-sky-400 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
-              >
-                1
-              </div>
-              <div>
-                <h3 class="font-semibold text-foreground mb-1">
-                  Create a folder for each team or project
-                </h3>
-                <p class="text-muted-foreground">
-                  Give each committee, unit or study its own folder, and
-                  optionally a folder
-                  <a
-                    href="/docs/guides/summary-templates"
-                    class="text-blue-600 underline">summary template</a
-                  > so its meetings are written up the same way.
-                </p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div
-                class="w-8 h-8 bg-sky-400 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
-              >
-                2
-              </div>
-              <div>
-                <h3 class="font-semibold text-foreground mb-1">
-                  Use clear meeting titles
-                </h3>
-                <p class="text-muted-foreground">
-                  Name meetings with the team and topic, so the right
-                  conversation is easy to spot in search results.
-                </p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div
-                class="w-8 h-8 bg-sky-400 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
-              >
-                3
-              </div>
-              <div>
-                <h3 class="font-semibold text-foreground mb-1">
-                  Check the scope before you ask
-                </h3>
-                <p class="text-muted-foreground">
-                  Filter search by folder, or select the meetings you need and
-                  chat about just those. The chat shows which meetings are
-                  included before you ask a question.
-                </p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div
-                class="w-8 h-8 bg-sky-400 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
-              >
-                4
-              </div>
-              <div>
-                <h3 class="font-semibold text-foreground mb-1">
-                  Open the original passage
-                </h3>
-                <p class="text-muted-foreground">
-                  Chat answers cite timestamped transcript passages. Check the
-                  source before an answer goes into minutes, a protocol or a
-                  report.
-                </p>
-              </div>
-            </div>
-          </div>
-          <p class="text-sm text-muted-foreground mt-6">
-            Folders help organize notes; they are not a separate account,
-            encrypted vault or access-control boundary.
-          </p>
-        </Card>
+  <h2>Why healthcare teams choose Summit</h2>
+  <Benefits
+    benefits={[
+      {
+        icon: Shield,
+        title: "No meeting bot",
+        body: "Summit records from your Mac instead of joining the call as a participant, for video calls and in-person meetings alike.",
+      },
+      {
+        icon: FileText,
+        title: "Start from a draft",
+        body: "Summit drafts a summary with key points and action items after each recording, so minutes start from notes instead of a blank page. Review them before they are shared.",
+      },
+      {
+        icon: Users,
+        title: "Consistent team write-ups",
+        body: "Summary templates shape notes for case reviews, committee minutes and project updates.",
+      },
+      {
+        icon: Search,
+        title: "Recall with sources",
+        body: "Search past meetings for specific decisions or follow-ups, and follow chat citations back to the passage in the transcript.",
+      },
+    ]}
+  />
 
-        <!-- Key Benefits -->
-        <div class="mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
-            Why Healthcare Teams Choose Summit
-          </h2>
-          <div class="grid md:grid-cols-2 gap-6">
-            <Card className="p-6">
-              <div class="flex items-center gap-3 mb-4">
-                <div
-                  class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center"
-                >
-                  <Shield className="w-5 h-5 text-blue-600" />
-                </div>
-                <h3 class="text-lg font-semibold text-foreground">
-                  No Meeting Bot
-                </h3>
-              </div>
-              <p class="text-muted-foreground">
-                Summit records from your Mac instead of joining the call as a
-                participant, for video calls and in-person meetings alike.
-              </p>
-            </Card>
+  <h2>Meetings Summit fits</h2>
+  <h3>Care team and case review meetings</h3>
+  <p>
+    Keep track of decisions and owners from multidisciplinary meetings, where
+    your organization's policy allows recording them.
+  </p>
+  <h3>Practice and hospital operations</h3>
+  <p>
+    Document staffing, quality improvement, vendor and planning meetings, and
+    find what was agreed before the next one.
+  </p>
+  <h3>Research and study meetings</h3>
+  <p>
+    Keep a folder per study for protocol discussions, lab meetings and
+    investigator calls.
+  </p>
+  <h3>Health coaches and consultants</h3>
+  <p>
+    Keep notes from client and partner meetings organized by engagement, with
+    recording consent from everyone present.
+  </p>
 
-            <Card className="p-6">
-              <div class="flex items-center gap-3 mb-4">
-                <div
-                  class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center"
-                >
-                  <FileText className="w-5 h-5 text-green-600" />
-                </div>
-                <h3 class="text-lg font-semibold text-foreground">
-                  Start From a Draft
-                </h3>
-              </div>
-              <p class="text-muted-foreground">
-                Summit drafts a summary with key points and action items after
-                each recording, so minutes start from notes instead of a blank
-                page. Review them before they are shared.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <div class="flex items-center gap-3 mb-4">
-                <div
-                  class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center"
-                >
-                  <Users className="w-5 h-5 text-purple-600" />
-                </div>
-                <h3 class="text-lg font-semibold text-foreground">
-                  Consistent Team Write-Ups
-                </h3>
-              </div>
-              <p class="text-muted-foreground">
-                Summary templates shape notes for case reviews, committee
-                minutes and project updates.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <div class="flex items-center gap-3 mb-4">
-                <div
-                  class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center"
-                >
-                  <Search className="w-5 h-5 text-orange-600" />
-                </div>
-                <h3 class="text-lg font-semibold text-foreground">
-                  Recall With Sources
-                </h3>
-              </div>
-              <p class="text-muted-foreground">
-                Search past meetings for specific decisions or follow-ups, and
-                follow chat citations back to the passage in the transcript.
-              </p>
-            </Card>
-          </div>
-        </div>
-
-        <!-- Use Cases -->
-        <div class="prose prose-slate max-w-none mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-6">
-            Meetings Summit Fits
-          </h2>
-
-          <div class="space-y-6">
-            <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">
-                Care Team and Case Review Meetings
-              </h3>
-              <p class="text-muted-foreground">
-                Keep track of decisions and owners from multidisciplinary
-                meetings, where your organization's policy allows recording
-                them.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">
-                Practice and Hospital Operations
-              </h3>
-              <p class="text-muted-foreground">
-                Document staffing, quality improvement, vendor and planning
-                meetings, and find what was agreed before the next one.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">
-                Research and Study Meetings
-              </h3>
-              <p class="text-muted-foreground">
-                Keep a folder per study for protocol discussions, lab meetings
-                and investigator calls.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">
-                Health Coaches and Consultants
-              </h3>
-              <p class="text-muted-foreground">
-                Keep notes from client and partner meetings organized by
-                engagement, with recording consent from everyone present.
-              </p>
-            </Card>
-          </div>
-        </div>
-
-        <!-- Best Practices -->
-        <Card
-          className="p-8 mb-12 bg-gradient-to-r from-purple-50 to-blue-50 border-purple-200"
-        >
-          <h2 class="text-2xl font-bold text-foreground mb-4">
-            Before you record in a healthcare setting
-          </h2>
-          <ul class="list-disc list-inside text-muted-foreground space-y-3">
-            <li>
-              Confirm with your compliance team which meetings may be recorded
-              and whether patient information may be discussed in them
-            </li>
-            <li>Tell participants you are recording and get consent</li>
-            <li>
-              Select Local Models, or a cloud AI provider your organization has
-              approved
-            </li>
-            <li>Turn on FileVault and use a locked macOS account</li>
-            <li>
-              Review AI-generated notes against the transcript before sharing
-              them
-            </li>
-          </ul>
-        </Card>
-
-        <!-- CTA -->
-        <Card
-          className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-center"
-        >
-          <h2 class="text-2xl font-bold text-foreground mb-4">
-            Try Summit on your next team meeting
-          </h2>
-          <p class="text-muted-foreground mb-6">
-            Summit runs on macOS. Choose Local Models in AI settings to keep
-            summaries and chat on your Mac.
-          </p>
-          <a
-            href="/download?from=use-case-cta"
-            data-source="use-case-cta"
-            class="download-button inline-flex items-center justify-center px-6 py-3 bg-sky-400 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            See Mac download options
-          </a>
-        </Card>
-      </div>
-    </div>
-  </div>
-  <Footer client:load />
-</Layout>
-
-<style>
-  :global(.dark) .prose {
-    --tw-prose-body: var(--foreground);
-    --tw-prose-headings: var(--foreground);
-  }
-</style>
+  <h2>Before you record in a healthcare setting</h2>
+  <ul>
+    <li>
+      Confirm with your compliance team which meetings may be recorded and
+      whether patient information may be discussed in them
+    </li>
+    <li>Tell participants you are recording and get consent</li>
+    <li>
+      Select Local Models, or a cloud AI provider your organization has approved
+    </li>
+    <li>Turn on FileVault and use a locked macOS account</li>
+    <li>
+      Review AI-generated notes against the transcript before sharing them
+    </li>
+  </ul>
+</UseCaseLayout>

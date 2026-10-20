@@ -1,320 +1,116 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { Card } from "../../components/ui/card";
-import Footer from "../../components/Footer";
-import {
-  Scale,
-  Clock,
-  Shield,
-  FileText,
-  Search,
-} from "lucide-react";
+import UseCaseLayout from "../../layouts/UseCaseLayout.astro";
+import Steps from "../../components/use-cases/Steps.astro";
+import Benefits from "../../components/use-cases/Benefits.astro";
+import Note from "../../components/use-cases/Note.astro";
+import { Clock, Shield, FileText, Search } from "lucide-react";
 ---
 
-<Layout
+<UseCaseLayout
   title="Private Client Meeting Notes for Lawyers on Mac | Summit"
   description="Keep client and matter meeting notes on your Mac. No bot joins the call, transcription runs locally, and you choose whether any cloud AI processes the text."
-  breadcrumb={[{ name: "For Legal Professionals" }]}
+  audience="Legal Professionals"
+  current="legal"
+  heading="Client meeting notes that stay with each matter"
+  lead="Client calls, intake conversations and internal case discussions each belong to a matter. Summit turns recorded conversations into transcripts and summaries on your Mac, with folders to organize matters and search to find what was said."
+  ctaHeading="Try Summit on your next client meeting"
+  ctaText="Summit runs on macOS. Choose Local Models in AI settings to keep summaries and chat on your Mac."
 >
-  <div
-    class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
-  >
-    <div class="container mx-auto px-4 py-16">
-      <div class="max-w-4xl mx-auto">
-        <!-- Header -->
-        <div class="text-center mb-16">
-          <div
-            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
-          >
-            <Scale className="w-8 h-8 text-blue-600" />
-          </div>
-          <h1 class="text-5xl font-bold text-foreground mb-4">
-            Client meeting notes that stay with each matter
-          </h1>
-          <p class="text-xl text-muted-foreground">
-            Client calls, intake conversations and internal case discussions
-            each belong to a matter. Summit turns recorded conversations into
-            transcripts and summaries on your Mac, with folders to organize
-            matters and search to find what was said.
-          </p>
-        </div>
+  <h2 class="!mt-0">You choose where client conversations are processed</h2>
+  <p>
+    Transcription runs on your Mac, and there is no Summit account holding your
+    meeting library. Select Local Models and summaries and chat run on your Mac
+    too. If you choose a cloud AI provider, it receives transcript excerpts and,
+    for chat, your question with related topics, action items and meeting titles
+    and dates, so review that setting before recording client conversations.
+    Markdown auto-export and iCloud sync are off until you turn them on.
+  </p>
+  <p>
+    Summit gives you control over where data is processed; privilege,
+    confidentiality and recording-consent decisions remain yours under your
+    professional obligations. The
+    <a href="/security/architecture">architecture page</a> lists exactly what is
+    stored and what can leave your Mac.
+  </p>
 
-        <!-- Where notes are processed -->
-        <Card
-          className="p-8 mb-12 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200"
-        >
-          <h2 class="text-2xl font-bold text-foreground mb-4">
-            You choose where client conversations are processed
-          </h2>
-          <p class="text-muted-foreground mb-4">
-            Transcription runs on your Mac, and there is no Summit account
-            holding your meeting library. Select Local Models and summaries and
-            chat run on your Mac too. If you choose a cloud AI provider, it receives
-            transcript excerpts and, for chat, your question with related
-            topics, action items and meeting titles and dates, so review that
-            setting before recording client conversations. Markdown auto-export
-            and iCloud sync are off until you turn them on.
-          </p>
-          <p class="text-muted-foreground">
-            Summit gives you control over where data is processed; privilege,
-            confidentiality and recording-consent decisions remain yours under
-            your professional obligations. The
-            <a href="/security/architecture" class="text-blue-600 underline"
-              >architecture page</a
-            > lists exactly what is stored and what can leave your Mac.
-          </p>
-        </Card>
+  <h2>Keep each matter's notes together</h2>
+  <Steps
+    steps={[
+      {
+        title: "Create a folder for each client or matter",
+        body: 'Optionally give the folder a <a href="/docs/guides/summary-templates">summary template</a> so intake calls or case meetings are written up the same way.',
+      },
+      {
+        title: "Use clear meeting titles",
+        body: "Name meetings with the matter and topic, so the right conversation is easy to spot in search results.",
+      },
+      {
+        title: "Check the scope before you ask",
+        body: "Filter search by folder, or select a matter's meetings and chat about just those. The chat shows which meetings are included before you ask a question.",
+      },
+      {
+        title: "Open the original passage",
+        body: "Chat answers cite timestamped transcript passages. Check the source before relying on an answer in advice, a filing or a client update.",
+      },
+    ]}
+  />
+  <Note>
+    Folders help organize notes; they are not a separate account, encrypted
+    vault or access-control boundary.
+  </Note>
 
-        <!-- Matter workflow -->
-        <Card
-          className="p-8 mb-12 bg-gradient-to-r from-green-50 to-blue-50 border-green-200"
-        >
-          <h2 class="text-2xl font-bold text-foreground mb-6">
-            Keep each matter's notes together
-          </h2>
-          <div class="space-y-4">
-            <div class="flex gap-4">
-              <div
-                class="w-8 h-8 bg-sky-400 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
-              >
-                1
-              </div>
-              <div>
-                <h3 class="font-semibold text-foreground mb-1">
-                  Create a folder for each client or matter
-                </h3>
-                <p class="text-muted-foreground">
-                  Optionally give the folder a
-                  <a
-                    href="/docs/guides/summary-templates"
-                    class="text-blue-600 underline">summary template</a
-                  > so intake calls or case meetings are written up the same way.
-                </p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div
-                class="w-8 h-8 bg-sky-400 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
-              >
-                2
-              </div>
-              <div>
-                <h3 class="font-semibold text-foreground mb-1">
-                  Use clear meeting titles
-                </h3>
-                <p class="text-muted-foreground">
-                  Name meetings with the matter and topic, so the right
-                  conversation is easy to spot in search results.
-                </p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div
-                class="w-8 h-8 bg-sky-400 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
-              >
-                3
-              </div>
-              <div>
-                <h3 class="font-semibold text-foreground mb-1">
-                  Check the scope before you ask
-                </h3>
-                <p class="text-muted-foreground">
-                  Filter search by folder, or select a matter's meetings and
-                  chat about just those. The chat shows which meetings are
-                  included before you ask a question.
-                </p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div
-                class="w-8 h-8 bg-sky-400 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
-              >
-                4
-              </div>
-              <div>
-                <h3 class="font-semibold text-foreground mb-1">
-                  Open the original passage
-                </h3>
-                <p class="text-muted-foreground">
-                  Chat answers cite timestamped transcript passages. Check the
-                  source before relying on an answer in advice, a filing or a
-                  client update.
-                </p>
-              </div>
-            </div>
-          </div>
-          <p class="text-sm text-muted-foreground mt-6">
-            Folders help organize notes; they are not a separate account,
-            encrypted vault or access-control boundary.
-          </p>
-        </Card>
+  <h2>A working record, not an official transcript</h2>
+  <p>
+    Summit transcripts and summaries are AI-generated working notes. They can
+    contain errors and are not a certified or verbatim record. Review the
+    original transcript or audio before quoting a client or witness.
+  </p>
 
-        <!-- Notes are a working record -->
-        <div class="prose prose-slate max-w-none mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-6">
-            A working record, not an official transcript
-          </h2>
-          <p class="text-muted-foreground">
-            Summit transcripts and summaries are AI-generated working notes.
-            They can contain errors and are not a certified or verbatim record.
-            Review the original transcript or audio before quoting a client or
-            witness.
-          </p>
-        </div>
+  <h2>Why legal professionals choose Summit</h2>
+  <Benefits
+    benefits={[
+      {
+        icon: Shield,
+        title: "No meeting bot",
+        body: "Summit records from your Mac instead of joining the call as a participant, for video calls and in-person meetings alike.",
+      },
+      {
+        icon: Clock,
+        title: "Start from a draft",
+        body: "Summit drafts a summary with key points and action items after each recording, so your file note starts from a draft instead of a blank page.",
+      },
+      {
+        icon: Search,
+        title: "Recall with sources",
+        body: "Search past meetings for specific facts or statements, and follow chat citations back to the passage in the transcript.",
+      },
+      {
+        icon: FileText,
+        title: "Export when you choose",
+        body: "Export notes as Markdown to the destination you pick, such as a matter folder. Check where that folder syncs before you export.",
+      },
+    ]}
+  />
 
-        <!-- Key Benefits -->
-        <div class="mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
-            Why Legal Professionals Choose Summit
-          </h2>
-          <div class="grid md:grid-cols-2 gap-6">
-            <Card className="p-6">
-              <div class="flex items-center gap-3 mb-4">
-                <div
-                  class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center"
-                >
-                  <Shield className="w-5 h-5 text-blue-600" />
-                </div>
-                <h3 class="text-lg font-semibold text-foreground">
-                  No Meeting Bot
-                </h3>
-              </div>
-              <p class="text-muted-foreground">
-                Summit records from your Mac instead of joining the call as a
-                participant, for video calls and in-person meetings alike.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <div class="flex items-center gap-3 mb-4">
-                <div
-                  class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center"
-                >
-                  <Clock className="w-5 h-5 text-green-600" />
-                </div>
-                <h3 class="text-lg font-semibold text-foreground">
-                  Start From a Draft
-                </h3>
-              </div>
-              <p class="text-muted-foreground">
-                Summit drafts a summary with key points and action items after
-                each recording, so your file note starts from a draft instead
-                of a blank page.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <div class="flex items-center gap-3 mb-4">
-                <div
-                  class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center"
-                >
-                  <Search className="w-5 h-5 text-orange-600" />
-                </div>
-                <h3 class="text-lg font-semibold text-foreground">
-                  Recall With Sources
-                </h3>
-              </div>
-              <p class="text-muted-foreground">
-                Search past meetings for specific facts or statements, and
-                follow chat citations back to the passage in the transcript.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <div class="flex items-center gap-3 mb-4">
-                <div
-                  class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center"
-                >
-                  <FileText className="w-5 h-5 text-purple-600" />
-                </div>
-                <h3 class="text-lg font-semibold text-foreground">
-                  Export When You Choose
-                </h3>
-              </div>
-              <p class="text-muted-foreground">
-                Export notes as Markdown to the destination you pick, such as a
-                matter folder. Check where that folder syncs before you export.
-              </p>
-            </Card>
-          </div>
-        </div>
-
-        <!-- Use Cases -->
-        <div class="prose prose-slate max-w-none mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-6">Perfect For</h2>
-
-          <div class="space-y-6">
-            <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">
-                Solo Practitioners & Small Firms
-              </h3>
-              <p class="text-muted-foreground">
-                Take notes from client intake calls, case strategy sessions and
-                witness interviews, with a folder for each matter.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">
-                Corporate Counsel
-              </h3>
-              <p class="text-muted-foreground">
-                Keep notes from internal consultations, executive briefings and
-                compliance reviews, and search them when a question comes back.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">
-                Litigation Attorneys
-              </h3>
-              <p class="text-muted-foreground">
-                Record case preparation discussions, client updates and strategy
-                meetings, then search a matter's meetings for what was said.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">
-                Transactional Lawyers
-              </h3>
-              <p class="text-muted-foreground">
-                Take notes from negotiation calls, due diligence meetings and
-                client advisory sessions, and find earlier discussion of deal
-                terms when you need it.
-              </p>
-            </Card>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <Card
-          className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-center"
-        >
-          <h2 class="text-2xl font-bold text-foreground mb-4">
-            Try Summit on your next client meeting
-          </h2>
-          <p class="text-muted-foreground mb-6">
-            Summit runs on macOS. Choose Local Models in AI settings to keep
-            summaries and chat on your Mac.
-          </p>
-          <a
-            href="/download?from=use-case-cta"
-            data-source="use-case-cta"
-            class="download-button inline-flex items-center justify-center px-6 py-3 bg-sky-400 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            See Mac download options
-          </a>
-        </Card>
-      </div>
-    </div>
-  </div>
-  <Footer client:load />
-</Layout>
-
-<style>
-  :global(.dark) .prose {
-    --tw-prose-body: var(--foreground);
-    --tw-prose-headings: var(--foreground);
-  }
-</style>
+  <h2>Who it's for</h2>
+  <h3>Solo practitioners & small firms</h3>
+  <p>
+    Take notes from client intake calls, case strategy sessions and witness
+    interviews, with a folder for each matter.
+  </p>
+  <h3>Corporate counsel</h3>
+  <p>
+    Keep notes from internal consultations, executive briefings and compliance
+    reviews, and search them when a question comes back.
+  </p>
+  <h3>Litigation attorneys</h3>
+  <p>
+    Record case preparation discussions, client updates and strategy meetings,
+    then search a matter's meetings for what was said.
+  </p>
+  <h3>Transactional lawyers</h3>
+  <p>
+    Take notes from negotiation calls, due diligence meetings and client advisory
+    sessions, and find earlier discussion of deal terms when you need it.
+  </p>
+</UseCaseLayout>
