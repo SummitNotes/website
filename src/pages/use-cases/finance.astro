@@ -1,331 +1,121 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { Card } from "../../components/ui/card";
-import Footer from "../../components/Footer";
-import {
-  TrendingUp,
-  Shield,
-  Clock,
-  FileText,
-  Search,
-} from "lucide-react";
+import UseCaseLayout from "../../layouts/UseCaseLayout.astro";
+import Steps from "../../components/use-cases/Steps.astro";
+import Benefits from "../../components/use-cases/Benefits.astro";
+import Note from "../../components/use-cases/Note.astro";
+import { Clock, Shield, FileText, Search } from "lucide-react";
 ---
 
-<Layout
+<UseCaseLayout
   title="Private Client Meeting Notes for Financial Advisors on Mac | Summit"
   description="Client meeting notes for financial advisors on your Mac, with no bot joining the call. Local transcription and summaries; optional cloud AI is your choice."
-  breadcrumb={[{ name: "For Finance Professionals" }]}
+  audience="Finance Professionals"
+  current="finance"
+  heading="Client meeting notes for financial advisors, kept on your Mac"
+  lead="Reviews, planning sessions and discovery calls each need a clear record you can come back to. Summit turns recorded conversations into transcripts and summaries on your Mac, with folders to organize clients and search to revisit what was discussed."
+  ctaHeading="Try Summit on your next client meeting"
+  ctaText="Summit runs on macOS. Choose Local Models in AI settings to keep summaries and chat on your Mac."
 >
-  <div
-    class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
-  >
-    <div class="container mx-auto px-4 py-16">
-      <div class="max-w-4xl mx-auto">
-        <!-- Header -->
-        <div class="text-center mb-16">
-          <div
-            class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
-          >
-            <TrendingUp className="w-8 h-8 text-green-600" />
-          </div>
-          <h1 class="text-5xl font-bold text-foreground mb-4">
-            Client meeting notes for financial advisors, kept on your Mac
-          </h1>
-          <p class="text-xl text-muted-foreground">
-            Reviews, planning sessions and discovery calls each need a clear
-            record you can come back to. Summit turns recorded conversations
-            into transcripts and summaries on your Mac, with folders to organize
-            clients and search to revisit what was discussed.
-          </p>
-        </div>
+  <h2 class="!mt-0">You choose where client conversations are processed</h2>
+  <p>
+    Transcription runs on your Mac, and there is no Summit account holding your
+    meeting library. Select Local Models and summaries and chat run on your Mac
+    too. If you choose a cloud AI provider, it receives transcript excerpts and,
+    for chat, your question with related topics, action items and meeting titles
+    and dates, so review that setting before recording client conversations.
+    Markdown auto-export and iCloud sync are off until you turn them on.
+  </p>
+  <p>
+    Recording consent, your firm's policies and your regulatory obligations
+    still apply. The <a href="/security/architecture">architecture page</a>
+    lists exactly what is stored and what can leave your Mac.
+  </p>
 
-        <!-- Where notes are processed -->
-        <Card
-          className="p-8 mb-12 bg-gradient-to-r from-green-50 to-blue-50 border-green-200"
-        >
-          <h2 class="text-2xl font-bold text-foreground mb-4">
-            You choose where client conversations are processed
-          </h2>
-          <p class="text-muted-foreground mb-4">
-            Transcription runs on your Mac, and there is no Summit account
-            holding your meeting library. Select Local Models and summaries and
-            chat run on your Mac too. If you choose a cloud AI provider, it receives
-            transcript excerpts and, for chat, your question with related
-            topics, action items and meeting titles and dates, so review that
-            setting before recording client conversations. Markdown auto-export
-            and iCloud sync are off until you turn them on.
-          </p>
-          <p class="text-muted-foreground">
-            Recording consent, your firm's policies and your regulatory
-            obligations still apply. The
-            <a href="/security/architecture" class="text-blue-600 underline"
-              >architecture page</a
-            > lists exactly what is stored and what can leave your Mac.
-          </p>
-        </Card>
+  <h2>Keep each client's context separate in your workflow</h2>
+  <Steps
+    steps={[
+      {
+        title: "Create a folder for each client or household",
+        body: 'Give every relationship its own folder, and optionally a folder <a href="/docs/guides/summary-templates">summary template</a> so reviews and planning sessions are written up the same way.',
+      },
+      {
+        title: "Use clear meeting titles",
+        body: "Name meetings with the client and meeting type, so the right conversation is easy to spot in search results.",
+      },
+      {
+        title: "Check the scope before you ask",
+        body: "Filter search by folder, or select that client's meetings and chat about just those. The chat shows which meetings are included before you ask a question.",
+      },
+      {
+        title: "Open the original passage",
+        body: "Chat answers cite timestamped transcript passages. Check the source before copying a goal, figure or decision into your CRM or a client follow-up.",
+      },
+    ]}
+  />
+  <Note>
+    Folders help organize notes; they are not a separate account, encrypted
+    vault or access-control boundary.
+  </Note>
 
-        <!-- Client workflow -->
-        <Card
-          className="p-8 mb-12 bg-gradient-to-r from-green-50 to-blue-50 border-green-200"
-        >
-          <h2 class="text-2xl font-bold text-foreground mb-6">
-            Keep each client's context separate in your workflow
-          </h2>
-          <div class="space-y-4">
-            <div class="flex gap-4">
-              <div
-                class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
-              >
-                1
-              </div>
-              <div>
-                <h3 class="font-semibold text-foreground mb-1">
-                  Create a folder for each client or household
-                </h3>
-                <p class="text-muted-foreground">
-                  Give every relationship its own folder, and optionally a
-                  folder
-                  <a
-                    href="/docs/guides/summary-templates"
-                    class="text-blue-600 underline">summary template</a
-                  > so reviews and planning sessions are written up the same
-                  way.
-                </p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div
-                class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
-              >
-                2
-              </div>
-              <div>
-                <h3 class="font-semibold text-foreground mb-1">
-                  Use clear meeting titles
-                </h3>
-                <p class="text-muted-foreground">
-                  Name meetings with the client and meeting type, so the right
-                  conversation is easy to spot in search results.
-                </p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div
-                class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
-              >
-                3
-              </div>
-              <div>
-                <h3 class="font-semibold text-foreground mb-1">
-                  Check the scope before you ask
-                </h3>
-                <p class="text-muted-foreground">
-                  Filter search by folder, or select that client's meetings and
-                  chat about just those. The chat shows which meetings are
-                  included before you ask a question.
-                </p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div
-                class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold"
-              >
-                4
-              </div>
-              <div>
-                <h3 class="font-semibold text-foreground mb-1">
-                  Open the original passage
-                </h3>
-                <p class="text-muted-foreground">
-                  Chat answers cite timestamped transcript passages. Check the
-                  source before copying a goal, figure or decision into your
-                  CRM or a client follow-up.
-                </p>
-              </div>
-            </div>
-          </div>
-          <p class="text-sm text-muted-foreground mt-6">
-            Folders help organize notes; they are not a separate account,
-            encrypted vault or access-control boundary.
-          </p>
-        </Card>
+  <h2>Notes, not a compliance archive</h2>
+  <p>
+    Summit is a note-taking tool. It is not a books-and-records system,
+    communications archive or supervision tool, and using it does not by itself
+    meet SEC, FINRA, MiFID or other recordkeeping requirements. Check your
+    firm's recordkeeping and supervision rules before recording client meetings,
+    and decide where any notes you keep as official records should live.
+  </p>
+  <p>
+    Summaries are a starting point, not a guarantee that every detail was
+    captured. Use the original transcript to check amounts, dates and
+    commitments.
+  </p>
 
-        <!-- Records and compliance -->
-        <div class="prose prose-slate max-w-none mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-6">
-            Notes, not a compliance archive
-          </h2>
-          <p class="text-muted-foreground">
-            Summit is a note-taking tool. It is not a books-and-records system,
-            communications archive or supervision tool, and using it does not by
-            itself meet SEC, FINRA, MiFID or other recordkeeping requirements.
-            Check your firm's recordkeeping and supervision rules before
-            recording client meetings, and decide where any notes you keep as
-            official records should live.
-          </p>
-          <p class="text-muted-foreground">
-            Summaries are a starting point, not a guarantee that every detail
-            was captured. Use the original transcript to check amounts, dates
-            and commitments.
-          </p>
-        </div>
+  <h2>Why finance professionals choose Summit</h2>
+  <Benefits
+    benefits={[
+      {
+        icon: Clock,
+        title: "Start from a draft",
+        body: "Summit drafts a summary with key points and action items after each recording, so your meeting notes start from a draft instead of a blank page.",
+      },
+      {
+        icon: Shield,
+        title: "No meeting bot",
+        body: "Summit records from your Mac instead of joining the call as a participant, for video calls and in-person meetings alike.",
+      },
+      {
+        icon: FileText,
+        title: "Consistent meeting write-ups",
+        body: "Summary templates shape notes for annual reviews, discovery meetings and planning sessions.",
+      },
+      {
+        icon: Search,
+        title: "Recall with sources",
+        body: "Search past meetings for a client's goals, concerns or earlier decisions, and follow chat citations back to the passage in the transcript.",
+      },
+    ]}
+  />
 
-        <!-- Key Benefits -->
-        <div class="mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
-            Why Finance Professionals Choose Summit
-          </h2>
-          <div class="grid md:grid-cols-2 gap-6">
-            <Card className="p-6">
-              <div class="flex items-center gap-3 mb-4">
-                <div
-                  class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center"
-                >
-                  <Clock className="w-5 h-5 text-green-600" />
-                </div>
-                <h3 class="text-lg font-semibold text-foreground">
-                  Start From a Draft
-                </h3>
-              </div>
-              <p class="text-muted-foreground">
-                Summit drafts a summary with key points and action items after
-                each recording, so your meeting notes start from a draft instead
-                of a blank page.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <div class="flex items-center gap-3 mb-4">
-                <div
-                  class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center"
-                >
-                  <Shield className="w-5 h-5 text-blue-600" />
-                </div>
-                <h3 class="text-lg font-semibold text-foreground">
-                  No Meeting Bot
-                </h3>
-              </div>
-              <p class="text-muted-foreground">
-                Summit records from your Mac instead of joining the call as a
-                participant, for video calls and in-person meetings alike.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <div class="flex items-center gap-3 mb-4">
-                <div
-                  class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center"
-                >
-                  <FileText className="w-5 h-5 text-purple-600" />
-                </div>
-                <h3 class="text-lg font-semibold text-foreground">
-                  Consistent Meeting Write-Ups
-                </h3>
-              </div>
-              <p class="text-muted-foreground">
-                Summary templates shape notes for annual reviews, discovery
-                meetings and planning sessions.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <div class="flex items-center gap-3 mb-4">
-                <div
-                  class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center"
-                >
-                  <Search className="w-5 h-5 text-orange-600" />
-                </div>
-                <h3 class="text-lg font-semibold text-foreground">
-                  Recall With Sources
-                </h3>
-              </div>
-              <p class="text-muted-foreground">
-                Search past meetings for a client's goals, concerns or earlier
-                decisions, and follow chat citations back to the passage in the
-                transcript.
-              </p>
-            </Card>
-          </div>
-        </div>
-
-        <!-- Use Cases -->
-        <div class="prose prose-slate max-w-none mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-6">Perfect For</h2>
-
-          <div class="space-y-6">
-            <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">
-                Financial Advisors & Wealth Managers
-              </h3>
-              <p class="text-muted-foreground">
-                Take notes from discovery meetings, quarterly reviews and
-                planning sessions, then find what a client said about goals or
-                concerns before the next review.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">
-                Investment Analysts
-              </h3>
-              <p class="text-muted-foreground">
-                Keep notes from management calls, investor briefings and
-                research discussions, and search them when you revisit a
-                thesis.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">
-                Financial Planners
-              </h3>
-              <p class="text-muted-foreground">
-                Record intake sessions and draft summaries of goals and
-                circumstances, then check the transcript before building the
-                plan.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <h3 class="text-xl font-semibold text-foreground mb-3">
-                Private Bankers
-              </h3>
-              <p class="text-muted-foreground">
-                Keep a folder for each relationship so earlier discussions about
-                lending, estate planning or investments are easy to find.
-              </p>
-            </Card>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <Card
-          className="p-8 bg-gradient-to-r from-green-50 to-blue-50 border-green-200 text-center"
-        >
-          <h2 class="text-2xl font-bold text-foreground mb-4">
-            Try Summit on your next client meeting
-          </h2>
-          <p class="text-muted-foreground mb-6">
-            Summit runs on macOS. Choose Local Models in AI settings to keep
-            summaries and chat on your Mac.
-          </p>
-          <a
-            href="/download?from=use-case-cta"
-            data-source="use-case-cta"
-            class="download-button inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
-          >
-            See Mac download options
-          </a>
-        </Card>
-      </div>
-    </div>
-  </div>
-  <Footer client:load />
-</Layout>
-
-<style>
-  :global(.dark) .prose {
-    --tw-prose-body: var(--foreground);
-    --tw-prose-headings: var(--foreground);
-  }
-</style>
+  <h2>Who it's for</h2>
+  <h3>Financial advisors &amp; wealth managers</h3>
+  <p>
+    Take notes from discovery meetings, quarterly reviews and planning sessions,
+    then find what a client said about goals or concerns before the next review.
+  </p>
+  <h3>Investment analysts</h3>
+  <p>
+    Keep notes from management calls, investor briefings and research
+    discussions, and search them when you revisit a thesis.
+  </p>
+  <h3>Financial planners</h3>
+  <p>
+    Record intake sessions and draft summaries of goals and circumstances, then
+    check the transcript before building the plan.
+  </p>
+  <h3>Private bankers</h3>
+  <p>
+    Keep a folder for each relationship so earlier discussions about lending,
+    estate planning or investments are easy to find.
+  </p>
+</UseCaseLayout>
