@@ -1,6 +1,6 @@
 ---
-title: "AI Summaries for In-Person Meetings and Phone Calls"
-description: "Meeting bots only work for video calls. What about the coffee shop conversation, the client lunch, or the phone call while walking? Here's how to get AI notes for meetings that happen offline."
+title: "AI Notes Beyond Video Calls: In-Person Meetings and Mac Speakerphone Capture"
+description: "How to take AI notes from in-person conversations and phone calls played through a speaker near your Mac, and the limits of that setup. It does not cover direct recording of cellular calls on an iPhone."
 author: "Dima"
 publishedDate: 2026-02-05
 image: "/blog-ai-summaries-offline-meetings.jpg"
@@ -8,42 +8,23 @@ imageAlt: "Person having a conversation in a coffee shop with a laptop subtly ca
 tags: ["meeting-notes", "offline-mode", "phone-calls", "in-person-meetings", "local-ai"]
 ---
 
-Not every important conversation happens on Zoom.
+You can take AI notes from an in-person conversation or a phone call played through a speaker near your Mac. This guide covers what the Mac can hear and the limits of that setup; it does not promise direct recording of cellular calls on an iPhone. Obtain any required consent before recording.
 
-The coffee shop meeting with a potential co-founder. The client lunch where the real decisions get made. The phone call while walking to grab coffee. The impromptu hallway conversation that changes everything.
+## The conversations outside scheduled calls
 
-These meetings matter. Often more than the scheduled video calls.
+Many important conversations never get a video link:
 
-But if you use a cloud meeting notetaker, you're out of luck. Otter, Fireflies, and their competitors are built for one thing: joining video calls as a bot participant. No video call, no notes.
+- **In-person meetings.** The investor meeting. The client pitch. The 1:1 with your manager.
 
-## The offline meeting gap
+- **Impromptu discussions.** Someone pulls you aside after a meeting, and a quick sync turns into a 45-minute strategy session. No calendar invite, no video link.
 
-Think about how many important conversations happen outside of scheduled calls:
+- **Phone calls.** A prospect or client calls while you are at your desk, and the call stays on the phone.
 
-- **Sales calls from your phone.** You're walking, driving, or at a coffee shop. The prospect calls. You can't exactly ask them to switch to Zoom so your bot can join.
+For these conversations, many people fall back to handwritten notes or try to remember everything afterwards.
 
-- **In-person meetings.** The investor meeting. The client pitch. The 1:1 with your manager. The conversations that matter most often happen face-to-face.
+## How note-takers approach them
 
-- **Impromptu discussions.** Someone pulls you aside after a meeting. A quick sync turns into a 45-minute strategy session. No calendar invite, no video link, no bot.
-
-- **Phone calls, period.** Half of business communication still happens over regular phone calls. Cloud notetakers ignore this entirely.
-
-For these conversations, most people fall back to handwritten notes. Or worse, they try to remember everything afterwards.
-
-## Why cloud notetakers can't solve this
-
-Cloud meeting bots have a fundamental architecture problem: they need to be a participant in a video call to capture audio.
-
-The bot joins your Zoom or Google Meet. It receives the audio stream. It sends that audio to servers for transcription. This only works when there's a video call to join.
-
-Some services offer mobile apps that can record phone calls, but with significant limitations:
-
-- The audio goes to their servers for processing.
-- Phone call recording has complex legal requirements in many jurisdictions.
-- You need cellular data to upload the recording.
-- The transcript isn't available until the upload and processing completes.
-
-For in-person meetings, the options are even worse. You could place your phone on the table and use a voice recorder app, but then you're manually uploading files and hoping the cloud service can handle background noise.
+Many meeting assistants are built around joining a video call as a participant: a bot joins your Zoom or Google Meet and receives the audio stream. That works well when there is a call to join, and some services also offer mobile or desktop recording for conversations that happen elsewhere. Check what a specific product supports, where it processes audio, and whether recordings are uploaded before you rely on it for in-person or phone conversations.
 
 ## Local AI changes the equation
 
@@ -51,9 +32,9 @@ What if the transcription happened on your device?
 
 No upload needed. No bot participant required. No waiting for cloud processing.
 
-This is how Summit approaches the problem. Your Mac's microphone captures audio—from a phone call on speaker, from an in-person conversation, from any audio source. The transcription runs locally using models that live on your device.
+This is how Summit approaches the problem. Your Mac's microphone captures what it can hear—an in-person conversation, or a phone call on speaker next to the Mac. Calls made from apps on your Mac can be captured as system audio. The transcription runs locally using models that live on your device.
 
-When you're offline, everything still works. The AI doesn't need an internet connection to transcribe or summarize.
+With Local Models selected for summaries, the whole flow works offline. If you choose a cloud AI provider, summarization needs a connection and sends transcript text to that provider.
 
 ## How offline mode works
 
@@ -67,21 +48,21 @@ Summit's offline mode is simple:
 
 4. **Get your summary.** Same AI-powered notes you'd get from a video call: key points, action items, decisions made.
 
-No data leaves your device. No internet required during or after the recording. The transcript and summary are ready in seconds, not minutes.
+With Local Models selected, no meeting data leaves your Mac and no internet connection is needed during or after the recording. The transcript and summary are ready shortly after you stop, depending on the length of the recording and your Mac.
 
 ## Phone calls: the forgotten use case
 
 If you take business calls on your phone, you've probably wished for automatic notes.
 
-With Summit, you have options:
+Summit runs on your Mac, so it works with what the Mac can hear:
 
-- **Speaker phone near your Mac.** Simple but effective. Put the call on speaker, and Summit captures both sides of the conversation.
+- **Speakerphone near your Mac.** Put the call on speaker and keep the phone close to the Mac. The microphone picks up both sides; the other person's audio quality depends on the phone's speaker volume and the room.
 
-- **Call from your Mac.** If you use FaceTime Audio or any VoIP app, Summit captures the system audio directly.
+- **Call from your Mac.** If you take the call in FaceTime Audio or another calling app on the Mac, Summit can capture the system audio directly.
 
-- **Bluetooth routing.** More technical, but you can route phone audio through your Mac with the right setup.
+Summit does not record cellular calls on the iPhone itself. If the call stays on the phone without a speaker near your Mac, Summit will not hear it.
 
-The point is: you're not limited to scheduled video calls. Any audio that reaches your Mac can become searchable, summarized meeting notes.
+The point is: you're not limited to scheduled video calls. Audio that reaches your Mac can become searchable, summarized meeting notes.
 
 ## In-person meetings: notes without the phone on the table
 
@@ -94,9 +75,9 @@ With Summit running, you get:
 - Automatic transcription of the conversation
 - AI-generated summary and action items
 - Searchable record of what was discussed
-- No cloud upload, no third-party access
+- No cloud upload when you use Local Models
 
-The recording stays local. You control who sees it, if anyone.
+The recording stays on your Mac. You control who sees it, if anyone.
 
 ## When offline mode makes sense
 
@@ -108,9 +89,9 @@ Some scenarios where local recording beats cloud bots:
 
 **Spontaneous meetings.** No calendar invite means no bot invite. But the conversation still matters.
 
-**Phone-heavy roles.** Sales, customer success, recruiting—if half your job happens on phone calls, cloud notetakers only cover half your work.
+**Phone-heavy roles.** Sales, customer success, recruiting—if many of your calls happen by phone, a speakerphone or Mac calling app setup brings them into the same notes as your video calls.
 
-**Privacy-conscious counterparties.** Some clients refuse meetings with recording bots. A local-only approach removes that objection.
+**Bot-averse counterparties.** Some clients refuse meetings with recording bots. Recording from your Mac avoids the bot, though you still need their consent.
 
 ## The legal side
 
@@ -120,7 +101,7 @@ Recording conversations has legal requirements that vary by jurisdiction. Some p
 
 Cloud or local, the legal requirements are the same. The difference is what happens to the recording after:
 
-- With cloud services, the recording exists on servers you don't control, potentially forever.
+- With cloud services, the recording sits on the provider's servers under its retention settings.
 - With local recording, you decide what happens to the file.
 
 Know your local laws. Get consent when required. Local processing doesn't change the legal obligations—it just gives you more control over the data.
@@ -137,22 +118,22 @@ To be fair, local-only has trade-offs:
 
 For many use cases, these trade-offs are fine. For others, a cloud service makes sense.
 
-The point isn't that local is always better. The point is that local is now possible—and for offline meetings, it's the only option that works.
+The point isn't that local is always better. The point is that local is now possible—and for conversations without a call to join, it keeps the recording on your Mac.
 
 ## Getting started
 
-Summit runs on Mac. The free tier covers transcription and basic summaries. Local AI processing works offline from day one.
+Summit runs on Mac, and you can start with a free trial. With Local Models selected, transcription and summaries work offline from day one.
 
 For phone calls: put them on speaker near your Mac, or use a Mac-based calling app.
 
 For in-person meetings: just have your laptop open as you normally would.
 
-For any audio: if your Mac can hear it, Summit can transcribe it.
+For any audio: if your Mac can hear it clearly, Summit can transcribe it.
 
 Your conversations deserve notes too—even when there's no video call to join.
 
 ---
 
-Summit is a local-first AI meeting notes app for Mac. Your meetings stay on your device.
+Summit is a local-first AI meeting notes app for Mac. With Local Models, your meetings stay on your device.
 
 Try it: https://summitnotes.app
