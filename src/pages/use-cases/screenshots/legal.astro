@@ -1,10 +1,10 @@
 ---
 import {
+  Clock,
+  FileText,
   Scale,
-  Shield,
-  Lock,
-  FileCheck,
   Search,
+  Shield,
 } from "lucide-react";
 ---
 
@@ -13,7 +13,7 @@ import {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1440" />
-    <title>Summit AI Notes for Legal Professionals</title>
+    <title>Client meeting notes that stay with each matter</title>
     <style is:global>
       * {
         margin: 0;
@@ -144,38 +144,38 @@ import {
         <div class="icon-circle">
           <Scale />
         </div>
-        <h1>Summit AI Notes for Legal Professionals</h1>
-        <p class="subtitle">Secure, confidential documentation that protects attorney-client privilege</p>
+        <h1>Client meeting notes that stay with each matter</h1>
+        <p class="subtitle">Transcripts and summaries on your Mac, organized by matter</p>
       </div>
 
       <div class="value-prop">
-        <h2>Built for the Legal Profession</h2>
+        <h2>You choose where client conversations are processed</h2>
         <p>
-          Legal work demands absolute confidentiality. Summit AI Notes processes everything locally on your device, ensuring attorney-client privilege is never compromised by cloud storage or third-party servers. Generate accurate meeting notes, client intake summaries, and deposition reviews—all while maintaining the highest standards of data security.
+          Transcription runs on your Mac. Select Local Models and summaries and chat stay on your Mac too; if you choose a cloud AI provider, it receives transcript excerpts and, for chat, related meeting context. Privilege, confidentiality and recording-consent decisions remain yours. Transcripts are AI-generated working notes, not a certified record.
         </p>
       </div>
 
-      <h2 class="benefits-title">Why Legal Professionals Trust Summit</h2>
+      <h2 class="benefits-title">Why Legal Professionals Choose Summit</h2>
 
       <div class="benefits-grid">
         <div class="benefit-card">
           <div class="benefit-header">
             <div class="benefit-icon red">
-              <Lock />
+              <Shield />
             </div>
           </div>
-          <h3>Attorney-Client Privilege</h3>
-          <p>All conversations are processed locally. No third parties, no cloud storage, no data breaches. Your clients' confidential information stays absolutely private.</p>
+          <h3>No Meeting Bot</h3>
+          <p>Summit records from your Mac instead of joining the call, for video calls and in-person meetings alike.</p>
         </div>
 
         <div class="benefit-card">
           <div class="benefit-header">
             <div class="benefit-icon blue">
-              <FileCheck />
+              <Clock />
             </div>
           </div>
-          <h3>Accurate Documentation</h3>
-          <p>Capture precise details from client meetings, witness interviews, and internal case discussions. Never rely on memory when building your case.</p>
+          <h3>Start From a Draft</h3>
+          <p>Summit drafts a summary with key points and action items, so your file note starts from a draft.</p>
         </div>
 
         <div class="benefit-card">
@@ -184,18 +184,18 @@ import {
               <Search />
             </div>
           </div>
-          <h3>Instant Case Research</h3>
-          <p>Quickly search through months of client conversations to find specific facts, statements, or details. Build stronger cases with better recall.</p>
+          <h3>Recall With Sources</h3>
+          <p>Search a matter's meetings for specific facts or statements, and follow citations back to the transcript.</p>
         </div>
 
         <div class="benefit-card">
           <div class="benefit-header">
             <div class="benefit-icon purple">
-              <Shield />
+              <FileText />
             </div>
           </div>
-          <h3>Compliance Ready</h3>
-          <p>Meet data security requirements for legal practice. All data remains on your device under your direct control, simplifying compliance.</p>
+          <h3>Export When You Choose</h3>
+          <p>Export notes as Markdown to a folder you pick. Check where that folder syncs before you export.</p>
         </div>
       </div>
     </div>

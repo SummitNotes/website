@@ -1,10 +1,10 @@
 ---
 import {
-  Heart,
-  Shield,
-  UserCheck,
+  Clock,
   FileText,
-  Lock,
+  Heart,
+  Search,
+  Shield,
 } from "lucide-react";
 ---
 
@@ -13,7 +13,7 @@ import {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1440" />
-    <title>Summit AI Notes for Healthcare Professionals</title>
+    <title>Private meeting notes for healthcare teams</title>
     <style is:global>
       * {
         margin: 0;
@@ -144,58 +144,58 @@ import {
         <div class="icon-circle">
           <Heart />
         </div>
-        <h1>Summit AI Notes for Healthcare</h1>
-        <p class="subtitle">Private meeting notes for care teams, case reviews and practice operations</p>
+        <h1>Private meeting notes for healthcare teams</h1>
+        <p class="subtitle">For care team, case review, research and operations meetings</p>
       </div>
 
       <div class="value-prop">
-        <h2>Meeting Notes, Not a Medical Scribe</h2>
+        <h2>A meeting notes app, not a medical scribe</h2>
         <p>
-          Summit turns recorded meetings into transcripts and summaries on your Mac, without a bot joining the call. It is not a clinical documentation tool and is not certified for any healthcare regulation. Check with your compliance team before recording meetings that include patient information.
+          Summit is built for meetings. It does not connect to an EHR and is not certified for any healthcare regulation. Transcription runs on your Mac; with Local Models, summaries and chat stay there too, and a cloud AI provider is used only if you choose one your organization approves.
         </p>
       </div>
 
-      <h2 class="benefits-title">Why Healthcare Professionals Choose Summit</h2>
+      <h2 class="benefits-title">Why Healthcare Teams Choose Summit</h2>
 
       <div class="benefits-grid">
         <div class="benefit-card">
           <div class="benefit-header">
             <div class="benefit-icon red">
-              <Lock />
-            </div>
-          </div>
-          <h3>You Choose the AI</h3>
-          <p>Transcription runs on your Mac. With Local Models selected, summaries and chat do too. A cloud AI provider, if you choose one, receives transcript excerpts and chat context.</p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-header">
-            <div class="benefit-icon blue">
-              <FileText />
-            </div>
-          </div>
-          <h3>Team Meeting Notes</h3>
-          <p>Keep track of decisions and owners from care team huddles, case reviews, research meetings and operations meetings.</p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-header">
-            <div class="benefit-icon green">
-              <UserCheck />
-            </div>
-          </div>
-          <h3>Start From a Draft</h3>
-          <p>Summit drafts a summary with key points and action items after each recording. Review it before it is shared.</p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-header">
-            <div class="benefit-icon purple">
               <Shield />
             </div>
           </div>
           <h3>No Meeting Bot</h3>
           <p>Summit records from your Mac instead of joining the call, for video calls and in-person meetings alike.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-header">
+            <div class="benefit-icon blue">
+              <Clock />
+            </div>
+          </div>
+          <h3>Start From a Draft</h3>
+          <p>Summit drafts minutes with key points and action items. Review them before they are shared.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-header">
+            <div class="benefit-icon green">
+              <FileText />
+            </div>
+          </div>
+          <h3>Consistent Team Write-Ups</h3>
+          <p>Summary templates shape notes for case reviews, committee minutes and project updates.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-header">
+            <div class="benefit-icon purple">
+              <Search />
+            </div>
+          </div>
+          <h3>Recall With Sources</h3>
+          <p>Search past meetings for decisions or follow-ups, and follow chat citations back to the transcript.</p>
         </div>
       </div>
     </div>
