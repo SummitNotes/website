@@ -1,6 +1,6 @@
 ---
 title: "Why Health Tech Teams Are Afraid of AI Meeting Notes"
-description: "HIPAA fears keep health tech teams from AI meeting tools. On-device processing eliminates cloud exposure and compliance risk."
+description: "HIPAA fears keep health tech teams from AI meeting tools. On-device processing narrows where meeting data goes, but it does not settle compliance on its own."
 author: "Dima"
 publishedDate: 2026-01-28
 image: "/blog-health-tech-ai-fear.jpg"
@@ -17,7 +17,7 @@ tags: ["health-tech", "hipaa", "privacy", "on-device", "compliance"]
 
 She's right to ask. While the rest of the tech world embraces AI-powered meeting tools, health tech remains cautious. And for good reason.
 
-HIPAA violations carry fines up to **$1.5M per incident**. A single recorded conversation containing Protected Health Information (PHI) uploaded to a third-party cloud could trigger a breach notification, an OCR investigation, and a PR disaster.
+HIPAA civil penalties are tiered and can reach **seven figures a year** for violations of a single requirement. A single recorded conversation containing Protected Health Information (PHI) uploaded to a third-party cloud could trigger a breach notification, an OCR investigation, and a PR disaster.
 
 So teams stick to manual notes. Or skip documentation entirely.
 
@@ -61,13 +61,13 @@ Most teams decide it's not worth it. They go back to pen and paper.
 
 On-device processing flips the architecture:
 
-1. **Audio captured locally** → never leaves your Mac
+1. **Audio captured locally** → recordings stay on your Mac
 2. **Transcription runs on your hardware** → using local ML models
-3. **Notes stay in your control** → no cloud uploads, no third-party access
+3. **Summaries run where you choose** → with Local Models selected, on your Mac too; a cloud AI provider, if you pick one, receives transcript excerpts and, for chat, your question with related topics, action items and meeting titles and dates
 
-There's nothing to breach because there's nothing to steal.
+With Local Models selected and iCloud sync off (the default), there is no cloud copy of your meeting library. If you turn sync on, meeting content is stored in your iCloud account as encrypted data, while metadata such as meeting dates and durations is not encrypted. What's left to protect is the Mac itself: Summit does not separately encrypt its local database or recordings, so FileVault and a locked macOS account matter.
 
-No BAA needed. No vendor audit required. No explaining to Legal why meeting audio is sitting in an AWS bucket in Virginia.
+That removes some questions from a compliance review, such as why meeting audio is sitting in an AWS bucket in Virginia, but not all of them. Summit is a meeting notes app, not a medical scribe, and is not certified for HIPAA or any other healthcare regulation. Whether a cloud AI provider needs a BAA, which meetings may be recorded, and whether patient information may come up in them are questions for your compliance team.
 
 **Your notes. Your device. Your data.**
 
@@ -81,13 +81,13 @@ Health tech isn't the only sector with this problem:
 - **Finance** faces SEC and FINRA scrutiny on communication records
 - **Government contractors** have FedRAMP and ITAR concerns
 
-On-device meeting notes aren't just a privacy feature — they're becoming a **compliance requirement**.
+On-device meeting notes aren't just a privacy feature — they're becoming part of how regulated teams **answer compliance questions**.
 
 ---
 
 ## Try It
 
-Summit processes everything on your Mac. No cloud uploads. No meeting bots joining your calls. Just notes that stay where they belong.
+Summit transcribes on your Mac, and with Local Models selected it summarizes there too. No meeting bots joining your calls. Before recording in a healthcare setting, see [what to check first](/use-cases/healthcare).
 
 [Get Summit →](/download?from=blog)
 
