@@ -39,6 +39,15 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-brand: var(--brand);
+  --color-brand-text: var(--brand-text);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-wash: var(--brand-wash);
+  --color-cta: var(--cta);
+  --color-cta-hover: var(--cta-hover);
+  --color-cta-ink: var(--cta-ink);
+  --color-navy: var(--navy);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -78,6 +87,19 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Brand: the logo's blue. Marks (fills, rules, icons) use --brand; it is
+     3.3:1 on white, so text accents use --brand-text (sky-700, 5.9:1). */
+  --brand: #1f98cf;
+  --brand-text: oklch(0.5 0.134 242.749);
+  --brand-strong: oklch(0.443 0.11 240.79);
+  --brand-soft: oklch(0.951 0.026 236.824);
+  --brand-wash: oklch(0.977 0.013 236.62);
+  /* The download button: logo blue with a navy label (white on it fails). */
+  --cta: var(--brand);
+  --cta-hover: #59b9e1;
+  --cta-ink: #0b1220;
+  --navy: #0b1220;
 }
 
 .dark {
@@ -112,6 +134,11 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  --brand-text: #59b9e1;
+  --brand-strong: oklch(0.828 0.111 230.318);
+  --brand-soft: rgb(31 152 207 / 20%);
+  --brand-wash: rgb(31 152 207 / 10%);
 }
 
 @layer base {
