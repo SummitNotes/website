@@ -1,0 +1,96 @@
+---
+/**
+ * The page template for every page of reading: page shell, breadcrumb, one
+ * article card (header, separator, content, optional closing row), then a row
+ * of link cards and the footer. Pass a `sidebar` slot for the docs shell.
+ *
+ * Slots:
+ * - default:     the card's content, usually wrapped in <Prose>
+ * - `meta`:      a row above the h1 (date, author); use instead of `eyebrow`
+ * - `header-end`: under the lead (tags, last updated)
+ * - `before-card`: above the card (a hero image)
+ * - `card-end`:  the closing row inside the card (a CTA), after a separator
+ * - `after-card`: under the card, usually <LinkCard>s; set `afterCols`
+ * - `sidebar`:   the docs nav; widens the page to the docs shell
+ */
+import Layout from "./Layout.astro";
+import { Card } from "../components/ui/card";
+import { Separator } from "../components/ui/separator";
+import Breadcrumb from "../components/article/Breadcrumb.astro";
+import Footer from "../components/Footer";
+import type { Crumb, SchemaNode } from "../lib/schema";
+
+export interface Props {
+  title: string;
+  description: string;
+  /** Trail below Home for the visible breadcrumb and the JSON-LD BreadcrumbList. */
+  breadcrumb: Crumb[];
+  /** Visible trail when it differs from the structured one (e.g. docs categories, which are labels, not pages). */
+  trail?: Crumb[];
+  schema?: SchemaNode | SchemaNode[];
+  /** One line above the h1 naming the audience, e.g. "Summit for Legal Professionals". */
+  eyebrow?: string;
+  heading: string;
+  lead?: string;
+  /** Number of columns for the `after-card` row at md and up. */
+  afterCols?: 2 | 3;
+}
+
+const { title, description, breadcrumb, trail = breadcrumb, schema, eyebrow, heading, lead, afterCols = 2 } =
+  Astro.props;
+
+const hasSidebar = Astro.slots.has("sidebar");
+// A conditional slot still counts as present, so render it to see if it is empty.
+const afterCard = Astro.slots.has("after-card") ? (await Astro.slots.render("after-card")).trim() : "";
+const afterGrid = afterCols === 3 ? "md:grid-cols-3" : "md:grid-cols-2";
+---
+
+<Layout title={title} description={description} breadcrumb={breadcrumb} schema={schema}>
+  <div class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <div class="container mx-auto px-4 py-8">
+      <div class:list={["mx-auto", hasSidebar ? "max-w-7xl" : "max-w-4xl"]}>
+        <Breadcrumb crumbs={trail} />
+
+        <div class:list={[hasSidebar && "grid lg:grid-cols-[280px_minmax(0,1fr)] gap-8"]}>
+          {hasSidebar && (
+            <aside class="lg:sticky lg:top-8 lg:self-start">
+              <slot name="sidebar" />
+            </aside>
+          )}
+
+          <main class:list={[hasSidebar && "min-w-0 max-w-4xl"]}>
+            <article>
+              <slot name="before-card" />
+
+              <Card className="p-8 lg:p-12">
+                <header class="mb-8">
+                  <slot name="meta" />
+                  {eyebrow && <p class="text-sm font-medium text-brand-text mb-4">{eyebrow}</p>}
+                  <h1 class="text-4xl lg:text-5xl font-bold text-foreground mb-6">{heading}</h1>
+                  {lead && <p class="text-xl text-muted-foreground leading-relaxed">{lead}</p>}
+                  <slot name="header-end" />
+                </header>
+
+                <Separator className="mb-8" />
+
+                <slot />
+
+                {Astro.slots.has("card-end") && (
+                  <>
+                    <Separator className="my-10" />
+                    <slot name="card-end" />
+                  </>
+                )}
+              </Card>
+
+              {afterCard && (
+                <div class:list={["mt-8 grid gap-4", afterGrid]} set:html={afterCard} />
+              )}
+            </article>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</Layout>

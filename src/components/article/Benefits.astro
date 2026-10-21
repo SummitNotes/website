@@ -10,7 +10,7 @@ const { benefits } = Astro.props;
   {benefits.map(({ icon: Icon, title, body }) => (
     <div>
       <div class="flex items-center gap-2 mb-2">
-        <Icon className="w-5 h-5 text-purple-600" />
+        <Icon className="w-5 h-5 text-brand" />
         <h3 class="font-semibold text-foreground">{title}</h3>
       </div>
       <p class="text-muted-foreground leading-relaxed">{body}</p>
