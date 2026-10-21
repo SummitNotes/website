@@ -4,11 +4,13 @@ import { Book } from "lucide-react";
 import { getDocsByCategory } from "../../lib/docs";
 
 export interface Props {
-  /** Slug of the current doc, or "release-notes" for the release pages. */
+  /** Slug of the current doc, or "release-notes" on the release notes index. Marked aria-current. */
   current?: string;
+  /** Row to highlight without marking it current, e.g. "release-notes" on a single release page. */
+  section?: string;
 }
 
-const { current } = Astro.props;
+const { current, section = current } = Astro.props;
 const categories = await getDocsByCategory();
 
 const row = "block px-3 py-2 rounded-md text-sm transition-colors";
@@ -19,7 +21,9 @@ const active = `${row} bg-brand-wash text-brand-text font-medium`;
 <Card className="p-6 gap-0">
   <div class="flex items-center gap-2 mb-6">
     <Book className="w-5 h-5 text-brand" />
-    <a href="/docs" class="text-lg font-semibold text-foreground hover:text-brand-text transition-colors">Documentation</a>
+    <h2 class="text-lg font-semibold text-foreground">
+      <a href="/docs" class="hover:text-brand-text transition-colors">Documentation</a>
+    </h2>
   </div>
 
   <nav aria-label="Documentation" class="space-y-6">
@@ -48,7 +52,7 @@ const active = `${row} bg-brand-wash text-brand-text font-medium`;
         <li>
           <a
             href="/docs/release-notes"
-            class={current === "release-notes" ? active : idle}
+            class={section === "release-notes" ? active : idle}
             aria-current={current === "release-notes" ? "page" : undefined}
           >
             All Releases
