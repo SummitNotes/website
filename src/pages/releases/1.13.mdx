@@ -1,0 +1,29 @@
+import ReleaseLayout from '../../layouts/ReleaseLayout.astro';
+
+export const version = "1.13";
+export const date = "2026-10-21";
+export const title = "Summit AI Notes 1.13";
+
+<ReleaseLayout version="1.13" date="2026-10-21">
+
+**New Features**
+- Voice Keyboard: dictate into any app by holding a global shortcut (⌥Space by default) or the floating Summit widget. Release to paste the text at the cursor; a quick tap switches to hands-free mode and Esc cancels. A live preview bubble next to the widget shows your words as you speak, and you can change the widget size in Settings. It is off by default and can be turned on in Settings or from the menu bar.
+- Split Recording: turn one long recording into several notes. Choose "Split Recording…" from the note menu, or "Split Recording Here…" from a transcript block's context menu, then click the lines where each new note should start. Transcript, bookmarks, screenshots, speakers, tags, folder, notes and calendar links go to the right part, each part gets its own summary, and the original moves to Recently Deleted.
+- Search results now show why they matched, with a label such as "Transcript · 18:42", "Notes" or "Semantic match · 3:10". Clicking a result opens the transcript at the matching moment.
+
+**Improvements**
+- Search now understands meaning across languages, so a query can find a meeting even when it uses different words or another language. Summit shows a note in the toolbar while it upgrades your search index.
+- Search now ranks notes that contain every word of your query ahead of notes that match only some of them.
+- Filters in search and advanced search are now applied before results are ranked, so tag, folder, person, date and action item filters no longer drop good matches.
+- Chat with your meetings finds the right passages more reliably and can read long transcripts page by page.
+- Action items you tick on your iPhone now stay ticked on your Mac, and items you tick on your Mac reach iCloud right away.
+- The Reset option for the encryption key, which forgot the key without asking for confirmation, is gone. Use Change Encryption Key instead. The dialog now explains when to use it, and the recovery phrase shown afterwards tells you the previous phrase no longer works.
+
+**Bug Fixes**
+- iCloud sync now starts when Summit launches, instead of staying off until you turned it off and on again.
+- The summary template you pick for a note is now remembered after you quit and relaunch Summit.
+- Short stray bubbles that contained only a period no longer appear in transcripts. They are merged into the preceding bubble or hidden.
+- Searching for terms such as C++, foo-bar, O'Connor or Q3? no longer returns nothing.
+- Chat with cloud AI providers no longer answers "This request exceeds the model's context limit" when it reads long transcripts, including in languages such as Russian.
+
+</ReleaseLayout>
