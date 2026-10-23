@@ -1,100 +1,76 @@
 ---
-title: "Connecting Calendars"
-description: "Connect Google Calendar, Exchange, and other calendar accounts to Summit for automatic meeting detection"
-category: "guides"
-order: 2
+title: "Calendars and Scheduled Recording"
+description: "Connect system calendars, join and record meetings, and choose which events Summit records automatically."
+category: "recording"
+order: 6
+lastUpdated: 2026-10-24
 ---
 
-Summit can automatically detect upcoming meetings from your calendar, making it easy to start recordings at the right time. To access your calendars, Summit uses macOS Internet Accounts—the same system that powers Calendar.app.
+Connect your calendars to see upcoming meetings, use event titles for recordings, and schedule recording. Summit reads calendars available through macOS, including Google and Exchange accounts added to the system.
 
-## How It Works
+## Connect a calendar
 
-Summit reads calendar events through macOS, which means you need to add your calendar accounts to **System Settings → Internet Accounts**. Once added there, Summit can see your upcoming meetings and offer quick-start recording options.
+1. Check that the events appear in Apple's **Calendar** app. If needed, add your account in **System Settings → Internet Accounts** and enable its **Calendars** option.
+2. Open **Summit → Settings → Calendar**.
+3. Connect **System Calendars** and allow calendar access when macOS asks.
+4. Under **Select Calendars**, enable the calendars you want Summit to use.
 
-![Calendar integration in Summit](/guides-calendar.jpg)
+![Calendar settings before connecting system calendars](/docs/screenshots/calendar-settings.webp)
 
-## Adding Calendar Accounts
+Google Workspace and Microsoft Exchange calendars use the same system connection. You do not sign into those accounts separately inside Summit. Account availability depends on your macOS and organization settings.
 
-### Step 1: Open Internet Accounts
+Use **Hide disabled** to shorten the calendar list, or **Show all** to bring disabled calendars back into view. Under **Display**, adjust **Days in week view** and **Week starts on**.
 
-1. Open **System Settings** (click the Apple menu → System Settings)
-2. Click **Internet Accounts** in the sidebar
+## Join and record a meeting
 
-You'll see a list of any accounts you've already connected, plus options to add new ones.
+Open an upcoming event from **Home** or **Calendar** to review its details. For a meeting in progress or starting within ten minutes, the Home meeting row offers **Join & Record** when it has a supported video link, or **Record** when it does not.
 
-![Internet Accounts in System Settings](/guides-calendar-accounts.jpg)
+**Join & Record** opens the meeting link and starts Summit's local recording. Summit does not join as a meeting participant. The recording is linked to the calendar event and uses its title.
 
-### Step 2: Add Your Account
+An event with a recording from that occurrence offers an action to open the note. Only one recording can run at a time; if another meeting is recording, stop it before starting a second one.
 
-Click **Add Account** and select your provider:
+## Prepare for a recurring meeting
 
-![Add Account options](/guides-calendar-accounts-add.jpg)
+Open the event details and look for **Preparation**. When earlier occurrences have linked recordings, **Previously Recorded Events** lets you open those notes. Choose **Summarize in Chat** to start a conversation over the previous recordings and generate a recap before the next meeting.
 
-**Supported account types:**
-- **Google** — Gmail, Google Workspace
-- **Microsoft Exchange** — Outlook, Office 365, corporate Exchange servers
-- **iCloud** — Apple's calendar service
-- **Yahoo** — Yahoo Mail calendars
-- **Other CalDAV accounts** — Any standard CalDAV calendar server
+**Open Action Items** lists unresolved tasks from earlier recordings in the series. Click an item to open its source note, or click its completion circle to mark it as resolved. These sections appear when relevant history is available. See [Chat and Live Queries](/docs/guides/chat) for follow-up questions and scheduled recaps.
 
-### Step 3: Sign In and Enable Calendars
+## Set scheduled recording defaults
 
-For Google accounts:
+In **Settings → Calendar → Recording**, choose **Auto-record**:
 
-1. Click **Google**
-2. Sign in with your Google credentials
-3. Authorize macOS to access your account
-4. Make sure **Calendars** is checked in the account options
+| Mode | Default behavior |
+| --- | --- |
+| **Disabled** | No events are armed by default. Enable individual meetings yourself. |
+| **Video calls only** | Arms eligible events with recognized meeting links. |
+| **All meetings** | Arms eligible calendar events, whether or not they have a meeting link. |
 
-![Google account with Calendars enabled](/guides-calendar-google.jpg)
+Both automatic modes exclude all-day events and events whose titles contain `focus`, `ooo`, `out of office`, `blocked`, `lunch`, or `break`, ignoring capitalization. An event titled “Lunch with the team,” for example, will not be armed by these defaults even if it contains a video link. Start a recording manually if you want to capture it.
 
-For Exchange/Outlook:
+Video-link detection checks an event's URL, location, and notes for Zoom, Google Meet, Microsoft Teams, Webex, GoToMeeting, and FaceTime links.
 
-1. Click **Microsoft Exchange**
-2. Enter your email address
-3. Follow your organization's sign-in process (may include two-factor authentication)
-4. Ensure **Calendars** is enabled
+Enable **Include tentative and unanswered events** if those events should also be eligible. Review your selected calendars and individual overrides before relying on scheduled recording.
 
-For other providers, follow similar steps—the key is making sure the **Calendars** checkbox is enabled after adding the account.
+Keep Summit running and your Mac awake before the meeting starts. Scheduled recording uses the event's start time. Launching Summit after a meeting has already begun does not automatically record the remainder; start that recording manually.
 
-## Verifying the Connection
+The event's scheduled end can produce a reminder to stop recording. It does not by itself stop the audio capture. For call-based automatic stopping, enable **Detect calls automatically** and **Auto-stop when the call ends** in **Settings → Recording**. See [Record and Import Audio](/docs/guides/recording#recording-reminders-and-automatic-stopping).
 
-After adding your account:
+## Control an individual meeting
 
-1. Open **Calendar.app** to verify your events appear
-2. Open **Summit** — your calendar events should now be visible
+- Use **Arm auto-record** or **Disarm auto-record** on an upcoming meeting, or click its **Auto-Recording On/Off** badge in the event details.
+- Set **Recording Folder** in the event details to place its recordings in a specific folder, overriding the folder selected in the sidebar. For a recurring event, this applies to the whole series.
+- Enable **Never Record This Series** for a recurring series you want excluded from scheduled recording and call detection prompts. Arming auto-record again clears that exclusion.
+- Use **Detach Recording** to remove the event's link to a note. The note stays in your library.
 
-If Summit shows your upcoming meetings, you're all set.
+## If events are missing
 
-## Troubleshooting
+1. Confirm the event appears in Apple's Calendar app. If it does not, fix the account connection in **System Settings → Internet Accounts** first.
+2. Check **System Settings → Privacy & Security → Calendars** and allow Summit to access calendars.
+3. In Summit's Calendar settings, connect System Calendars and select the relevant calendar. Use **Show all** if it is hidden.
+4. Check the date you are viewing in Home or Calendar.
 
-### Calendar events not appearing in Summit
+For a recording that did not start, also check its auto-record override, **Never Record This Series**, your remaining note allowance, and whether another recording was already active. See [Troubleshooting](/docs/guides/troubleshooting).
 
-1. **Check Calendar.app first** — If events don't appear in Apple Calendar, they won't appear in Summit
-2. **Verify Calendars is enabled** — Go to System Settings → Internet Accounts → your account, and make sure Calendars is checked
-3. **Refresh the account** — Try disabling and re-enabling Calendars for the account
-4. **Check calendar permissions** — Ensure Summit has permission to access your calendar in System Settings → Privacy & Security → Calendars
+## Calendar data and privacy
 
-### "Grant Calendar Access" prompt
-
-If Summit asks for calendar access:
-1. Go to **System Settings → Privacy & Security → Calendars**
-2. Find Summit in the list
-3. Toggle it **on**
-
-### Exchange account won't connect
-
-Corporate Exchange servers sometimes have specific requirements:
-- Contact your IT department to ensure CalDAV/calendar access is enabled for your account
-- Some organizations require you to use a specific app password or VPN connection
-- Try removing and re-adding the account
-
-### Google calendar sync issues
-
-- Make sure you're signed into the correct Google account
-- Check that the specific calendars you want are visible in Calendar.app (some shared calendars may be hidden by default)
-- Try signing out and back into your Google account in Internet Accounts
-
-## Privacy Note
-
-Summit reads calendar data through macOS system APIs—your calendar credentials are managed by Apple, not Summit. Summit only sees event titles, times, and attendees to help you start recordings at the right moment.
+macOS manages your calendar account credentials. Summit reads the event details macOS makes available, such as titles, times, attendees, locations, descriptions, and meeting links. Calendar access does not itself send those details to Summit's servers. If you use AI features with a cloud provider, review the context those features include and your [provider settings](/docs/setup/cloud-providers).

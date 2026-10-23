@@ -1,0 +1,77 @@
+---
+title: "Your First Meeting"
+description: "Set up audio and models, record a meeting, and review the result."
+category: "setup"
+order: 0
+lastUpdated: 2026-10-24
+---
+
+Summit records audio on your Mac, turns speech into a transcript, and uses an AI model to create a summary. You can review and edit each stage separately.
+
+The Mac app requires an Apple Silicon Mac and macOS 15 or later. Download it from the [download page](/download), then complete onboarding to choose storage, audio access, and models.
+
+## 1. Choose what to record
+
+Open **Settings → Recording** and select your microphone and default recording mode:
+
+- **Microphone Only** for an in-person conversation or a voice note.
+- **Audio Only** for audio played by your Mac.
+- **Microphone + Audio** to capture your voice and the other side of a call.
+
+Allow Microphone access when you use a microphone and System Audio Recording access when you capture Mac audio. Screenshots and screen video have a separate Screen Recording permission; they are optional for audio-only meetings. See [recording and importing](/docs/guides/recording) for permissions and controls.
+
+Tell participants you are recording and follow the rules that apply to the meeting.
+
+## 2. Set up speech recognition
+
+Open **Settings → Speech Models**, choose a speech engine, and download a model if you use Whisper. FluidAudio downloads its model on first use. This model turns audio into words; it is separate from the model that writes summaries.
+
+Check the language support for your chosen engine. If you want words to appear during the call, enable live transcription in **Settings → Recording** or the recording controls. See [transcription](/docs/guides/transcription) for engine selection, live transcription, and correction tools.
+
+## 3. Choose how to generate summaries
+
+Open **Settings → AI Models**:
+
+- Choose a [built-in local model](/docs/setup/local-ai) to process text on your Mac after downloading the model.
+- Configure a [cloud provider](/docs/setup/cloud-providers) if you want to use a remote API. The text needed for the task goes to that provider.
+- Connect an [OpenAI-compatible local server](/docs/setup/lmstudio) if you already manage models outside Summit.
+
+In **Settings → Processing Flow**, decide whether transcription, cleanup, and summary generation should run automatically after recording stops. If you have calls back to back, you can defer processing and run it later.
+
+## 4. Record the meeting
+
+1. Click **Record**. Recording starts immediately using the selected audio mode.
+2. Speak normally and check that the audio meters respond.
+3. Add notes or [bookmarks and screenshots](/docs/guides/screen-capture) as needed.
+4. Click **Stop** when the meeting ends.
+
+If automatic processing is on, Summit queues the transcript and summary. Otherwise, use the note's processing actions when you are ready. You can also [import an existing audio or video file](/docs/guides/recording#import-an-existing-file).
+
+## 5. Review before sharing
+
+Open the note and read the transcript alongside the summary. Correct names, numbers, and decisions; AI output can miss or misstate details. Name speakers and check action items before exporting.
+
+Choose a [summary template](/docs/guides/summary-templates) if you want a format suited to an interview, client call, or another meeting type. Regenerate the summary after changing the template or relevant context.
+
+Then [put the note in a folder](/docs/guides/organization), [find related discussions](/docs/guides/search), or [export it](/docs/guides/export).
+
+## Find the right setting
+
+| What you want to change | Settings page |
+| --- | --- |
+| Appearance and startup page | General |
+| Calendar access and automatic recording | Calendar |
+| Mac and iPhone sync | iCloud Sync |
+| Dictation into other apps | Voice Keyboard |
+| Microphone, audio mode, live transcription, screen video | Recording |
+| Speech engine, language, speech model downloads | Speech Models |
+| Local or remote AI for cleanup, summaries, and chat | AI Models |
+| Automatic processing, cleanup, speaker identification | Processing Flow |
+| Summary instructions | Summary Templates |
+| Automatic Markdown export | Export |
+| Access from an external AI client | MCP Server |
+| Maintenance and repair tools | Labs |
+
+Older releases used **AI Provider**, **Transcription**, **Audio Recording**, and **Processing** for some of these pages. In the current app, look for **AI Models**, **Speech Models**, **Recording**, and **Processing Flow**.
+
+If anything gets stuck, use the [troubleshooting guide](/docs/guides/troubleshooting).

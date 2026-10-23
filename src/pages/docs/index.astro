@@ -2,61 +2,55 @@
 import ArticleLayout from "../../layouts/ArticleLayout.astro";
 import Prose from "../../components/article/Prose.astro";
 import DocsNav from "../../components/article/DocsNav.astro";
+import { getDocsByCategory } from "../../lib/docs";
+
+const categories = await getDocsByCategory();
 ---
 
 <ArticleLayout
   title="Documentation - Summit AI Notes"
-  description="Learn how to use Summit AI Notes for meeting transcription and summarization"
+  description="Record a meeting, review its transcript, find decisions, and connect Summit to your workflow."
   breadcrumb={[{ name: "Documentation" }]}
   heading="Documentation"
-  lead="Everything you need to know about using Summit AI Notes for meeting transcription, summarization, and documentation."
+  lead="Practical guides for recording, reviewing, finding, and sharing your meeting notes."
 >
   <DocsNav slot="sidebar" />
-
   <Prose>
-    <h2>Getting Started</h2>
+    <h2>Start with one meeting</h2>
     <p>
-      New to Summit AI Notes? The first step is choosing how you want to generate AI summaries. You have three options:
+      <a href="/docs/setup/getting-started">Set up Summit and record your first meeting</a>.
+      Choose your audio sources, download a speech model, and decide how to generate summaries.
+      Speech recognition and AI summaries have separate settings.
     </p>
+    <h2>Choose a workflow</h2>
     <ul>
-      <li><strong>Local AI</strong> — Run AI directly on your Mac. Complete privacy, works offline, zero ongoing costs.</li>
-      <li><strong>Cloud AI</strong> — Connect to OpenAI, Anthropic, or Google Gemini for fast, high-quality summaries.</li>
-      <li><strong>Self-Hosted</strong> — Run your own AI server with LM Studio or Ollama for full control.</li>
+      <li><a href="/docs/guides/recording">Record a call or import an existing recording</a>, then <a href="/docs/guides/transcription">review the transcript and identify speakers</a>.</li>
+      <li><a href="/docs/guides/calendar">Prepare for calendar meetings and set recording preferences</a>.</li>
+      <li><a href="/docs/guides/screen-capture">Add screenshots or screen video</a> and <a href="/docs/guides/split-recordings">split a long recording into separate notes</a>.</li>
+      <li><a href="/docs/guides/search">Find a decision or the moment it was discussed</a>, then <a href="/docs/guides/chat">ask questions across your meetings</a>.</li>
+      <li><a href="/docs/guides/export">Export notes to Markdown or another app</a>, or <a href="/docs/guides/icloud-sync">bring iPhone recordings to your Mac with iCloud</a>.</li>
+      <li><a href="/docs/guides/voice-keyboard">Dictate into another app with Voice Keyboard</a>.</li>
     </ul>
+    <h2>Keep processing local</h2>
     <p>
-      <a href="/docs/settings/llm">Read the AI Provider Guide →</a>
+      Use built-in speech recognition and <a href="/docs/setup/local-ai">local AI models</a> for on-device processing after the models download.
+      A remote AI provider receives the text used for its task. iCloud sync, exports, and MCP access are separate choices.
+      <a href="/docs/settings/llm">Compare AI configurations and their data flows</a> before connecting a provider.
     </p>
-
-    <h2>Setup Guides</h2>
+    {categories.map(({ label, docs }) => (
+      <section>
+        <h2>{label}</h2>
+        <ul>
+          {docs.map((doc) => (
+            <li><a href={`/docs/${doc.slug}`}>{doc.data.title}</a> — {doc.data.description}</li>
+          ))}
+        </ul>
+      </section>
+    ))}
+    <h2>Release notes and support</h2>
     <p>
-      Step-by-step instructions to get Summit AI Notes configured for your workflow:
-    </p>
-    <ul>
-      <li><a href="/docs/setup/local-ai">Local AI Setup</a> — Download and configure built-in AI models</li>
-      <li><a href="/docs/setup/cloud-providers">Cloud AI Setup</a> — Connect to OpenAI, Anthropic, or Google Gemini</li>
-      <li><a href="/docs/setup/lmstudio">LM Studio Setup</a> — Run your own AI server for complete control</li>
-    </ul>
-
-    <h2>Customization</h2>
-    <p>
-      Tailor Summit AI Notes to your specific needs:
-    </p>
-    <ul>
-      <li><a href="/docs/guides/summary-templates">Summary Templates</a> — Guide the AI on what to focus on using Attention Templates</li>
-      <li><a href="/docs/general/local-models">Choosing a Local Model</a> — Pick the right model for your Mac's capabilities</li>
-    </ul>
-
-    <h2>Release Notes</h2>
-    <p>
-      Track what's new in each version of Summit AI Notes:
-    </p>
-    <ul>
-      <li><a href="/docs/release-notes">Release Notes</a> — New features, improvements, and bug fixes for every release</li>
-    </ul>
-
-    <h2>Need Help?</h2>
-    <p>
-      Can't find what you're looking for? Check our <a href="/faq">FAQ</a> for common questions, or <a href="/support">contact support</a> for personalized help.
+      See <a href="/docs/release-notes">what changed in each release</a>.
+      If a recording, transcript, or sync gets stuck, start with <a href="/docs/guides/troubleshooting">troubleshooting</a> or <a href="/support">contact support</a>.
     </p>
   </Prose>
 </ArticleLayout>

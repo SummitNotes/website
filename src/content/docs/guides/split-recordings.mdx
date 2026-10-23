@@ -1,0 +1,42 @@
+---
+title: "Split a Recording into Notes"
+description: "Divide a finished recording at transcript lines and create separate notes with their own audio and summaries."
+category: "recording"
+order: 5
+lastUpdated: 2026-10-24
+---
+
+Use **Split Recording…** when one recording contains several meetings or topics that belong in separate notes. Each resulting note has its own transcript, media, and regenerated summary.
+
+## Choose where to split
+
+1. Wait for transcription and processing to finish. The note needs at least two transcript segments.
+2. Right-click the note and choose **Split Recording…**. Alternatively, right-click a transcript block and choose **Split Recording Here…** to preselect that location.
+3. In the sheet, click each transcript line that should start a new note. Click a selected line again to remove that split point.
+4. Review the time ranges beside **Creates … notes**.
+5. Click **Split into … Notes**.
+
+Cuts occur at transcript line starts. You cannot choose the first line as a split point or create a part with no transcript. If overlapping microphone and system-audio speech crosses a cut, adjacent notes may share a short stretch of audio so that complete transcript segments keep their audio.
+
+Summit opens the first resulting note and queues new summaries for the parts. It reuses the existing transcript rather than transcribing every part again.
+
+## What each note keeps
+
+| Content | After splitting |
+| --- | --- |
+| Microphone, system audio, and screen video | Trimmed copies for each part |
+| Transcript, bookmarks, timed screenshots | Assigned to the relevant part, with times starting from that part's beginning |
+| Speaker identities | Included in the parts where those speakers appear |
+| Tags, folder, template, language | Copied to every part |
+| Typed notes and untimed attachments | Kept in the first part |
+| Calendar links | Assigned to the part where the event starts |
+| Summary, insights, action items | Regenerated for each part |
+| Chat sessions and summary history | Stay with the original note |
+
+The parts are independent notes. You can [move or tag them](/docs/guides/organization), [export them](/docs/guides/export), or [sync them through iCloud](/docs/guides/icloud-sync).
+
+## Restore the original
+
+After a successful split, the original moves to **Recently Deleted**. You can restore it there for 30 days, including the chat sessions and summary history that remain attached to it. Restoring the original does not remove the new notes.
+
+Splitting creates additional notes and must fit within your plan's remaining allowance. If Summit reports that the recording's storage folder is unavailable, reconnect it before splitting. A failed media cut or save leaves the original in place.

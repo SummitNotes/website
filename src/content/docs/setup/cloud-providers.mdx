@@ -1,265 +1,78 @@
 ---
-title: "Remote AI Setup (Cloud & Self-Hosted)"
-description: "Configure cloud providers (OpenAI, Anthropic, Gemini) or self-hosted servers (LM Studio, Ollama)"
+title: "Remote AI Setup (Cloud and Self-Hosted)"
+description: "Connect Summit to a cloud API or your own OpenAI-compatible AI server."
 category: "setup"
 order: 2
+lastUpdated: 2026-10-24
 ---
 
-## Overview
+Use **Settings → AI Models → Remote (Cloud or Self-Hosted)** to send text processing requests to a cloud provider or a server you manage. The selected configuration is used for AI transcript cleanup, summaries, and chat. Speech recognition remains a separate choice in **Speech Models**.
 
-Summit AI Notes can connect to remote AI services using the "Remote (Cloud or Self-Hosted)" provider type. This includes both professional cloud services and your own self-hosted AI servers. Your audio recordings always stay on your computer - only the text transcription is sent for summarization.
+For AI that runs directly inside Summit, see [Local AI Setup](/docs/setup/local-ai).
 
-**This guide covers:**
-- **Cloud Providers** - Professional AI services (OpenAI, Anthropic, Google Gemini)
-- **Self-Hosted Servers** - Your own AI server (LM Studio, Ollama, etc.)
+## Get API access
 
-**Supported options:**
-- OpenAI (ChatGPT) - Reliable and high-quality cloud service
-- Anthropic (Claude) - Excellent at long conversations (cloud)
-- Google Gemini - Generous free tier (cloud)
-- Other providers - Any OpenAI-compatible service including:
-  - Self-hosted: LM Studio, Ollama, vLLM
-  - Alternative clouds: Groq, Together AI, Perplexity
+Create an API key with the service you intend to use. Confirm that your account has access to a suitable text model and any required billing or quota.
 
-> **Note:** If you want AI that runs directly inside Summit AI Notes (no external software), see the [Local AI Setup](/docs/setup/local-ai) guide instead.
+| Summit provider | Where to start |
+| --- | --- |
+| **OpenAI** | [OpenAI API keys](https://platform.openai.com/api-keys). API billing is separate from a ChatGPT subscription; see [OpenAI's billing guide](https://help.openai.com/en/articles/9039756-managing-billing-for-chatgpt-and-the-api-platform). |
+| **Anthropic** | Create a key in the Claude Console using the [official API key guide](https://platform.claude.com/docs/en/get-api-key). |
+| **Google AI** | Create or manage a Gemini API key in Google AI Studio using [Google's API key guide](https://ai.google.dev/gemini-api/docs/api-key). |
+| **DeepSeek** | Follow [DeepSeek's API setup guide](https://api-docs.deepseek.com/). |
+| **OpenRouter** | Create a key and choose a model using the [OpenRouter quickstart](https://openrouter.ai/docs/quickstart). |
+| **Other** | Obtain an OpenAI-compatible base URL, model identifier, and any required credentials from your server administrator or provider. |
 
----
+Provider models, limits, prices, and data policies change. Use the provider's current API documentation and account dashboard when selecting a model and setting spending limits.
 
-## Quick Start
+## Configure Summit
 
-### 1. Choose Your Provider
+1. Open **Settings → AI Models**.
+2. Select **Remote (Cloud or Self-Hosted)**.
+3. Choose the **Provider**.
+4. Paste its **API key**. Credentials are stored in macOS Keychain.
+5. If you chose **Other**, enter the **Base URL**.
+6. Click **Refresh Models**, then choose a model available to your account. If the server does not support listing models, enter the exact model identifier manually.
+7. Try a short, non-sensitive recording with **Reprocess Summary**, or send a question in Chat.
 
-| Provider      | Best For           | Cost                   | Setup Time |
-|---------------|--------------------|------------------------|------------|
-| Google Gemini | Free tier users    | Free (60 meetings/min) | 2 minutes  |
-| OpenAI        | Reliability        | ~$0.01-0.10/meeting    | 5 minutes  |
-| Anthropic     | Long meetings      | ~$0.01-0.08/meeting    | 5 minutes  |
-| Other         | Self-hosted/custom | Varies                 | Varies     |
+![Remote AI provider configuration](/docs/screenshots/ai-models.webp)
 
-### 2. Get Your API Key
+A successful model refresh confirms that discovery worked. It does not guarantee that every listed model supports Summit's requests or that your account can generate with it. Test the actual summary or chat workflow as well.
 
-#### OpenAI
+Settings take effect as you change them. Existing summaries stay as they are; use **Reprocess Summary** to generate them again with the new configuration.
 
-1. Sign up at https://platform.openai.com
-2. Add a payment method
-3. Go to https://platform.openai.com/api-keys and create a new key
+## Connect your own server
 
-#### Anthropic
+Choose **Other** for an OpenAI-compatible server or company gateway. Enter its API base URL, rather than its web chat address or a full chat-completions endpoint.
 
-1. Sign up at https://console.anthropic.com
-2. Add credits (minimum $5)
-3. Go to https://console.anthropic.com/settings/keys and create a new key
+For example, [LM Studio](/docs/setup/lmstudio) on the same Mac commonly uses `http://localhost:1234/v1`. A server on another computer needs that computer's reachable address instead of `localhost`.
 
-#### Google Gemini
+Leave the API key blank only if the server permits unauthenticated requests. If it requires a token, enter that token in Summit. Keep the server running while Summit processes. Compatibility varies between servers and models, so test cleanup, summaries, and chat features you plan to use.
 
-1. Visit https://aistudio.google.com/app/apikey
-2. Click "Create API key"
-3. No payment method required for free tier
+## Set the chat context limit
 
-### 3. Configure Summit AI Notes
+Expand **Chat context limit** in the remote settings. `0` uses Summit's conservative automatic limit. An explicit value should fit the context window supported by the selected model and endpoint.
 
-1. Open Settings → LLM tab
-2. Select "Remote (Cloud or Self-Hosted)"
-3. Choose your provider from the dropdown
-4. Paste your API key
-5. Click "Refresh Models" to load available models
-6. Select your preferred model
+Increasing this value may increase usage. It cannot extend the server's actual context window. If chat reports that the request is too large, narrow its scope or start a new conversation before raising the limit.
 
-That's it! Your next recording will use the cloud provider for summaries.
+## Understand what is sent
 
-![AI Provider Remote Settings](/ai-provider-remote.jpg)
+Remote AI receives text needed for the operation. This can include transcript passages, speaker or participant names, meeting titles, template instructions, folder context, your questions, and relevant chat history. The AI requests do not upload the recorded audio files.
 
----
+Review the provider's data-use, logging, and retention settings, including any downstream providers behind a gateway. A server on your own network still receives this text and may keep logs.
 
-## Choosing a Model
-
-After clicking "Refresh Models", you'll see a list of available models. Here's what to pick:
-
-### OpenAI Models
-
-- **gpt-4o** - Best balance of speed and quality (recommended)
-- **gpt-4-turbo** - Best quality for complex meetings
-- **gpt-3.5-turbo** - Fastest and cheapest
-
-### Anthropic Models
-
-- **claude-sonnet-4** - Great all-around choice (recommended)
-- **claude-opus-4** - Best quality, especially for long meetings
-- **claude-haiku-4** - Fastest and cheapest
-
-### Google Gemini Models
-
-- **gemini-1.5-pro** - Best quality (recommended)
-- **gemini-1.5-flash** - Faster and cheaper
-- **gemini-2.0-flash-exp** - Latest experimental version
-
-Not sure? Stick with the recommended model - you can change it anytime.
-
----
-
-## Self-Hosted & Alternative Providers
-
-### Using Other Providers
-
-Summit AI Notes works with any service that uses OpenAI's API format. This includes:
-
-**Self-hosted solutions (runs on your Mac/server):**
-- LM Studio - Easy GUI, good for beginners
-- Ollama - Command line, very efficient
-- vLLM - Advanced, maximum performance
-
-**Alternative cloud providers:**
-- Groq - Very fast inference
-- Together AI - Good pricing
-- Perplexity - Search-augmented responses
-- Corporate AI gateways - Your organization's AI service
-
-### Setup for Other Providers
-
-1. In Settings → LLM, select "Other" from the provider dropdown
-2. Enter your Base URL (examples below)
-3. Enter your API key (if required)
-4. Try clicking "Refresh Models" - it might auto-detect available models
-5. If that doesn't work, manually type your model name
-
-**Common Base URLs:**
-- Ollama: `http://localhost:11434/v1`
-- LM Studio: `http://localhost:1234/v1`
-- Groq: `https://api.groq.com/openai/v1`
-- Together AI: `https://api.together.xyz/v1`
-
-**Finding your model name:** Try searching Google for:
-- "[Your provider name] OpenAI compatible models"
-- "[Your provider name] available models list"
-
----
+This setting does not control [iCloud sync](/docs/guides/icloud-sync), [exports](/docs/guides/export), or data made available through the [MCP server](/docs/guides/mcp-server).
 
 ## Troubleshooting
 
-### "API key is required"
+| Symptom | Next step |
+| --- | --- |
+| **API key is required** | Enter a key for the selected named provider. A key for another provider will not work. |
+| Models cannot be fetched | Check the key and base URL. If the endpoint does not support discovery, enter the documented model identifier manually. |
+| Authentication or permission error | Check key validity, workspace or organization access, model access, billing, and the provider's error details. |
+| Model or endpoint not found | Refresh the list or check the exact model identifier. For Other, confirm the API base URL. |
+| Rate or quota limit | Check the provider's usage dashboard and limits before retrying. |
+| Connection refused or timed out | Confirm the server is running and reachable from this Mac. For a local server, check the host and port. |
+| Model refresh works but generation fails | Test another supported text model and inspect the error. Model listing and generation can have different access requirements. |
 
-**Problem:** You haven't entered an API key
-**Solution:** Paste your API key in the settings field. Make sure there are no extra spaces.
-
-### "Failed to fetch models"
-
-**Problem:** The provider doesn't support automatic model detection (common with self-hosted servers)
-**Solution:** This is normal. Just type your model name directly in the text field instead of using the dropdown.
-
-### "Base URL is required for custom provider"
-
-**Problem:** You selected "Other" but didn't enter a server address
-**Solution:** Enter your server's URL. It usually ends with /v1 (e.g., `http://localhost:11434/v1`)
-
-### Summaries aren't generating
-
-Possible causes:
-- **No credits:** Check your provider's dashboard to make sure you have available credits/quota
-- **Invalid model name:** Double-check the model name spelling matches your provider's documentation
-- **Rate limits:** You might have hit your provider's usage limits - wait a few minutes and try again
-
-### Error when trying to connect
-
-If you see an error code:
-- **401 - Unauthorized:** Your API key is incorrect or expired
-- **403 - Forbidden:** You don't have access (usually means insufficient credits)
-- **404 - Not Found:** The model name is wrong or doesn't exist
-- **429 - Too Many Requests:** You've hit rate limits - wait a bit or upgrade your plan
-- **500 - Server Error:** The provider is having issues - try again in a few minutes
-
----
-
-## Managing Costs
-
-### Monitor Your Usage
-
-Check your spending regularly:
-- OpenAI: https://platform.openai.com/usage
-- Anthropic: https://console.anthropic.com/settings/usage
-- Google: https://console.cloud.google.com
-
-### Save Money
-
-1. Use cheaper models for routine meetings (gpt-3.5-turbo, claude-haiku, gemini-flash)
-2. Use premium models only for important meetings (gpt-4, claude-opus)
-3. Set spending limits in your provider's dashboard
-4. Switch to local models for zero cost (see Local Models documentation)
-
-### Typical Costs
-
-These are rough estimates for a 30-minute meeting:
-- Budget models: $0.002-0.01 per meeting
-- Standard models: $0.01-0.05 per meeting
-- Premium models: $0.05-0.15 per meeting
-
----
-
-## Privacy & Security
-
-### What Gets Sent to the Cloud?
-
-- ✅ **Sent:** Text transcription (to generate summary)
-- ❌ **Never sent:** Audio recordings (transcription happens locally on your Mac)
-
-### Your Data
-
-- The summary is generated by the cloud provider and sent back to your Mac
-- Everything is stored locally in your Summit AI Notes database
-- Different providers have different data retention policies - check their privacy policies
-
-### Keeping Your API Key Safe
-
-- API keys are stored in your Mac's secure Keychain
-- Never share your API key with others
-- Rotate your keys every few months
-- If you think your key was exposed, delete it and create a new one immediately
-
----
-
-## Switching Providers
-
-Want to try a different provider? You can switch anytime:
-
-1. Go to Settings → LLM
-2. Select a different provider
-3. Enter the new API key
-4. Choose a model
-
-Your existing summaries won't change - only new recordings will use the new provider.
-
----
-
-## Understanding the Options
-
-### Remote vs. Local AI
-
-**Remote AI (this guide)** includes both cloud and self-hosted:
-- **Cloud providers:** Fast, high quality, costs money, requires internet, text sent to provider
-- **Self-hosted:** Private, requires setup, free after initial setup, text stays local
-- Both use the "Remote (Cloud or Self-Hosted)" setting in Summit
-
-**Local AI** (different guide):
-- AI runs directly inside Summit AI Notes
-- No external software needed
-- Completely private, works offline, free
-- Slower but no setup complexity
-- See [Local AI Setup](/docs/setup/local-ai) for this option
-
-### Which Cloud Provider Should I Use?
-
-Try Google Gemini first if you want to test things out for free.
-
-Switch to OpenAI or Anthropic if you need:
-- Consistently higher quality summaries
-- Better handling of complex/technical discussions
-- More reliable service
-
-There's no wrong choice - you can always switch providers with a few clicks.
-
----
-
-## Getting Help
-
-- Can't connect? Double-check your API key and make sure you have available credits
-- Bad summaries? Try a different model or switch providers
-- Still stuck? Visit https://summitnotes.app/docs or reach out for support
+Avoid retrying repeatedly after a billing or permission error. Fix the account or endpoint configuration first. For local alternatives, see [Local AI Setup](/docs/setup/local-ai).

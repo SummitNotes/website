@@ -18,47 +18,61 @@ const idle = `${row} text-muted-foreground hover:text-foreground hover:bg-muted/
 const active = `${row} bg-brand-wash text-brand-text font-medium`;
 ---
 
-<Card className="p-6 gap-0">
-  <div class="flex items-center gap-2 mb-6">
-    <Book className="w-5 h-5 text-brand" />
-    <h2 class="text-lg font-semibold text-foreground">
-      <a href="/docs" class="hover:text-brand-text transition-colors">Documentation</a>
-    </h2>
-  </div>
+{[false, true].map((desktop) => (
+  <Card className={`p-6 gap-0 ${desktop ? "hidden lg:block" : "mb-6 lg:hidden"}`}>
+    <details open={desktop}>
+      <summary class="cursor-pointer font-semibold text-foreground">Browse documentation</summary>
+      <div class="mt-6">
+        <div class="flex items-center gap-2 mb-6">
+          <Book className="w-5 h-5 text-brand" />
+          <h2 class="text-lg font-semibold text-foreground">
+            <a href="/docs" class="hover:text-brand-text transition-colors">Documentation</a>
+          </h2>
+        </div>
 
-  <nav aria-label="Documentation" class="space-y-6">
-    {categories.map(({ label, docs }) => (
-      <div>
-        <h3 class="text-sm font-semibold text-foreground mb-2 uppercase tracking-wide">{label}</h3>
-        <ul class="space-y-1">
-          {docs.map((doc) => (
-            <li>
-              <a
-                href={`/docs/${doc.slug}`}
-                class={doc.slug === current ? active : idle}
-                aria-current={doc.slug === current ? "page" : undefined}
-              >
-                {doc.data.title}
-              </a>
-            </li>
+        <nav aria-label="Documentation" class="space-y-6">
+          {categories.map(({ label, docs }) => (
+            <div>
+              <h3 class="text-sm font-semibold text-foreground mb-2 uppercase tracking-wide">{label}</h3>
+              <ul class="space-y-1">
+                {docs.map((doc) => (
+                  <li>
+                    <a
+                      href={`/docs/${doc.slug}`}
+                      class={doc.slug === current ? active : idle}
+                      aria-current={doc.slug === current ? "page" : undefined}
+                    >
+                      {doc.data.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
-      </div>
-    ))}
 
-    <div>
-      <h3 class="text-sm font-semibold text-foreground mb-2 uppercase tracking-wide">Release Notes</h3>
-      <ul class="space-y-1">
-        <li>
-          <a
-            href="/docs/release-notes"
-            class={section === "release-notes" ? active : idle}
-            aria-current={current === "release-notes" ? "page" : undefined}
-          >
-            All Releases
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</Card>
+          <div>
+            <h3 class="text-sm font-semibold text-foreground mb-2 uppercase tracking-wide">Release Notes</h3>
+            <ul class="space-y-1">
+              <li>
+                <a
+                  href="/docs/release-notes"
+                  class={section === "release-notes" ? active : idle}
+                  aria-current={current === "release-notes" ? "page" : undefined}
+                >
+                  All Releases
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </details>
+  </Card>
+))}
+
+<style>
+  @media (min-width: 1024px) {
+    summary { display: none; }
+    details > div { margin-top: 0; }
+  }
+</style>

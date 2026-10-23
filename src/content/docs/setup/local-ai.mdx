@@ -1,229 +1,77 @@
 ---
 title: "Local AI Setup"
-description: "Use built-in AI models that run directly in Summit AI Notes"
+description: "Download a built-in model and use it for transcript cleanup, summaries, and chat."
 category: "setup"
 order: 1
+lastUpdated: 2026-10-24
 ---
 
-Summit AI Notes has built-in AI capabilities that run directly on your Mac - no cloud services, no separate servers, no third-party software required. Just install, select a model, and start generating summaries.
+Summit can run a language model directly inside the app. You do not need a separate AI server or provider API key. Download the required models while online, then use local text processing offline.
 
-## Overview
+The Mac app requires Apple Silicon and macOS 15 or later. Choose a model that fits your available memory; model downloads can take several gigabytes. Speech recognition uses a separate model in **Settings → Speech Models**.
 
-**Local AI means:**
-- ✅ AI runs directly inside Summit AI Notes
-- ✅ No external software needed (no LM Studio, Ollama, etc.)
-- ✅ No internet connection required
-- ✅ 100% private - nothing leaves your Mac
-- ✅ Zero ongoing costs
+## Download and select a model
 
-**Requirements:**
-- Mac with Apple Silicon (M1 or newer recommended)
-- At least 8GB RAM (16GB+ recommended for better performance)
-- 2-8GB free disk space (depending on model size)
+1. Open **Summit AI Notes → Settings → AI Models**.
+2. Select **Local (on this machine)**.
+3. Open a memory category. **Your Mac** marks Summit's starting category for your Mac.
+4. Compare the displayed size and memory estimate. If a family offers quality choices, select the version you want.
+5. Click **Download** and wait for it to finish.
+6. Click **Use Model**. Confirm that it shows **Active**.
 
----
+![Local AI model catalog and download controls](/docs/screenshots/local-models.webp)
 
-## Quick Start
+For selection guidance, see [Choosing a Local Model](/docs/general/local-models). The catalog changes as Summit adds models, so use the choices shown in your installed version rather than an old model list.
 
-### 1. Open AI Provider Settings
+## Generate a first summary
 
-1. Launch Summit AI Notes
-2. Go to Settings → AI Provider tab
-3. Select **"Local (on this machine)"**
+1. Open a recording with a completed transcript. Check names and obvious transcription errors first.
+2. Choose a [summary template](/docs/guides/summary-templates), or leave the default.
+3. Use **Reprocess Summary** from the recording's processing actions.
+4. Review the generated insights and action items against the transcript.
 
-Summit will show you system information and recommend models based on your Mac's capabilities.
+To generate summaries automatically, enable **Settings → Processing Flow → Auto-generate summaries after transcription**. Enable **Generate call summary** there if you also want a formatted summary added to Notes.
 
-![Local AI Provider Settings](/ai-provider-local-1.jpg)
+## Decide when your Mac should process
 
-You'll see three model categories:
-- **Ultra Fast** - Fastest inference, lower quality (good for quick meetings)
-- **Balanced** - Good balance of speed and quality (recommended for most users)
-- **High Quality** - Best quality, slower inference (for important meetings)
+![Processing Flow settings](/docs/screenshots/processing-flow.webp)
 
----
+Local AI competes with other work for memory and compute. For back-to-back calls, **Processing Flow → Smart processing delay** can delay transcription and summarization when a calendar meeting starts within 15 minutes, then resume when your schedule clears.
 
-## Managing Models
+To control processing yourself:
 
-### Viewing and Selecting Models
+1. Turn off **Auto-generate transcription** if you want to record first and transcribe later.
+2. Turn off **Auto-generate summaries after transcription** if you want to review transcripts before summarizing.
+3. Use the recording's processing actions when ready. Select multiple recordings to use the bulk reprocessing actions.
 
-Once you've chosen a model category, Summit shows you all available models in that category.
+Also check **Pause before summarizing when new speakers are found** and **Skip summarization on low battery** if a recording has finished transcribing but has no automatic summary yet.
 
-![Available Models](/ai-provider-local-2.jpg)
+## Optional transcript cleanup
 
-Each model shows:
-- **Name and version** - The model identifier
-- **Size** - Download size (e.g., 2.5GB)
-- **RAM needed** - Memory required to run (e.g., ~3.2GB RAM)
-- **Speed** - Inference speed in tokens per second (e.g., ~20 tok/s)
-- **License** - Model license type (e.g., Apache 2.0)
-- **Status** - Active (green border), Available (Use Model button), or Deprecated
+In **Processing Flow**, **Automatically cleanup transcription after completion** removes filler words and false starts using your selected AI configuration. It can also mark irrelevant segments. Original text is preserved and can be restored from an individual segment's context menu. Segments you have edited manually are skipped.
 
-The active model has a green border and "Active" badge. Click "Use Model" to switch to a different downloaded model, or download a new one if needed.
+Review cleanup before relying on exact quotes, names, or numbers. Leave it disabled if you prefer the original speech recognition output.
 
-For detailed guidance on which model to choose, see [Choosing a Local Model](/docs/general/local-models).
+## Manage memory and storage
 
-### Downloading Multiple Models
+Under **AI Models → Model Configuration**:
 
-You can keep multiple models and switch between them to experiment with different quality/speed tradeoffs.
+- Keep **Check memory before loading a model** enabled. A smaller model is the first thing to try when loading fails or your Mac becomes unresponsive.
+- Leave **Context Length** at its starting value unless a workflow needs more context. Increasing it uses more memory; the slider is capped for the model and Mac.
+- Use **Models Folder → Choose…** in the llama.cpp configuration to select a folder on another drive. It holds GGUF models and experimental MLX snapshots in an `MLX` subfolder. This points Summit to that folder; it does not move existing downloads there. Keep the drive connected during processing.
 
----
+Delete unused downloaded models from the catalog to free space. Existing recordings and summaries remain available.
 
-## Troubleshooting
+Some builds expose an experimental **Engine** picker for MLX. It requires Apple Silicon and uses different model files; downloading a GGUF model does not install its MLX equivalent.
 
-### "Download Failed"
+## If something fails
 
-**Causes:**
-- Unstable internet connection
-- Insufficient disk space
-- Corrupted download
+| Symptom | What to check |
+| --- | --- |
+| Download fails | Confirm network access and free disk space, then use **Retry**. Check that a custom models drive is connected. |
+| Model cannot load | Choose a smaller model, close other memory-intensive apps, and retry. |
+| Processing is slow | Try a smaller model or lower available quality level, and process when other heavy work has finished. |
+| No automatic summary | Check Processing Flow, speaker-name prompts, calendar delay, battery limits, and whether the transcript contains speech. |
+| Output is incomplete or inaccurate | Check the transcript and template first, then compare another model on the same recording. |
 
-**Solutions:**
-1. Check your internet connection
-2. Free up at least 10GB of disk space
-3. Try downloading again
-4. Try a smaller model first
-
-### "Summary Generation Failed"
-
-**Causes:**
-- Insufficient RAM
-- Model files corrupted
-- Transcription too long for model
-
-**Solutions:**
-1. Close other memory-intensive apps
-2. Delete and re-download the model
-3. Try a smaller model
-4. Split very long meetings into parts
-
-### "Slow Summary Generation"
-
-**Causes:**
-- Mac is busy with other tasks
-- Model too large for your RAM
-- Very long transcription
-
-**Solutions:**
-1. Close other apps while generating summary
-2. Use a smaller model
-3. Ensure your Mac isn't running background tasks
-4. For very long meetings (2+ hours), consider cloud AI
-
-### "Model Not Found"
-
-**Causes:**
-- Model was deleted
-- Download didn't complete
-- Storage location changed
-
-**Solutions:**
-1. Re-download the model from settings
-2. Check if you have sufficient disk space
-3. Restart Summit AI Notes
-
----
-
-## Advanced Tips
-
-### Model Configuration
-
-Summit provides advanced configuration options to tune model performance and output quality.
-
-![Model Configuration Options](/ai-provider-local-3.jpg)
-
-**Available settings:**
-
-- **Context Length** (4,096 tokens default) - Maximum context window size. Higher values use more memory but allow processing longer transcriptions.
-
-- **Max Response Tokens** (1,024 default) - Maximum length of generated summary. Increase for very detailed summaries.
-
-- **Batch Size** (1,024 default) - Processing batch size. Higher values may improve speed but use more memory.
-
-**Note:** For most users, the default settings work well. Only adjust these if you understand their impact or are troubleshooting specific issues. You can always click "Reset to Defaults" to restore recommended settings.
-
-### Optimizing Performance
-
-1. **Close Background Apps** - Free up RAM before generating summaries
-2. **Use Appropriate Model** - Bigger isn't always better; match model to your hardware
-3. **Keep macOS Updated** - Apple Silicon optimizations improve with each update
-4. **Enable Low Power Mode Off** - Ensures maximum performance during processing
-5. **Adjust Context Length** - Lower it if running out of memory, increase it for longer meetings
-
-### Model Selection Strategy
-
-**For Daily Use:**
-- Pick one medium-sized model (7B) for your typical meetings
-- Keep it downloaded
-
-**For Sensitive Meetings:**
-- Use local AI exclusively
-- Accept slightly longer processing time for privacy
-
-**For Very Long Meetings:**
-- Consider splitting into segments
-- Or temporarily use cloud AI with budget model
-
-### Batch Processing for Limited RAM
-
-If your Mac has limited RAM (8-16GB) and you have back-to-back meetings, real-time processing can slow things down. The solution: disable automatic processing and batch everything later.
-
-![Audio Recording settings with processing flow options](/screenshot-audio-recording.jpg)
-
-**To set up batch processing:**
-
-1. Go to Settings → Audio Recording
-2. Turn **off** "Auto-generate transcription"
-3. Turn **off** "Auto-generate summaries after transcription"
-
-Now Summit will record your meetings without processing them immediately. At the end of your day (or when you have a break):
-
-1. Open Summit AI Notes
-2. Select the recordings you want to process
-3. Click "Generate Summary" to process them one by one
-4. Or let them process overnight
-
-This approach is ideal for:
-- Macs with 8GB RAM running back-to-back calls
-- Days with many short meetings
-- When you need your Mac responsive during calls
-
----
-
-## Frequently Asked Questions
-
-### Can I use Local AI on Intel Macs?
-
-Summit AI Notes requires Apple Silicon (M1 or newer) for Local AI. Intel Macs should use Cloud or Self-hosted options.
-
-### How much does it cost?
-
-Local AI is completely free. There are no API fees, subscription costs, or per-use charges.
-
-### Can I customize the models?
-
-Currently, you can choose from pre-selected models optimized for Summit. Custom model loading may be added in future updates.
-
-### Do models get updated automatically?
-
-No. Models stay on your Mac until you delete them. New models are released periodically and you can download them from settings.
-
-### What if I run out of disk space?
-
-Delete models you don't use. You can always re-download them later. Your summaries are not affected by deleting models.
-
----
-
-## Next Steps
-
-**Just getting started?**
-1. Download a model that matches your Mac's specs
-2. Record a test meeting
-3. Generate a summary and evaluate quality
-
-**Want even better quality?**
-- [Set up Cloud AI](/docs/setup/cloud-providers) for important meetings
-- Use Local AI for day-to-day, Cloud for critical meetings
-
-**Need help?**
-- Visit https://summitnotes.app/docs
-- Contact support if you encounter issues
+Local AI controls where text processing happens. Review [iCloud sync](/docs/guides/icloud-sync), [export](/docs/guides/export), and [MCP access](/docs/guides/mcp-server) separately if your goal is to keep a library on this Mac.
