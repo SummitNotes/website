@@ -1,99 +1,55 @@
 ---
 title: "Choosing a Local Model"
-description: "How to pick the right local AI model for your needs in Summit AI Notes"
-category: "general"
-order: 1
+description: "Choose a built-in AI model that fits your Mac and the work you want it to do."
+category: "settings"
+order: 2
+lastUpdated: 2026-10-24
 ---
 
-Summit AI Notes lets you run AI models directly on your Mac. This guide helps you understand the options and choose the right model for your workflow.
+Choose a local model in **Settings → AI Models → Local (on this machine)**. The model processes text for transcript cleanup, summaries, and chat inside Summit. Speech recognition has its own model selection in **Speech Models**.
 
-## How Model Selection Works
+![Local AI model catalog grouped by Mac memory](/docs/screenshots/local-models.webp)
 
-When you open Settings → AI Provider and select **Local**, you'll see a list of available models. Each model shows:
+## Start with the model catalog
 
-- **Quality levels** (Base, Med, High) - Choose based on your Mac's capabilities
-- **Size** - How much disk space the model needs
-- **RAM** - Memory required to run the model
-- **Speed** - How fast the model generates summaries (tokens per second)
-- **License** - The model's usage terms
+The catalog groups models by memory categories, with **Your Mac** marking your Mac's category. Use that category as a starting point, then check the model's download size and memory estimate. The estimate is guidance: other open apps and the size of the model's context also affect whether it fits.
 
-![Local model selection in Summit AI Notes](/screenshot-local-models.png)
+Download a model, then click **Use Model**. **Active** identifies the selected model. You can keep several models downloaded and switch between them without changing existing summaries.
 
-## Choosing a Quality Level
+A useful comparison is to summarize the same representative recording with two models. Check whether each preserves names, decisions, numbers, and uncertainty. Choose based on that result and how responsive your Mac remains.
 
-Each model offers up to three quality levels:
+## Understand Base, Med, and High
 
-| Level | What It Means | Best For |
-|-------|---------------|----------|
-| **Base** | Smaller file, faster speed, uses less RAM | Macs with 8GB RAM, quick daily summaries |
-| **Med** | Balanced size and quality | Most users, good everyday choice |
-| **High** | Largest file, best quality, needs more RAM | Macs with 16GB+ RAM, important meetings |
+Some model families offer several quality levels. Each is a separate download of the same model at a different compression level, also called quantization.
 
-**Start with Med** - it works well for most users. If summaries feel slow or your Mac struggles, try Base. If you have a powerful Mac and want the best quality, try High.
+| Level | What changes |
+| --- | --- |
+| **Base** | The smallest available version of that family, using Q4 quantization. |
+| **Med** | A larger Q5 version, where available. |
+| **High** | A larger Q6 or Q8 version, where available. |
 
-## Choosing a Model
+A higher level uses more disk space and usually more memory. It can preserve more of the model's original accuracy, but it does not guarantee a better summary for every transcript. Model family, transcript quality, language, and template instructions also matter. Compare sizes within a family rather than assuming every Base model is small.
 
-Different models have different strengths. Here's what we offer:
+The catalog's speed figures are estimates, not a promise for your Mac or meeting.
 
-### Granite 4.0 Micro
-- **Good for**: Fast summaries, lower-end hardware
-- **Languages**: Excellent multilingual support (10+ languages)
-- **RAM needed**: ~3.5GB
+## Leave room for context
 
-### Ministral 3 (8B and 14B)
-- **Good for**: High-quality multilingual summaries
-- **Languages**: Strong multilingual capabilities
-- **8B version**: Good balance of speed and quality
-- **14B version**: Better quality, needs more RAM (~10-16GB)
+**Model Configuration → Context Length** controls how much text the local model can handle in one request. Context includes instructions and conversation history as well as transcript text. Increasing it consumes more memory; it does not make a model more accurate by itself.
 
-### Openai Gpt Oss 20B
-- **Good for**: Best quality summaries
-- **Needs**: 32GB RAM recommended, 24GB minimum
-- **Note**: Slower but produces excellent results
+Summit limits the slider according to the selected model and your Mac. Keep **Check memory before loading a model** enabled. If a model cannot load, choose a smaller one or close other memory-intensive apps before retrying.
 
-### Qwen3 8B
-- **Good for**: Reliable everyday use
-- **Languages**: Excellent for English and Chinese
-- **RAM needed**: ~8GB
+For long recordings, Summit processes summaries in chunks. You do not need a context window as large as the entire transcript to generate a summary.
 
-## Quick Recommendations
+## Disk space and downloads
 
-**Mac with 8GB RAM:**
-- Granite 4.0 Micro (Base) or Ministral 3 8B (Base)
+The model list shows download progress and lets you cancel or retry. Delete unused downloaded models to recover space. Deleting a model does not delete your recordings or existing summaries, but you will need an available model for future AI processing.
 
-**Mac with 16GB RAM:**
-- Ministral 3 8B (Med or High) or Ministral 3 14B (Base)
+A downloaded deprecated model may remain visible so you can continue using it. Read the deletion warning before removing it: it may no longer be offered for download afterward.
 
-**Mac with 32GB+ RAM:**
-- Openai Gpt Oss 20B (High) or Ministral 3 14B (High)
+To use another drive for built-in models, open **Model Configuration → Models Folder → Choose…** in the llama.cpp configuration. GGUF files live in the selected folder; experimental MLX snapshots use its `MLX` subfolder. Selecting the folder grants Summit access to it and changes where both engines look for models; it does not move existing downloads. Keep that drive connected when using those models.
 
-## What About Quality Levels? (Technical Details)
+## Separate AI processing from other data flows
 
-Behind the scenes, Base/Med/High correspond to different "quantization" levels - a technical term for how the model is compressed to fit on your device.
+Once its required models are downloaded, local text processing can run offline. Selecting Local controls Summit's AI requests; it does not disable [iCloud sync](/docs/guides/icloud-sync), exports, or access you grant through the [MCP server](/docs/guides/mcp-server).
 
-Think of it like image quality settings:
-- **High** = Full resolution photo (best quality, largest file)
-- **Med** = Compressed photo (still looks great, smaller file)
-- **Base** = Thumbnail (good enough for most uses, smallest file)
-
-The model itself stays the same - quantization just affects how much detail is preserved in the compression. Higher quality levels produce slightly better summaries but need more RAM and storage.
-
-You don't need to worry about the technical details. Just pick a quality level that matches your Mac's capabilities, and Summit handles the rest.
-
-## Tips for Best Results
-
-1. **Check the RAM indicator** - Make sure your Mac has enough memory for your chosen model
-2. **Try different models** - Each model has a slightly different "style" of summarizing
-3. **Match quality to importance** - Use Base for quick daily meetings, High for important ones
-4. **Close other apps** - Free up RAM when generating summaries for better performance
-5. **Batch process if needed** - If you have limited RAM and back-to-back meetings, disable auto-processing and summarize everything at once later. See [Batch Processing for Limited RAM](/docs/setup/local-ai#batch-processing-for-limited-ram).
-
-## Switching Models
-
-You can keep multiple models downloaded and switch between them:
-
-1. Go to Settings → AI Provider → Local
-2. Click **Use Model** on any downloaded model
-3. The active model shows a green "Active" badge
-
-This lets you experiment to find what works best for your meetings.
+For setup steps, see [Local AI Setup](/docs/setup/local-ai). To choose between built-in, cloud, and self-hosted processing, see [AI Models settings](/docs/settings/llm).

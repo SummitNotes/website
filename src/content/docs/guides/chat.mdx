@@ -1,249 +1,87 @@
 ---
-title: "Chat Features"
-description: "Ask questions, search across recordings, and get AI-powered insights from your meetings"
-category: "guides"
-order: 2
+title: "Chat and Live Queries"
+description: "Ask questions about recordings, verify answers with sources, and schedule recurring recaps."
+category: "library"
+order: 3
+lastUpdated: 2026-10-24
 ---
 
-Summit AI Notes includes powerful chat capabilities that let you ask questions about your recordings, search across meetings, and extract insights using natural language.
+Use Chat to ask questions about a recording or a group of meetings. Summit finds relevant transcript material and uses the AI configuration in **Settings → AI Models** to answer. A transcript must be available before you can ask about what was said.
 
-## Chat Modes
+![Chat scoped to a search result, with a draft question](/docs/screenshots/chat.webp)
 
-Summit provides two chat modes depending on your context:
+## Ask about one recording
 
-### Document Chat
+1. Open a recording and select its **Chat** tab.
+2. Ask a specific question, such as “What did we decide about the launch date?”
+3. Follow up in the same conversation, or choose **New Chat** for a separate line of questions.
+4. Check the answer's source references against the transcript.
 
-When you're viewing a specific recording, you can open chat to ask questions about that document. Document chat is focused on a single recording but can be expanded using @mentions.
+You can select, rename, clear, and delete conversations from the chat session picker. Starting a new conversation leaves the recording and its existing summaries intact.
 
-**How to access**: Click the chat icon when viewing a document, or use the keyboard shortcut.
+For questions about a moment, use recording-relative times: “What was discussed around minute 20?” or “Summarize the last five minutes.” In a conversation covering several meetings, name the meeting as well so the time reference is unambiguous.
 
-**Best for**:
-- Deep-diving into a specific meeting
-- Understanding what was discussed at certain points
-- Extracting action items from a single recording
+## Ask across recordings
 
-### Global Chat
+Open the main **Chat** view for questions spanning your library. To start with a specific set, select several recordings and choose **Chat** from the selection bar. You can also search first and choose **Ask AI** to chat about the results.
 
-Global chat lets you ask questions across multiple recordings at once. This is powerful for finding patterns, comparing discussions, and searching your entire meeting history.
+Check the scope bar before asking. A focused set of meetings makes comparisons easier to verify and avoids mixing unrelated projects.
 
-**How to access**: Open the global chat panel from the sidebar or main navigation.
+| Goal | Example question |
+| --- | --- |
+| Find a decision | “What did we decide about the onboarding deadline?” |
+| Compare meetings | “How did the launch plan change between these two reviews?” |
+| Extract commitments | “List agreed follow-ups, including the owner and deadline where stated.” |
+| Prepare a follow-up | “Draft a short follow-up email based on the decisions in these meetings.” |
+| Find open questions | “Which questions were left unresolved?” |
 
-**Best for**:
-- Searching across all your meetings
-- Comparing discussions between recordings
-- Finding recurring themes or decisions
-- Asking questions that span multiple meetings
+A drafted email is text you can review and use; Chat does not send it for you.
 
-## Query Types
+## Add context with @mentions
 
-Summit understands different types of questions and adapts its approach accordingly:
+Type `@` in the composer, then select a person, meeting, or tag from the suggestions. Selected entities appear as context chips. Use the suggestions to disambiguate similar names rather than relying on typed text alone.
 
-### Summarization
+For example, select a person and ask “What concerns did they raise about the timeline?” Select two meetings and ask “Compare the commitments made in these calls.” Remove a chip when it should no longer shape the conversation.
 
-Ask for overviews and summaries of your recordings.
+A person mention can select meetings involving that person. If you want only that person's words, say so explicitly: “Only include what Maya said.” Speaker-based answers depend on correct speaker identification and naming in the transcripts.
 
-**Example queries**:
-- "Summarize this meeting"
-- "What are the main themes?"
-- "Give me an overview of the key points"
-- "What did we discuss?"
+## Verify answers with sources
 
-Summit will provide a structured summary organized by themes, including key decisions and action items mentioned.
+Answers can include numbered sources and transcript references. Open a cited source to inspect the underlying meeting or passage; timestamped transcript sources help you return to the relevant moment.
 
-### Search
+Treat the transcript and recording as the evidence. AI can omit details or make mistakes, especially when names, numbers, or speaker labels are wrong. If an answer seems incomplete, narrow the question and ask for the supporting passage.
 
-Find specific information or mentions across your recordings.
+Long conversations also consume context. Starting **New Chat** and selecting a smaller scope can help if a request exceeds the model's context limit.
 
-**Example queries**:
-- "Find all mentions of the product launch"
-- "What was said about the budget?"
-- "Search for discussions about hiring"
+## Save a Live Query
 
-Summit uses semantic search to find relevant content, even if the exact words don't match.
+![Live Query editor with a search scope, starting prompt, and meeting period](/docs/screenshots/live-queries.webp)
 
-### Extraction
+A **Live Query** saves a meeting selection rule and a starting prompt. Summit resolves that rule again each time it runs, so future meetings matching the scope can be included automatically.
 
-Pull out specific types of information from your recordings.
+1. On **Home**, find **Live Queries** and choose **Create New**, or search first and choose **Save as Live Query**.
+2. Choose the **Scope**: text in titles, notes, or transcripts; people; tags; folders; and, where useful, a recurring calendar series.
+3. Review the current match count and give the query a name.
+4. Write a **Starting prompt**, or choose a preset. For example: “Summarize decisions, unresolved blockers, and committed follow-ups.”
+5. Choose a **Meeting period** and optionally limit the number of recent matching meetings.
+6. Choose a manual or recurring schedule, then **Save**.
 
-**Example queries**:
-- "List all action items"
-- "What decisions were made?"
-- "Extract all dates and deadlines mentioned"
-- "What questions were raised?"
-- "What are the key points?"
+Live Queries use active meetings in your library; archived meetings and items in Trash are excluded. Use **Include subfolders** and the **Filter behavior** controls when combining filters. “Match all” requires the selected conditions together; “Match any” broadens the selection. Check the match count after changing them.
 
-**Extraction types**:
-| Type | Description |
-|------|-------------|
-| Action items | Tasks, to-dos, and commitments |
-| Decisions | Choices and conclusions reached |
-| Dates | Deadlines, schedules, and time references |
-| Questions | Questions raised during the meeting |
-| Key points | Main takeaways and important points |
+Choose **Run now** to produce a recap and **Open** to view its linked conversation and ask follow-up questions. Editing the query updates the selection rule for future use; it does not rewrite past answers.
 
-### Comparison
+## Schedule recurring recaps
 
-Compare speakers, documents, or topics.
+Live Queries support **Manual**, **Weekly**, and **Monthly** schedules. Set the day and time, review the displayed time zone, and enable **Run automatically** for recurring runs.
 
-**Example queries**:
-- "Compare what John and Sarah said about the project"
-- "How do the Monday and Friday meetings differ?"
-- "Compare the discussions about sales vs marketing"
+The meeting period and schedule are separate. For example, a weekly Monday run can summarize **Last full week**, while another query can review the most recent ten matching meetings. **Since the previous scheduled time** follows the schedule's boundaries; its first run can include earlier matching history because no period has been covered yet.
 
-Summit presents a structured comparison highlighting similarities and differences.
+Scheduled runs are performed by Summit on this Mac. Keep Summit running and the required model or remote endpoint available. After downtime, Summit runs the latest due period rather than generating a separate recap for every missed schedule. Use **Run now** when you need an immediate result.
 
-### Questions
-
-Ask specific factual questions about your recordings.
-
-**Example queries**:
-- "What time does the team meet on Thursdays?"
-- "Who is responsible for the client presentation?"
-- "What was the conclusion about the new feature?"
-
-## Temporal Queries
-
-You can reference specific times within a recording to focus your questions on particular segments.
-
-![Temporal chat queries](/guides-chat-temporal.webp)
-
-### Relative Positions
-
-Reference parts of the recording using natural language:
-
-| Phrase | Timeframe |
-|--------|-----------|
-| "at the beginning" | First 25% of recording |
-| "in the middle" | Middle 50% (25-75%) |
-| "at the end", "towards the end" | Last 25% of recording |
-
-**Example queries**:
-- "What was discussed at the beginning?"
-- "Summarize the end of the meeting"
-- "What happened in the middle of the call?"
-
-### Specific Minutes
-
-Reference approximate times:
-
-- "What was said around minute 20?"
-- "What happened at minute 5?"
-
-Summit will search within a 2-minute window around the specified time.
-
-### Duration Ranges
-
-Reference the first or last portion of a recording:
-
-- "Summarize the first 10 minutes"
-- "What was discussed in the last 5 minutes?"
-- "First half hour of the meeting"
-
-### Explicit Ranges
-
-Specify exact time ranges:
-
-- "What was discussed from minute 10 to minute 30?"
-- "Summarize minutes 15 through 25"
-
-**Note**: Temporal queries only work when chatting about a single document. In global chat with multiple documents, temporal references are ignored.
-
-## @Mentions and Scoping
-
-Use @mentions to reference specific speakers, documents, or tags in your queries.
-
-![Mentions and scoping](/guides-chat-mention.webp)
-
-### Speaker Mentions
-
-Reference specific speakers to focus on their contributions:
-
-- "@John what did he say about the timeline?"
-- "Summarize what @Sarah discussed"
-- "Compare @John vs @Mike on the budget topic"
-
-### Document Mentions
-
-In global chat, reference specific documents:
-
-- "@'Monday Standup' what were the blockers?"
-- "Compare @'Q4 Planning' with @'Q3 Review'"
-
-Use quotes for document names with spaces.
-
-### Tag Mentions
-
-Reference documents by tag:
-
-- "@urgent summarize all urgent meetings"
-- "What action items are in @project-alpha recordings?"
-
-### Combining Mentions
-
-Combine mentions with temporal queries and other filters:
-
-- "What did @John say at the end of the meeting?"
-- "Summarize @Sarah's points in the first 10 minutes"
-
-## Citations
-
-Summit cites its sources so you can verify information and jump to the relevant parts of your recordings.
-
-### Citation Format
-
-Responses include numbered citations like `[1]`, `[2]` that reference specific parts of your transcripts:
-
-```markdown
-The team decided to postpone the launch [1] and focus on bug fixes first [2].
-
-[1] (00:15:30 - 00:16:45) "...we should probably push back the launch date..."
-[2] (00:18:20 - 00:19:10) "...priority should be fixing the critical bugs..."
-```
-
-### Clicking Citations
-
-Click on any citation to jump to that exact moment in the recording's transcript.
-
-## Tips for Better Results
-
-### Be Specific
-
-More specific questions get better results:
-
-| Instead of... | Try... |
-|---------------|--------|
-| "What happened?" | "What decisions were made about the product roadmap?" |
-| "Tell me about John" | "What were John's main concerns about the timeline?" |
-| "Summary" | "Summarize the action items and who's responsible" |
-
-### Use the Right Query Type
-
-- **Need an overview?** Ask for a summary
-- **Looking for something specific?** Use search queries
-- **Want structured output?** Use extraction queries
-- **Comparing options?** Use comparison queries
-
-### Leverage Temporal Context
-
-When you know roughly when something was discussed, use temporal queries to narrow down the search:
-
-- "What was the conclusion at the end?" is more focused than "What was the conclusion?"
-
-### Combine Features
-
-The most powerful queries combine multiple features:
-
-- "@John summarize his points at the end of the meeting"
-- "Compare what @Sarah and @Mike said about the budget in the last 10 minutes"
-- "Extract action items from @'Weekly Standup' in the first 5 minutes"
-
-## Limitations
-
-- **Temporal queries** only work with single documents, not across multiple recordings
-- **Citations** link to transcript segments, which require the document to have completed transcription
-- **Speaker identification** depends on accurate speaker diarization during transcription
-- **Search accuracy** improves with more descriptive queries
+Use the query's menu to **Pause schedule**, **Resume schedule**, or **Edit** it. Failed runs offer **Retry**. Recaps can use Notes, insights, action items, or transcripts. A run with no usable meeting content reports that result instead of inventing a recap.
 
 ## Privacy
 
-All chat processing happens using your configured AI provider. Your conversations and recordings are processed according to your provider's privacy policy. Summit does not send your data to any third parties beyond your chosen AI provider.
+Local Chat runs with your local AI models. Remote Chat and remote Live Query recaps send the needed text to the selected endpoint, including your prompt, relevant meeting material, and conversation context. Review [AI Models](/docs/settings/llm) before using a cloud or network server with sensitive meetings.
+
+Chat's provider setting is separate from [iCloud sync](/docs/guides/icloud-sync), [exports](/docs/guides/export), and the [MCP server](/docs/guides/mcp-server).

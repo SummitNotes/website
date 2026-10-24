@@ -1,422 +1,50 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { Card } from "../components/ui/card";
-import Footer from "../components/Footer";
-import {
-  BookOpen,
-  ArrowRight,
-  Zap,
-  Settings,
-  Shield,
-  Server,
-  Cpu,
-  Cloud,
-  FileText,
-} from "lucide-react";
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import Prose from "../components/article/Prose.astro";
+import LinkCard from "../components/article/LinkCard.astro";
 ---
 
-<Layout
-  title="Guides - Summit AI Notes"
-  description="Step-by-step guides to get the most out of Summit AI Notes"
+<ArticleLayout
+  title="Workflow Guides - Summit AI Notes"
+  description="Step-by-step workflows for recording, reviewing, searching, and exporting meeting notes in Summit."
   breadcrumb={[{ name: "Guides" }]}
+  heading="Workflow guides"
+  lead="Follow a meeting from recording to a useful, searchable record."
 >
-  <div
-    class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
-  >
-    <div class="container mx-auto px-4 py-16">
-      <div class="max-w-6xl mx-auto">
-        <!-- Header -->
-        <div class="text-center mb-16">
-          <div
-            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
-          >
-            <BookOpen className="w-8 h-8 text-blue-600" />
-          </div>
-          <h1 class="text-5xl font-bold text-foreground mb-4">
-            Summit AI Notes Guides
-          </h1>
-          <p class="text-xl text-muted-foreground">
-            Step-by-step guides to help you get the most out of Summit
-          </p>
-        </div>
-
-        <!-- Getting Started -->
-        <div class="mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
-            Getting Started
-          </h2>
-          <Card
-            className="p-8 bg-gradient-to-r from-blue-50 to-green-50 border-blue-200"
-          >
-            <div class="flex items-start gap-4">
-              <div
-                class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
-              >
-                <Zap className="w-6 h-6 text-blue-600" />
-              </div>
-              <div class="flex-1">
-                <h3 class="text-xl font-semibold text-foreground mb-2">
-                  Choose Your AI Provider
-                </h3>
-                <p class="text-muted-foreground mb-4">
-                  The first step is deciding how you want Summit to generate
-                  summaries. You have three options: built-in local AI, cloud
-                  providers, or self-hosted servers. This guide helps you choose
-                  and set up the right option for your needs.
-                </p>
-                <a
-                  href="/docs/settings/llm"
-                  class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
-                >
-                  Read the AI Provider Guide
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </a>
-              </div>
-            </div>
-          </Card>
-        </div>
-
-        <!-- Setup Guides -->
-        <div class="mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
-            Setup Guides
-          </h2>
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <a href="/docs/setup/local-ai" class="group">
-              <Card
-                className="p-6 h-full hover:shadow-lg transition-shadow border-green-200"
-              >
-                <div class="flex items-center gap-3 mb-4">
-                  <div
-                    class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center"
-                  >
-                    <Cpu className="w-5 h-5 text-green-600" />
-                  </div>
-                  <h3
-                    class="text-lg font-semibold text-foreground group-hover:text-blue-600 transition-colors"
-                  >
-                    Local AI Setup
-                  </h3>
-                </div>
-                <p class="text-muted-foreground mb-4">
-                  Run AI directly inside Summit. No external software, complete
-                  privacy, zero ongoing costs.
-                </p>
-                <ul
-                  class="list-disc list-inside text-muted-foreground text-sm space-y-1 mb-4"
-                >
-                  <li>One-click model download</li>
-                  <li>Works offline</li>
-                  <li>Requires Apple Silicon Mac</li>
-                </ul>
-                <span
-                  class="inline-flex items-center text-blue-600 text-sm font-medium"
-                >
-                  Read guide
-                  <ArrowRight
-                    className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform"
-                  />
-                </span>
-              </Card>
-            </a>
-
-            <a href="/docs/setup/cloud-providers" class="group">
-              <Card
-                className="p-6 h-full hover:shadow-lg transition-shadow border-blue-200"
-              >
-                <div class="flex items-center gap-3 mb-4">
-                  <div
-                    class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center"
-                  >
-                    <Cloud className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <h3
-                    class="text-lg font-semibold text-foreground group-hover:text-blue-600 transition-colors"
-                  >
-                    Cloud AI Setup
-                  </h3>
-                </div>
-                <p class="text-muted-foreground mb-4">
-                  Connect to OpenAI, Anthropic, or Google Gemini for fast,
-                  high-quality summaries.
-                </p>
-                <ul
-                  class="list-disc list-inside text-muted-foreground text-sm space-y-1 mb-4"
-                >
-                  <li>5-minute setup</li>
-                  <li>Best quality summaries</li>
-                  <li>Works on any Mac</li>
-                </ul>
-                <span
-                  class="inline-flex items-center text-blue-600 text-sm font-medium"
-                >
-                  Read guide
-                  <ArrowRight
-                    className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform"
-                  />
-                </span>
-              </Card>
-            </a>
-
-            <a href="/docs/setup/lmstudio" class="group">
-              <Card
-                className="p-6 h-full hover:shadow-lg transition-shadow border-purple-200"
-              >
-                <div class="flex items-center gap-3 mb-4">
-                  <div
-                    class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center"
-                  >
-                    <Server className="w-5 h-5 text-purple-600" />
-                  </div>
-                  <h3
-                    class="text-lg font-semibold text-foreground group-hover:text-blue-600 transition-colors"
-                  >
-                    LM Studio Setup
-                  </h3>
-                </div>
-                <p class="text-muted-foreground mb-4">
-                  Run your own AI server with LM Studio for full control and
-                  privacy.
-                </p>
-                <ul
-                  class="list-disc list-inside text-muted-foreground text-sm space-y-1 mb-4"
-                >
-                  <li>Use your own hardware</li>
-                  <li>Choose any model</li>
-                  <li>Complete privacy</li>
-                </ul>
-                <span
-                  class="inline-flex items-center text-blue-600 text-sm font-medium"
-                >
-                  Read guide
-                  <ArrowRight
-                    className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform"
-                  />
-                </span>
-              </Card>
-            </a>
-          </div>
-        </div>
-
-        <!-- Customization -->
-        <div class="mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
-            Customization
-          </h2>
-          <a href="/docs/guides/summary-templates" class="group block mb-6">
-            <Card
-              className="p-6 hover:shadow-lg transition-shadow border-pink-200"
-            >
-              <div class="flex items-start gap-4">
-                <div
-                  class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center flex-shrink-0"
-                >
-                  <FileText className="w-6 h-6 text-pink-600" />
-                </div>
-                <div class="flex-1">
-                  <h3
-                    class="text-xl font-semibold text-foreground mb-2 group-hover:text-blue-600 transition-colors"
-                  >
-                    Summary Templates (Attention Templates)
-                  </h3>
-                  <p class="text-muted-foreground mb-4">
-                    Tailor AI summaries to your needs using Attention Templates.
-                    Guide the AI on what to focus on, what to extract, and how
-                    to format your summaries. Choose from our extensive library
-                    of predefined templates or create your own.
-                  </p>
-                  <ul
-                    class="list-disc list-inside text-muted-foreground text-sm space-y-1 mb-4"
-                  >
-                    <li>Predefined templates for common meeting types</li>
-                    <li>Create custom templates for your workflow</li>
-                    <li>Apply templates to folders or individual recordings</li>
-                    <li>Template hierarchy: Document → Folder → Default</li>
-                  </ul>
-                  <span
-                    class="inline-flex items-center text-blue-600 text-sm font-medium"
-                  >
-                    Learn about templates
-                    <ArrowRight
-                      className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform"
-                    />
-                  </span>
-                </div>
-              </div>
-            </Card>
-          </a>
-        </div>
-
-        <!-- Configuration & Optimization -->
-        <div class="mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
-            Configuration & Optimization
-          </h2>
-          <div class="grid md:grid-cols-2 gap-6">
-            <a href="/docs/general/local-models" class="group">
-              <Card className="p-6 h-full hover:shadow-lg transition-shadow">
-                <div class="flex items-center gap-3 mb-4">
-                  <div
-                    class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center"
-                  >
-                    <Settings className="w-5 h-5 text-orange-600" />
-                  </div>
-                  <h3
-                    class="text-lg font-semibold text-foreground group-hover:text-blue-600 transition-colors"
-                  >
-                    Choosing a Local Model
-                  </h3>
-                </div>
-                <p class="text-muted-foreground mb-4">
-                  Learn how to pick the right local AI model for your Mac's
-                  capabilities. Understand quality levels, RAM requirements, and
-                  model recommendations.
-                </p>
-                <span
-                  class="inline-flex items-center text-blue-600 text-sm font-medium"
-                >
-                  Read guide
-                  <ArrowRight
-                    className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform"
-                  />
-                </span>
-              </Card>
-            </a>
-
-            <a href="/docs/setup/local-ai#batch-processing-for-limited-ram" class="group">
-              <Card className="p-6 h-full hover:shadow-lg transition-shadow">
-                <div class="flex items-center gap-3 mb-4">
-                  <div
-                    class="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center"
-                  >
-                    <Zap className="w-5 h-5 text-teal-600" />
-                  </div>
-                  <h3
-                    class="text-lg font-semibold text-foreground group-hover:text-blue-600 transition-colors"
-                  >
-                    Batch Processing
-                  </h3>
-                </div>
-                <p class="text-muted-foreground mb-4">
-                  If you have limited RAM or back-to-back meetings, learn how to
-                  disable auto-processing and batch your summaries for better
-                  performance.
-                </p>
-                <span
-                  class="inline-flex items-center text-blue-600 text-sm font-medium"
-                >
-                  Read guide
-                  <ArrowRight
-                    className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform"
-                  />
-                </span>
-              </Card>
-            </a>
-          </div>
-        </div>
-
-        <!-- Privacy & Security -->
-        <div class="mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
-            Privacy & Security
-          </h2>
-          <a href="/docs/settings/llm#privacy-comparison" class="group block">
-            <Card
-              className="p-6 hover:shadow-lg transition-shadow border-purple-200"
-            >
-              <div class="flex items-start gap-4">
-                <div
-                  class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0"
-                >
-                  <Shield className="w-6 h-6 text-purple-600" />
-                </div>
-                <div class="flex-1">
-                  <h3
-                    class="text-xl font-semibold text-foreground mb-2 group-hover:text-blue-600 transition-colors"
-                  >
-                    Understanding Privacy Options
-                  </h3>
-                  <p class="text-muted-foreground mb-4">
-                    Learn what data stays on your Mac vs. what gets sent to
-                    cloud providers. Understand the privacy tradeoffs between
-                    local, cloud, and self-hosted AI options. Find the right
-                    balance for your compliance requirements.
-                  </p>
-                  <span
-                    class="inline-flex items-center text-blue-600 text-sm font-medium"
-                  >
-                    Read the privacy comparison
-                    <ArrowRight
-                      className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform"
-                    />
-                  </span>
-                </div>
-              </div>
-            </Card>
-          </a>
-        </div>
-
-        <!-- Quick Links -->
-        <div class="mb-12">
-          <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
-            More Resources
-          </h2>
-          <div class="grid md:grid-cols-2 gap-6">
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <h3 class="text-xl font-semibold text-foreground mb-3">
-                Full Documentation
-              </h3>
-              <p class="text-muted-foreground mb-4">
-                Browse all documentation including settings reference,
-                troubleshooting, and advanced configuration.
-              </p>
-              <a
-                href="/docs"
-                class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
-              >
-                Browse Documentation
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </a>
-            </Card>
-
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <h3 class="text-xl font-semibold text-foreground mb-3">FAQ</h3>
-              <p class="text-muted-foreground mb-4">
-                Common questions about features, pricing, privacy, and technical
-                requirements.
-              </p>
-              <a
-                href="/faq"
-                class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
-              >
-                View FAQ
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </a>
-            </Card>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <Card
-          className="p-8 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 text-center"
-        >
-          <h2 class="text-2xl font-bold text-foreground mb-4">
-            Ready to Get Started?
-          </h2>
-          <p class="text-muted-foreground mb-6">
-            Download Summit AI Notes and start generating AI-powered meeting
-            summaries in minutes.
-          </p>
-          <a
-            href="/download?from=guides-cta"
-            data-source="guides-cta"
-            class="download-button inline-flex items-center justify-center px-6 py-3 bg-sky-400 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Download Summit
-          </a>
-        </Card>
-      </div>
-    </div>
-  </div>
-  <Footer client:load />
-</Layout>
+  <Prose>
+    <h2>Your first meeting</h2>
+    <ol>
+      <li><a href="/docs/setup/getting-started">Set up audio, speech recognition, and AI summaries</a>.</li>
+      <li><a href="/docs/guides/recording">Record a call or import an audio or video file</a>.</li>
+      <li><a href="/docs/guides/transcription">Review the transcript, name speakers, and check important details</a>.</li>
+      <li><a href="/docs/guides/summary-templates">Choose a summary template</a> for the meeting's purpose.</li>
+      <li><a href="/docs/guides/export">Export the result</a> to your notes app or share selected content.</li>
+    </ol>
+    <h2>A day of back-to-back calls</h2>
+    <p>
+      <a href="/docs/guides/calendar">Connect your calendar</a> and choose which events to record.
+      Use <a href="/docs/setup/local-ai#decide-when-your-mac-should-process">deferred processing</a> to leave resources available during calls.
+      If one recording spans several meetings, <a href="/docs/guides/split-recordings">split it into notes</a> before generating their summaries.
+    </p>
+    <h2>Follow up on a project</h2>
+    <p>
+      <a href="/docs/guides/organization">Group notes into folders and tags</a>.
+      <a href="/docs/guides/search">Search for a decision and open the matching passage</a>, then
+      <a href="/docs/guides/chat">ask a scoped question across the project</a>.
+      Review the cited notes before sharing a conclusion.
+    </p>
+    <h2>Capture away from your Mac</h2>
+    <p>
+      <a href="/docs/guides/icloud-sync">Record with the iPhone companion and sync to the Mac for processing</a>.
+      Keep your recovery phrase available for the encryption setup on each device.
+    </p>
+    <h2>Use your notes in other tools</h2>
+    <p>
+      <a href="/docs/guides/export">Set up automatic Markdown export</a> for a local knowledge base,
+      or <a href="/docs/guides/mcp-server">connect an MCP client</a> to query meetings.
+      The receiving app's storage and AI settings determine what happens to exported or retrieved content.
+    </p>
+  </Prose>
+  <LinkCard slot="after-card" href="/docs" kicker="Reference" title="Browse all documentation" />
+  <LinkCard slot="after-card" href="/docs/guides/troubleshooting" kicker="Help" title="Troubleshoot a problem" align="right" />
+</ArticleLayout>

@@ -53,7 +53,7 @@ const afterGrid = afterCols === 3 ? "md:grid-cols-3" : "md:grid-cols-2";
 
         <div class:list={[hasSidebar && "grid lg:grid-cols-[280px_minmax(0,1fr)] gap-8"]}>
           {hasSidebar && (
-            <aside class="lg:sticky lg:top-8 lg:self-start">
+            <aside class="lg:sticky lg:top-8 lg:self-start lg:max-h-[calc(100vh-4rem)] lg:overflow-y-auto">
               <slot name="sidebar" />
             </aside>
           )}

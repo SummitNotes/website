@@ -1,320 +1,74 @@
 ---
-title: "AI Provider Configuration"
-description: "Choose between local, cloud, and self-hosted AI providers for meeting summarization"
+title: "AI Models"
+description: "Configure built-in, cloud, or self-hosted AI for cleanup, summaries, and chat."
 category: "settings"
 order: 1
+lastUpdated: 2026-10-24
 ---
 
-Summit AI Notes uses AI to turn your meeting transcriptions into clear, actionable summaries. You have three options for running the AI: built-in local models, cloud providers, or your own self-hosted AI server.
+Open **Settings → AI Models** to choose where Summit processes text. This selection is used for AI transcript cleanup, summary generation, and chat. Audio transcription is configured separately in **Settings → Speech Models**.
 
-## Quick Decision Guide
+![AI Models settings in Summit](/docs/screenshots/ai-models.webp)
 
-### Local AI (Built-in)
-**AI runs directly inside Summit AI Notes**
+## Choose where AI runs
 
-- ✅ Complete privacy (nothing leaves your Mac)
-- ✅ Zero ongoing costs
-- ✅ Works offline
-- ✅ No API keys or external software needed
-- ✅ One-click setup
-- ⚠️ Requires Apple Silicon Mac (M1 or newer)
-- ⚠️ Slower than cloud AI
-- ⚠️ Good quality (not the best)
+| Option | How it works | What to prepare |
+| --- | --- | --- |
+| **Local (on this machine)** | Summit runs a downloaded language model inside the app. | Disk space and enough available memory for the selected model and context. |
+| **Remote (Cloud or Self-Hosted)** with a cloud provider | Summit sends text requests to the selected provider's API. | An API key, access to a supported model, network access, and any required provider billing. |
+| **Remote (Cloud or Self-Hosted)** with **Other** | Summit sends text requests to your OpenAI-compatible server or gateway. | A running server, its base URL, model identifier, and credentials if required. |
 
-**[👉 Set Up Local AI](/docs/setup/local-ai)**
+Start with [Local AI Setup](/docs/setup/local-ai), [Remote AI Setup](/docs/setup/cloud-providers), or the [LM Studio guide](/docs/setup/lmstudio).
 
----
+Speed and output quality depend on the model, hardware or service, transcript, and prompt. Try a representative recording before committing to a setup.
 
-### Cloud AI (Remote Services)
-**Use professional AI services like OpenAI, Anthropic, or Google**
+## Local models
 
-- ✅ Fastest, highest quality summaries
-- ✅ Works on any Mac
-- ✅ Latest AI models
-- ✅ Minimal setup time (5 minutes)
-- ⚠️ Costs money (~$5-20/month)
-- ⚠️ Requires internet connection
-- ⚠️ Text transcription sent to provider
-- ⚠️ Audio recordings never leave your Mac
+Download a model and choose **Use Model**. The **Active** badge shows the current selection. The catalog groups models by memory category and may offer **Base**, **Med**, and **High** versions within a family. See [Choosing a Local Model](/docs/general/local-models) for how to compare them.
 
-**[👉 Set Up Cloud AI](/docs/setup/cloud-providers)**
+The Mac app requires Apple Silicon and macOS 15 or later. Its standard built-in engine uses llama.cpp and GGUF model files; practical model size and performance depend on your hardware. Some builds expose an experimental **Engine** picker for MLX, which also requires Apple Silicon and uses a separate model catalog.
 
----
+Under **Model Configuration**, you can change **Context Length**, choose a **Models Folder**, and control **Check memory before loading a model**. Leave the memory check enabled unless you are diagnosing a specific issue.
 
-### Self-Hosted AI (Your Own Server)
-**Run AI on your own server using LM Studio, Ollama, or similar. Perfect if you have a gaming PC or if you want to setup a server for your team.**
+The folder picker appears in the llama.cpp configuration. Its selected folder holds GGUF models and, in an `MLX` subfolder, experimental MLX snapshots. Changing it does not move existing downloads.
 
-- ✅ Complete privacy (your infrastructure)
-- ✅ Zero ongoing costs (after setup)
-- ✅ Works offline
-- ✅ Full control over models
-- ⚠️ Requires powerful Mac/PC for good performance
-- ⚠️ 30+ minute setup time
-- ⚠️ Requires technical knowledge
-- ⚠️ Need to install and maintain 3rd party software
+### Chat models
 
-**[👉 Set Up Self-Hosted AI](/docs/setup/cloud-providers#using-other-providers)** (uses "Remote" provider type with custom URL)
+With the local llama.cpp engine, Summit can use a curated model for fast chat decisions and tool calls, then your selected model for deeper analysis. The **Chat models** section reports whether that additional model is downloaded. Until it is ready, chat uses your selected model.
 
----
+Cloud endpoints and the experimental MLX engine use their selected model without this local two-model setup. These chat roles are managed by Summit; cleanup and summary generation continue to use your selected AI configuration.
 
-## Detailed Comparison
+## Remote settings
 
-### Local AI (Built-in)
+Select **Remote (Cloud or Self-Hosted)**, then choose **OpenAI**, **Anthropic**, **Google AI**, **DeepSeek**, **OpenRouter**, or **Other**.
 
-**What it is:**
-AI models that run directly inside the Summit AI Notes app. No external software or servers needed.
+1. Enter the provider's **API key**. Summit stores provider credentials in macOS Keychain.
+2. For **Other**, enter the server's **Base URL** as well.
+3. Click **Refresh Models**, then select a model your account or server can use. If model discovery is unavailable, enter the exact model identifier manually.
+4. Test with a short, non-sensitive recording or question.
 
-**How it works:**
-1. Download an AI model from within Summit settings (one-time)
-2. Model runs on your Mac's chip when generating summaries
-3. Everything happens inside the app
+Changing provider or model affects subsequent processing. It does not rewrite existing summaries or chat answers. Model access, pricing, and quota belong to your provider account; a consumer chat subscription does not necessarily include API access.
 
-**Best for:**
-- Users who want privacy without technical setup
-- Consultants, lawyers, healthcare professionals
-- Anyone with sensitive client meetings
-- Budget-conscious users who record frequently
+### Chat context limit
 
-**Requirements:**
-- Mac with M1 chip or newer
-- 8-16GB RAM (more is better)
-- 2-8GB disk space per model
+The remote settings include **Chat context limit**. Leave **Token limit** at `0` for Summit's conservative automatic limit. Set an explicit value only when you know the selected model and endpoint support it.
 
-**Setup time:** 1 minute + download time
+A larger value lets chat include more context but may increase usage and latency. A value above the server's supported limit can cause requests to fail. When a chat becomes too large, try a new conversation or narrow the meeting scope.
 
----
+## Control when processing runs
 
-### Cloud AI (Remote Services)
+**AI Models** selects the processor. **Settings → Processing Flow** selects when to use it:
 
-**What it is:**
-Professional AI services from companies like OpenAI (ChatGPT), Anthropic (Claude), and Google (Gemini).
+- **Auto-generate transcription** starts speech recognition after recording stops.
+- **Automatically cleanup transcription after completion** uses AI to clean transcript text while preserving the original text.
+- **Auto-generate summaries after transcription** starts summary generation automatically.
+- **Generate call summary** adds a formatted AI summary to Notes, in addition to extracted insights and action items.
+- **Smart processing delay**, speaker naming, and battery settings can defer automatic processing.
 
-**How it works:**
-1. Get an API key from your chosen provider
-2. Enter it in Summit settings
-3. Transcription text is sent to cloud for summarization
-4. Summary comes back to your Mac
+Use **Summary Templates** to change what the summary focuses on. See [Summary Templates](/docs/guides/summary-templates) for the assignment and regeneration workflow.
 
-**Best for:**
-- Users who want the best quality
-- Teams who need fast processing
-- Users with less powerful Macs
-- Anyone willing to pay for convenience
+## What remote AI receives
 
-**Available providers:**
-- **Google Gemini** - Free tier available, good quality
-- **OpenAI (ChatGPT)** - Industry standard, very reliable
-- **Anthropic (Claude)** - Excellent for long meetings
+AI requests contain text, rather than the recorded audio files. Depending on the operation, that text can include transcript passages, speaker or participant names, meeting titles, template instructions, folder context, your question, and relevant conversation history. Review the destination's retention and data-use policies before using sensitive material.
 
-**Setup time:** 2-5 minutes
-
----
-
-### Self-Hosted AI (Your Own Server)
-
-**What it is:**
-Run your own AI server software (like LM Studio or Ollama) on your Mac, then connect Summit to it.
-
-**How it works:**
-1. Install LM Studio, Ollama, or similar software
-2. Download and run AI models in that software
-3. Configure Summit to connect to your local server
-4. Summit sends transcription to your server (not the cloud)
-
-**Best for:**
-- Power users who want privacy + control
-- Users who already run LM Studio/Ollama
-- Technical users comfortable with server software
-- Organizations with specific compliance requirements
-
-**Popular options:**
-- **LM Studio** - Easy GUI, good performance
-- **Ollama** - Command line, very efficient
-- **vLLM** - Advanced, maximum performance
-
-**Setup time:** 15-30 minutes
-
----
-
-## Privacy Comparison
-
-### What Never Leaves Your Mac (All Options)
-
-- ✅ Original audio recordings
-- ✅ Meeting metadata (titles, dates, notes)
-- ✅ Your Summit AI Notes database
-
-### What's Different
-
-| Data Type | Local AI | Cloud AI | Self-Hosted |
-|-----------|----------|----------|-------------|
-| Audio | Stays local | Stays local | Stays local |
-| Transcription | Stays local | Sent to cloud | Stays local |
-| AI Processing | On your Mac | In the cloud | On your Mac/server |
-| Summary | Stays local | Generated in cloud | Stays local |
-| **Privacy Level** | **100%** | **Partial** | **100%** |
-
----
-
-## Performance Comparison
-
-### Summary Speed (30-minute meeting)
-
-| Option | Typical Speed | Notes |
-|--------|---------------|-------|
-| **Local AI** | 60-180 seconds | Depends on Mac chip |
-| **Cloud AI** | 10-30 seconds | Very consistent |
-| **Self-Hosted** | 30-120 seconds | Depends on setup/model |
-
-### Quality Comparison
-
-| Option | Quality Level | Best Use Case |
-|--------|---------------|---------------|
-| **Local AI** | Good | Daily meetings, general use |
-| **Cloud AI** | Excellent | Important meetings, complex topics |
-| **Self-Hosted** | Good to Very Good | Varies by model chosen |
-
----
-
-## Cost Comparison
-
-### Initial Setup Cost
-
-- **Local AI:** $0
-- **Cloud AI:** $0 (but need to add credits/payment method)
-- **Self-Hosted:** $0 (software is free)
-
-### Ongoing Monthly Cost (30 meetings/month)
-
-- **Local AI:** $0
-- **Cloud AI:** $5-30 (depending on provider and models)
-- **Self-Hosted:** $0
-
-### Hidden Costs
-
-**Local AI:**
-- Slower processing time
-- Need sufficient RAM
-
-**Cloud AI:**
-- API fees
-- Requires internet
-
-**Self-Hosted:**
-- Time to maintain server software
-- Need powerful Mac for good speed
-- Learning curve
-
----
-
-## Can I Use Multiple Options?
-
-**Yes!** You can switch between options anytime and even use different options for different meetings:
-
-**Example Strategy:**
-- **Local AI** for confidential client meetings
-- **Cloud AI** for internal team meetings
-- **Self-Hosted** for after you've set up LM Studio
-
-**How to switch:**
-1. Go to Settings → AI Provider
-2. Choose a different provider type
-3. Your existing summaries stay unchanged
-
----
-
-## Recommended Setups
-
-### For Consultants/Professionals
-**Start:** Cloud AI (Google Gemini free tier)
-**Then:** Set up Local AI for sensitive meetings
-**Later:** Add Self-hosted if you want more control
-
-### For Privacy-Critical Work (Legal, Healthcare, Finance)
-**Use:** Local AI exclusively
-**Why:** Complete privacy, no external dependencies
-**Trade-off:** Accept slightly slower processing
-
-### For High Volume Users
-**Use:** Cloud AI with budget models (GPT-3.5, Claude Haiku, Gemini Flash)
-**Why:** Fast processing, reasonable cost
-**Cost:** ~$10-15/month
-
-### For Best Quality
-**Use:** Cloud AI with premium models (GPT-4, Claude Opus)
-**Why:** Best possible summaries
-**Cost:** ~$20-30/month
-
-### For Technical Users
-**Use:** Self-hosted AI (LM Studio)
-**Why:** Complete control, privacy, zero ongoing cost
-**Trade-off:** Setup and maintenance time
-
-### For Limited Budget + Privacy
-**Use:** Local AI
-**Why:** Free and private
-**Trade-off:** Need decent Mac hardware
-
----
-
-## Decision Flowchart
-
-**Start here: What's most important to you?**
-
-### Privacy is #1 priority
-→ **Do you want to install extra software?**
-  - No → **Local AI** (built-in, easy)
-  - Yes → **Self-Hosted** (more control, more complex)
-
-### Quality is #1 priority
-→ **Cloud AI** (best quality available)
-
-### Cost is #1 priority (want free)
-→ **Do you have M1 Pro or better?**
-  - Yes → **Local AI** (easy) or **Self-Hosted** (better quality)
-  - No → **Self-Hosted** (if you can handle the setup)
-  - Just want easy → **Cloud AI** with Gemini free tier
-
-### Speed is #1 priority
-→ **Cloud AI** (fastest summaries)
-
-### Offline capability needed
-→ **Local AI** (easiest) or **Self-Hosted** (if technical)
-
----
-
-## Getting Started
-
-### I want to try it out quickly
-**[Set up Cloud AI with Google Gemini](/docs/setup/cloud-providers)** (free tier, 2 minutes)
-
-### I need complete privacy
-**[Set up Local AI](/docs/setup/local-ai)** (1 click + download, 5-10 minutes)
-
-### I'm technical and want control
-**[Set up Self-Hosted AI](/docs/setup/cloud-providers#using-other-providers)** (15-30 minutes)
-
----
-
-## Next Steps
-
-**Recommended path for new users:**
-
-1. **Week 1:** Try Cloud AI (Gemini free tier) to see how AI summaries work
-2. **Week 2:** Set up Local AI for sensitive meetings
-3. **Optional:** Set up Self-hosted if you want more control
-
-This way you experience the quality, learn the privacy options, and can make an informed decision.
-
----
-
-## Need Help?
-
-**Still not sure which option to choose?**
-- Start with **Cloud AI (Gemini free tier)** - it's free and takes 2 minutes
-- You can always switch later
-
-**Have questions?**
-- Check the detailed setup guides linked above
-- Visit https://summitnotes.app/docs
-- Contact support for personalized recommendations
+A self-hosted endpoint receives that text too. `localhost` points to this Mac; a network address sends it to another computer. Separate features such as [iCloud sync](/docs/guides/icloud-sync), [export](/docs/guides/export), and the [MCP server](/docs/guides/mcp-server) have their own data flows. Choosing Local does not turn those features off.
