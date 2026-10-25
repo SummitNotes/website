@@ -1,0 +1,22 @@
+---
+import { Globe2, ShieldAlert, LockKeyhole, PanelsTopLeft, Cpu, Workflow } from "lucide-react";
+import type { BlogCategoryId } from "../../lib/blog-categories";
+
+interface Props {
+  category: BlogCategoryId;
+}
+
+const icons = {
+  "regional-laws": Globe2,
+  "incidents-data-leaks": ShieldAlert,
+  "privacy-security": LockKeyhole,
+  "tools-comparisons": PanelsTopLeft,
+  "local-ai": Cpu,
+  "workflows-teams": Workflow,
+};
+const Icon = icons[Astro.props.category];
+---
+
+<span class="inline-flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand-soft text-brand-strong" aria-hidden="true">
+  <Icon className="size-5" />
+</span>

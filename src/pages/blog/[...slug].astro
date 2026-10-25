@@ -1,27 +1,31 @@
 ---
-import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import Prose from '../../components/article/Prose.astro';
 import LinkCard from '../../components/article/LinkCard.astro';
 import { Calendar, User } from 'lucide-react';
 import { blogPostingSchema } from '../../lib/schema';
+import { getBlogPosts } from '../../lib/blog';
+import { getBlogCategory, blogCategoryPath } from '../../lib/blog-categories';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const posts = await getBlogPosts();
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
   }));
 }
 
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
 const { post } = Astro.props;
 const { Content } = await post.render();
 
-// Get all posts for navigation
-const allPosts = await getCollection('blog');
-const sortedPosts = allPosts.sort(
-  (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
-);
+const category = getBlogCategory(post.data.category);
+// Keep reading within the current topic.
+const sortedPosts = (await getBlogPosts()).filter((p) => p.data.category === category.id);
 const currentIndex = sortedPosts.findIndex((p) => p.slug === post.slug);
 const prevPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
 const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
@@ -35,12 +39,13 @@ const postSchema = blogPostingSchema({
   datePublished: post.data.publishedDate,
   keywords: post.data.tags,
 });
+postSchema.articleSection = category.label;
 ---
 
 <ArticleLayout
   title={`${post.data.title} - Summit AI Notes Blog`}
   description={post.data.description}
-  breadcrumb={[{ name: "Blog", path: "/blog" }, { name: post.data.title }]}
+  breadcrumb={[{ name: "Blog", path: "/blog/" }, { name: category.label, path: blogCategoryPath(category.id) }, { name: post.data.title }]}
   schema={postSchema}
   heading={post.data.title}
   lead={post.data.description}
@@ -56,29 +61,21 @@ const postSchema = blogPostingSchema({
   )}
 
   <div slot="meta" class="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
+    <a href={blogCategoryPath(category.id)} class="rounded-full bg-brand-soft px-3 py-1.5 font-medium text-brand-strong transition-colors hover:bg-brand-wash">{category.label}</a>
     <span class="flex items-center gap-1">
       <Calendar className="w-4 h-4" />
-      {post.data.publishedDate.toLocaleDateString('en-US', {
+      <time datetime={post.data.publishedDate.toISOString()}>{post.data.publishedDate.toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
-        day: 'numeric'
-      })}
+        day: 'numeric',
+        timeZone: 'UTC',
+      })}</time>
     </span>
     <span class="flex items-center gap-1">
       <User className="w-4 h-4" />
       {post.data.author}
     </span>
   </div>
-
-  {post.data.tags && (
-    <div slot="header-end" class="flex flex-wrap gap-2 mt-6">
-      {post.data.tags.map((tag: string) => (
-        <span class="px-3 py-1 bg-brand-soft text-brand-strong rounded-full text-sm">
-          {tag}
-        </span>
-      ))}
-    </div>
-  )}
 
   <Prose>
     <Content />
@@ -92,4 +89,9 @@ const postSchema = blogPostingSchema({
       <LinkCard href={`/blog/${nextPost.slug}`} kicker="Next post" title={nextPost.data.title} align="right" />
     ) : <div />}
   </Fragment>
+
+  <div slot="card-end" class="flex flex-wrap items-center justify-between gap-4 text-sm">
+    <span class="text-muted-foreground">More in {category.label}</span>
+    <a href={blogCategoryPath(category.id)} class="font-medium text-brand-text hover:underline">View all articles in this topic &rarr;</a>
+  </div>
 </ArticleLayout>

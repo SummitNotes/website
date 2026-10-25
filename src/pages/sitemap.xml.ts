@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import { absoluteUrl } from "../lib/schema";
 import { languagePages, languagePath } from "../lib/languages";
 import { releases } from "../lib/releases";
+import { blogCategories, blogCategoryPath } from "../lib/blog-categories";
 
 /**
  * Prerendered XML sitemap served at /sitemap.xml.
@@ -56,6 +57,9 @@ export const GET: APIRoute = async () => {
     // staticRoutes() skips, so they are listed from the same array the pages
     // are generated from.
     ...languagePages.map((page) => ({ path: languagePath(page.code) })),
+    ...blogCategories
+      .filter((category) => blogPosts.some((post) => post.data.category === category.id))
+      .map((category) => ({ path: blogCategoryPath(category.id) })),
     ...blogPosts.map((post) => ({
       path: `/blog/${post.slug}`,
       lastmod: toIsoDate(post.data.publishedDate),

@@ -1,0 +1,27 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import BlogLayout from "../../../layouts/BlogLayout.astro";
+import PostCard from "../../../components/blog/PostCard.astro";
+import { getBlogPosts, groupBlogPosts } from "../../../lib/blog";
+
+export const getStaticPaths = (async () => {
+  const groups = groupBlogPosts(await getBlogPosts());
+  return groups.map((group) => ({
+    params: { category: group.category.id },
+    props: { group, groups },
+  }));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { group, groups } = Astro.props;
+---
+
+<BlogLayout groups={groups} category={group.category}>
+  <div class="mb-6 flex flex-wrap items-center justify-between gap-2 text-sm text-muted-foreground">
+    <p>{group.posts.length} {group.posts.length === 1 ? "article" : "articles"}</p>
+    <p>Newest first</p>
+  </div>
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {group.posts.map((post) => <PostCard post={post} headingLevel="h2" />)}
+  </div>
+</BlogLayout>

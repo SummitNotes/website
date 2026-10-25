@@ -1,170 +1,48 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { Card } from "../components/ui/card";
-import Footer from "../components/Footer";
-import { BookOpen, Clock, ArrowRight, Calendar, User } from "lucide-react";
-import { getCollection } from "astro:content";
+import BlogLayout from "../layouts/BlogLayout.astro";
+import PostCard from "../components/blog/PostCard.astro";
+import CategoryIcon from "../components/blog/CategoryIcon.astro";
+import { ArrowRight } from "lucide-react";
+import { getBlogPosts, groupBlogPosts } from "../lib/blog";
+import { blogCategoryPath } from "../lib/blog-categories";
 
-const posts = await getCollection("blog");
-const sortedPosts = posts.sort(
-  (a, b) =>
-    b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
-);
+const posts = await getBlogPosts();
+const groups = groupBlogPosts(posts);
+const featured = posts[0];
 ---
 
-<Layout
-  title="Blog - Summit AI Notes"
-  description="Learn about AI meeting notes, productivity tips, and privacy-focused workflows"
-  breadcrumb={[{ name: "Blog" }]}
->
-  <div
-    class="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
-  >
-    <div class="container mx-auto px-4 py-16">
-      <div class="max-w-6xl mx-auto">
-        <!-- Header -->
-        <div class="text-center mb-16">
-          <div
-            class="w-16 h-16 bg-brand-soft rounded-full flex items-center justify-center mx-auto mb-6"
-          >
-            <BookOpen className="w-8 h-8 text-brand" />
-          </div>
-          <h1 class="text-5xl font-bold text-foreground mb-4">
-            Summit AI Notes Blog
-          </h1>
-          <p class="text-xl text-muted-foreground">
-            Insights on AI, productivity, and privacy-first tools
-          </p>
-        </div>
+<BlogLayout groups={groups}>
+  {featured && (
+    <section aria-labelledby="latest-heading" class="mb-16 sm:mb-20">
+      <p id="latest-heading" class="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">Latest article</p>
+      <PostCard post={featured} featured />
+    </section>
+  )}
 
-        {
-          sortedPosts.length > 0 ? (
-            <div class="space-y-8">
-              {/* Featured Post (first post) */}
-              {sortedPosts.length > 0 && (
-                <a
-                  href={`/blog/${sortedPosts[0].slug}`}
-                  class="block group"
-                >
-                  <Card className="overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="grid md:grid-cols-2 gap-0">
-                      {sortedPosts[0].data.image && (
-                        <div class="aspect-video md:aspect-auto md:h-full">
-                          <img
-                            src={sortedPosts[0].data.image}
-                            alt={sortedPosts[0].data.imageAlt || sortedPosts[0].data.title}
-                            class="w-full h-full object-cover"
-                          />
-                        </div>
-                      )}
-                      <div class="p-8 flex flex-col justify-center">
-                        <div class="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                          <span class="flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
-                            {sortedPosts[0].data.publishedDate.toLocaleDateString(
-                              "en-US",
-                              { year: "numeric", month: "long", day: "numeric" }
-                            )}
-                          </span>
-                          <span class="flex items-center gap-1">
-                            <User className="w-4 h-4" />
-                            {sortedPosts[0].data.author}
-                          </span>
-                        </div>
-                        <h2 class="text-3xl font-bold text-foreground mb-4 group-hover:text-brand-text transition-colors">
-                          {sortedPosts[0].data.title}
-                        </h2>
-                        <p class="text-lg text-muted-foreground mb-6">
-                          {sortedPosts[0].data.description}
-                        </p>
-                        {sortedPosts[0].data.tags && (
-                          <div class="flex flex-wrap gap-2 mb-6">
-                            {sortedPosts[0].data.tags.map((tag: string) => (
-                              <span class="px-3 py-1 bg-brand-soft text-brand-strong rounded-full text-sm">
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                        )}
-                        <span class="inline-flex items-center text-brand-text font-semibold group-hover:gap-2 transition-all">
-                          Read article
-                          <ArrowRight className="ml-1 w-4 h-4" />
-                        </span>
-                      </div>
-                    </div>
-                  </Card>
-                </a>
-              )}
-
-              {/* Other Posts Grid */}
-              {sortedPosts.length > 1 && (
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {sortedPosts.slice(1).map((post) => (
-                    <a href={`/blog/${post.slug}`} class="block group">
-                      <Card className="h-full overflow-hidden hover:shadow-lg transition-shadow">
-                        {post.data.image && (
-                          <div class="aspect-video">
-                            <img
-                              src={post.data.image}
-                              alt={post.data.imageAlt || post.data.title}
-                              class="w-full h-full object-cover"
-                            />
-                          </div>
-                        )}
-                        <div class="p-6">
-                          <div class="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                            <Calendar className="w-4 h-4" />
-                            {post.data.publishedDate.toLocaleDateString(
-                              "en-US",
-                              { year: "numeric", month: "short", day: "numeric" }
-                            )}
-                          </div>
-                          <h3 class="text-xl font-bold text-foreground mb-3 group-hover:text-brand-text transition-colors">
-                            {post.data.title}
-                          </h3>
-                          <p class="text-muted-foreground mb-4 line-clamp-3">
-                            {post.data.description}
-                          </p>
-                          <span class="inline-flex items-center text-brand-text font-medium text-sm">
-                            Read more
-                            <ArrowRight className="ml-1 w-4 h-4" />
-                          </span>
-                        </div>
-                      </Card>
-                    </a>
-                  ))}
-                </div>
-              )}
+  <div class="space-y-14 sm:space-y-18">
+    {groups.map(({ category, posts: categoryPosts }) => (
+      <section aria-labelledby={`topic-${category.id}`}>
+        <header class="mb-6 flex flex-wrap items-end justify-between gap-4">
+          <div class="max-w-2xl">
+            <div class="mb-3 flex items-center gap-3">
+              <CategoryIcon category={category.id} />
+              <h2 id={`topic-${category.id}`} class="text-2xl font-semibold tracking-tight sm:text-3xl">
+                <a href={blogCategoryPath(category.id)} class="rounded-sm transition-colors hover:text-brand-text focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-text">{category.label}</a>
+              </h2>
             </div>
-          ) : (
-            <>
-              {/* Coming Soon Notice - only shown when no posts */}
-              <Card className="p-12 text-center mb-12">
-                <h2 class="text-3xl font-bold text-foreground mb-4">
-                  Blog Coming Soon
-                </h2>
-                <p class="text-lg text-muted-foreground mb-6">
-                  We're working on creating valuable content about AI-powered
-                  productivity, privacy-first workflows, and making the most of
-                  meeting notes.
-                </p>
-                <p class="text-muted-foreground">
-                  In the meantime, check out our documentation and guides to learn
-                  more about Summit AI Notes.
-                </p>
-              </Card>
-            </>
-          )
-        }
-      </div>
-    </div>
+            <p class="text-sm leading-relaxed text-muted-foreground sm:text-base">{category.description}</p>
+          </div>
+          <a href={blogCategoryPath(category.id)} aria-label={`View all ${categoryPosts.length} articles in ${category.label}`} class="inline-flex min-h-11 shrink-0 items-center gap-2 text-sm font-medium text-brand-text hover:underline">
+            View all <span class="text-muted-foreground">({categoryPosts.length})</span>
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </a>
+        </header>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {categoryPosts.slice(0, 3).map((post) => <PostCard post={post} />)}
+        </div>
+      </section>
+    ))}
   </div>
-  <Footer client:load />
-</Layout>
 
-<style>
-  :global(.dark) .prose {
-    --tw-prose-body: var(--foreground);
-    --tw-prose-headings: var(--foreground);
-  }
-</style>
+  {posts.length === 0 && <p class="py-16 text-center text-muted-foreground">New articles are on their way. Explore our <a href="/docs/" class="text-brand-text underline">documentation</a> in the meantime.</p>}
+</BlogLayout>

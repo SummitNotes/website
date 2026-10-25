@@ -1,0 +1,74 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { ArrowUpRight } from "lucide-react";
+import { getBlogCategory } from "../../lib/blog-categories";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+  featured?: boolean;
+  headingLevel?: "h2" | "h3";
+}
+
+const { post, featured = false, headingLevel = "h3" } = Astro.props;
+const category = getBlogCategory(post.data.category);
+const Heading = featured ? "h2" : headingLevel;
+const date = post.data.publishedDate.toLocaleDateString("en-US", {
+  year: "numeric", month: "short", day: "numeric", timeZone: "UTC",
+});
+---
+
+<article class="h-full min-w-0">
+  <a
+    href={`/blog/${post.slug}/`}
+    aria-label={post.data.title}
+    class:list={[
+      "group flex h-full overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-brand/50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-text",
+      featured ? "flex-col md:grid md:grid-cols-[1.1fr_1fr]" : "flex-col",
+    ]}
+  >
+    {post.data.image && (
+      <div class:list={[
+        "overflow-hidden bg-muted",
+        featured ? "aspect-[16/10] md:aspect-auto md:min-h-96" : "aspect-[16/9]",
+      ]}>
+        <img
+          src={post.data.image}
+          alt={post.data.imageAlt || post.data.title}
+          loading={featured ? "eager" : "lazy"}
+          fetchpriority={featured ? "high" : "auto"}
+          decoding="async"
+          class="h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-[1.03]"
+        />
+      </div>
+    )}
+    <div class:list={[
+      "flex min-w-0 flex-1 flex-col",
+      featured ? "justify-center p-6 sm:p-8 lg:p-10 bg-brand-wash/50" : "p-5 sm:p-6",
+    ]}>
+      <div class="mb-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium">
+        <span class="text-brand-strong">{category.label}</span>
+        <span class="size-1 rounded-full bg-border" aria-hidden="true" />
+        <time datetime={post.data.publishedDate.toISOString()} class="text-muted-foreground">{date}</time>
+      </div>
+      <Heading class:list={[
+        "font-semibold tracking-tight text-foreground transition-colors group-hover:text-brand-text",
+        featured ? "text-2xl leading-tight sm:text-3xl" : "text-xl leading-snug",
+      ]}>
+        {post.data.title}
+      </Heading>
+      <p class:list={[
+        "mt-3 leading-relaxed text-muted-foreground",
+        featured ? "text-base" : "text-sm line-clamp-3",
+      ]}>{post.data.description}</p>
+      <div class:list={[
+        "flex items-center justify-between gap-3 pt-6 text-sm",
+        featured ? "mt-2" : "mt-auto",
+      ]}>
+        <span class="text-muted-foreground">{post.data.author}</span>
+        <span class="inline-flex items-center gap-1.5 font-medium text-brand-text">
+          Read article <ArrowUpRight className="size-4" aria-hidden="true" />
+        </span>
+      </div>
+    </div>
+  </a>
+</article>
