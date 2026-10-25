@@ -1,0 +1,61 @@
+---
+import Layout from "./Layout.astro";
+import Footer from "../components/Footer";
+import Breadcrumb from "../components/article/Breadcrumb.astro";
+import CategoryNav from "../components/blog/CategoryNav.astro";
+import CategoryIcon from "../components/blog/CategoryIcon.astro";
+import type { BlogGroup } from "../lib/blog";
+import type { BlogCategory } from "../lib/blog-categories";
+import type { Crumb } from "../lib/schema";
+
+interface Props {
+  groups: BlogGroup[];
+  category?: BlogCategory;
+}
+
+const { groups, category } = Astro.props;
+const breadcrumb: Crumb[] = category
+  ? [{ name: "Blog", path: "/blog/" }, { name: category.label }]
+  : [{ name: "Blog" }];
+const heading = category?.label ?? "The Summit blog";
+const description = category?.description ??
+  "Recording laws, security incidents, local AI, and practical ways to work with meeting notes.";
+---
+
+<Layout
+  title={category ? `${category.label} - Summit AI Notes Blog` : "Blog - Summit AI Notes"}
+  description={description}
+  breadcrumb={breadcrumb}
+>
+  <a href="#blog-content" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:rounded-lg focus:bg-background focus:p-4">Skip to articles</a>
+  <header class="border-b border-border">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-5 sm:px-6">
+      <a href="/" class="flex items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-text">
+        <img src="/logo.svg" alt="" width="32" height="32" class="rounded-lg" />
+        <span class="text-sm font-semibold tracking-tight sm:text-base">Summit AI Notes</span>
+      </a>
+      <nav aria-label="Main navigation" class="flex items-center gap-5 text-sm font-medium sm:gap-7">
+        <a href="/docs/" class="hidden text-muted-foreground transition-colors hover:text-foreground sm:inline">Documentation</a>
+        <a href="/download?from=blog" data-source="blog-header" class="download-button rounded-full bg-foreground px-4 py-2.5 text-background transition-opacity hover:opacity-80">Get Summit <span class="hidden sm:inline">for Mac</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="blog-content" class="mx-auto max-w-6xl px-4 pb-20 pt-8 sm:px-6 sm:pb-24">
+    <Breadcrumb crumbs={breadcrumb} />
+    <header class="pb-9 pt-3 sm:pb-12 sm:pt-6">
+      <div class="mb-5 flex items-center gap-3">
+        {category && <CategoryIcon category={category.id} />}
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-text">
+          {category ? "Explore a topic" : "Ideas for more thoughtful meetings"}
+        </p>
+      </div>
+      <h1 class="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl">{heading}</h1>
+      <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">{description}</p>
+    </header>
+
+    <CategoryNav groups={groups} activeCategory={category?.id} />
+    <slot />
+  </main>
+  <Footer />
+</Layout>

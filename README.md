@@ -13,6 +13,21 @@ npm run preview
 
 The development server starts at `http://localhost:4321`. `npm run build` generates the static site in `dist/`.
 
+## Blog
+
+Posts live in `src/content/blog/`. Every post needs one primary `category` in its frontmatter. Keep `tags` for more specific subjects; categories control the blog navigation and article recommendations.
+
+| Category | Use for |
+| --- | --- |
+| `regional-laws` | Country and state recording laws, consent, and regulation |
+| `incidents-data-leaks` | Security disclosures, actual incidents, and recording disputes |
+| `privacy-security` | Access controls, permissions, retention, and security reviews |
+| `tools-comparisons` | Vendor policies, product changes, migrations, and comparisons |
+| `local-ai` | On-device processing, offline AI, and local architecture |
+| `workflows-teams` | Tutorials, professional use cases, and team workflows |
+
+Category names and descriptions live in `src/lib/blog-categories.ts`. `/blog/` shows the latest article and topic previews; `/blog/category/<category>/` lists all articles in that topic, newest first. Category routes and sitemap entries are generated automatically for categories with posts. Existing article URLs remain the same.
+
 ## Documentation
 
 - User documentation: `src/content/docs/` (MDX content collection).

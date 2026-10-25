@@ -1,4 +1,5 @@
 import { defineCollection, z } from 'astro:content';
+import { blogCategoryIds } from '../lib/blog-categories';
 
 const docsCollection = defineCollection({
   type: 'content',
@@ -18,6 +19,7 @@ const blogCollection = defineCollection({
     description: z.string(),
     author: z.string(),
     publishedDate: z.date(),
+    category: z.enum(blogCategoryIds),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
     tags: z.array(z.string()).optional(),
