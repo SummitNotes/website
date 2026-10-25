@@ -1,0 +1,90 @@
+---
+category: "regional-laws"
+title: "AI Client-Meeting Notes: What Small Financial Firms Can Learn From the FCA"
+description: "A practical review workflow for AI client-meeting notes, informed by the FCA’s October 2026 examples on AI governance, oversight and consumer outcomes."
+author: "Dima"
+publishedDate: 2026-10-25
+image: "/blog-fca-ai-client-meeting-notes.jpg"
+imageAlt: "An adviser compares an audio waveform with a draft client note and marks a correction"
+tags: ["uk", "fca", "financial-services", "meeting-notes", "compliance", "local-ai"]
+---
+
+An adviser finishes a client meeting and receives an impressively tidy AI summary. It contains a financial objective, a risk preference, and an instruction to proceed. The conversation actually contained an unanswered question about the objective, a concern about risk, and an agreement to send more information before making a decision.
+
+That hypothetical mistake explains why a client-note workflow needs more than a reliable transcription engine. A sentence can be grammatically polished and still change the meaning of the meeting.
+
+The FCA's [AI good-practice publication](https://www.fca.org.uk/publications/good-poor-practice/ai-financial-services), published on October 19 and updated on October 20, 2026, offers a timely reason to review that workflow. Its examples are illustrative: they do not create new requirements, prescribe one operating model, or approve individual products. Existing obligations remain relevant, with their application depending on the firm and activity.
+
+This guide uses an original, hypothetical small-firm workflow to make the issues concrete. It is general information, not legal, compliance, or investment advice.
+
+## Start with the decision the note will support
+
+The FCA's examples emphasise defined consumer needs, proportionate controls, accountable people, effective oversight, and attention to third-party dependencies. They also caution against assuming that a person in the loop is sufficient without evidence that the controls work. For smaller firms, the publication discusses identifying responsible individuals and recording review, approval, override, or escalation where appropriate.
+
+Those themes leave an important design choice with the firm: what is this particular note allowed to do?
+
+For our example, imagine a small advice business piloting AI assistance for routine client-review meetings. It approves one purpose: helping the adviser prepare a draft account of the discussion. The draft cannot authorise a transaction, update a client's risk classification, produce a suitability conclusion, or trigger a client email automatically. Those boundaries are our proposed pilot design, not a list mandated by the FCA publication.
+
+This narrow purpose gives the reviewer something specific to assess. The question becomes whether the note accurately supports the next human task, rather than whether the AI sounded competent.
+
+## Check meaning, especially when the client has not decided
+
+In the hypothetical meeting, the client says: “I might need that money sooner if my working hours change. Can you show me the alternatives before I decide?” The generated draft says: “Client confirmed a long-term horizon and agreed to proceed.”
+
+The error is material even if the transcript contains most of the right words. The summary has removed a condition and converted a request for information into an instruction.
+
+A useful review starts with a few consequential distinctions:
+
+| What the reviewer checks | What can go wrong |
+| --- | --- |
+| Client statement versus adviser interpretation | The adviser's tentative inference becomes a fact attributed to the client |
+| Discussion versus instruction | An option explored during the meeting becomes an action supposedly authorised |
+| Amount, date, and timeframe | A misheard figure changes the recorded objective or next step |
+| Uncertainty and conditions | A qualification disappears when the summary shortens the conversation |
+| Speaker and source | A partner's comment is attributed to the client, or an earlier document is mistaken for a current statement |
+
+The reviewer should compare consequential statements with available authorised source material and contemporaneous notes, rather than checking only that every template heading is filled in. If the source is ambiguous, the next step is clarification, not a second AI rewrite presented as confirmation.
+
+The ICO's [accuracy guidance](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-protection-principles/a-guide-to-the-data-protection-principles/accuracy/) supports a related distinction: records should make the source and status of personal data clear, and opinions should be identified as opinions. It also explains the need to address inaccurate or misleading personal data. The ICO marks this guidance as under review following the Data (Use and Access) Act, so firms should check for updates when approving a policy.
+
+## Make review a task someone can actually complete
+
+In our pilot, the adviser who attended the meeting reviews the draft before it enters the approved client record. Another competent person handles escalation when the adviser cannot resolve a disputed figure, speaker, or instruction. The firm assigns a substitute for absence, so “awaiting review” does not quietly become “accepted.”
+
+The review record can be short: meeting identifier, reviewer, review date, source checked, material corrections, and the status of any open issue. These are proposed fields for the firm's controlled process, not a claim that every notetaking app provides an audit trail.
+
+For the example above, a meaningful correction might say that the client requested alternatives and had not given an instruction to proceed. The reviewer then routes the unresolved timeframe back to the adviser. A generic approval tick would reveal much less about whether the error was understood.
+
+Capacity matters too. If reviewing an hour-long meeting takes longer than the time the firm allocates, the design invites superficial approval. Measure actual review effort during the pilot, including difficult meetings, before estimating productivity gains. A faster first draft is useful only if the final record remains dependable.
+
+## Decide which record is authoritative and where it belongs
+
+Audio, a machine transcript, an AI draft, an adviser correction, and the final client note are separate records. They may serve different purposes and need different treatment. The firm should decide which one staff can rely on for each task and how a later correction reaches people who already received an earlier version.
+
+The [FCA Handbook's SYSC 9 record-keeping provisions](https://handbook.fca.org.uk/handbook/sysc9?timeline=true) contain requirements for records sufficient to support supervision and assessment of compliance, with different provisions and application rules for different firms. They should be read alongside the rules governing the firm's actual business. An AI summary does not automatically satisfy a recording obligation, and a meeting app is not automatically the approved regulatory archive.
+
+For our example, the reviewed note moves into the firm's controlled client-record system with its approval status. Unresolved drafts remain distinguishable. The firm sets separate handling rules for source audio and intermediate text, including access, correction, retrieval, and disposal.
+
+Avoid borrowing a convenient retention period from a vendor default or another sector. Ask the firm's compliance owner to map the applicable requirements, complaint handling, and preservation duties to each record type. A scheduled deletion should not erase material that must be preserved, while indefinite retention should not become the default merely because storage is inexpensive.
+
+## Evaluate the whole data path, including the Mac
+
+For a small firm, local processing can be an attractive way to limit which organisations receive client conversations. Summit's [local-model documentation](/docs/general/local-models/) explains how local text processing can run offline once the required models are downloaded. The firm's assessment should still specify the actual configuration it intends to use.
+
+Summit's [architecture review](/security/architecture/) describes separate paths for optional hosted AI, iCloud sync, exports, and MCP clients. Selecting a local model does not close those other paths. If a staff member exports a note to a shared drive or gives another AI client access to transcripts, the assessment needs to follow that onward use.
+
+The endpoint also remains part of the review. Summit's documented local database and audio are not separately encrypted by the app on disk; protection depends on the operating-system environment, including FileVault where enabled. A managed Mac, appropriate account access, a backup policy, and an offboarding process belong in the firm's deployment plan.
+
+Keep product claims specific. Summit's [security page](/security/) distinguishes meeting-content handling from network activity such as direct-download licence activation and periodic checks. Local content processing does not mean the application makes no network requests, or that the firm's record-keeping, confidentiality, or resilience obligations have been discharged.
+
+## Run a small pilot that can expose a bad note
+
+Before using real client information, our hypothetical firm tests the proposed workflow on invented conversations with known answers. One contains two similar figures; another includes overlapping speakers; a third includes an unresolved decision. A fourth contains a request for communication support that must not be turned into a diagnosis or an unsupported judgement about capacity.
+
+For each test, compare the final reviewed note with the known scenario. Record material omissions, invented statements, incorrect attribution, review time, and whether the reviewer caught the error before approval. Do not average a fabricated instruction away inside an otherwise strong word-accuracy score.
+
+The firm also rehearses failure: the capture does not start, a recording is incomplete, a model is unavailable, or the approved reviewer is absent. The fallback might be ordinary adviser notes followed by clarification with the client. A local tool can reduce one dependency while leaving device failure and human availability to plan for.
+
+Before any live pilot, confirm the recording and data-protection basis, client information, access, and retention arrangements for the actual setting. Give the pilot a named owner and stopping conditions. A repeated invented instruction or an unexpected disclosure destination should trigger investigation before expanding use. Reassess after a material change to the model, template, integration, or permitted task.
+
+That produces evidence the firm can use: what the tool helped with, where it failed, and whether staff could reliably turn its drafts into appropriate records. For the wider vendor review, our [AI notetaker security assessment guide](/blog/ai-notetaker-soc-2-security-review/) provides additional questions to take into procurement.

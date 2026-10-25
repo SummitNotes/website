@@ -1,0 +1,88 @@
+---
+category: "incidents-data-leaks"
+title: "What Google’s AI Call-Recording Ruling Actually Says About Consent"
+description: "An October 2026 Google Contact Center AI order separates account-holder consent from other callers and leaves room to amend. What meeting-note buyers should learn."
+author: "Dima"
+publishedDate: 2026-10-25
+image: "/blog-google-ai-call-recording-consent.jpg"
+imageAlt: "A reviewer compares two caller profiles, only one of which is connected to a terms document"
+tags: ["consent", "california", "cipa", "google", "litigation", "privacy"]
+---
+
+A court has dismissed claims about Google's AI processing of customer-service calls. That is an easy headline to misread as permission to record any conversation once a privacy policy exists somewhere on a website.
+
+The October 22, 2026 order is considerably narrower. It distinguishes callers who accepted account terms from a caller who had not, examines what those terms disclosed, and identifies a separate defect in the allegations about Google's intent. The plaintiffs have an opportunity to amend.
+
+For someone choosing an AI meeting notetaker, the useful lesson is to examine how permission reaches each participant and what the software actually does with the conversation. A privacy-policy link and a vendor contract are pieces of that analysis, rather than substitutes for it.
+
+This article explains the order as of October 25, 2026. It provides general information, not legal advice about a particular recording or dispute.
+
+## What the court decided, and which Google product was involved
+
+The case is *In re Google Cloud Contact Center AI Privacy Litigation*, No. 23-cv-05437-RFL, in the Northern District of California. Judge Rita F. Lin's [October 22 order, docket entry 141](https://law.justia.com/cases/federal/district-courts/california/candce/3:2023cv05437/419848/141/), addresses three remaining named plaintiffs who called Home Depot. Their remaining cause of action was under California Penal Code §631(a), part of the California Invasion of Privacy Act, or CIPA.
+
+This concerns Google's contact-center technology. It is not a ruling about Google Meet's meeting notes or a finding that every AI transcription product works the same way.
+
+The complaint described a virtual agent that initially answered calls, transferred callers and transcripts to a human representative, and continued supplying transcription and suggested responses. Those are allegations recited by the court at the pleading stage, not findings after a trial. The same distinction applies to allegations about Google's use of recordings for model training.
+
+The court dismissed the claims **with leave to amend by November 12, 2026**. The order therefore should not be described as a final determination that the challenged conduct was lawful in every respect, or that the litigation is over.
+
+## Why account terms mattered for two callers
+
+The account-holder plaintiffs, James Fox and Peter Samish, had accepted Home Depot account terms incorporating its privacy and security statement. That statement disclosed collection of customer-care recordings and disclosure to service providers processing information on Home Depot's behalf.
+
+The court concluded that Google fell within that disclosed category on the allegations before it. It rejected the argument that the disclosure necessarily excluded real-time sharing, and it did not require Google's individual name where the stated service-provider category covered its role. On that record, the two plaintiffs had not plausibly alleged a lack of consent to Google's initial access.
+
+The lesson depends on both halves of that reasoning: **assent to the terms and the scope of the disclosure**. Merely publishing a policy does not establish that every caller accepted it. Equally, proving that someone accepted a document does not answer whether the document covered the processing being challenged.
+
+For a meeting organiser, a useful question is whether the person invited as a guest, adviser, interpreter, or new colleague has gone through the same permission process as the account owner. A purchasing employee's acceptance of a software subscription should not be casually treated as evidence about everybody else's agreement.
+
+## Why the other caller was different
+
+The court's consent analysis treated Christopher Barulich differently. Google had not shown that he assented to, or was even aware of, the relevant policy. The court also rejected the idea that the common practice of recording customer-service calls was enough, by itself, to establish implied consent to sharing his call with an unannounced third party.
+
+Barulich therefore adequately alleged lack of consent. His claim was nevertheless dismissed because of a separate issue with intent, discussed below.
+
+That distinction matters when evaluating headlines about the result. The same order can find a consent allegation sufficient for one plaintiff and still dismiss that plaintiff's claim for another reason. It would be inaccurate to turn the dismissal into a statement that every caller consented.
+
+Consider an ordinary project meeting. Most attendees may have received a detailed recording notice, while a customer joins through a forwarded invitation. That is an original example, not a scenario decided in this case, but it illustrates the operational question: how will the organiser identify and handle the participant whose position differs from the rest?
+
+## Intent and later use were separate parts of the analysis
+
+Under the order's reading of [§631(a)](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PEN&sectionNum=631.), the plaintiffs needed plausible allegations of intent or willfulness extending to the absence of consent. Alleging that Google deliberately operated a listening product was insufficient by itself. All three plaintiffs failed to plead supporting facts for that additional element.
+
+The court considered Google's contractual requirement that Home Depot obtain consent relevant, but it declined to treat such a clause as an automatic defence in every possible case. Facts bearing on what the provider knew could change the analysis. That is one reason the opportunity to amend matters.
+
+The order also addressed the account holders' argument about subsequent use for Google's own purposes. A claim under the third clause of §631(a) depends on information obtained through a violation of the first or second clause. Because those plaintiffs had not adequately pleaded that predicate violation, their subsequent-use theory did not save the claim.
+
+This is a conclusion about the pleaded statutory claim. It should not become a broader assertion that model training is always authorised by service-provider wording, that Google actually trained models on these particular calls, or that other laws and contractual restrictions are irrelevant. The [order itself](https://law.justia.com/cases/federal/district-courts/california/candce/3:2023cv05437/419848/141/) is the primary source for those limits.
+
+## Turn the ruling into a practical consent review
+
+The following review is an editorial recommendation for meeting-note buyers, not a court-prescribed compliance checklist. Its purpose is to connect the words participants see with the capture and sharing that follows.
+
+| Review question | Evidence worth keeping |
+| --- | --- |
+| What happens before capture begins? | The actual invitation, notice, permission process, and recording controls used in the meeting |
+| Who may have missed that process? | A plan for forwarded invitations, guests, late joiners, and participants who object |
+| What information reaches another organisation? | A data-flow description covering audio, transcripts, summaries, support access, and integrations |
+| What purposes and recipients were described? | The applicable notice and contract versions, compared with the enabled features |
+| What happens when the configuration changes? | A named owner who reviews a new model provider, automatic sharing destination, or recording mode |
+
+In a pilot, walk through a meeting with an external guest and a late arrival. Check when capture starts, what they are told, and how the host can stop it. If an attendee declines recording, the organiser needs a workable alternative, such as manual notes, subject to the requirements of the setting.
+
+Keep the review proportionate. It does not require retaining extra sensitive recordings simply to prove that a process exists. Decide what evidence is necessary and how long to keep it with the people responsible for privacy, records, and legal obligations.
+
+## Where local processing changes the question
+
+Local processing can reduce the number of outside recipients of meeting content. In Summit, the [local-model workflow](/docs/general/local-models/) supports on-device text processing after the required models have been downloaded. That gives a team a way to evaluate transcription and summaries without making a hosted model provider part of that content-processing path.
+
+The chosen configuration still matters. As explained in Summit's [security architecture](/security/architecture/), optional hosted AI, iCloud sync, exports, and access granted to an MCP client have distinct data paths. Selecting a local model does not automatically disable those other features. Local storage also needs endpoint protection; it is not an excuse to ignore the Mac's access controls or disk encryption.
+
+None of this determines whether a person may record the meeting. Keeping audio on one device can narrow a disclosure question while leaving permission to capture the conversation unresolved. Nor does this contact-center order establish the legal treatment of a particular Summit deployment.
+
+## What to watch next
+
+The next relevant event is whether amended allegations are filed and how the court treats them. Until then, the accurate description is a dismissal with leave to amend, based on the particular consent and intent analysis in this order.
+
+Teams reviewing meeting software can use that distinction now: document whose permission is needed, how it is obtained, and whether the disclosed data flow matches the configured product. For broader jurisdictional differences, see our [US meeting-recording consent guide](/blog/us-meeting-recording-consent-laws/). For a separate dispute involving a meeting assistant, see our [Otter litigation analysis](/blog/otter-lawsuit-consent-liability/); its allegations and procedural posture should be assessed independently.
